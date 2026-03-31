@@ -13,7 +13,7 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
   const siteUrl = "https://www.famindofast.com";
 
   const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
-  const defaultDescription = "Setiap detik berharga. PT. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan fasilitas industri.";
+  const defaultDescription = "Every second matters. PT. FAST provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities.";
   const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
 
   const seoTitle = title ? `${title} | PT.FAST` : defaultTitle;

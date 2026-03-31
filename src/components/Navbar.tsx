@@ -33,14 +33,14 @@ const Navbar = () => {
             </a>
           ))}
           <a href="#kontak" className="ml-4 bg-white/5 border border-accent/30 text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-accent hover:border-accent transition-all duration-500 shadow-[0_0_15px_rgba(56,152,212,0.1)] hover:shadow-[0_0_25px_rgba(56,152,212,0.5)] hover:-translate-y-0.5 transform will-change-transform">
-            Hubungi Kami
+            Contact Us
           </a>
         </div>
 
         <button
           className="md:hidden text-foreground relative z-10 hover:text-accent transition-colors focus:outline-none rounded-md p-1"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <X size={28} className="transform rotate-90 transition-transform duration-300" aria-hidden="true" /> : <Menu size={28} className="transition-transform duration-300" aria-hidden="true" />}
@@ -57,7 +57,7 @@ const Navbar = () => {
             </a>
           ))}
           <a href="#kontak" onClick={() => setIsMobileMenuOpen(false)} className="bg-accent text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(56,152,212,0.3)] mt-4 w-3/4 text-center">
-            Hubungi Kami
+            Contact Us
           </a>
         </div>
       </div>

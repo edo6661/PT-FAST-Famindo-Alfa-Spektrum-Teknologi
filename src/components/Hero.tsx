@@ -17,12 +17,11 @@ const Hero = () => {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1] // Custom easing untuk kesan premium
+        ease: [0.16, 1, 0.3, 1]
       }
     }
   };
 
-  // Animasi mengambang untuk elemen background agar futuristik tapi tidak lag
   const floatingVariants: Variants = {
     animate: {
       y: [0, -15, 0],
@@ -39,11 +38,9 @@ const Hero = () => {
     <section id="beranda" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
       <div className="absolute inset-0 bg-primary z-0" />
 
-      {/* Background Image dioptimasi dengan will-change agar tidak lag saat animasi CSS berjalan */}
       <div className="absolute inset-0 bg-[url('[https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2070&auto=format&fit=crop](https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2070&auto=format&fit=crop)')] bg-cover bg-center mix-blend-luminosity opacity-10 z-0 scale-105 transform transition-transform duration-[20s] hover:scale-100 will-change-transform" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/70 to-background z-0" />
 
-      {/* Glow Effect Futuristik */}
       <motion.div
         variants={floatingVariants}
         animate="animate"
@@ -56,10 +53,10 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.2)] hover:shadow-[0_0_30px_rgba(56,152,212,0.4)] transition-shadow duration-500 cursor-default">
+        <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.2)] hover:shadow-[0_0_30px_rgba(56,152,212,0.4)] transition-shadow duration-500 cursor-default">
           <ShieldCheck size={18} className="text-accent" />
-          <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase">
-            Securing Your Safety
+          <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase flex items-center gap-3">
+            Every Second Matters <span className="w-1.5 h-1.5 rounded-full bg-accent/50"></span> Securing Your Safety
           </span>
         </motion.div>
 

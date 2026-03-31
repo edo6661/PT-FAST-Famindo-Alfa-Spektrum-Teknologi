@@ -57,7 +57,7 @@ const ClientBase = () => {
         </div>
 
         <div className="flex justify-center mt-8">
-          <Link to="/clients" className="inline-flex items-center gap-2 bg-transparent border border-white/20 text-white px-8 py-3 rounded-full font-medium hover:bg-white/5 hover:border-accent/50 transition-all duration-300 group">
+          <Link to="/clients" className="inline-flex items-center gap-2 bg-transparent border border-white/20 text-white px-8 py-3 rounded-full font-medium hover:bg-accent/10 hover:border-accent/50 hover:shadow-[0_0_20px_rgba(56,152,212,0.3)] transition-all duration-300 group">
             View Complete Portfolios
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </Link>
