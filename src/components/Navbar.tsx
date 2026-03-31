@@ -34,8 +34,13 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button className="md:hidden text-foreground relative z-10 hover:text-accent transition-colors" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        <button
+          className="md:hidden text-foreground relative z-10 hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-md p-1"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
         </button>
 
       </div>

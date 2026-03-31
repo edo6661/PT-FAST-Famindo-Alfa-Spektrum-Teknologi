@@ -37,7 +37,8 @@ const Catalog = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-black/20 z-10 transition-opacity duration-700 group-hover:opacity-90" />
                 <img
                   src={product.image}
-                  alt={product.title}
+                  alt={`Ilustrasi teknologi ${product.title} untuk keselamatan kebakaran`}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
                 />
 

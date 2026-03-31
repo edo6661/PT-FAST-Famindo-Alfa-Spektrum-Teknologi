@@ -188,7 +188,12 @@ const ContactFooter = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {igFeeds.map((feed, idx) => (
               <a key={idx} href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-card overflow-hidden bg-surface border border-border block">
-                <img src={feed} alt={`Instagram Feed ${idx + 1}`} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
+                <img
+                  src={feed}
+                  alt={`Highlight Instagram PT FAST ${idx + 1}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Instagram className="text-white" size={32} />
                 </div>

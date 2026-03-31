@@ -43,7 +43,6 @@ const Brands = () => {
 
   return (
     <section id="brands" className="py-24 bg-surface relative overflow-hidden">
-      {/* Ambient Glow Background */}
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -59,7 +58,6 @@ const Brands = () => {
           </a>
         </div>
 
-        {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
           {brands.map((brand, index) => (
             <Link
@@ -67,20 +65,18 @@ const Brands = () => {
               to={`/brand/${brand.slug}`}
               className={`group relative rounded-3xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-700 shadow-lg hover:shadow-[0_0_40px_rgba(56,152,212,0.2)] bg-background flex flex-col justify-end p-8 ${brand.gridClass}`}
             >
-              {/* Background Image with Overlay */}
               <div className="absolute inset-0 bg-background z-0">
                 <img
                   src={brand.bgImage}
-                  alt={brand.name}
+                  alt={`Produk unggulan ${brand.name} PT FAST`}
+                  loading="lazy"
                   className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
               </div>
 
-              {/* Glowing Orb Effect on Hover */}
               <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/20 rounded-full blur-[80px] group-hover:bg-accent/40 transition-all duration-700 pointer-events-none z-0"></div>
 
-              {/* Content */}
               <div className="relative z-10 w-full">
                 <div className="flex justify-between items-start mb-4">
                   <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:border-accent/50 group-hover:-translate-y-2 transition-all duration-500 shadow-inner ${index === 0 ? 'w-16 h-16' : ''}`}>

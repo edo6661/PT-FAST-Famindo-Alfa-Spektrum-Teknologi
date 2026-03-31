@@ -1,32 +1,43 @@
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
   url?: string;
+  type?: string;
 }
 
-const SEO = ({ title, description, image, url }: SEOProps) => {
+const SEO = ({ title, description, image, url, type = 'website' }: SEOProps) => {
   const siteUrl = "https://www.famindofast.com";
+
+  const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
+  const defaultDescription = "Setiap detik berharga. PT. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan fasilitas industri.";
   const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
 
+  const seoTitle = title ? `${title} | PT. FAST` : defaultTitle;
+  const seoDesc = description || defaultDescription;
+  const seoImage = image || defaultImage;
+  const seoUrl = `${siteUrl}${url || ''}`;
+
   return (
-    <Helmet>
-      <title>{title} | PT. FAST</title>
-      <meta name="description" content={description} />
+    <Helmet prioritizeSeoTags>
+      <title>{seoTitle}</title>
+      <meta name="description" content={seoDesc} />
+      <link rel="canonical" href={seoUrl} />
 
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={`${siteUrl}${url || ''}`} />
-      <meta property="og:title" content={`${title} | PT. FAST`} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image || defaultImage} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={seoUrl} />
+      <meta property="og:title" content={seoTitle} />
+      <meta property="og:description" content={seoDesc} />
+      <meta property="og:image" content={seoImage} />
+      <meta property="og:site_name" content="PT. FAST" />
 
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={`${siteUrl}${url || ''}`} />
-      <meta property="twitter:title" content={`${title} | PT. FAST`} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image || defaultImage} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={seoUrl} />
+      <meta name="twitter:title" content={seoTitle} />
+      <meta name="twitter:description" content={seoDesc} />
+      <meta name="twitter:image" content={seoImage} />
     </Helmet>
   );
 };

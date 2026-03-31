@@ -1,3 +1,191 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files and files not matching ignore patterns, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: **/*
+- Files matching these patterns are excluded: **/*.test.ts, node_modules
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+eslint.config.js
+index.html
+package.json
+public/favicon/android-chrome-192x192.png
+public/favicon/android-chrome-512x512.png
+public/favicon/apple-touch-icon.png
+public/favicon/favicon-16x16.png
+public/favicon/favicon-32x32.png
+public/favicon/favicon.ico
+public/favicon/site.webmanifest
+public/robots.txt
+public/sitemap.xml
+public/vite.svg
+README.md
+src/App.tsx
+src/assets/clients/astra-daihatsu.webp
+src/assets/clients/astra-honda-motor.jpg
+src/assets/clients/astra-otoparts.webp
+src/assets/clients/bmw.webp
+src/assets/clients/lexus.jpg
+src/assets/clients/mitsubishi.png
+src/assets/clients/porsche.png
+src/assets/clients/toyota-astra-motor.webp
+src/assets/download.png
+src/assets/FAST_Favicons/FAST Logogram on Dark Navy.png
+src/assets/FAST_Favicons/FAST WEB ICON.jpg
+src/assets/FAST_Favicons/Icon_
+src/assets/FAST_Logo_JPEG/FAST Black [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Black Logogram.jpg
+src/assets/FAST_Logo_JPEG/FAST Blue Logogram.jpg
+src/assets/FAST_Logo_JPEG/FAST Color [Primary White] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Color [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Silver [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Silver Logogram.jpg
+src/assets/FAST_Logo_JPEG/FAST White [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST White Logogram.jpg
+src/assets/FAST_Logo_JPEG/Icon_
+src/assets/FAST_Logo_PNG/FAST Black [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST Black Logogram.png
+src/assets/FAST_Logo_PNG/FAST Color [Primary White] Logo.png
+src/assets/FAST_Logo_PNG/FAST Color [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST Silver [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST Silver Logogram.png
+src/assets/FAST_Logo_PNG/FAST White [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST White Logogram.png
+src/assets/FAST_Logo_PNG/Icon_
+src/assets/FAST_Logo_PNG/logo.png
+src/assets/hero_2.png
+src/assets/hero.png
+src/assets/hero.webp
+src/assets/products/ballistic.avif
+src/assets/products/flame_accurate_termination.avif
+src/assets/products/lithium_fire_killer.avif
+src/assets/products/preventive-altech.avif
+src/assets/products/preventive-g_tech.avif
+src/assets/products/preventive-power_tech_shield.avif
+src/assets/products/undercarriage_suppressions_system.avif
+src/components/About.tsx
+src/components/Brands.tsx
+src/components/Catalog.tsx
+src/components/Certifications.tsx
+src/components/ClientBase.tsx
+src/components/ContactFooter.tsx
+src/components/FloatingWA.tsx
+src/components/Hero.tsx
+src/components/Layout.tsx
+src/components/Navbar.tsx
+src/components/SEO.tsx
+src/constants/brands.tsx
+src/constants/catalogs.tsx
+src/constants/contacts.ts
+src/constants/navs.tsx
+src/i18n.ts
+src/index.css
+src/main.tsx
+src/pages/BrandDetail.tsx
+src/pages/ClientBasePage.tsx
+src/pages/Home.tsx
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="eslint.config.js">
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import tseslint from 'typescript-eslint'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+    },
+  },
+])
+</file>
+
+<file path="public/favicon/site.webmanifest">
+{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+</file>
 
 <file path="public/robots.txt">
 User-agent: *
@@ -51,6 +239,98 @@ Sitemap: https://www.famindofast.com/sitemap.xml
   </url>
 
 </urlset>
+</file>
+
+<file path="public/vite.svg">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
+</file>
+
+<file path="README.md">
+# React + TypeScript + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
+
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
+</file>
+
+<file path="src/assets/FAST_Favicons/Icon_">
+
+</file>
+
+<file path="src/assets/FAST_Logo_JPEG/Icon_">
+
+</file>
+
+<file path="src/assets/FAST_Logo_PNG/Icon_">
+
 </file>
 
 <file path="src/components/Certifications.tsx">
@@ -182,41 +462,118 @@ const Certifications = () => {
 export default Certifications;
 </file>
 
+<file path="src/components/Layout.tsx">
+import { Outlet } from 'react-router-dom';
+import Navbar from './Navbar';
+import ContactFooter from './ContactFooter';
+import FloatingWA from './FloatingWA';
+
+const Layout = () => {
+  return (
+    <div className="min-h-screen bg-background text-foreground font-sans relative">
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+      <ContactFooter />
+      <FloatingWA />
+    </div>
+  );
+};
+
+export default Layout;
+</file>
+
 <file path="src/components/SEO.tsx">
 import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
   url?: string;
+  type?: string;
 }
 
-const SEO = ({ title, description, image, url }: SEOProps) => {
+const SEO = ({ title, description, image, url, type = 'website' }: SEOProps) => {
   const siteUrl = "https://www.famindofast.com";
+
+  const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
+  const defaultDescription = "Setiap detik berharga. PT. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan fasilitas industri.";
   const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
 
+  const seoTitle = title ? `${title} | PT. FAST` : defaultTitle;
+  const seoDesc = description || defaultDescription;
+  const seoImage = image || defaultImage;
+  const seoUrl = `${siteUrl}${url || ''}`;
+
   return (
-    <Helmet>
-      <title>{title} | PT. FAST</title>
-      <meta name="description" content={description} />
+    <Helmet prioritizeSeoTags>
+      <title>{seoTitle}</title>
+      <meta name="description" content={seoDesc} />
+      <link rel="canonical" href={seoUrl} />
 
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={`${siteUrl}${url || ''}`} />
-      <meta property="og:title" content={`${title} | PT. FAST`} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image || defaultImage} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={seoUrl} />
+      <meta property="og:title" content={seoTitle} />
+      <meta property="og:description" content={seoDesc} />
+      <meta property="og:image" content={seoImage} />
+      <meta property="og:site_name" content="PT. FAST" />
 
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={`${siteUrl}${url || ''}`} />
-      <meta property="twitter:title" content={`${title} | PT. FAST`} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image || defaultImage} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={seoUrl} />
+      <meta name="twitter:title" content={seoTitle} />
+      <meta name="twitter:description" content={seoDesc} />
+      <meta name="twitter:image" content={seoImage} />
     </Helmet>
   );
 };
 
 export default SEO;
+</file>
+
+<file path="src/constants/navs.tsx">
+export const navLinks = [
+  { name: 'Beranda', href: '/#beranda' },
+  { name: 'Profil', href: '/#profil' },
+  { name: 'Katalog', href: '/#katalog' },
+  { name: 'Klien', href: '/#klien' },
+  { name: 'Kontak', href: '/#kontak' },
+];
+</file>
+
+<file path="src/i18n.ts">
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+const resources = {
+  en: {
+    translation: {},
+  },
+  id: {
+    translation: {},
+  },
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "id",
+  fallbackLng: "id",
+  interpolation: { escapeValue: false },
+});
+
+export default i18n;
+</file>
+
+<file path="src/main.tsx">
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+import './i18n';
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <App />
+);
 </file>
 
 <file path="src/pages/ClientBasePage.tsx">
@@ -358,141 +715,85 @@ const ClientBasePage = () => {
 export default ClientBasePage;
 </file>
 
-<file path=".gitignore">
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+<file path="tsconfig.app.json">
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "types": ["vite/client"],
+    "skipLibCheck": true,
 
-node_modules
-dist
-dist-ssr
-*.local
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-</file>
-
-<file path="eslint.config.js">
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { defineConfig, globalIgnores } from 'eslint/config'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-])
+  "include": ["src"]
+}
 </file>
 
-<file path="public/favicon/site.webmanifest">
-{"name":"","short_name":"","icons":[{"src":"/android-chrome-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/android-chrome-512x512.png","sizes":"512x512","type":"image/png"}],"theme_color":"#ffffff","background_color":"#ffffff","display":"standalone"}
+<file path="tsconfig.json">
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
 </file>
 
-<file path="public/vite.svg">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--logos" width="31.88" height="32" preserveAspectRatio="xMidYMid meet" viewBox="0 0 256 257"><defs><linearGradient id="IconifyId1813088fe1fbc01fb466" x1="-.828%" x2="57.636%" y1="7.652%" y2="78.411%"><stop offset="0%" stop-color="#41D1FF"></stop><stop offset="100%" stop-color="#BD34FE"></stop></linearGradient><linearGradient id="IconifyId1813088fe1fbc01fb467" x1="43.376%" x2="50.316%" y1="2.242%" y2="89.03%"><stop offset="0%" stop-color="#FFEA83"></stop><stop offset="8.333%" stop-color="#FFDD35"></stop><stop offset="100%" stop-color="#FFA800"></stop></linearGradient></defs><path fill="url(#IconifyId1813088fe1fbc01fb466)" d="M255.153 37.938L134.897 252.976c-2.483 4.44-8.862 4.466-11.382.048L.875 37.958c-2.746-4.814 1.371-10.646 6.827-9.67l120.385 21.517a6.537 6.537 0 0 0 2.322-.004l117.867-21.483c5.438-.991 9.574 4.796 6.877 9.62Z"></path><path fill="url(#IconifyId1813088fe1fbc01fb467)" d="M185.432.063L96.44 17.501a3.268 3.268 0 0 0-2.634 3.014l-5.474 92.456a3.268 3.268 0 0 0 3.997 3.378l24.777-5.718c2.318-.535 4.413 1.507 3.936 3.838l-7.361 36.047c-.495 2.426 1.782 4.5 4.151 3.78l15.304-4.649c2.372-.72 4.652 1.36 4.15 3.788l-11.698 56.621c-.732 3.542 3.979 5.473 5.943 2.437l1.313-2.028l72.516-144.72c1.215-2.423-.88-5.186-3.54-4.672l-25.505 4.922c-2.396.462-4.435-1.77-3.759-4.114l16.646-57.705c.677-2.35-1.37-4.583-3.769-4.113Z"></path></svg>
-</file>
+<file path="tsconfig.node.json">
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "types": ["node"],
+    "skipLibCheck": true,
 
-<file path="README.md">
-# React + TypeScript + Vite
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true
   },
-])
-```
+  "include": ["vite.config.ts"]
+}
+</file>
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+<file path="vite.config.ts">
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import tailwindcss from "@tailwindcss/vite";
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+});
 </file>
 
 <file path="src/App.tsx">
@@ -522,19 +823,8 @@ const App = () => {
 export default App;
 </file>
 
-<file path="src/assets/FAST_Favicons/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_JPEG/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_PNG/Icon_">
-
-</file>
-
 <file path="src/components/About.tsx">
+import { motion } from 'framer-motion';
 import { Flame, Droplets, Wind, ShieldAlert } from 'lucide-react';
 
 const About = () => {
@@ -563,30 +853,46 @@ const About = () => {
 
   return (
     <section id="profil" className="py-24 bg-background relative overflow-hidden">
-
       <div className="absolute top-1/4 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-
         {/* Mission & Vision Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-          <div className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm"
+          >
             <h3 className="text-2xl font-bold mb-4 text-white">Our Mission</h3>
             <p className="text-foreground-muted leading-relaxed font-light">
               We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
             </p>
-          </div>
-          <div className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm"
+          >
             <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
             <p className="text-foreground-muted leading-relaxed font-light">
               We want to live in a world where people can feel safe and focus on pursuing the things that matter.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Lithium Battery Section */}
         <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <div className="w-full lg:w-1/2 space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 space-y-8"
+          >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
               <span className="text-xs font-bold tracking-widest text-accent uppercase">What Is It?</span>
             </div>
@@ -609,11 +915,18 @@ const About = () => {
                 Its aberrant characteristic makes this fire more dangerous and difficult to extinguish!
               </p>
             </div>
-          </div>
+          </motion.div>
 
           <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
             {dangers.map((danger, index) => (
-              <div key={index} className="group p-6 rounded-2xl bg-surface/40 backdrop-blur-md border border-white/5 hover:bg-surface/60 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(56,152,212,0.1)] hover:-translate-y-1 transition-all duration-500">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="group p-6 rounded-2xl bg-surface/40 backdrop-blur-md border border-white/5 hover:bg-surface/60 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(56,152,212,0.1)] hover:-translate-y-1 transition-all duration-500"
+              >
                 <div className="flex-shrink-0 mb-4 w-12 h-12 rounded-full bg-background/50 border border-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-inner">
                   {danger.icon}
                 </div>
@@ -621,11 +934,10 @@ const About = () => {
                   <h3 className="text-lg font-semibold mb-2 text-white/90 group-hover:text-accent transition-colors duration-300">{danger.title}</h3>
                   <p className="text-foreground-muted text-sm leading-relaxed">{danger.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
@@ -680,7 +992,6 @@ const Brands = () => {
 
   return (
     <section id="brands" className="py-24 bg-surface relative overflow-hidden">
-      {/* Ambient Glow Background */}
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -696,7 +1007,6 @@ const Brands = () => {
           </a>
         </div>
 
-        {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
           {brands.map((brand, index) => (
             <Link
@@ -704,20 +1014,18 @@ const Brands = () => {
               to={`/brand/${brand.slug}`}
               className={`group relative rounded-3xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-700 shadow-lg hover:shadow-[0_0_40px_rgba(56,152,212,0.2)] bg-background flex flex-col justify-end p-8 ${brand.gridClass}`}
             >
-              {/* Background Image with Overlay */}
               <div className="absolute inset-0 bg-background z-0">
                 <img
                   src={brand.bgImage}
-                  alt={brand.name}
+                  alt={`Produk unggulan ${brand.name} PT FAST`}
+                  loading="lazy"
                   className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
               </div>
 
-              {/* Glowing Orb Effect on Hover */}
               <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/20 rounded-full blur-[80px] group-hover:bg-accent/40 transition-all duration-700 pointer-events-none z-0"></div>
 
-              {/* Content */}
               <div className="relative z-10 w-full">
                 <div className="flex justify-between items-start mb-4">
                   <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:border-accent/50 group-hover:-translate-y-2 transition-all duration-500 shadow-inner ${index === 0 ? 'w-16 h-16' : ''}`}>
@@ -787,7 +1095,8 @@ const Catalog = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-black/20 z-10 transition-opacity duration-700 group-hover:opacity-90" />
                 <img
                   src={product.image}
-                  alt={product.title}
+                  alt={`Ilustrasi teknologi ${product.title} untuk keselamatan kebakaran`}
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
                 />
 
@@ -901,45 +1210,61 @@ export default ClientBase;
 </file>
 
 <file path="src/components/Hero.tsx">
+import { motion, type Variants } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 
 const Hero = () => {
+  // Tambahkan tipe Variants pada variabel animasi
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
   return (
     <section id="beranda" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
-
-      {/* Background Image & Gradient Overlays */}
       <div className="absolute inset-0 bg-primary z-0" />
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity opacity-20 z-0 scale-105 transform transition-transform duration-[20s] hover:scale-100" />
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-0" />
 
-      {/* Glowing Accents */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-accent/20 rounded-full blur-[120px] md:blur-[150px] pointer-events-none z-10"></div>
 
-      <div className="container relative z-20 mx-auto px-6 md:px-12 flex flex-col items-center text-center">
-
-        {/* Top Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.2)] hover:scale-105 transition-transform cursor-default">
+      <motion.div
+        className="container relative z-20 mx-auto px-6 md:px-12 flex flex-col items-center text-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.2)] hover:scale-105 transition-transform cursor-default">
           <ShieldCheck size={18} className="text-accent" />
           <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase">
             Every Second Matters
           </span>
-        </div>
+        </motion.div>
 
-        {/* Main Headline */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white">
+        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance">
           Securing Businesses <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-cyan-300 drop-shadow-lg">
             One At A Time.
           </span>
-        </h1>
+        </motion.h1>
 
-        {/* Sub-headline / Copywriting Refinement */}
-        <p className="text-lg md:text-xl text-foreground-muted mb-10 max-w-3xl font-light leading-relaxed">
+        <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-10 max-w-3xl font-light leading-relaxed text-pretty">
           Starting our journey in 2022, we have become the trusted fire safety partner for enterprises that prioritize absolute protection. The rise of lithium-ion technology comes with unprecedented risks, <span className="text-white font-medium">but we are here to secure your future.</span>
-        </p>
+        </motion.p>
 
-        {/* Call to Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-20">
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-20">
           <a href="#katalog" className="bg-accent text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-accent/80 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 group">
             Get Our Catalog
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -947,10 +1272,9 @@ const Hero = () => {
           <a href="#kontak" className="bg-surface/50 backdrop-blur-sm border border-white/10 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-1">
             Consult Now
           </a>
-        </div>
+        </motion.div>
 
-        {/* Social Proof / Trusted By (Mini Banner) */}
-        <div className="pt-8 border-t border-white/10 w-full max-w-5xl">
+        <motion.div variants={itemVariants} className="pt-8 border-t border-white/10 w-full max-w-5xl">
           <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-6">Trusted to Secure High-Profile Events & Assets</p>
           <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
             <span className="text-base md:text-xl font-bold font-heading tracking-wide">2024 Presidential Inauguration</span>
@@ -958,36 +1282,14 @@ const Hero = () => {
             <span className="text-base md:text-xl font-bold font-heading tracking-wide">Bluebird Group</span>
             <span className="text-base md:text-xl font-bold font-heading tracking-wide">KTT IAF Bali</span>
           </div>
-        </div>
+        </motion.div>
 
-      </div>
+      </motion.div>
     </section>
   );
 };
 
 export default Hero;
-</file>
-
-<file path="src/components/Layout.tsx">
-import { Outlet } from 'react-router-dom';
-import Navbar from './Navbar';
-import ContactFooter from './ContactFooter';
-import FloatingWA from './FloatingWA';
-
-const Layout = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground font-sans relative">
-      <Navbar />
-      <main>
-        <Outlet />
-      </main>
-      <ContactFooter />
-      <FloatingWA />
-    </div>
-  );
-};
-
-export default Layout;
 </file>
 
 <file path="src/constants/brands.tsx">
@@ -1119,39 +1421,6 @@ export const igFeeds = [
 ];
 </file>
 
-<file path="src/constants/navs.tsx">
-export const navLinks = [
-  { name: 'Beranda', href: '/#beranda' },
-  { name: 'Profil', href: '/#profil' },
-  { name: 'Katalog', href: '/#katalog' },
-  { name: 'Klien', href: '/#klien' },
-  { name: 'Kontak', href: '/#kontak' },
-];
-</file>
-
-<file path="src/i18n.ts">
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-
-const resources = {
-  en: {
-    translation: {},
-  },
-  id: {
-    translation: {},
-  },
-};
-
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "id",
-  fallbackLng: "id",
-  interpolation: { escapeValue: false },
-});
-
-export default i18n;
-</file>
-
 <file path="src/index.css">
 @import "tailwindcss";
 
@@ -1218,17 +1487,6 @@ h6 {
   font-family: var(--font-heading);
   letter-spacing: 0.05em;
 }
-</file>
-
-<file path="src/main.tsx">
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './index.css';
-import './i18n';
-
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <App />
-);
 </file>
 
 <file path="src/pages/BrandDetail.tsx">
@@ -1417,87 +1675,6 @@ const Home = () => {
 };
 
 export default Home;
-</file>
-
-<file path="tsconfig.app.json">
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "types": ["vite/client"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"]
-}
-</file>
-
-<file path="tsconfig.json">
-{
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
-}
-</file>
-
-<file path="tsconfig.node.json">
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "types": ["node"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["vite.config.ts"]
-}
-</file>
-
-<file path="vite.config.ts">
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import tailwindcss from "@tailwindcss/vite";
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-});
 </file>
 
 <file path="index.html">
@@ -1710,8 +1887,13 @@ const Navbar = () => {
           </a>
         </div>
 
-        <button className="md:hidden text-foreground relative z-10 hover:text-accent transition-colors" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        <button
+          className="md:hidden text-foreground relative z-10 hover:text-accent transition-colors focus:outline-none focus:ring-2 focus:ring-accent/50 rounded-md p-1"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label={isMobileMenuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
         </button>
 
       </div>
@@ -1926,7 +2108,12 @@ const ContactFooter = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {igFeeds.map((feed, idx) => (
               <a key={idx} href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-card overflow-hidden bg-surface border border-border block">
-                <img src={feed} alt={`Instagram Feed ${idx + 1}`} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
+                <img
+                  src={feed}
+                  alt={`Highlight Instagram PT FAST ${idx + 1}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
+                />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Instagram className="text-white" size={32} />
                 </div>
