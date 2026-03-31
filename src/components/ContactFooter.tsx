@@ -1,7 +1,24 @@
+import { useState } from 'react';
 import { MapPin, Phone, Mail, Send, Instagram, Facebook, Linkedin, ExternalLink } from 'lucide-react';
 import { igFeeds } from '../constants/contacts';
 
 const ContactFooter = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Ruang untuk integrasi EmailJS di tahap selanjutnya
+    console.log('Form disubmit:', formData);
+    alert('Fungsi pengiriman pesan akan segera aktif.');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <footer id="kontak" className="bg-background pt-24 border-t border-border relative overflow-hidden">
@@ -51,7 +68,7 @@ const ContactFooter = () => {
 
             <div className="mt-10 rounded-card overflow-hidden border border-border shadow-card h-64 relative bg-surface">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.24089456254!2d106.7593649!3d-6.2297419!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f14d30079f01%3A0x2e74f2341fff266d!2sJakarta!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.0163353597!2d106.5501869!3d-6.2297129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fbee9bc0e4db%3A0xe5c7562f79fb9!2sTangerang%2C%20Banten!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -66,18 +83,42 @@ const ContactFooter = () => {
           <div className="bg-surface p-8 rounded-card border border-border shadow-card relative h-fit">
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 blur-2xl rounded-full"></div>
             <h3 className="text-2xl font-semibold mb-6 relative z-10">Kirim Pesan</h3>
-            <form className="space-y-5 relative z-10" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-5 relative z-10" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-foreground-muted mb-2">Nama Lengkap</label>
-                <input type="text" required className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors" placeholder="Masukkan nama Anda" />
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                  placeholder="Masukkan nama Anda"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground-muted mb-2">Email Perusahaan</label>
-                <input type="email" required className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors" placeholder="email@perusahaan.com" />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                  placeholder="email@perusahaan.com"
+                />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground-muted mb-2">Pesan / Kebutuhan</label>
-                <textarea rows={4} required className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none" placeholder="Ceritakan kebutuhan fire safety Anda..."></textarea>
+                <textarea
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
+                  placeholder="Ceritakan kebutuhan fire safety Anda..."
+                ></textarea>
               </div>
               <button type="submit" className="w-full bg-accent hover:bg-accent/80 text-white font-semibold py-4 rounded-btn transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(56,152,212,0.3)]">
                 <Send size={18} /> Kirim Permintaan
@@ -95,14 +136,14 @@ const ContactFooter = () => {
               </h3>
               <p className="text-foreground-muted text-sm">Ikuti aktivitas dan pembaruan terbaru kami di sosial media.</p>
             </div>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold text-accent hover:text-white transition-colors">
+            <a href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold text-accent hover:text-white transition-colors">
               @famindofast <ExternalLink size={16} />
             </a>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {igFeeds.map((feed, idx) => (
-              <a key={idx} href="#" target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-card overflow-hidden bg-surface border border-border block">
+              <a key={idx} href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-card overflow-hidden bg-surface border border-border block">
                 <img src={feed} alt={`Instagram Feed ${idx + 1}`} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500" />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Instagram className="text-white" size={32} />

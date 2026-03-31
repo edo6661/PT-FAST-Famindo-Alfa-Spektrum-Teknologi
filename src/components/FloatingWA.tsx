@@ -1,7 +1,11 @@
 const FloatingWA = () => {
+  const phoneNumber = "6281234567890"; // Ganti dengan nomor WA perusahaan yang asli
+  const message = "Halo PT. FAST, saya ingin berkonsultasi mengenai Fire Safety.";
+  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
   return (
     <a
-      href="https://wa.me/6281234567890?text=Halo%20PT.%20FAST,%20saya%20ingin%20berkonsultasi%20mengenai%20Fire%20Safety."
+      href={waLink}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_25px_rgba(37,211,102,0.6)] transition-all duration-300 group"
