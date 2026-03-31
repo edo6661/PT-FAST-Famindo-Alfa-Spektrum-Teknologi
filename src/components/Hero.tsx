@@ -2,7 +2,6 @@ import { motion, type Variants } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 
 const Hero = () => {
-  // Tambahkan tipe Variants pada variabel animasi
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -37,7 +36,7 @@ const Hero = () => {
         <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.2)] hover:scale-105 transition-transform cursor-default">
           <ShieldCheck size={18} className="text-accent" />
           <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase">
-            Every Second Matters
+            Securing Your Safety
           </span>
         </motion.div>
 
@@ -48,8 +47,12 @@ const Hero = () => {
           </span>
         </motion.h1>
 
+        <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-4 max-w-3xl font-light leading-relaxed text-pretty">
+          Starting our journey as a fire safety company from 2022, we have expanded our client base and trusted by big businesses that care and prioritize their safety.
+        </motion.p>
+
         <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-10 max-w-3xl font-light leading-relaxed text-pretty">
-          Starting our journey in 2022, we have become the trusted fire safety partner for enterprises that prioritize absolute protection. The rise of lithium-ion technology comes with unprecedented risks, <span className="text-white font-medium">but we are here to secure your future.</span>
+          We Provide Complete Advanced Solutions To Mitigate The Risk From Lithium-ion Battery Fire. The Rise Of Lithium-Ion Battery Technology Comes With A Risk. <span className="text-white font-medium">But We're Here To Protect Your Safety.</span>
         </motion.p>
 
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-20">

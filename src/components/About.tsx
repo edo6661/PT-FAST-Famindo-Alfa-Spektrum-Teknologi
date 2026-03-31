@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Flame, Droplets, Wind, ShieldAlert } from 'lucide-react';
+import { Flame, Droplets, Wind, ShieldAlert, Heart, ShieldCheck } from 'lucide-react';
 
 const About = () => {
   const dangers = [
@@ -30,36 +30,61 @@ const About = () => {
       <div className="absolute top-1/4 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+        {/* Company Philosophy Section */}
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+              Protecting What Matters Most with <span className="text-accent">Advanced Fire Solutions</span>
+            </h2>
+            <p className="text-foreground-muted text-lg leading-relaxed font-light mb-6">
+              At FAST, we believe true safety is built on sophisticated technology, unwavering trust, and a profound commitment to protecting lives and assets. As a leading provider of advanced fire safety solutions, we don't just install systems; we engineer peace of mind.
+            </p>
+          </motion.div>
+        </div>
+
         {/* Mission & Vision Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm"
+            className="p-10 rounded-3xl bg-surface/30 border border-white/5 backdrop-blur-sm hover:bg-surface/50 transition-colors"
           >
+            <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
+              <ShieldCheck size={28} className="text-accent" />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-white">Our Mission</h3>
-            <p className="text-foreground-muted leading-relaxed font-light">
+            <p className="text-foreground-muted leading-relaxed font-light text-lg">
               We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
             </p>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.8 }}
-            className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm"
+            className="p-10 rounded-3xl bg-surface/30 border border-white/5 backdrop-blur-sm hover:bg-surface/50 transition-colors"
           >
+            <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
+              <Heart size={28} className="text-accent" />
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
-            <p className="text-foreground-muted leading-relaxed font-light">
+            <p className="text-foreground-muted leading-relaxed font-light text-lg">
               We want to live in a world where people can feel safe and focus on pursuing the things that matter.
             </p>
           </motion.div>
         </div>
 
         {/* Lithium Battery Section */}
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+        <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -112,6 +137,22 @@ const About = () => {
             ))}
           </div>
         </div>
+
+        {/* Passion Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 p-10 md:p-14 rounded-[2.5rem] bg-surface border border-white/10 text-center relative overflow-hidden shadow-2xl"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent pointer-events-none"></div>
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 relative z-10">Your Safety, <span className="text-accent">Our Passion</span></h2>
+          <p className="text-lg text-foreground-muted max-w-3xl mx-auto font-light leading-relaxed relative z-10">
+            For us, fire safety is more than a service – it's a deep-seated passion. We are dedicated to pioneering innovations that offer superior protection, ensuring the well-being of individuals and the longevity of valuable investments. Our team of highly skilled professionals is committed to upholding the highest standards of integrity, quality, and service.
+          </p>
+        </motion.div>
+
       </div>
     </section>
   );

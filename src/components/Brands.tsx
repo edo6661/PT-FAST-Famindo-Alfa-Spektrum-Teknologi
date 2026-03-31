@@ -9,7 +9,7 @@ const Brands = () => {
       description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
       logo: "AF31",
       icon: <ShieldAlert size={32} className="text-accent" />,
-      gridClass: "md:col-span-2 md:row-span-2", // Mendapat porsi paling besar
+      gridClass: "md:col-span-2 md:row-span-2",
       bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
     },
     {
@@ -36,7 +36,7 @@ const Brands = () => {
       description: "A sophisticated liquid gas that can put off several classes of fire without leaving any destructive residue behind.",
       logo: "FLAT",
       icon: <Droplets size={28} className="text-white" />,
-      gridClass: "md:col-span-3 md:row-span-1", // Memanjang di bagian bawah
+      gridClass: "md:col-span-3 md:row-span-1",
       bgImage: "https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=1200&auto=format&fit=crop"
     }
   ];

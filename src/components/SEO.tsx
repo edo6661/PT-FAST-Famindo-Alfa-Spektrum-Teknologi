@@ -6,9 +6,10 @@ interface SEOProps {
   image?: string;
   url?: string;
   type?: string;
+  schemaMarkup?: Record<string, unknown>;
 }
 
-const SEO = ({ title, description, image, url, type = 'website' }: SEOProps) => {
+const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }: SEOProps) => {
   const siteUrl = "https://www.famindofast.com";
 
   const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
@@ -38,6 +39,12 @@ const SEO = ({ title, description, image, url, type = 'website' }: SEOProps) => 
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDesc} />
       <meta name="twitter:image" content={seoImage} />
+
+      {schemaMarkup && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      )}
     </Helmet>
   );
 };

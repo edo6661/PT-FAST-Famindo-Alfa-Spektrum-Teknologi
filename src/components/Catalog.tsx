@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { products } from '../constants/catalogs';
 
@@ -11,7 +12,13 @@ const Catalog = () => {
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
             <span className="text-xs font-bold tracking-widest text-accent uppercase">Embark On Your Safety Journey</span>
           </div>
@@ -19,17 +26,20 @@ const Catalog = () => {
           <p className="text-foreground-muted text-lg font-light leading-relaxed">
             High-level fire safety technologies engineered to provide maximum reliability across critical industrial sectors and modern ecosystems.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Dynamic Grid: 2 Items on Top Row, 3 Items on Bottom Row (Large Screens) */}
+        {/* Dynamic Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
           {products.map((product, index) => {
-            // Mengatur lebar grid: Index 0 & 1 mengambil 3 kolom (1/2 lebar), Index 2,3,4 mengambil 2 kolom (1/3 lebar)
             const gridSpan = index < 2 ? 'lg:col-span-3' : 'lg:col-span-2';
 
             return (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`group relative overflow-hidden rounded-3xl bg-surface border border-white/5 hover:border-accent/40 transition-all duration-700 shadow-lg hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)] h-[450px] md:col-span-1 ${gridSpan}`}
               >
 
@@ -56,7 +66,7 @@ const Catalog = () => {
                     {product.description}
                   </p>
 
-                  {/* Call to Action Button (Hidden until hover) */}
+                  {/* Call to Action Button */}
                   <div className="overflow-hidden">
                     <a href="#kontak" className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors w-fit uppercase transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500">
                       Learn More <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -64,7 +74,7 @@ const Catalog = () => {
                   </div>
                 </div>
 
-              </div>
+              </motion.div>
             );
           })}
         </div>

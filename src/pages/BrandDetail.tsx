@@ -28,6 +28,20 @@ const BrandDetail = () => {
     );
   }
 
+  // Generate Schema Markup khusus untuk produk ini
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": brandData.name,
+    "image": brandData.heroImage,
+    "description": brandData.description,
+    "brand": {
+      "@type": "Brand",
+      "name": "PT. FAST"
+    },
+    "slogan": brandData.tagline
+  };
+
   return (
     <div className="pb-24 bg-background min-h-screen">
       <SEO
@@ -35,6 +49,8 @@ const BrandDetail = () => {
         description={brandData.description}
         image={brandData.heroImage}
         url={`/brand/${slug}`}
+        type="product"
+        schemaMarkup={productSchema}
       />
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-background z-0" />
