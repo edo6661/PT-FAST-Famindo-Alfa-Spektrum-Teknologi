@@ -58,20 +58,25 @@ const ClientBase = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <SpotlightCard className="group relative p-8 h-full bg-background/40 border-white/5 hover:border-white/10 flex flex-col">
+              {/* p-8 dihapus dari SpotlightCard */}
+              <SpotlightCard className="group relative h-full bg-background/40 border-white/5 hover:border-white/10">
+                {/* Background bebas menyentuh tepi karena SpotlightCard sudah tidak dibatasi padding */}
                 <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${client.gradient} to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
-                <div className="relative z-10 mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
-                  {client.icon}
+                {/* Padding dipindahkan ke wrapper konten */}
+                <div className="relative z-10 p-8 flex flex-col h-full">
+                  <div className="mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
+                    {client.icon}
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white/90 mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
+                    {client.name}
+                  </h3>
+
+                  <p className="text-sm text-foreground-muted font-light leading-relaxed flex-grow">
+                    {client.desc}
+                  </p>
                 </div>
-
-                <h3 className="relative z-10 text-lg font-bold text-white/90 mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
-                  {client.name}
-                </h3>
-
-                <p className="relative z-10 text-sm text-foreground-muted font-light leading-relaxed flex-grow">
-                  {client.desc}
-                </p>
               </SpotlightCard>
             </motion.div>
           ))}

@@ -26,14 +26,14 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
     "@type": "Organization",
     "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
     "url": siteUrl,
-    "logo": `${siteUrl}/favicon/android - chrome - 512x512.png`,
+    "logo": `${siteUrl}/favicon/android-chrome-512x512.png`,
     "description": defaultDescription,
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+62-812-9000-3278",
       "contactType": "customer service",
       "areaServed": "ID",
-      "availableLanguage": ["Indonesian", "English"]
+      "availableLanguage": ["English", "Indonesian"]
     },
     "sameAs": [
       "https://instagram.com/famindofast",
@@ -44,8 +44,10 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
 
   return (
     <Helmet prioritizeSeoTags>
+      <html lang="en" />
       <title>{seoTitle}</title>
       <meta name="description" content={seoDesc} />
+      <meta name="theme-color" content="#0a192f" />
       <link rel="canonical" href={seoUrl} />
 
       <meta property="og:type" content={type} />
@@ -54,6 +56,7 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
       <meta property="og:description" content={seoDesc} />
       <meta property="og:image" content={seoImage} />
       <meta property="og:site_name" content="PT. FAST" />
+      <meta property="og:locale" content="en_US" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={seoUrl} />
