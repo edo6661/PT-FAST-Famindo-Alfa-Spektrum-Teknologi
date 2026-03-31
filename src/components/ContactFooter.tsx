@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { MapPin, Phone, Mail, Send, Instagram, Facebook, Linkedin, ExternalLink } from 'lucide-react';
 import { igFeeds } from '../constants/contacts';
+import logo from '../assets/FAST_Logo_PNG/logo.png';
 
 const ContactFooter = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +12,6 @@ const ContactFooter = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Ruang untuk integrasi EmailJS di tahap selanjutnya
     console.log('Form disubmit:', formData);
     alert('Fungsi pengiriman pesan akan segera aktif.');
   };
@@ -156,7 +156,7 @@ const ContactFooter = () => {
         <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="flex items-center gap-3">
-              <img src="/src/assets/FAST_Logo_PNG/logo.png" alt="PT FAST Logo" className="h-6 w-auto grayscale opacity-70" />
+              <img src={logo} alt="PT FAST Logo" className="h-6 w-auto grayscale opacity-70" />
               <span className="text-foreground-muted text-sm font-medium">PT. Famindo Alfa Spektrum Teknologi</span>
             </div>
           </div>

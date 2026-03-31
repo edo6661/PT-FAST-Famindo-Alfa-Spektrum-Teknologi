@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navLinks } from '../constants/navs';
+import logo from '../assets/FAST_Logo_PNG/logo.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +20,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
 
         <a href="/#beranda" className="flex items-center gap-3 relative z-10 group">
-          <img src="/src/assets/FAST_Logo_PNG/logo.png" alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+          <img src={logo} alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
