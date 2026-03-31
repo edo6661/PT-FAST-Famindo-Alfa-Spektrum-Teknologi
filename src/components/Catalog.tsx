@@ -2,50 +2,70 @@ import { ArrowRight } from 'lucide-react';
 import { products } from '../constants/catalogs';
 
 const Catalog = () => {
-
   return (
     <section id="katalog" className="py-24 bg-background relative overflow-hidden">
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
+      {/* Ambient Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
+        {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6">
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">Katalog Produk</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Embark On Your Safety Journey</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Solusi Proteksi Premium</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">No Fire No Fear</h2>
           <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            Rangkaian teknologi fire safety tingkat tinggi yang direkayasa untuk memberikan keandalan maksimal di berbagai sektor industri kritis dan ekosistem modern.
+            High-level fire safety technologies engineered to provide maximum reliability across critical industrial sectors and modern ecosystems.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {products.map((product, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-2xl bg-surface border border-white/5 hover:border-accent/30 transition-all duration-700 shadow-lg hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)] h-[400px]">
+        {/* Dynamic Grid: 2 Items on Top Row, 3 Items on Bottom Row (Large Screens) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
+          {products.map((product, index) => {
+            // Mengatur lebar grid: Index 0 & 1 mengambil 3 kolom (1/2 lebar), Index 2,3,4 mengambil 2 kolom (1/3 lebar)
+            const gridSpan = index < 2 ? 'lg:col-span-3' : 'lg:col-span-2';
 
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-black/40 z-10 transition-opacity duration-700 group-hover:opacity-90" />
-              <img
-                src={product.image}
-                alt={product.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 group-hover:scale-110 transition-all duration-1000 ease-out"
-              />
+            return (
+              <div
+                key={index}
+                className={`group relative overflow-hidden rounded-3xl bg-surface border border-white/5 hover:border-accent/40 transition-all duration-700 shadow-lg hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)] h-[450px] md:col-span-1 ${gridSpan}`}
+              >
 
-              <div className="absolute inset-0 z-20 p-10 flex flex-col justify-end">
-                <div className="w-16 h-16 rounded-2xl bg-surface/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:-translate-y-2 transition-transform duration-500 shadow-inner">
-                  {product.icon}
+                {/* Background Image & Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-black/20 z-10 transition-opacity duration-700 group-hover:opacity-90" />
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
+                />
+
+                {/* Content Details */}
+                <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+                  <div className="w-16 h-16 rounded-2xl bg-background/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:-translate-y-2 group-hover:border-accent/50 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)] transition-all duration-500">
+                    {product.icon}
+                  </div>
+
+                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                    {product.title}
+                  </h3>
+
+                  <p className="text-foreground-muted mb-6 font-light leading-relaxed transform translate-y-4 opacity-80 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 line-clamp-3">
+                    {product.description}
+                  </p>
+
+                  {/* Call to Action Button (Hidden until hover) */}
+                  <div className="overflow-hidden">
+                    <a href="#kontak" className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors w-fit uppercase transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500">
+                      Learn More <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">{product.title}</h3>
-                <p className="text-foreground-muted mb-8 font-light leading-relaxed transform translate-y-4 opacity-80 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                  {product.description}
-                </p>
-                <a href="#kontak" className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors w-fit uppercase">
-                  Pelajari Lebih Lanjut <ArrowRight size={18} />
-                </a>
-              </div>
 
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
 
       </div>

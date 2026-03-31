@@ -42,6 +42,11 @@
   --transition-base: all 0.3s ease-in-out;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
 body {
   background-color: var(--theme-background);
   color: var(--theme-foreground);

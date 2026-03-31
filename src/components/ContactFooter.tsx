@@ -9,15 +9,44 @@ const ContactFooter = () => {
     email: '',
     message: ''
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form disubmit:', formData);
-    alert('Fungsi pengiriman pesan akan segera aktif.');
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch('https://formspree.io/f/xykbjjov', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setSubmitStatus({ type: 'success', message: 'Message sent successfully! We will contact you shortly.' });
+        setFormData({ name: '', email: '', message: '' });
+
+        setTimeout(() => {
+          setSubmitStatus({ type: '', message: '' });
+        }, 5000);
+      } else {
+        setSubmitStatus({ type: 'error', message: 'An error occurred while sending the message. Please try again.' });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setSubmitStatus({ type: 'error', message: 'A connection error occurred while sending the message.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -29,9 +58,9 @@ const ContactFooter = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20">
 
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Mulai Konsultasi <br /><span className="text-accent">Keamanan Anda.</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Secure Your Business <br /><span className="text-accent">Today.</span></h2>
             <p className="text-foreground-muted mb-10 text-lg">
-              Hubungi tim ahli kami untuk audit keamanan atau diskusi mengenai solusi proteksi kebakaran yang tepat untuk fasilitas Anda.
+              Contact our team of experts for a security audit or an in-depth discussion about lithium-ion battery fire protection solutions specific to your business scale.
             </p>
 
             <div className="space-y-6">
@@ -40,8 +69,8 @@ const ContactFooter = () => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-1">Kantor Pusat</h4>
-                  <p className="text-foreground-muted">Jl. Teknologi No. 88, Kawasan Bisnis<br />Tangerang, Banten, Indonesia</p>
+                  <h4 className="font-semibold text-lg mb-1">Headquarters</h4>
+                  <p className="text-foreground-muted">TCC Tower One Menara Batavia<br />Jl. K.H. Mas Mansyur No. Kav. 126, RT.9/RW.3<br />Karet Tengsin, Tanah Abang, Jakarta Pusat 10220</p>
                 </div>
               </div>
 
@@ -50,8 +79,8 @@ const ContactFooter = () => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-1">Telepon & WhatsApp</h4>
-                  <p className="text-foreground-muted">+62 812 3456 7890</p>
+                  <h4 className="font-semibold text-lg mb-1">Phone & WhatsApp</h4>
+                  <p className="text-foreground-muted">+62 812 9000 3278</p>
                 </div>
               </div>
 
@@ -61,14 +90,14 @@ const ContactFooter = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1">Email</h4>
-                  <p className="text-foreground-muted">info@famindofast.com</p>
+                  <p className="text-foreground-muted">support@famindofast.co</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-10 rounded-card overflow-hidden border border-border shadow-card h-64 relative bg-surface">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126907.0163353597!2d106.5501869!3d-6.2297129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fbee9bc0e4db%3A0xe5c7562f79fb9!2sTangerang%2C%20Banten!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                src="https://maps.google.com/maps?q=TCC+Tower+One+Menara+Batavia&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -82,10 +111,10 @@ const ContactFooter = () => {
 
           <div className="bg-surface p-8 rounded-card border border-border shadow-card relative h-fit">
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 blur-2xl rounded-full"></div>
-            <h3 className="text-2xl font-semibold mb-6 relative z-10">Kirim Pesan</h3>
+            <h3 className="text-2xl font-semibold mb-6 relative z-10">Schedule a Consultation</h3>
             <form className="space-y-5 relative z-10" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Nama Lengkap</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">Full Name</label>
                 <input
                   type="text"
                   name="name"
@@ -93,11 +122,11 @@ const ContactFooter = () => {
                   onChange={handleChange}
                   required
                   className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  placeholder="Masukkan nama Anda"
+                  placeholder="Enter your name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Email Perusahaan</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">Company Email</label>
                 <input
                   type="email"
                   name="email"
@@ -105,11 +134,11 @@ const ContactFooter = () => {
                   onChange={handleChange}
                   required
                   className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  placeholder="email@perusahaan.com"
+                  placeholder="email@company.com"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Pesan / Kebutuhan</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">Protection Needs</label>
                 <textarea
                   name="message"
                   rows={4}
@@ -117,12 +146,27 @@ const ContactFooter = () => {
                   onChange={handleChange}
                   required
                   className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
-                  placeholder="Ceritakan kebutuhan fire safety Anda..."
+                  placeholder="Tell us about your infrastructure or fire safety needs..."
                 ></textarea>
               </div>
-              <button type="submit" className="w-full bg-accent hover:bg-accent/80 text-white font-semibold py-4 rounded-btn transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(56,152,212,0.3)]">
-                <Send size={18} /> Kirim Permintaan
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-accent hover:bg-accent/80 text-white font-semibold py-4 rounded-btn transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(56,152,212,0.3)] disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Sending Request...' : (
+                  <>
+                    <Send size={18} /> Send Message
+                  </>
+                )}
               </button>
+
+              {submitStatus.message && (
+                <div className={`p-4 mt-4 rounded-btn text-sm font-medium text-center transition-all duration-300 ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
             </form>
           </div>
 
@@ -134,7 +178,7 @@ const ContactFooter = () => {
               <h3 className="text-2xl font-bold flex items-center gap-2 mb-1">
                 <Instagram className="text-accent" size={24} /> Instagram Highlights
               </h3>
-              <p className="text-foreground-muted text-sm">Ikuti aktivitas dan pembaruan terbaru kami di sosial media.</p>
+              <p className="text-foreground-muted text-sm">Follow our latest technology updates and fire safety education.</p>
             </div>
             <a href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold text-accent hover:text-white transition-colors">
               @famindofast <ExternalLink size={16} />
@@ -162,10 +206,10 @@ const ContactFooter = () => {
           </div>
 
           <div className="flex items-center gap-5">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Facebook">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Facebook">
               <Facebook size={20} />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="LinkedIn">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="LinkedIn">
               <Linkedin size={20} />
             </a>
           </div>

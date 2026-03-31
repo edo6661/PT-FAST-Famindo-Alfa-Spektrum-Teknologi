@@ -16,7 +16,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-surface/80 backdrop-blur-lg border-b border-white/5 py-4 shadow-lg' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen ? 'bg-surface/95 backdrop-blur-lg border-b border-white/5 py-4 shadow-lg' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
 
         <a href="/#beranda" className="flex items-center gap-3 relative z-10 group">
