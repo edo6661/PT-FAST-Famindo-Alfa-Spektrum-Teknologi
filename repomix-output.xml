@@ -353,54 +353,6 @@ const Layout = () => {
 export default Layout;
 </file>
 
-<file path="src/components/SEO.tsx">
-import { Helmet } from 'react-helmet-async';
-
-interface SEOProps {
-  title?: string;
-  description?: string;
-  image?: string;
-  url?: string;
-  type?: string;
-}
-
-const SEO = ({ title, description, image, url, type = 'website' }: SEOProps) => {
-  const siteUrl = "https://www.famindofast.com";
-
-  const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
-  const defaultDescription = "Setiap detik berharga. PT. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan fasilitas industri.";
-  const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
-
-  const seoTitle = title ? `${title} | PT. FAST` : defaultTitle;
-  const seoDesc = description || defaultDescription;
-  const seoImage = image || defaultImage;
-  const seoUrl = `${siteUrl}${url || ''}`;
-
-  return (
-    <Helmet prioritizeSeoTags>
-      <title>{seoTitle}</title>
-      <meta name="description" content={seoDesc} />
-      <link rel="canonical" href={seoUrl} />
-
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={seoUrl} />
-      <meta property="og:title" content={seoTitle} />
-      <meta property="og:description" content={seoDesc} />
-      <meta property="og:image" content={seoImage} />
-      <meta property="og:site_name" content="PT. FAST" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={seoUrl} />
-      <meta name="twitter:title" content={seoTitle} />
-      <meta name="twitter:description" content={seoDesc} />
-      <meta name="twitter:image" content={seoImage} />
-    </Helmet>
-  );
-};
-
-export default SEO;
-</file>
-
 <file path="src/constants/navs.tsx">
 export const navLinks = [
   { name: 'Beranda', href: '/#beranda' },
@@ -692,318 +644,6 @@ const App = () => {
 export default App;
 </file>
 
-<file path="src/components/About.tsx">
-import { motion } from 'framer-motion';
-import { Flame, Droplets, Wind, ShieldAlert } from 'lucide-react';
-
-const About = () => {
-  const dangers = [
-    {
-      icon: <Flame size={28} className="text-accent" />,
-      title: "Extremely High Temperature",
-      description: "Starting point of 1000 C and can go up to 2000 C, lithium fire has a higher destructibility and too hot to be handled by regular fire extinguishers."
-    },
-    {
-      icon: <Wind size={28} className="text-accent" />,
-      title: "Toxic Gas",
-      description: "A burning lithium-ion battery emits toxic gas that contains hydrofluoric acid and other gases that have corrosive characteristics."
-    },
-    {
-      icon: <ShieldAlert size={28} className="text-accent" />,
-      title: "Extremely Difficult To Extinguish",
-      description: "The effort and vast water volume that is needed to combat lithium fire can cause drainage overload."
-    },
-    {
-      icon: <Droplets size={28} className="text-accent" />,
-      title: "Toxic Residual",
-      description: "Residual from lithium-ion battery that is mixed with water can be toxic and terrible for the environment."
-    }
-  ];
-
-  return (
-    <section id="profil" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        {/* Mission & Vision Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8 }}
-            className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm"
-          >
-            <h3 className="text-2xl font-bold mb-4 text-white">Our Mission</h3>
-            <p className="text-foreground-muted leading-relaxed font-light">
-              We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8 }}
-            className="p-8 rounded-2xl bg-surface/30 border border-white/5 backdrop-blur-sm"
-          >
-            <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
-            <p className="text-foreground-muted leading-relaxed font-light">
-              We want to live in a world where people can feel safe and focus on pursuing the things that matter.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Lithium Battery Section */}
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2 space-y-8"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
-              <span className="text-xs font-bold tracking-widest text-accent uppercase">What Is It?</span>
-            </div>
-
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white">
-              What Is <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground-muted to-gray-600">Lithium-Ion Battery?</span>
-            </h2>
-
-            <p className="text-foreground-muted text-lg leading-relaxed font-light">
-              Lithium batteries are rechargeable power sources that utilize lithium ions to store and release energy. They are widely used in portable electronics, electric vehicles, and renewable energy systems.
-            </p>
-            <p className="text-foreground-muted text-lg leading-relaxed font-light">
-              The advantages of lithium batteries include their high energy density, which allows them to store more energy in a smaller and lighter package compared to other battery types and supports the transition to a more sustainable energy future.
-            </p>
-
-            <div className="pt-6 border-t border-white/10">
-              <h3 className="text-xl font-semibold mb-3 text-white">Why Is Lithium-Ion Battery Fire Different?</h3>
-              <p className="text-accent italic">
-                Its aberrant characteristic makes this fire more dangerous and difficult to extinguish!
-              </p>
-            </div>
-          </motion.div>
-
-          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {dangers.map((danger, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group p-6 rounded-2xl bg-surface/40 backdrop-blur-md border border-white/5 hover:bg-surface/60 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(56,152,212,0.1)] hover:-translate-y-1 transition-all duration-500"
-              >
-                <div className="flex-shrink-0 mb-4 w-12 h-12 rounded-full bg-background/50 border border-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-inner">
-                  {danger.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-white/90 group-hover:text-accent transition-colors duration-300">{danger.title}</h3>
-                  <p className="text-foreground-muted text-sm leading-relaxed">{danger.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default About;
-</file>
-
-<file path="src/components/Brands.tsx">
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Zap, ShieldAlert, Cpu, Droplets } from 'lucide-react';
-
-const Brands = () => {
-  const brands = [
-    {
-      name: "Lithium Fire Killer Hartindo AF31",
-      slug: "hartindo-af31",
-      description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
-      logo: "AF31",
-      icon: <ShieldAlert size={32} className="text-accent" />,
-      gridClass: "md:col-span-2 md:row-span-2", // Mendapat porsi paling besar
-      bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-      name: "BALLISTIC App",
-      slug: "ballistic-app",
-      description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
-      logo: "APP",
-      icon: <Cpu size={24} className="text-white" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      name: "USS For EV",
-      slug: "uss-ev",
-      description: "Undercarriage Suppressions System jet-spraying its content directly under EV cars.",
-      logo: "USS",
-      icon: <Zap size={24} className="text-white" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      name: "FLAT Hartindo AF11E",
-      slug: "flat-af11e",
-      description: "A sophisticated liquid gas that can put off several classes of fire without leaving any destructive residue behind.",
-      logo: "FLAT",
-      icon: <Droplets size={28} className="text-white" />,
-      gridClass: "md:col-span-3 md:row-span-1", // Memanjang di bagian bawah
-      bgImage: "https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=1200&auto=format&fit=crop"
-    }
-  ];
-
-  return (
-    <section id="brands" className="py-24 bg-surface relative overflow-hidden">
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Innovation & Technology</h2>
-            <p className="text-foreground-muted text-lg font-light">
-              Explore our specialized technological innovations designed to handle various levels of fire risks with absolute precision.
-            </p>
-          </div>
-          <a href="#katalog" className="text-white hover:text-accent font-medium flex items-center gap-2 transition-colors whitespace-nowrap bg-white/5 px-6 py-3 rounded-full border border-white/10 hover:border-accent/50 backdrop-blur-md">
-            View Complete Catalog <ArrowUpRight size={18} />
-          </a>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
-          {brands.map((brand, index) => (
-            <Link
-              key={index}
-              to={`/brand/${brand.slug}`}
-              className={`group relative rounded-3xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-700 shadow-lg hover:shadow-[0_0_40px_rgba(56,152,212,0.2)] bg-background flex flex-col justify-end p-8 ${brand.gridClass}`}
-            >
-              <div className="absolute inset-0 bg-background z-0">
-                <img
-                  src={brand.bgImage}
-                  alt={`Produk unggulan ${brand.name} PT FAST`}
-                  loading="lazy"
-                  className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
-              </div>
-
-              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/20 rounded-full blur-[80px] group-hover:bg-accent/40 transition-all duration-700 pointer-events-none z-0"></div>
-
-              <div className="relative z-10 w-full">
-                <div className="flex justify-between items-start mb-4">
-                  <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:border-accent/50 group-hover:-translate-y-2 transition-all duration-500 shadow-inner ${index === 0 ? 'w-16 h-16' : ''}`}>
-                    {brand.icon}
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                    <ArrowUpRight size={20} />
-                  </div>
-                </div>
-
-                <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
-                  {brand.name}
-                </h3>
-
-                <p className={`text-foreground-muted font-light leading-relaxed transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2 group-hover:line-clamp-none'}`}>
-                  {brand.description}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Brands;
-</file>
-
-<file path="src/components/Catalog.tsx">
-import { ArrowRight } from 'lucide-react';
-import { products } from '../constants/catalogs';
-
-const Catalog = () => {
-  return (
-    <section id="katalog" className="py-24 bg-background relative overflow-hidden">
-
-      {/* Ambient Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-
-        {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">Embark On Your Safety Journey</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">No Fire No Fear</h2>
-          <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            High-level fire safety technologies engineered to provide maximum reliability across critical industrial sectors and modern ecosystems.
-          </p>
-        </div>
-
-        {/* Dynamic Grid: 2 Items on Top Row, 3 Items on Bottom Row (Large Screens) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
-          {products.map((product, index) => {
-            // Mengatur lebar grid: Index 0 & 1 mengambil 3 kolom (1/2 lebar), Index 2,3,4 mengambil 2 kolom (1/3 lebar)
-            const gridSpan = index < 2 ? 'lg:col-span-3' : 'lg:col-span-2';
-
-            return (
-              <div
-                key={index}
-                className={`group relative overflow-hidden rounded-3xl bg-surface border border-white/5 hover:border-accent/40 transition-all duration-700 shadow-lg hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)] h-[450px] md:col-span-1 ${gridSpan}`}
-              >
-
-                {/* Background Image & Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-black/20 z-10 transition-opacity duration-700 group-hover:opacity-90" />
-                <img
-                  src={product.image}
-                  alt={`Ilustrasi teknologi ${product.title} untuk keselamatan kebakaran`}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
-                />
-
-                {/* Content Details */}
-                <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                  <div className="w-16 h-16 rounded-2xl bg-background/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:-translate-y-2 group-hover:border-accent/50 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)] transition-all duration-500">
-                    {product.icon}
-                  </div>
-
-                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                    {product.title}
-                  </h3>
-
-                  <p className="text-foreground-muted mb-6 font-light leading-relaxed transform translate-y-4 opacity-80 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 line-clamp-3">
-                    {product.description}
-                  </p>
-
-                  {/* Call to Action Button (Hidden until hover) */}
-                  <div className="overflow-hidden">
-                    <a href="#kontak" className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors w-fit uppercase transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500">
-                      Learn More <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                    </a>
-                  </div>
-                </div>
-
-              </div>
-            );
-          })}
-        </div>
-
-      </div>
-    </section>
-  );
-};
-
-export default Catalog;
-</file>
-
 <file path="src/components/ClientBase.tsx">
 import { Landmark, Shield, Car, Zap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -1076,89 +716,6 @@ const ClientBase = () => {
 };
 
 export default ClientBase;
-</file>
-
-<file path="src/components/Hero.tsx">
-import { motion, type Variants } from 'framer-motion';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
-
-const Hero = () => {
-  // Tambahkan tipe Variants pada variabel animasi
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
-    }
-  };
-
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
-    }
-  };
-
-  return (
-    <section id="beranda" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
-      <div className="absolute inset-0 bg-primary z-0" />
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity opacity-20 z-0 scale-105 transform transition-transform duration-[20s] hover:scale-100" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-0" />
-
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-accent/20 rounded-full blur-[120px] md:blur-[150px] pointer-events-none z-10"></div>
-
-      <motion.div
-        className="container relative z-20 mx-auto px-6 md:px-12 flex flex-col items-center text-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.2)] hover:scale-105 transition-transform cursor-default">
-          <ShieldCheck size={18} className="text-accent" />
-          <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase">
-            Every Second Matters
-          </span>
-        </motion.div>
-
-        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance">
-          Securing Businesses <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-cyan-300 drop-shadow-lg">
-            One At A Time.
-          </span>
-        </motion.h1>
-
-        <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-10 max-w-3xl font-light leading-relaxed text-pretty">
-          Starting our journey in 2022, we have become the trusted fire safety partner for enterprises that prioritize absolute protection. The rise of lithium-ion technology comes with unprecedented risks, <span className="text-white font-medium">but we are here to secure your future.</span>
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-20">
-          <a href="#katalog" className="bg-accent text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-accent/80 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 group">
-            Get Our Catalog
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a href="#kontak" className="bg-surface/50 backdrop-blur-sm border border-white/10 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-1">
-            Consult Now
-          </a>
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="pt-8 border-t border-white/10 w-full max-w-5xl">
-          <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-6">Trusted to Secure High-Profile Events & Assets</p>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
-            <span className="text-base md:text-xl font-bold font-heading tracking-wide">2024 Presidential Inauguration</span>
-            <span className="text-base md:text-xl font-bold font-heading tracking-wide">Pope Francis's Visit</span>
-            <span className="text-base md:text-xl font-bold font-heading tracking-wide">Bluebird Group</span>
-            <span className="text-base md:text-xl font-bold font-heading tracking-wide">KTT IAF Bali</span>
-          </div>
-        </motion.div>
-
-      </motion.div>
-    </section>
-  );
-};
-
-export default Hero;
 </file>
 
 <file path="src/constants/brands.tsx">
@@ -1358,164 +915,6 @@ h6 {
 }
 </file>
 
-<file path="src/pages/BrandDetail.tsx">
-import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Zap } from 'lucide-react';
-import { brands, type BrandProduct } from '../constants/brands';
-import SEO from '../components/SEO';
-
-const BrandDetail = () => {
-  const { slug } = useParams();
-  const brandData = slug && brands[slug] ? brands[slug] : null;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
-
-  if (!brandData) {
-    return (
-      <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center gap-6 text-center">
-        <SEO title="Product Not Found" description="The safety solution you are looking for might have been moved." />
-        <div className="w-24 h-24 rounded-full bg-surface border border-white/10 flex items-center justify-center mb-4">
-          <ShieldCheck size={40} className="text-foreground-muted" />
-        </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-white">Product Not Found</h1>
-        <p className="text-foreground-muted max-w-md">The safety solution you are looking for might have been moved or doesn't exist.</p>
-        <Link to="/" className="mt-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2">
-          <ArrowLeft size={18} /> Back to Headquarters
-        </Link>
-      </div>
-    );
-  }
-
-  return (
-    <div className="pb-24 bg-background min-h-screen">
-      <SEO
-        title={brandData.name}
-        description={brandData.description}
-        image={brandData.heroImage}
-        url={`/brand/${slug}`}
-      />
-      <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
-        <div className="absolute inset-0 bg-background z-0" />
-        <img
-          src={brandData.heroImage}
-          alt={brandData.name}
-          className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
-
-        <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-10 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:bg-surface">
-            <ArrowLeft size={16} /> Back to Innovation & Technology
-          </Link>
-
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
-            <Zap size={16} className="text-accent" />
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">Advanced Solution</span>
-          </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight max-w-4xl leading-tight">
-            {brandData.name}
-          </h1>
-          <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-300 font-medium max-w-3xl leading-relaxed">
-            {brandData.tagline}
-          </p>
-        </div>
-      </section>
-
-      <section className="py-20 relative">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
-
-        <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-
-            <div className="lg:col-span-7 space-y-16">
-
-              <div>
-                <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                  System Overview
-                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
-                </h2>
-                <p className="text-foreground-muted text-lg leading-relaxed font-light">
-                  {brandData.description}
-                </p>
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
-                  Core Capabilities
-                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {brandData.features.map((feature: string, index: number) => (
-                    <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-surface/40 border border-white/5 hover:border-accent/30 hover:bg-surface/60 transition-all duration-300 backdrop-blur-sm group">
-                      <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <CheckCircle2 size={18} className="text-accent" />
-                      </div>
-                      <span className="text-foreground-muted group-hover:text-white/90 transition-colors font-light leading-relaxed">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-
-            <div className="lg:col-span-5 space-y-8">
-
-              <div className="bg-surface/60 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
-                <h3 className="text-xl font-bold mb-8 text-white">Product Variants</h3>
-                <div className="space-y-6">
-                  {brandData.products.map((product: BrandProduct, index: number) => (
-                    <div key={index} className="group border-b border-white/10 last:border-0 pb-6 last:pb-0 relative">
-                      <div className="absolute -left-8 top-1.5 w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                      <h4 className="text-lg font-semibold text-white/90 mb-2 group-hover:text-accent transition-colors">{product.name}</h4>
-                      <p className="text-sm text-foreground-muted font-light leading-relaxed">{product.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden p-8 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-surface to-background opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-accent/30 blur-3xl rounded-full"></div>
-
-                <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-white mb-3">Secure This Technology</h3>
-                  <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">Request a full technical catalog or consult directly with our enterprise safety engineers.</p>
-
-                  <div className="space-y-4">
-                    <button className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 group/btn text-sm uppercase tracking-wide">
-                      <Download size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
-                      Download Brochure
-                    </button>
-                    <a
-                      href="https://wa.me/6281290003278?text=Halo%20tim%20PT.%20FAST,%20saya%20tertarik%20dengan%20solusi%20teknologi%20ini."
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 text-sm uppercase tracking-wide"
-                    >
-                      <MessageSquare size={18} />
-                      Contact Enterprise Sales
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-    </div>
-  );
-};
-
-export default BrandDetail;
-</file>
-
 <file path="src/pages/Home.tsx">
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
@@ -1692,6 +1091,170 @@ export default Home;
 }
 </file>
 
+<file path="src/components/About.tsx">
+import { motion } from 'framer-motion';
+import { Flame, Droplets, Wind, ShieldAlert, Heart, ShieldCheck } from 'lucide-react';
+
+const About = () => {
+  const dangers = [
+    {
+      icon: <Flame size={28} className="text-accent" />,
+      title: "Extremely High Temperature",
+      description: "Starting point of 1000 C and can go up to 2000 C, lithium fire has a higher destructibility and too hot to be handled by regular fire extinguishers."
+    },
+    {
+      icon: <Wind size={28} className="text-accent" />,
+      title: "Toxic Gas",
+      description: "A burning lithium-ion battery emits toxic gas that contains hydrofluoric acid and other gases that have corrosive characteristics."
+    },
+    {
+      icon: <ShieldAlert size={28} className="text-accent" />,
+      title: "Extremely Difficult To Extinguish",
+      description: "The effort and vast water volume that is needed to combat lithium fire can cause drainage overload."
+    },
+    {
+      icon: <Droplets size={28} className="text-accent" />,
+      title: "Toxic Residual",
+      description: "Residual from lithium-ion battery that is mixed with water can be toxic and terrible for the environment."
+    }
+  ];
+
+  return (
+    <section id="profil" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+        {/* Company Philosophy Section */}
+        <div className="max-w-4xl mx-auto text-center mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+              Protecting What Matters Most with <span className="text-accent">Advanced Fire Solutions</span>
+            </h2>
+            <p className="text-foreground-muted text-lg leading-relaxed font-light mb-6">
+              At FAST, we believe true safety is built on sophisticated technology, unwavering trust, and a profound commitment to protecting lives and assets. As a leading provider of advanced fire safety solutions, we don't just install systems; we engineer peace of mind.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Mission & Vision Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="p-10 rounded-3xl bg-surface/30 border border-white/5 backdrop-blur-sm hover:bg-surface/50 transition-colors"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
+              <ShieldCheck size={28} className="text-accent" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-white">Our Mission</h3>
+            <p className="text-foreground-muted leading-relaxed font-light text-lg">
+              We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="p-10 rounded-3xl bg-surface/30 border border-white/5 backdrop-blur-sm hover:bg-surface/50 transition-colors"
+          >
+            <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mb-6 border border-accent/20">
+              <Heart size={28} className="text-accent" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
+            <p className="text-foreground-muted leading-relaxed font-light text-lg">
+              We want to live in a world where people can feel safe and focus on pursuing the things that matter.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Lithium Battery Section */}
+        <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8 }}
+            className="w-full lg:w-1/2 space-y-8"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm shadow-[0_4px_10px_rgba(0,0,0,0.1)]">
+              <span className="text-xs font-bold tracking-widest text-accent uppercase">What Is It?</span>
+            </div>
+
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white">
+              What Is <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground-muted to-gray-600">Lithium-Ion Battery?</span>
+            </h2>
+
+            <p className="text-foreground-muted text-lg leading-relaxed font-light">
+              Lithium batteries are rechargeable power sources that utilize lithium ions to store and release energy. They are widely used in portable electronics, electric vehicles, and renewable energy systems.
+            </p>
+            <p className="text-foreground-muted text-lg leading-relaxed font-light">
+              The advantages of lithium batteries include their high energy density, which allows them to store more energy in a smaller and lighter package compared to other battery types and supports the transition to a more sustainable energy future.
+            </p>
+
+            <div className="pt-6 border-t border-white/10">
+              <h3 className="text-xl font-semibold mb-3 text-white">Why Is Lithium-Ion Battery Fire Different?</h3>
+              <p className="text-accent italic">
+                Its aberrant characteristic makes this fire more dangerous and difficult to extinguish!
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {dangers.map((danger, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="group p-6 rounded-2xl bg-surface/40 backdrop-blur-md border border-white/5 hover:bg-surface/60 hover:border-accent/30 hover:shadow-[0_10px_30px_rgba(56,152,212,0.1)] hover:-translate-y-1 transition-all duration-500"
+              >
+                <div className="flex-shrink-0 mb-4 w-12 h-12 rounded-full bg-background/50 border border-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-inner">
+                  {danger.icon}
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-2 text-white/90 group-hover:text-accent transition-colors duration-300">{danger.title}</h3>
+                  <p className="text-foreground-muted text-sm leading-relaxed">{danger.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Passion Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 p-10 md:p-14 rounded-[2.5rem] bg-surface border border-white/10 text-center relative overflow-hidden shadow-2xl"
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent pointer-events-none"></div>
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 relative z-10">Your Safety, <span className="text-accent">Our Passion</span></h2>
+          <p className="text-lg text-foreground-muted max-w-3xl mx-auto font-light leading-relaxed relative z-10">
+            For us, fire safety is more than a service – it's a deep-seated passion. We are dedicated to pioneering innovations that offer superior protection, ensuring the well-being of individuals and the longevity of valuable investments. Our team of highly skilled professionals is committed to upholding the highest standards of integrity, quality, and service.
+          </p>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+};
+
+export default About;
+</file>
+
 <file path="src/components/FloatingWA.tsx">
 import { MessageCircle } from 'lucide-react';
 
@@ -1717,6 +1280,520 @@ const FloatingWA = () => {
 };
 
 export default FloatingWA;
+</file>
+
+<file path="src/components/SEO.tsx">
+import { Helmet } from 'react-helmet-async';
+
+interface SEOProps {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
+  schemaMarkup?: Record<string, unknown>;
+}
+
+const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }: SEOProps) => {
+  const siteUrl = "https://www.famindofast.com";
+
+  const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
+  const defaultDescription = "Setiap detik berharga. PT. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan fasilitas industri.";
+  const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
+
+  const seoTitle = title ? `${title} | PT. FAST` : defaultTitle;
+  const seoDesc = description || defaultDescription;
+  const seoImage = image || defaultImage;
+  const seoUrl = `${siteUrl}${url || ''}`;
+
+  return (
+    <Helmet prioritizeSeoTags>
+      <title>{seoTitle}</title>
+      <meta name="description" content={seoDesc} />
+      <link rel="canonical" href={seoUrl} />
+
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={seoUrl} />
+      <meta property="og:title" content={seoTitle} />
+      <meta property="og:description" content={seoDesc} />
+      <meta property="og:image" content={seoImage} />
+      <meta property="og:site_name" content="PT. FAST" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={seoUrl} />
+      <meta name="twitter:title" content={seoTitle} />
+      <meta name="twitter:description" content={seoDesc} />
+      <meta name="twitter:image" content={seoImage} />
+
+      {schemaMarkup && (
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      )}
+    </Helmet>
+  );
+};
+
+export default SEO;
+</file>
+
+<file path="src/pages/BrandDetail.tsx">
+import { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Zap } from 'lucide-react';
+import { brands, type BrandProduct } from '../constants/brands';
+import SEO from '../components/SEO';
+
+const BrandDetail = () => {
+  const { slug } = useParams();
+  const brandData = slug && brands[slug] ? brands[slug] : null;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  if (!brandData) {
+    return (
+      <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center gap-6 text-center">
+        <SEO title="Product Not Found" description="The safety solution you are looking for might have been moved." />
+        <div className="w-24 h-24 rounded-full bg-surface border border-white/10 flex items-center justify-center mb-4">
+          <ShieldCheck size={40} className="text-foreground-muted" />
+        </div>
+        <h1 className="text-3xl md:text-4xl font-bold text-white">Product Not Found</h1>
+        <p className="text-foreground-muted max-w-md">The safety solution you are looking for might have been moved or doesn't exist.</p>
+        <Link to="/" className="mt-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2">
+          <ArrowLeft size={18} /> Back to Headquarters
+        </Link>
+      </div>
+    );
+  }
+
+  // Generate Schema Markup khusus untuk produk ini
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": brandData.name,
+    "image": brandData.heroImage,
+    "description": brandData.description,
+    "brand": {
+      "@type": "Brand",
+      "name": "PT. FAST"
+    },
+    "slogan": brandData.tagline
+  };
+
+  return (
+    <div className="pb-24 bg-background min-h-screen">
+      <SEO
+        title={brandData.name}
+        description={brandData.description}
+        image={brandData.heroImage}
+        url={`/brand/${slug}`}
+        type="product"
+        schemaMarkup={productSchema}
+      />
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
+        <div className="absolute inset-0 bg-background z-0" />
+        <img
+          src={brandData.heroImage}
+          alt={brandData.name}
+          className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
+
+        <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
+          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-10 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:bg-surface">
+            <ArrowLeft size={16} /> Back to Innovation & Technology
+          </Link>
+
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
+            <Zap size={16} className="text-accent" />
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Advanced Solution</span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight max-w-4xl leading-tight">
+            {brandData.name}
+          </h1>
+          <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-300 font-medium max-w-3xl leading-relaxed">
+            {brandData.tagline}
+          </p>
+        </div>
+      </section>
+
+      <section className="py-20 relative">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+
+            <div className="lg:col-span-7 space-y-16">
+
+              <div>
+                <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                  System Overview
+                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
+                </h2>
+                <p className="text-foreground-muted text-lg leading-relaxed font-light">
+                  {brandData.description}
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
+                  Core Capabilities
+                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {brandData.features.map((feature: string, index: number) => (
+                    <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-surface/40 border border-white/5 hover:border-accent/30 hover:bg-surface/60 transition-all duration-300 backdrop-blur-sm group">
+                      <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <CheckCircle2 size={18} className="text-accent" />
+                      </div>
+                      <span className="text-foreground-muted group-hover:text-white/90 transition-colors font-light leading-relaxed">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+            <div className="lg:col-span-5 space-y-8">
+
+              <div className="bg-surface/60 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
+                <h3 className="text-xl font-bold mb-8 text-white">Product Variants</h3>
+                <div className="space-y-6">
+                  {brandData.products.map((product: BrandProduct, index: number) => (
+                    <div key={index} className="group border-b border-white/10 last:border-0 pb-6 last:pb-0 relative">
+                      <div className="absolute -left-8 top-1.5 w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      <h4 className="text-lg font-semibold text-white/90 mb-2 group-hover:text-accent transition-colors">{product.name}</h4>
+                      <p className="text-sm text-foreground-muted font-light leading-relaxed">{product.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative overflow-hidden p-8 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-surface to-background opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-accent/30 blur-3xl rounded-full"></div>
+
+                <div className="relative z-10">
+                  <h3 className="text-2xl font-bold text-white mb-3">Secure This Technology</h3>
+                  <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">Request a full technical catalog or consult directly with our enterprise safety engineers.</p>
+
+                  <div className="space-y-4">
+                    <button className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 group/btn text-sm uppercase tracking-wide">
+                      <Download size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
+                      Download Brochure
+                    </button>
+                    <a
+                      href="https://wa.me/6281290003278?text=Halo%20tim%20PT.%20FAST,%20saya%20tertarik%20dengan%20solusi%20teknologi%20ini."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 text-sm uppercase tracking-wide"
+                    >
+                      <MessageSquare size={18} />
+                      Contact Enterprise Sales
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+  );
+};
+
+export default BrandDetail;
+</file>
+
+<file path="src/components/Brands.tsx">
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, Zap, ShieldAlert, Cpu, Droplets } from 'lucide-react';
+
+const Brands = () => {
+  const brands = [
+    {
+      name: "Lithium Fire Killer Hartindo AF31",
+      slug: "hartindo-af31",
+      description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
+      logo: "AF31",
+      icon: <ShieldAlert size={32} className="text-accent" />,
+      gridClass: "md:col-span-2 md:row-span-2",
+      bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      name: "BALLISTIC App",
+      slug: "ballistic-app",
+      description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
+      logo: "APP",
+      icon: <Cpu size={24} className="text-white" />,
+      gridClass: "md:col-span-1 md:row-span-1",
+      bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      name: "USS For EV",
+      slug: "uss-ev",
+      description: "Undercarriage Suppressions System jet-spraying its content directly under EV cars.",
+      logo: "USS",
+      icon: <Zap size={24} className="text-white" />,
+      gridClass: "md:col-span-1 md:row-span-1",
+      bgImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      name: "FLAT Hartindo AF11E",
+      slug: "flat-af11e",
+      description: "A sophisticated liquid gas that can put off several classes of fire without leaving any destructive residue behind.",
+      logo: "FLAT",
+      icon: <Droplets size={28} className="text-white" />,
+      gridClass: "md:col-span-3 md:row-span-1",
+      bgImage: "https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=1200&auto=format&fit=crop"
+    }
+  ];
+
+  return (
+    <section id="brands" className="py-24 bg-surface relative overflow-hidden">
+      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Innovation & Technology</h2>
+            <p className="text-foreground-muted text-lg font-light">
+              Explore our specialized technological innovations designed to handle various levels of fire risks with absolute precision.
+            </p>
+          </div>
+          <a href="#katalog" className="text-white hover:text-accent font-medium flex items-center gap-2 transition-colors whitespace-nowrap bg-white/5 px-6 py-3 rounded-full border border-white/10 hover:border-accent/50 backdrop-blur-md">
+            View Complete Catalog <ArrowUpRight size={18} />
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
+          {brands.map((brand, index) => (
+            <Link
+              key={index}
+              to={`/brand/${brand.slug}`}
+              className={`group relative rounded-3xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-700 shadow-lg hover:shadow-[0_0_40px_rgba(56,152,212,0.2)] bg-background flex flex-col justify-end p-8 ${brand.gridClass}`}
+            >
+              <div className="absolute inset-0 bg-background z-0">
+                <img
+                  src={brand.bgImage}
+                  alt={`Produk unggulan ${brand.name} PT FAST`}
+                  loading="lazy"
+                  className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+              </div>
+
+              <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/20 rounded-full blur-[80px] group-hover:bg-accent/40 transition-all duration-700 pointer-events-none z-0"></div>
+
+              <div className="relative z-10 w-full">
+                <div className="flex justify-between items-start mb-4">
+                  <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center group-hover:border-accent/50 group-hover:-translate-y-2 transition-all duration-500 shadow-inner ${index === 0 ? 'w-16 h-16' : ''}`}>
+                    {brand.icon}
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                    <ArrowUpRight size={20} />
+                  </div>
+                </div>
+
+                <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
+                  {brand.name}
+                </h3>
+
+                <p className={`text-foreground-muted font-light leading-relaxed transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2 group-hover:line-clamp-none'}`}>
+                  {brand.description}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Brands;
+</file>
+
+<file path="src/components/Catalog.tsx">
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { products } from '../constants/catalogs';
+
+const Catalog = () => {
+  return (
+    <section id="katalog" className="py-24 bg-background relative overflow-hidden">
+
+      {/* Ambient Background */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+        {/* Header Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">Embark On Your Safety Journey</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">No Fire No Fear</h2>
+          <p className="text-foreground-muted text-lg font-light leading-relaxed">
+            High-level fire safety technologies engineered to provide maximum reliability across critical industrial sectors and modern ecosystems.
+          </p>
+        </motion.div>
+
+        {/* Dynamic Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
+          {products.map((product, index) => {
+            const gridSpan = index < 2 ? 'lg:col-span-3' : 'lg:col-span-2';
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className={`group relative overflow-hidden rounded-3xl bg-surface border border-white/5 hover:border-accent/40 transition-all duration-700 shadow-lg hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)] h-[450px] md:col-span-1 ${gridSpan}`}
+              >
+
+                {/* Background Image & Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-black/20 z-10 transition-opacity duration-700 group-hover:opacity-90" />
+                <img
+                  src={product.image}
+                  alt={`Ilustrasi teknologi ${product.title} untuk keselamatan kebakaran`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-110 transition-all duration-1000 ease-out grayscale group-hover:grayscale-0"
+                />
+
+                {/* Content Details */}
+                <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+                  <div className="w-16 h-16 rounded-2xl bg-background/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:-translate-y-2 group-hover:border-accent/50 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)] transition-all duration-500">
+                    {product.icon}
+                  </div>
+
+                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                    {product.title}
+                  </h3>
+
+                  <p className="text-foreground-muted mb-6 font-light leading-relaxed transform translate-y-4 opacity-80 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 line-clamp-3">
+                    {product.description}
+                  </p>
+
+                  {/* Call to Action Button */}
+                  <div className="overflow-hidden">
+                    <a href="#kontak" className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors w-fit uppercase transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500">
+                      Learn More <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+
+              </motion.div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Catalog;
+</file>
+
+<file path="src/components/Hero.tsx">
+import { motion, type Variants } from 'framer-motion';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
+
+const Hero = () => {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+    }
+  };
+
+  const itemVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
+  };
+
+  return (
+    <section id="beranda" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
+      <div className="absolute inset-0 bg-primary z-0" />
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity opacity-20 z-0 scale-105 transform transition-transform duration-[20s] hover:scale-100" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background z-0" />
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-accent/20 rounded-full blur-[120px] md:blur-[150px] pointer-events-none z-10"></div>
+
+      <motion.div
+        className="container relative z-20 mx-auto px-6 md:px-12 flex flex-col items-center text-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.2)] hover:scale-105 transition-transform cursor-default">
+          <ShieldCheck size={18} className="text-accent" />
+          <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase">
+            Securing Your Safety
+          </span>
+        </motion.div>
+
+        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance">
+          Securing Businesses <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-cyan-300 drop-shadow-lg">
+            One At A Time.
+          </span>
+        </motion.h1>
+
+        <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-4 max-w-3xl font-light leading-relaxed text-pretty">
+          Starting our journey as a fire safety company from 2022, we have expanded our client base and trusted by big businesses that care and prioritize their safety.
+        </motion.p>
+
+        <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-10 max-w-3xl font-light leading-relaxed text-pretty">
+          We Provide Complete Advanced Solutions To Mitigate The Risk From Lithium-ion Battery Fire. The Rise Of Lithium-Ion Battery Technology Comes With A Risk. <span className="text-white font-medium">But We're Here To Protect Your Safety.</span>
+        </motion.p>
+
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-20">
+          <a href="#katalog" className="bg-accent text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-accent/80 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 group">
+            Get Our Catalog
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+          </a>
+          <a href="#kontak" className="bg-surface/50 backdrop-blur-sm border border-white/10 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-1">
+            Consult Now
+          </a>
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="pt-8 border-t border-white/10 w-full max-w-5xl">
+          <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-6">Trusted to Secure High-Profile Events & Assets</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
+            <span className="text-base md:text-xl font-bold font-heading tracking-wide">2024 Presidential Inauguration</span>
+            <span className="text-base md:text-xl font-bold font-heading tracking-wide">Pope Francis's Visit</span>
+            <span className="text-base md:text-xl font-bold font-heading tracking-wide">Bluebird Group</span>
+            <span className="text-base md:text-xl font-bold font-heading tracking-wide">KTT IAF Bali</span>
+          </div>
+        </motion.div>
+
+      </motion.div>
+    </section>
+  );
+};
+
+export default Hero;
 </file>
 
 <file path="src/components/Navbar.tsx">

@@ -16,10 +16,31 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
   const defaultDescription = "Setiap detik berharga. PT. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan fasilitas industri.";
   const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
 
-  const seoTitle = title ? `${title} | PT. FAST` : defaultTitle;
+  const seoTitle = title ? `${title} | PT.FAST` : defaultTitle;
   const seoDesc = description || defaultDescription;
   const seoImage = image || defaultImage;
   const seoUrl = `${siteUrl}${url || ''}`;
+
+  const defaultSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
+    "url": siteUrl,
+    "logo": `${siteUrl}/favicon/android - chrome - 512x512.png`,
+    "description": defaultDescription,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+62-812-9000-3278",
+      "contactType": "customer service",
+      "areaServed": "ID",
+      "availableLanguage": ["Indonesian", "English"]
+    },
+    "sameAs": [
+      "https://instagram.com/famindofast",
+      "https://facebook.com",
+      "https://linkedin.com"
+    ]
+  };
 
   return (
     <Helmet prioritizeSeoTags>
@@ -40,11 +61,9 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
       <meta name="twitter:description" content={seoDesc} />
       <meta name="twitter:image" content={seoImage} />
 
-      {schemaMarkup && (
-        <script type="application/ld+json">
-          {JSON.stringify(schemaMarkup)}
-        </script>
-      )}
+      <script type="application/ld+json">
+        {JSON.stringify(schemaMarkup || defaultSchema)}
+      </script>
     </Helmet>
   );
 };
