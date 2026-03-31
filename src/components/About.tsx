@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Flame, Droplets, Wind, ShieldAlert, Heart, ShieldCheck } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
 
 const About = () => {
   const dangers = [
@@ -57,15 +58,16 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group p-8 md:p-10 rounded-3xl bg-surface/50 border border-white/5 backdrop-blur-sm hover:border-accent/30 transition-colors shadow-lg"
           >
-            <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner">
-              <ShieldCheck size={28} className="text-accent" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-white">Our Mission</h3>
-            <p className="text-foreground-muted leading-relaxed font-light text-lg">
-              We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
-            </p>
+            <SpotlightCard className="group p-8 md:p-10 bg-surface/50 border-white/5 hover:border-accent/30 h-full">
+              <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                <ShieldCheck size={28} className="text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Mission</h3>
+              <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
+              </p>
+            </SpotlightCard>
           </motion.div>
 
           <motion.div
@@ -73,15 +75,16 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="group p-8 md:p-10 rounded-3xl bg-surface/50 border border-white/5 backdrop-blur-sm hover:border-accent/30 transition-colors shadow-lg"
           >
-            <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner">
-              <Heart size={28} className="text-accent" />
-            </div>
-            <h3 className="text-2xl font-bold mb-4 text-white">Our Vision</h3>
-            <p className="text-foreground-muted leading-relaxed font-light text-lg">
-              We want to live in a world where people can feel safe and focus on pursuing the things that matter.
-            </p>
+            <SpotlightCard className="group p-8 md:p-10 bg-surface/50 border-white/5 hover:border-accent/30 h-full">
+              <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                <Heart size={28} className="text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Vision</h3>
+              <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                We want to live in a world where people can feel safe and focus on pursuing the things that matter.
+              </p>
+            </SpotlightCard>
           </motion.div>
         </div>
 
@@ -123,13 +126,15 @@ const About = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group p-6 rounded-2xl bg-surface/40 border border-white/5 hover:bg-surface/80 hover:border-accent/30 transition-colors duration-300"
+                className="h-full"
               >
-                <div className="flex-shrink-0 mb-4 w-12 h-12 rounded-xl bg-background border border-white/10 flex items-center justify-center group-hover:border-accent/50 transition-colors">
-                  {danger.icon}
-                </div>
-                <h3 className="text-lg font-bold mb-2 text-white/90 group-hover:text-accent transition-colors">{danger.title}</h3>
-                <p className="text-foreground-muted text-sm leading-relaxed font-light">{danger.description}</p>
+                <SpotlightCard className="group p-6 h-full bg-surface/40 border-white/5 hover:bg-surface/80 hover:border-accent/30 flex flex-col">
+                  <div className="flex-shrink-0 mb-4 w-12 h-12 rounded-xl bg-background border border-white/10 flex items-center justify-center group-hover:border-accent/50 transition-colors relative z-10">
+                    {danger.icon}
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-white/90 group-hover:text-accent transition-colors relative z-10">{danger.title}</h3>
+                  <p className="text-foreground-muted text-sm leading-relaxed font-light relative z-10">{danger.description}</p>
+                </SpotlightCard>
               </motion.div>
             ))}
           </div>

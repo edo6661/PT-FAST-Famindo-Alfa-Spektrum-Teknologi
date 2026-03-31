@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { products } from '../constants/catalogs';
+import SpotlightCard from './SpotlightCard';
 
 const Catalog = () => {
   return (
@@ -37,38 +38,42 @@ const Catalog = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group relative overflow-hidden rounded-3xl bg-surface border border-white/5 hover:border-accent/40 transition-colors duration-500 shadow-lg hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)] h-[450px] md:col-span-1 ${gridSpan} transform-gpu`}
+                className={`h-[450px] md:col-span-1 ${gridSpan} transform-gpu`}
               >
+                <SpotlightCard className="group h-full w-full hover:border-accent/40 hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
+                  <img
+                    src={product.image}
+                    alt={`Solusi ${product.title} - Teknologi Pemadam Kebakaran Baterai Lithium oleh PT FAST`}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
 
-                <img
-                  src={product.image}
-                  alt={`Teknologi ${product.title} PT FAST`}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-transform duration-700 ease-out group-hover:scale-105"
-                />
+                  <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+                    <div className="w-14 h-14 rounded-2xl bg-surface/90 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 transform-gpu transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)]">
+                      {product.icon}
+                    </div>
 
-                <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                  <div className="w-14 h-14 rounded-2xl bg-surface/90 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 transform-gpu transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)]">
-                    {product.icon}
+                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                      {product.title}
+                    </h3>
+
+                    <p className="text-foreground-muted mb-6 font-light leading-relaxed transform-gpu translate-y-4 opacity-70 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 line-clamp-3">
+                      {product.description}
+                    </p>
+
+                    <div className="overflow-hidden h-8">
+                      <a
+                        href={`/brand/${product.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        aria-label={`Pelajari lebih lanjut tentang teknologi ${product.title}`}
+                        className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors uppercase transform-gpu translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500"
+                      >
+                        Explore Tech <ArrowRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1" />
+                      </a>
+                    </div>
                   </div>
-
-                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                    {product.title}
-                  </h3>
-
-                  <p className="text-foreground-muted mb-6 font-light leading-relaxed transform-gpu translate-y-4 opacity-70 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 line-clamp-3">
-                    {product.description}
-                  </p>
-
-                  <div className="overflow-hidden h-8">
-                    <a href={`/brand/${product.title.toLowerCase().replace(/\s+/g, '-')}`} className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors uppercase transform-gpu translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500">
-                      Explore Tech <ArrowRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1" />
-                    </a>
-                  </div>
-                </div>
-
+                </SpotlightCard>
               </motion.div>
             );
           })}

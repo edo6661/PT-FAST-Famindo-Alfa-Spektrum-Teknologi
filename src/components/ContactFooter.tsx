@@ -22,7 +22,7 @@ const ContactFooter = () => {
     setSubmitStatus({ type: '', message: '' });
 
     try {
-      const response = await fetch('https://formspree.io/f/xykbjjov', {
+      const response = await fetch('[https://formspree.io/f/xykbjjov](https://formspree.io/f/xykbjjov)', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -97,7 +97,8 @@ const ContactFooter = () => {
 
             <div className="mt-10 rounded-card overflow-hidden border border-border shadow-card h-64 relative bg-surface">
               <iframe
-                src="https://maps.google.com/maps?q=TCC+Tower+One+Menara+Batavia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                title="Peta Lokasi Kantor Pusat PT Famindo Alfa Spektrum Teknologi (FAST)"
+                src="[https://maps.google.com/maps?q=TCC+Tower+One+Menara+Batavia&t=&z=15&ie=UTF8&iwloc=&output=embed](https://maps.google.com/maps?q=TCC+Tower+One+Menara+Batavia&t=&z=15&ie=UTF8&iwloc=&output=embed)"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -114,8 +115,9 @@ const ContactFooter = () => {
             <h3 className="text-2xl font-semibold mb-6 relative z-10">Schedule a Consultation</h3>
             <form className="space-y-5 relative z-10" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground-muted mb-2">Full Name</label>
                 <input
+                  id="name"
                   type="text"
                   name="name"
                   value={formData.name}
@@ -126,8 +128,9 @@ const ContactFooter = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Company Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground-muted mb-2">Company Email</label>
                 <input
+                  id="email"
                   type="email"
                   name="email"
                   value={formData.email}
@@ -138,8 +141,9 @@ const ContactFooter = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Protection Needs</label>
+                <label htmlFor="message" className="block text-sm font-medium text-foreground-muted mb-2">Protection Needs</label>
                 <textarea
+                  id="message"
                   name="message"
                   rows={4}
                   value={formData.message}
@@ -180,17 +184,17 @@ const ContactFooter = () => {
               </h3>
               <p className="text-foreground-muted text-sm">Follow our latest technology updates and fire safety education.</p>
             </div>
-            <a href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold text-accent hover:text-white transition-colors">
+            <a href="[https://instagram.com/famindofast](https://instagram.com/famindofast)" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi profil Instagram resmi PT FAST" className="flex items-center gap-2 text-sm font-semibold text-accent hover:text-white transition-colors">
               @famindofast <ExternalLink size={16} />
             </a>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {igFeeds.map((feed, idx) => (
-              <a key={idx} href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" className="group relative aspect-square rounded-card overflow-hidden bg-surface border border-border block">
+              <a key={idx} href="[https://instagram.com/famindofast](https://instagram.com/famindofast)" target="_blank" rel="noopener noreferrer" aria-label={`Lihat postingan Instagram edukasi mitigasi kebakaran baterai lithium ke-${idx + 1}`} className="group relative aspect-square rounded-card overflow-hidden bg-surface border border-border block">
                 <img
                   src={feed}
-                  alt={`Highlight Instagram PT FAST ${idx + 1}`}
+                  alt={`Highlight dokumentasi dan produk keselamatan kebakaran PT FAST di Instagram - Bagian ${idx + 1}`}
                   loading="lazy"
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
                 />
@@ -205,16 +209,16 @@ const ContactFooter = () => {
         <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="PT FAST Logo" className="h-6 w-auto grayscale opacity-70" />
+              <img src={logo} alt="Logo Resmi PT Famindo Alfa Spektrum Teknologi (FAST)" className="h-6 w-auto grayscale opacity-70" />
               <span className="text-foreground-muted text-sm font-medium">PT. Famindo Alfa Spektrum Teknologi</span>
             </div>
           </div>
 
           <div className="flex items-center gap-5">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Facebook">
+            <a href="[https://facebook.com](https://facebook.com)" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi halaman Facebook resmi PT FAST">
               <Facebook size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="LinkedIn">
+            <a href="[https://linkedin.com](https://linkedin.com)" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil LinkedIn profesional PT FAST">
               <Linkedin size={20} />
             </a>
           </div>

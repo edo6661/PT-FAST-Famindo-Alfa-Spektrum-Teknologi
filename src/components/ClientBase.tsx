@@ -1,6 +1,7 @@
 import { Landmark, Shield, Car, Zap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SpotlightCard from './SpotlightCard';
 
 const ClientBase = () => {
   const clients = [
@@ -56,21 +57,22 @@ const ClientBase = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-8 rounded-3xl bg-background/40 border border-white/5 hover:border-white/10 transition-all duration-500 overflow-hidden flex flex-col h-full"
             >
-              <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${client.gradient} to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
+              <SpotlightCard className="group relative p-8 h-full bg-background/40 border-white/5 hover:border-white/10 flex flex-col">
+                <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${client.gradient} to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
-              <div className="relative z-10 mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
-                {client.icon}
-              </div>
+                <div className="relative z-10 mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
+                  {client.icon}
+                </div>
 
-              <h3 className="relative z-10 text-lg font-bold text-white/90 mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
-                {client.name}
-              </h3>
+                <h3 className="relative z-10 text-lg font-bold text-white/90 mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
+                  {client.name}
+                </h3>
 
-              <p className="relative z-10 text-sm text-foreground-muted font-light leading-relaxed flex-grow">
-                {client.desc}
-              </p>
+                <p className="relative z-10 text-sm text-foreground-muted font-light leading-relaxed flex-grow">
+                  {client.desc}
+                </p>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
@@ -81,7 +83,11 @@ const ClientBase = () => {
           viewport={{ once: true }}
           className="flex justify-center mt-8"
         >
-          <Link to="/clients" className="inline-flex items-center gap-2 bg-transparent border border-white/20 text-white px-8 py-3 rounded-full font-medium hover:bg-surface hover:border-accent/40 transition-all duration-300 group">
+          <Link
+            to="/clients"
+            aria-label="Lihat portofolio lengkap klien korporat dan institusi PT FAST"
+            className="inline-flex items-center gap-2 bg-transparent border border-white/20 text-white px-8 py-3 rounded-full font-medium hover:bg-surface hover:border-accent/40 transition-all duration-300 group"
+          >
             View Complete Portfolios
             <ArrowRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1" />
           </Link>

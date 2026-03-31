@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap, ShieldAlert, Cpu, Droplets } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
 
 const Brands = () => {
   const brands = [
@@ -67,6 +68,7 @@ const Brands = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             href="#katalog"
+            aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
             className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
           >
             View Complete Catalog <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -85,36 +87,39 @@ const Brands = () => {
             >
               <Link
                 to={`/brand/${brand.slug}`}
-                className="group relative w-full h-full rounded-3xl overflow-hidden border border-white/5 hover:border-accent/30 transition-colors duration-500 shadow-lg bg-background flex flex-col justify-end p-8 block"
+                aria-label={`Pelajari lebih detail mengenai spesifikasi produk ${brand.name}`}
+                className="group relative w-full h-full block"
               >
-                <div className="absolute inset-0 z-0 bg-background overflow-hidden">
-                  <img
-                    src={brand.bgImage}
-                    alt={`Produk ${brand.name}`}
-                    loading="lazy"
-                    className="w-full h-full object-cover opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
-                </div>
-
-                <div className="relative z-10 w-full transform-gpu transition-transform duration-500">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>
-                      {brand.icon}
-                    </div>
-                    <div className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-white opacity-0 transform-gpu translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:translate-x-0">
-                      <ArrowUpRight size={20} />
-                    </div>
+                <SpotlightCard className="w-full h-full rounded-3xl border-white/5 hover:border-accent/30 flex flex-col justify-end p-8">
+                  <div className="absolute inset-0 z-0 bg-background overflow-hidden rounded-3xl">
+                    <img
+                      src={brand.bgImage}
+                      alt={`Sistem Proteksi Kebakaran dan Teknologi Mitigasi ${brand.name} dari PT FAST`}
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
                   </div>
 
-                  <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 tracking-tight ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
-                    {brand.name}
-                  </h3>
+                  <div className="relative z-10 w-full transform-gpu transition-transform duration-500">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>
+                        {brand.icon}
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-white opacity-0 transform-gpu translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:translate-x-0">
+                        <ArrowUpRight size={20} />
+                      </div>
+                    </div>
 
-                  <p className={`text-foreground-muted font-light leading-relaxed transform-gpu translate-y-2 opacity-80 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2'}`}>
-                    {brand.description}
-                  </p>
-                </div>
+                    <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 tracking-tight ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
+                      {brand.name}
+                    </h3>
+
+                    <p className={`text-foreground-muted font-light leading-relaxed transform-gpu translate-y-2 opacity-80 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2'}`}>
+                      {brand.description}
+                    </p>
+                  </div>
+                </SpotlightCard>
               </Link>
             </motion.div>
           ))}
