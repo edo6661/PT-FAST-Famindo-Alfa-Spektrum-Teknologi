@@ -1,89 +1,222 @@
-import { motion, type Variants } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 
-const Hero = () => {
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 }
-    }
-  };
+export default function Hero() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [images, setImages] = useState<HTMLImageElement[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 70,
-        damping: 20
+  const START_FRAME = 33;
+  const END_FRAME = 240;
+  const TOTAL_FRAMES = END_FRAME - START_FRAME + 1;
+
+  useEffect(() => {
+    const loadedImages: HTMLImageElement[] = [];
+    let loadedCount = 0;
+
+    for (let i = START_FRAME; i <= END_FRAME; i++) {
+      const img = new Image();
+      const paddedNum = i.toString().padStart(3, '0');
+
+      img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
+
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === TOTAL_FRAMES) {
+          setIsLoaded(true);
+        }
+      };
+
+      img.onerror = () => {
+        console.warn(`Failed to load frame: ${paddedNum}`);
+        loadedCount++;
+        if (loadedCount === TOTAL_FRAMES) {
+          setIsLoaded(true);
+        }
       }
+
+      loadedImages[i - START_FRAME] = img;
     }
-  };
+
+    setImages(loadedImages);
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end end'],
+  });
+
+  const currentFrameIndex = useTransform(scrollYProgress, [0, 1], [0, TOTAL_FRAMES - 1]);
+
+  useEffect(() => {
+    if (!isLoaded || !canvasRef.current) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const render = () => {
+      const frameIndex = Math.round(currentFrameIndex.get());
+      const img = images[frameIndex];
+
+      if (img && img.complete && img.naturalHeight !== 0) {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+
+        canvas.width = windowWidth;
+        canvas.height = windowHeight;
+
+        const imgRatio = img.width / img.height;
+        const windowRatio = windowWidth / windowHeight;
+
+        let drawWidth, drawHeight, offsetX, offsetY;
+
+        if (windowRatio > imgRatio) {
+          drawWidth = windowWidth;
+          drawHeight = windowWidth / imgRatio;
+          offsetX = 0;
+          offsetY = (windowHeight - drawHeight) / 2;
+        } else {
+          drawHeight = windowHeight;
+          drawWidth = windowHeight * imgRatio;
+          offsetX = (windowWidth - drawWidth) / 2;
+          offsetY = 0;
+        }
+
+        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+      }
+
+      requestAnimationFrame(render);
+    };
+
+    render();
+
+    const unsubscribe = currentFrameIndex.on('change', () => { });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [isLoaded, currentFrameIndex, images]);
 
   return (
-    <section id="beranda" className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
-      <div className="absolute inset-0 bg-primary z-0" />
+    <section
+      id="beranda"
+      ref={containerRef}
+      className="w-full bg-primary"
+      style={{ height: '400vh', position: 'relative' }}
+    >
+      {!isLoaded && (
+        <div className="w-full flex flex-col items-center justify-center bg-background text-white z-50 fixed inset-0" style={{ height: '100vh' }}>
+          <div className="w-16 h-16 relative mb-6">
+            <div className="absolute inset-0 rounded-full border-t-2 border-accent animate-spin"></div>
+            <div className="absolute inset-2 rounded-full border-r-2 border-blue-400 animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
+          </div>
+          <motion.div
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+            className="text-sm tracking-widest uppercase font-light text-accent"
+          >
+            Initializing Sequence...
+          </motion.div>
+        </div>
+      )}
 
-      {/* Background Image: Dihapus scale-105 transisinya yang berat, diganti statis dengan opacity rendah */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-luminosity opacity-10 z-0" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/80 to-background z-0" />
+      <div
+        className="w-full overflow-hidden flex items-center justify-center transition-opacity duration-1000"
+        style={{
+          position: 'sticky',
+          top: 0,
+          height: '100vh',
+          opacity: isLoaded ? 1 : 0
+        }}
+      >
+        <div className="absolute inset-0 bg-background/60 z-0 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background z-0" />
 
-      {/* Ambient Light: Dibuat statis (tanpa animasi) agar tidak membebani GPU */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-accent/10 rounded-full blur-[120px] pointer-events-none z-10" />
+        <canvas
+          ref={canvasRef}
+          className="block w-full h-full object-cover mix-blend-luminosity z-[-1]"
+        />
+
+        <HeroTextOverlay scrollYProgress={scrollYProgress} />
+      </div>
+    </section>
+  );
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: any }) {
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
+  const titleY = useTransform(scrollYProgress, [0, 0.25], [0, -100]);
+
+  const descOpacity = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0, 1, 1, 0]);
+  const descY = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [100, 0, 0, -100]);
+
+  const ctaOpacity = useTransform(scrollYProgress, [0.7, 0.85, 1], [0, 1, 1]);
+  const ctaY = useTransform(scrollYProgress, [0.7, 0.85], [100, 0]);
+
+  return (
+    <div className="absolute inset-0 pointer-events-none text-white container mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center z-20">
 
       <motion.div
-        className="container relative z-20 mx-auto px-6 md:px-12 flex flex-col items-center text-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
+        style={{ opacity: titleOpacity, y: titleY }}
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center"
       >
-        <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.15)] cursor-default">
+        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.15)]">
           <ShieldCheck size={18} className="text-accent" />
           <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase flex items-center gap-3">
             Every Second Matters <span className="w-1.5 h-1.5 rounded-full bg-accent/50"></span> Securing Your Safety
           </span>
-        </motion.div>
+        </div>
 
-        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance drop-shadow-2xl">
           Securing Businesses <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-cyan-300">
             One At A Time.
           </span>
-        </motion.h1>
-
-        <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-4 max-w-3xl font-light leading-relaxed text-pretty">
-          Starting our journey as a fire safety company from 2022, we have expanded our client base and trusted by big businesses that care and prioritize their safety.
-        </motion.p>
-
-        <motion.p variants={itemVariants} className="text-lg md:text-xl text-foreground-muted mb-10 max-w-3xl font-light leading-relaxed text-pretty">
-          We Provide Complete Advanced Solutions To Mitigate The Risk From Lithium-ion Battery Fire. <span className="text-white font-medium">We're Here To Protect Your Safety.</span>
-        </motion.p>
-
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-20">
-          <a href="#katalog" className="bg-accent text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-accent/80 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_40px_rgba(56,152,212,0.6)] hover:-translate-y-1 group">
-            Get Our Catalog
-            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a href="#kontak" className="bg-surface/50 backdrop-blur-md border border-white/10 text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/30 transition-all duration-300 hover:-translate-y-1">
-            Consult Now
-          </a>
-        </motion.div>
-
-        <motion.div variants={itemVariants} className="pt-8 border-t border-white/10 w-full max-w-5xl relative">
-          <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-8">Trusted to Secure High-Profile Events & Assets</p>
-          <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-16 gap-y-6 opacity-60 hover:opacity-100 transition-opacity duration-500">
-            <span className="text-base md:text-xl font-bold tracking-wide hover:text-accent transition-colors cursor-default">2024 Presidential Inauguration</span>
-            <span className="text-base md:text-xl font-bold tracking-wide hover:text-accent transition-colors cursor-default">Pope Francis's Visit</span>
-            <span className="text-base md:text-xl font-bold tracking-wide hover:text-accent transition-colors cursor-default">Bluebird Group</span>
-            <span className="text-base md:text-xl font-bold tracking-wide hover:text-accent transition-colors cursor-default">KTT IAF Bali</span>
-          </div>
-        </motion.div>
+        </h1>
       </motion.div>
-    </section>
-  );
-};
 
-export default Hero;
+      <motion.div
+        style={{ opacity: descOpacity, y: descY }}
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center"
+      >
+        <p className="text-2xl md:text-4xl font-semibold mb-6 max-w-4xl leading-tight text-balance drop-shadow-xl">
+          We Provide Complete Advanced Solutions To Mitigate The Risk From Lithium-ion Battery Fire.
+        </p>
+        <p className="text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed text-pretty">
+          Starting our journey as a fire safety company from 2022, we have expanded our client base and trusted by big businesses that care and prioritize their safety.
+        </p>
+      </motion.div>
+
+      <motion.div
+        style={{ opacity: ctaOpacity, y: ctaY }}
+        className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
+      >
+        <h2 className="text-4xl md:text-6xl font-bold mb-12 drop-shadow-xl">Ready to Protect Your Assets?</h2>
+        <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-16">
+          <a href="#katalog" className="bg-accent text-white px-10 py-5 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-accent/80 transition-all duration-300 shadow-[0_0_30px_rgba(56,152,212,0.4)] hover:shadow-[0_0_50px_rgba(56,152,212,0.6)] hover:-translate-y-1">
+            Explore Catalog
+            <ArrowRight size={20} className="ml-2" />
+          </a>
+          <a href="#kontak" className="bg-surface/60 backdrop-blur-md border border-white/20 text-white px-10 py-5 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/40 transition-all duration-300 hover:-translate-y-1">
+            Consult With Us
+          </a>
+        </div>
+
+        <div className="pt-8 border-t border-white/20 w-full max-w-4xl relative">
+          <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-8">Trusted to Secure High-Profile Events & Assets</p>
+          <div className="flex flex-wrap justify-center items-center gap-x-8 md:gap-x-12 gap-y-6 opacity-80">
+            <span className="text-base md:text-lg font-bold tracking-wide text-white">2024 Presidential Inauguration</span>
+            <span className="text-base md:text-lg font-bold tracking-wide text-white">Pope Francis's Visit</span>
+            <span className="text-base md:text-lg font-bold tracking-wide text-white">Bluebird Group</span>
+            <span className="text-base md:text-lg font-bold tracking-wide text-white">KTT IAF Bali</span>
+          </div>
+        </div>
+      </motion.div>
+
+    </div>
+  );
+}

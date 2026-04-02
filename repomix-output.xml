@@ -1,15 +1,3 @@
-yang memakai component spotlight card tuh tidak terlihat baik karena ada p-8 sebelum pemakaian component spotlight card, jadi saya sarankan untuk menghapus p-8 tersebut dan memindahkan paddingnya ke dalam component spotlight card agar lebih konsisten dan terlihat lebih baik.
-<file path="src/assets/FAST_Favicons/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_JPEG/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_PNG/Icon_">
-
-</file>
 
 <file path="src/components/Certifications.tsx">
 import { ShieldCheck, Award, Globe, CheckCircle2 } from 'lucide-react';
@@ -379,87 +367,6 @@ const ClientBasePage = () => {
 export default ClientBasePage;
 </file>
 
-<file path="tsconfig.app.json">
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "types": ["vite/client"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"]
-}
-</file>
-
-<file path="tsconfig.json">
-{
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
-}
-</file>
-
-<file path="tsconfig.node.json">
-{
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-    "target": "ES2023",
-    "lib": ["ES2023"],
-    "module": "ESNext",
-    "types": ["node"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
-  },
-  "include": ["vite.config.ts"]
-}
-</file>
-
-<file path="vite.config.ts">
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import tailwindcss from "@tailwindcss/vite";
-
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-});
-</file>
-
 <file path="src/components/Layout.tsx">
 import { Outlet } from 'react-router-dom';
 import { motion, useScroll } from 'framer-motion';
@@ -726,51 +633,6 @@ const Home = () => {
 export default Home;
 </file>
 
-<file path="package.json">
-{
-  "name": "landing-page",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.2.0",
-    "framer-motion": "^12.38.0",
-    "gsap": "^3.14.2",
-    "i18next": "^25.8.11",
-    "lucide-react": "^0.575.0",
-    "motion": "^12.34.2",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-helmet-async": "^3.0.0",
-    "react-i18next": "^16.5.4",
-    "react-router-dom": "^7.13.2",
-    "tailwindcss": "^4.2.0",
-    "three": "^0.183.0",
-    "unity-webgl": "^4.4.3"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react-swc": "^4.2.2",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.48.0",
-    "vite": "^7.3.1"
-  }
-}
-</file>
-
 <file path="src/App.tsx">
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -987,107 +849,6 @@ const BrandDetail = () => {
 export default BrandDetail;
 </file>
 
-<file path="index.html">
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>
-      PT. FAST | Famindo Alfa Spektrum Teknologi - Advanced Fire Safety
-      Solutions
-    </title>
-    <meta
-      name="title"
-      content="PT. FAST | Famindo Alfa Spektrum Teknologi - Advanced Fire Safety Solutions"
-    />
-    <meta
-      name="description"
-      content="Every second matters. PT. FAST provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
-    />
-    <meta
-      name="keywords"
-      content="fire safety indonesia, lithium fire extinguisher, EV fire protection, smart fire detection, PT FAST, Famindo Alfa Spektrum Teknologi, Hartindo AF31, fire safety B2B"
-    />
-    <meta name="author" content="PT. Famindo Alfa Spektrum Teknologi" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.famindofast.com/" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.famindofast.com/" />
-    <meta
-      property="og:title"
-      content="PT. FAST | Advanced Fire Safety Solutions"
-    />
-    <meta
-      property="og:description"
-      content="Every second matters. PT. FAST provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
-    />
-    <meta
-      property="og:image"
-      content="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop"
-    />
-    <meta property="og:site_name" content="PT. FAST" />
-    <meta property="og:locale" content="en_US" />
-
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.famindofast.com/" />
-    <meta
-      property="twitter:title"
-      content="PT. FAST | Advanced Fire Safety Solutions"
-    />
-    <meta
-      property="twitter:description"
-      content="Every second matters. PT. FAST provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
-    />
-    <meta
-      property="twitter:image"
-      content="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop"
-    />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
-        "image": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop",
-        "@id": "https://www.famindofast.com/",
-        "url": "https://www.famindofast.com/",
-        "telephone": "+6281290003278",
-        "email": "support@famindofast.co",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "TCC Tower One Menara Batavia, Jl. K.H. Mas Mansyur No. Kav. 126, RT.9/RW.3, Karet Tengsin",
-          "addressLocality": "Tanah Abang",
-          "addressRegion": "Jakarta Pusat",
-          "postalCode": "10220",
-          "addressCountry": "ID"
-        },
-        "sameAs": [
-          "https://instagram.com/famindofast",
-          "https://facebook.com",
-          "https://linkedin.com"
-        ],
-        "description": "Provider of advanced fire safety solutions and lithium-ion battery fire mitigation in Indonesia."
-      }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
-</file>
-
 <file path="src/components/FloatingWA.tsx">
 import { MessageCircle } from 'lucide-react';
 
@@ -1176,20 +937,25 @@ const ClientBase = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <SpotlightCard className="group relative p-8 h-full bg-background/40 border-white/5 hover:border-white/10 flex flex-col">
+              {/* p-8 dihapus dari SpotlightCard */}
+              <SpotlightCard className="group relative h-full bg-background/40 border-white/5 hover:border-white/10">
+                {/* Background bebas menyentuh tepi karena SpotlightCard sudah tidak dibatasi padding */}
                 <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${client.gradient} to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
-                <div className="relative z-10 mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
-                  {client.icon}
+                {/* Padding dipindahkan ke wrapper konten */}
+                <div className="relative z-10 p-8 flex flex-col h-full">
+                  <div className="mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
+                    {client.icon}
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white/90 mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
+                    {client.name}
+                  </h3>
+
+                  <p className="text-sm text-foreground-muted font-light leading-relaxed flex-grow">
+                    {client.desc}
+                  </p>
                 </div>
-
-                <h3 className="relative z-10 text-lg font-bold text-white/90 mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">
-                  {client.name}
-                </h3>
-
-                <p className="relative z-10 text-sm text-foreground-muted font-light leading-relaxed flex-grow">
-                  {client.desc}
-                </p>
               </SpotlightCard>
             </motion.div>
           ))}
@@ -1217,250 +983,6 @@ const ClientBase = () => {
 };
 
 export default ClientBase;
-</file>
-
-<file path="src/components/SEO.tsx">
-import { Helmet } from 'react-helmet-async';
-
-interface SEOProps {
-  title?: string;
-  description?: string;
-  image?: string;
-  url?: string;
-  type?: string;
-  schemaMarkup?: Record<string, unknown>;
-}
-
-const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }: SEOProps) => {
-  const siteUrl = "https://www.famindofast.com";
-
-  const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
-  const defaultDescription = "Every second matters. PT. FAST provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities.";
-  const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
-
-  const seoTitle = title ? `${title} | PT.FAST` : defaultTitle;
-  const seoDesc = description || defaultDescription;
-  const seoImage = image || defaultImage;
-  const seoUrl = `${siteUrl}${url || ''}`;
-
-  const defaultSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
-    "url": siteUrl,
-    "logo": `${siteUrl}/favicon/android-chrome-512x512.png`,
-    "description": defaultDescription,
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+62-812-9000-3278",
-      "contactType": "customer service",
-      "areaServed": "ID",
-      "availableLanguage": ["English", "Indonesian"]
-    },
-    "sameAs": [
-      "https://instagram.com/famindofast",
-      "https://facebook.com",
-      "https://linkedin.com"
-    ]
-  };
-
-  return (
-    <Helmet prioritizeSeoTags>
-      <html lang="en" />
-      <title>{seoTitle}</title>
-      <meta name="description" content={seoDesc} />
-      <meta name="theme-color" content="#0a192f" />
-      <link rel="canonical" href={seoUrl} />
-
-      <meta property="og:type" content={type} />
-      <meta property="og:url" content={seoUrl} />
-      <meta property="og:title" content={seoTitle} />
-      <meta property="og:description" content={seoDesc} />
-      <meta property="og:image" content={seoImage} />
-      <meta property="og:site_name" content="PT. FAST" />
-      <meta property="og:locale" content="en_US" />
-
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content={seoUrl} />
-      <meta name="twitter:title" content={seoTitle} />
-      <meta name="twitter:description" content={seoDesc} />
-      <meta name="twitter:image" content={seoImage} />
-
-      <script type="application/ld+json">
-        {JSON.stringify(schemaMarkup || defaultSchema)}
-      </script>
-    </Helmet>
-  );
-};
-
-export default SEO;
-</file>
-
-<file path="src/components/About.tsx">
-import { motion } from 'framer-motion';
-import { Flame, Droplets, Wind, ShieldAlert, Heart, ShieldCheck } from 'lucide-react';
-import SpotlightCard from './SpotlightCard';
-
-const About = () => {
-  const dangers = [
-    {
-      icon: <Flame size={24} className="text-accent" />,
-      title: "Extremely High Temp",
-      description: "Starting point of 1000°C up to 2000°C. Higher destructibility, too hot for regular fire extinguishers."
-    },
-    {
-      icon: <Wind size={24} className="text-accent" />,
-      title: "Toxic Gas",
-      description: "Emits toxic gas containing hydrofluoric acid and other severely corrosive characteristics."
-    },
-    {
-      icon: <ShieldAlert size={24} className="text-accent" />,
-      title: "Extremely Difficult",
-      description: "The vast water volume needed to combat lithium fire can cause massive drainage overload."
-    },
-    {
-      icon: <Droplets size={24} className="text-accent" />,
-      title: "Toxic Residual",
-      description: "Residual from lithium-ion battery mixed with water becomes highly toxic for the environment."
-    }
-  ];
-
-  return (
-    <section id="profil" className="py-24 bg-background relative overflow-hidden">
-      {/* Background Ornaments - Statis */}
-      <div className="absolute top-0 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 -right-64 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-
-        <div className="max-w-4xl mx-auto text-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-              Protecting What Matters Most with <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Advanced Fire Solutions</span>
-            </h2>
-            <p className="text-foreground-muted text-lg leading-relaxed font-light">
-              At FAST, we believe true safety is built on sophisticated technology, unwavering trust, and a profound commitment to protecting lives and assets. We don't just install systems; we engineer peace of mind.
-            </p>
-          </motion.div>
-        </div>
-
-        {/* Vision & Mission Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SpotlightCard className="group p-8 md:p-10 bg-surface/50 border-white/5 hover:border-accent/30 h-full">
-              <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
-                <ShieldCheck size={28} className="text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Mission</h3>
-              <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
-              </p>
-            </SpotlightCard>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SpotlightCard className="group p-8 md:p-10 bg-surface/50 border-white/5 hover:border-accent/30 h-full">
-              <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
-                <Heart size={28} className="text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Vision</h3>
-              <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                We want to live in a world where people can feel safe and focus on pursuing the things that matter.
-              </p>
-            </SpotlightCard>
-          </motion.div>
-        </div>
-
-        {/* The Hidden Threat Section */}
-        <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="w-full lg:w-1/2 space-y-6"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm">
-              <span className="text-xs font-bold tracking-widest text-accent uppercase">The Hidden Threat</span>
-            </div>
-
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white tracking-tight">
-              What Is <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground-muted to-gray-500">Lithium-Ion Battery?</span>
-            </h2>
-
-            <p className="text-foreground-muted text-lg leading-relaxed font-light">
-              Lithium batteries are rechargeable power sources widely used in portable electronics, electric vehicles, and renewable energy systems due to their high energy density.
-            </p>
-
-            <div className="pt-6 border-t border-white/10 mt-6">
-              <h3 className="text-xl font-semibold mb-3 text-white">Why Is Its Fire Different?</h3>
-              <p className="text-accent italic font-light">
-                Its aberrant characteristic makes this fire exceptionally volatile, more dangerous, and incredibly difficult to extinguish!
-              </p>
-            </div>
-          </motion.div>
-
-          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {dangers.map((danger, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="h-full"
-              >
-                <SpotlightCard className="group p-6 h-full bg-surface/40 border-white/5 hover:bg-surface/80 hover:border-accent/30 flex flex-col">
-                  <div className="flex-shrink-0 mb-4 w-12 h-12 rounded-xl bg-background border border-white/10 flex items-center justify-center group-hover:border-accent/50 transition-colors relative z-10">
-                    {danger.icon}
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 text-white/90 group-hover:text-accent transition-colors relative z-10">{danger.title}</h3>
-                  <p className="text-foreground-muted text-sm leading-relaxed font-light relative z-10">{danger.description}</p>
-                </SpotlightCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Passion Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="p-10 md:p-16 rounded-[2.5rem] bg-surface border border-white/10 text-center relative overflow-hidden shadow-2xl"
-        >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] pointer-events-none"></div>
-
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 relative z-10 tracking-tight">Your Safety, <span className="text-accent">Our Passion</span></h2>
-          <p className="text-lg text-foreground-muted max-w-3xl mx-auto font-light leading-relaxed relative z-10">
-            For us, fire safety is more than a service – it's a deep-seated passion. We are dedicated to pioneering innovations that offer superior protection, ensuring the well-being of individuals and the longevity of valuable investments.
-          </p>
-        </motion.div>
-
-      </div>
-    </section>
-  );
-};
-
-export default About;
 </file>
 
 <file path="src/components/ContactFooter.tsx">
@@ -1772,139 +1294,252 @@ const Navbar = () => {
 export default Navbar;
 </file>
 
-<file path="src/components/Brands.tsx">
-import { Link } from 'react-router-dom';
+<file path="src/components/SEO.tsx">
+import { Helmet } from 'react-helmet-async';
+
+interface SEOProps {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
+  schemaMarkup?: Record<string, unknown>;
+}
+
+const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }: SEOProps) => {
+  const siteUrl = "https://www.famindofast.com";
+
+  const defaultTitle = "PT. FAST | Advanced Fire Safety Solutions";
+  const defaultDescription = "Every second matters. PT. FAST provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities.";
+  const defaultImage = "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1200&auto=format&fit=crop";
+
+  const seoTitle = title ? `${title} | PT.FAST` : defaultTitle;
+  const seoDesc = description || defaultDescription;
+  const seoImage = image || defaultImage;
+  const seoUrl = `${siteUrl}${url || ''}`;
+
+  const defaultSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
+    "url": siteUrl,
+    "logo": `${siteUrl}/favicon/android-chrome-512x512.png`,
+    "description": defaultDescription,
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+62-812-9000-3278",
+      "contactType": "customer service",
+      "areaServed": "ID",
+      "availableLanguage": ["English", "Indonesian"]
+    },
+    "sameAs": [
+      "https://instagram.com/famindofast",
+      "https://facebook.com",
+      "https://linkedin.com"
+    ]
+  };
+
+  return (
+    <Helmet prioritizeSeoTags>
+      <html lang="en" />
+      <title>{seoTitle}</title>
+      <meta name="description" content={seoDesc} />
+      <meta name="theme-color" content="#0a192f" />
+      <link rel="canonical" href={seoUrl} />
+
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={seoUrl} />
+      <meta property="og:title" content={seoTitle} />
+      <meta property="og:description" content={seoDesc} />
+      <meta property="og:image" content={seoImage} />
+      <meta property="og:site_name" content="PT. FAST" />
+      <meta property="og:locale" content="en_US" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={seoUrl} />
+      <meta name="twitter:title" content={seoTitle} />
+      <meta name="twitter:description" content={seoDesc} />
+      <meta name="twitter:image" content={seoImage} />
+
+      <script type="application/ld+json">
+        {JSON.stringify(schemaMarkup || defaultSchema)}
+      </script>
+    </Helmet>
+  );
+};
+
+export default SEO;
+</file>
+
+<file path="src/components/About.tsx">
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Zap, ShieldAlert, Cpu, Droplets } from 'lucide-react';
+import { Flame, Droplets, Wind, ShieldAlert, Heart, ShieldCheck } from 'lucide-react';
 import SpotlightCard from './SpotlightCard';
 
-const Brands = () => {
-  const brands = [
+const About = () => {
+  const dangers = [
     {
-      name: "Lithium Fire Killer Hartindo AF31",
-      slug: "hartindo-af31",
-      description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
-      logo: "AF31",
-      icon: <ShieldAlert size={32} className="text-accent" />,
-      gridClass: "md:col-span-2 md:row-span-2",
-      bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
+      icon: <Flame size={24} className="text-accent" />,
+      title: "Extremely High Temp",
+      description: "Starting point of 1000°C up to 2000°C. Higher destructibility, too hot for regular fire extinguishers."
     },
     {
-      name: "BALLISTIC App",
-      slug: "ballistic-app",
-      description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
-      logo: "APP",
-      icon: <Cpu size={24} className="text-white" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+      icon: <Wind size={24} className="text-accent" />,
+      title: "Toxic Gas",
+      description: "Emits toxic gas containing hydrofluoric acid and other severely corrosive characteristics."
     },
     {
-      name: "USS For EV",
-      slug: "uss-ev",
-      description: "Undercarriage Suppressions System jet-spraying its content directly under EV cars.",
-      logo: "USS",
-      icon: <Zap size={24} className="text-white" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop"
+      icon: <ShieldAlert size={24} className="text-accent" />,
+      title: "Extremely Difficult",
+      description: "The vast water volume needed to combat lithium fire can cause massive drainage overload."
     },
     {
-      name: "FLAT Hartindo AF11E",
-      slug: "flat-af11e",
-      description: "A sophisticated liquid gas that can put off several classes of fire without leaving any destructive residue behind.",
-      logo: "FLAT",
-      icon: <Droplets size={28} className="text-white" />,
-      gridClass: "md:col-span-3 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=1200&auto=format&fit=crop"
+      icon: <Droplets size={24} className="text-accent" />,
+      title: "Toxic Residual",
+      description: "Residual from lithium-ion battery mixed with water becomes highly toxic for the environment."
     }
   ];
 
   return (
-    <section id="brands" className="py-24 bg-surface relative overflow-hidden border-y border-white/5">
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+    <section id="profil" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-0 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 -right-64 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+
+        <div className="max-w-4xl mx-auto text-center mb-24">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-2xl"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">Innovation & <span className="text-accent">Technology</span></h2>
-            <p className="text-foreground-muted text-lg font-light leading-relaxed">
-              Explore our specialized technological innovations designed to handle various levels of fire risks with absolute precision.
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+              Protecting What Matters Most with <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Advanced Fire Solutions</span>
+            </h2>
+            <p className="text-foreground-muted text-lg leading-relaxed font-light">
+              At FAST, we believe true safety is built on sophisticated technology, unwavering trust, and a profound commitment to protecting lives and assets. We don't just install systems; we engineer peace of mind.
             </p>
           </motion.div>
+        </div>
 
-          <motion.a
-            initial={{ opacity: 0, x: 20 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            href="#katalog"
-            aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
-            className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
           >
-            View Complete Catalog <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </motion.a>
+            {/* p-8 md:p-10 dipindahkan ke pembungkus konten */}
+            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                  <ShieldCheck size={28} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Mission</h3>
+                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                  We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
+                </p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                  <Heart size={28} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Vision</h3>
+                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                  We want to live in a world where people can feel safe and focus on pursuing the things that matter.
+                </p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
-          {brands.map((brand, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`h-full ${brand.gridClass}`}
-            >
-              <Link
-                to={`/brand/${brand.slug}`}
-                aria-label={`Pelajari lebih detail mengenai spesifikasi produk ${brand.name}`}
-                className="group relative w-full h-full block"
+        <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full lg:w-1/2 space-y-6"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm">
+              <span className="text-xs font-bold tracking-widest text-accent uppercase">The Hidden Threat</span>
+            </div>
+
+            <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white tracking-tight">
+              What Is <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground-muted to-gray-500">Lithium-Ion Battery?</span>
+            </h2>
+
+            <p className="text-foreground-muted text-lg leading-relaxed font-light">
+              Lithium batteries are rechargeable power sources widely used in portable electronics, electric vehicles, and renewable energy systems due to their high energy density.
+            </p>
+
+            <div className="pt-6 border-t border-white/10 mt-6">
+              <h3 className="text-xl font-semibold mb-3 text-white">Why Is Its Fire Different?</h3>
+              <p className="text-accent italic font-light">
+                Its aberrant characteristic makes this fire exceptionally volatile, more dangerous, and incredibly difficult to extinguish!
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {dangers.map((danger, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="h-full"
               >
-                <SpotlightCard className="w-full h-full rounded-3xl border-white/5 hover:border-accent/30 flex flex-col justify-end p-8">
-                  <div className="absolute inset-0 z-0 bg-background overflow-hidden rounded-3xl">
-                    <img
-                      src={brand.bgImage}
-                      alt={`Sistem Proteksi Kebakaran dan Teknologi Mitigasi ${brand.name} dari PT FAST`}
-                      loading="lazy"
-                      className="w-full h-full object-cover opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
-                  </div>
-
-                  <div className="relative z-10 w-full transform-gpu transition-transform duration-500">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>
-                        {brand.icon}
-                      </div>
-                      <div className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-white opacity-0 transform-gpu translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:translate-x-0">
-                        <ArrowUpRight size={20} />
-                      </div>
+                {/* p-6 dipindahkan ke pembungkus konten */}
+                <SpotlightCard className="group h-full bg-surface/40 border-white/5 hover:bg-surface/80 hover:border-accent/30">
+                  <div className="p-6 h-full flex flex-col relative z-10">
+                    <div className="flex-shrink-0 mb-4 w-12 h-12 rounded-xl bg-background border border-white/10 flex items-center justify-center group-hover:border-accent/50 transition-colors">
+                      {danger.icon}
                     </div>
-
-                    <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 tracking-tight ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
-                      {brand.name}
-                    </h3>
-
-                    <p className={`text-foreground-muted font-light leading-relaxed transform-gpu translate-y-2 opacity-80 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2'}`}>
-                      {brand.description}
-                    </p>
+                    <h3 className="text-lg font-bold mb-2 text-white/90 group-hover:text-accent transition-colors">{danger.title}</h3>
+                    <p className="text-foreground-muted text-sm leading-relaxed font-light">{danger.description}</p>
                   </div>
                 </SpotlightCard>
-              </Link>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="p-10 md:p-16 rounded-[2.5rem] bg-surface border border-white/10 text-center relative overflow-hidden shadow-2xl"
+        >
+          <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 relative z-10 tracking-tight">Your Safety, <span className="text-accent">Our Passion</span></h2>
+          <p className="text-lg text-foreground-muted max-w-3xl mx-auto font-light leading-relaxed relative z-10">
+            For us, fire safety is more than a service – it's a deep-seated passion. We are dedicated to pioneering innovations that offer superior protection, ensuring the well-being of individuals and the longevity of valuable investments.
+          </p>
+        </motion.div>
+
       </div>
     </section>
   );
 };
 
-export default Brands;
+export default About;
 </file>
 
 <file path="src/components/Catalog.tsx">
@@ -2087,6 +1722,142 @@ const Hero = () => {
 };
 
 export default Hero;
+</file>
+
+<file path="src/components/Brands.tsx">
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Zap, ShieldAlert, Cpu, Droplets } from 'lucide-react';
+import SpotlightCard from './SpotlightCard';
+
+const Brands = () => {
+  const brands = [
+    {
+      name: "Lithium Fire Killer Hartindo AF31",
+      slug: "hartindo-af31",
+      description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
+      logo: "AF31",
+      icon: <ShieldAlert size={32} className="text-accent" />,
+      gridClass: "md:col-span-2 md:row-span-2",
+      bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      name: "BALLISTIC App",
+      slug: "ballistic-app",
+      description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
+      logo: "APP",
+      icon: <Cpu size={24} className="text-white" />,
+      gridClass: "md:col-span-1 md:row-span-1",
+      bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      name: "USS For EV",
+      slug: "uss-ev",
+      description: "Undercarriage Suppressions System jet-spraying its content directly under EV cars.",
+      logo: "USS",
+      icon: <Zap size={24} className="text-white" />,
+      gridClass: "md:col-span-1 md:row-span-1",
+      bgImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop"
+    },
+    {
+      name: "FLAT Hartindo AF11E",
+      slug: "flat-af11e",
+      description: "A sophisticated liquid gas that can put off several classes of fire without leaving any destructive residue behind.",
+      logo: "FLAT",
+      icon: <Droplets size={28} className="text-white" />,
+      gridClass: "md:col-span-3 md:row-span-1",
+      bgImage: "https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=1200&auto=format&fit=crop"
+    }
+  ];
+
+  return (
+    <section id="brands" className="py-24 bg-surface relative overflow-hidden border-y border-white/5">
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">Innovation & <span className="text-accent">Technology</span></h2>
+            <p className="text-foreground-muted text-lg font-light leading-relaxed">
+              Explore our specialized technological innovations designed to handle various levels of fire risks with absolute precision.
+            </p>
+          </motion.div>
+
+          <motion.a
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            href="#katalog"
+            aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
+            className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
+          >
+            View Complete Catalog <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          </motion.a>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
+          {brands.map((brand, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`h-full ${brand.gridClass}`}
+            >
+              <Link
+                to={`/brand/${brand.slug}`}
+                aria-label={`Pelajari lebih detail mengenai spesifikasi produk ${brand.name}`}
+                className="group relative w-full h-full block"
+              >
+                <SpotlightCard className="w-full h-full rounded-3xl border-white/5 hover:border-accent/30">
+                  <div className="absolute inset-0 z-0 bg-background overflow-hidden rounded-3xl">
+                    <img
+                      src={brand.bgImage}
+                      alt={`Sistem Proteksi Kebakaran dan Teknologi Mitigasi ${brand.name} dari PT FAST`}
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
+                  </div>
+
+                  {/* Di sinilah letak perbaikannya: memindahkan p-8 dan flex-col ke pembungkus konten, sehingga gambar background tetap full */}
+                  <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end transform-gpu transition-transform duration-500">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>
+                        {brand.icon}
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-white opacity-0 transform-gpu translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:translate-x-0">
+                        <ArrowUpRight size={20} />
+                      </div>
+                    </div>
+
+                    <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 tracking-tight ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
+                      {brand.name}
+                    </h3>
+
+                    <p className={`text-foreground-muted font-light leading-relaxed transform-gpu translate-y-2 opacity-80 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2'}`}>
+                      {brand.description}
+                    </p>
+                  </div>
+                </SpotlightCard>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Brands;
 </file>
 
 </files>
