@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 
 export default function Hero() {
@@ -113,13 +113,7 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full border-t-2 border-accent animate-spin"></div>
             <div className="absolute inset-2 rounded-full border-r-2 border-blue-400 animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
           </div>
-          <motion.div
-            animate={{ opacity: [0.5, 1, 0.5] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-            className="text-sm tracking-widest uppercase font-light text-accent"
-          >
-            Initializing Sequence...
-          </motion.div>
+
         </div>
       )}
 
@@ -132,12 +126,12 @@ export default function Hero() {
           opacity: isLoaded ? 1 : 0
         }}
       >
-        <div className="absolute inset-0 bg-background/60 z-0 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-transparent to-background z-0" />
+        <div className="absolute inset-0 bg-background/50 z-0 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background z-0" />
 
         <canvas
           ref={canvasRef}
-          className="block w-full h-full object-cover mix-blend-luminosity z-[-1]"
+          className="block w-full h-full object-cover mix-blend-normal z-[-1]"
         />
 
         <HeroTextOverlay scrollYProgress={scrollYProgress} />
@@ -146,8 +140,8 @@ export default function Hero() {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: any }) {
+
+function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
   const titleY = useTransform(scrollYProgress, [0, 0.25], [0, -100]);
 
