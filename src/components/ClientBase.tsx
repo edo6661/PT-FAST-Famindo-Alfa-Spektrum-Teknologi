@@ -1,4 +1,4 @@
-import { Landmark, Shield, Car, Zap, ArrowRight } from 'lucide-react';
+import { Landmark, Shield, Car, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SpotlightCard from './SpotlightCard';
@@ -8,31 +8,26 @@ const ClientBase = () => {
     {
       icon: <Landmark size={32} className="text-white" />,
       name: "2024 Presidential Inauguration",
-      desc: "Safeguarded the momentous national event. LFK Hartindo AF31 distributed for EV units escorting international VVIP guests.",
+      desc: "Safeguarded international VVIPs by equipping EV escorts with LFK Hartindo AF31.",
       gradient: "from-blue-600/20"
     },
     {
       icon: <Shield size={32} className="text-white" />,
       name: "Securing Pope Francis's Visit",
-      desc: "Trusted to secure the vehicle that escorted the Pope during his historic visit in Indonesia, guaranteeing absolute safety.",
+      desc: "Ensured absolute safety for the Pope's escort vehicle during his Indonesian visit.",
       gradient: "from-amber-500/20"
     },
-    {
-      icon: <Zap size={32} className="text-white" />,
-      name: "IKT Terminal & KTT IAF Bali",
-      desc: "Secured hundreds of EV units at IKT Terminal escorting international VVIP guests at the prestigious KTT IAF event.",
-      gradient: "from-accent/20"
-    },
+
     {
       icon: <Car size={32} className="text-white" />,
       name: "Bluebird Group",
-      desc: "Appointed as the official fire safety supplier and successfully conducted training at the company's Mampang headquarters.",
+      desc: "Official fire safety supplier and training provider at their Mampang headquarters.",
       gradient: "from-cyan-500/20"
     },
   ];
 
   return (
-    <section id="klien" className="py-24 bg-surface relative border-y border-white/5 overflow-hidden">
+    <section id="klien" className="py-24 bg-background relative border-y border-white/5 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
 
         <motion.div
@@ -45,11 +40,11 @@ const ClientBase = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-wide">Engineered for Excellence, <span className="text-accent">Proven in Practice</span></h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent/50 to-transparent mx-auto"></div>
           <p className="text-foreground-muted mt-6 max-w-3xl mx-auto font-light leading-relaxed">
-            Our expertise extends beyond conventional fire safety. We specialize in designing, implementing, and maintaining cutting-edge solutions tailored to the most demanding environments.
+            Delivering advanced, custom fire safety solutions for the most demanding environments.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {clients.map((client, index) => (
             <motion.div
               key={index}
@@ -58,12 +53,9 @@ const ClientBase = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {/* p-8 dihapus dari SpotlightCard */}
               <SpotlightCard className="group relative h-full bg-background/40 border-white/5 hover:border-white/10">
-                {/* Background bebas menyentuh tepi karena SpotlightCard sudah tidak dibatasi padding */}
                 <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${client.gradient} to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
-                {/* Padding dipindahkan ke wrapper konten */}
                 <div className="relative z-10 p-8 flex flex-col h-full">
                   <div className="mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
                     {client.icon}

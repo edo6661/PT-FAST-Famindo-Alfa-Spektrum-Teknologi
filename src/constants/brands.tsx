@@ -1,3 +1,5 @@
+import { Cpu, ShieldAlert } from "lucide-react";
+
 export interface BrandProduct {
   name: string;
   desc: string;
@@ -45,36 +47,39 @@ export const brands: Record<string, BrandData> = {
       { name: "BALLISTIC Enterprise", desc: "Centralized monitoring system for modern Data Centers." }
     ]
   },
-  "uss-ev": {
-    name: "Undercarriage Suppressions System (USS)",
-    tagline: "Targeted Protection for EV Batteries",
-    description: "FAST's innovative suppression system is strategically installed under the vehicle (undercarriage). When a temperature anomaly or spark is detected, this system automatically delivers a high-powered jet spray of extinguishing agent (Lithium Fire Killer) directly into the crucial battery compartment.",
-    heroImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2000&auto=format&fit=crop",
-    features: [
-      "Direct jet-spray targeting the battery compartment",
-      "Instant automatic response during critical conditions",
-      "Adaptive design integrated with EV underbody structure",
-      "Prevents explosions and fire spread to the passenger cabin"
-    ],
-    products: [
-      { name: "USS Standard Edition", desc: "Suppression system for premium class passenger vehicles." },
-      { name: "USS Commercial Fleet", desc: "Heavy-duty design specifically for electric buses and trucks." }
-    ]
-  },
-  "flat-af11e": {
-    name: "FLAT Hartindo AF11E",
-    tagline: "Advanced Liquid Gas Fire Suppression",
-    description: "FLAT Hartindo AF11E is an advanced liquid gas technology capable of extinguishing various classes of fire without leaving destructive residue. This formulation is the safest and most reliable solution for protecting electronic equipment, vital records, and control rooms.",
-    heroImage: "https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=2000&auto=format&fit=crop",
-    features: [
-      "Zero destructive or corrosive residue",
-      "100% safe for electronic equipment and servers",
-      "Rapid suppression reaction by cutting off the oxygen chain",
-      "Eco-friendly and safe for human respiration"
-    ],
-    products: [
-      { name: "FLAT Portable Series", desc: "Liquid gas-based Portable Fire Extinguishers." },
-      { name: "FLAT System Integration", desc: "Centralized automatic suppression installations for server rooms." }
-    ]
-  }
+
 };
+
+
+
+export const mainBrands = [
+  {
+    name: "Lithium Fire Killer Hartindo AF31",
+    slug: "hartindo-af31",
+    description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
+    logo: "AF31",
+    icon: <ShieldAlert size={32} className="text-accent" />,
+    gridClass: "md:col-span-2 md:row-span-2",
+    bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
+  },
+  {
+    name: "BALLISTIC App",
+    slug: "ballistic-app",
+    description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
+    logo: "APP",
+    icon: <Cpu size={24} className="text-white" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    name: "Altex",
+    slug: "altex",
+    description: "Belum ada data.",
+    logo: "APP",
+    icon: <Cpu size={24} className="text-white" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+
+  }
+
+];

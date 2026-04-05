@@ -2,7 +2,7 @@ import { MessageCircle } from 'lucide-react';
 
 const FloatingWA = () => {
   const phoneNumber = "6281290003278";
-  const message = "Hello PT. FAST team, I am interested in consulting about Fire Safety solutions and Lithium-ion battery risk mitigation for my facility/company.";
+  const message = "Hello FAST | PT. Famindo Alfa Spektrum Teknologi team, I am interested in consulting about Fire Safety solutions and Lithium-ion battery risk mitigation for my facility/company.";
   const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (

@@ -165,7 +165,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
           </span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance drop-shadow-2xl">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance drop-shadow-2xl">
           Securing Businesses <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-cyan-300">
             One At A Time.

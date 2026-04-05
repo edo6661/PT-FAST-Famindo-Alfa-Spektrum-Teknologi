@@ -23,13 +23,12 @@ const Catalog = () => {
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">No Fire <span className="text-accent">No Fear</span></h2>
           <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            High-level fire safety technologies engineered to provide maximum reliability across critical industrial sectors and modern ecosystems.
+            High-level fire safety engineered for maximum reliability in critical industries.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {products.map((product, index) => {
-            const gridSpan = index < 2 ? 'lg:col-span-3' : 'lg:col-span-2';
 
             return (
               <motion.div
@@ -38,7 +37,7 @@ const Catalog = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`h-[450px] md:col-span-1 ${gridSpan} transform-gpu`}
+                className={`h-[450px] md:col-span-1  transform-gpu`}
               >
                 <SpotlightCard className="group h-full w-full hover:border-accent/40 hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)]">
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />

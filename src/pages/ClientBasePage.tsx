@@ -14,7 +14,7 @@ const ClientBasePage = () => {
       name: "2024 Presidential Inauguration",
       category: "Government & National Event",
       status: "Deployment Secured",
-      desc: "PT. FAST was called by the Ministry of State Secretariat to safeguard a momentous national event with precision and reliability. Lithium Fire Killer Hartindo AF31 was distributed for the EV units escorting the international VVIP guests attending the presidential inauguration ceremony.",
+      desc: "FAST | PT. Famindo Alfa Spektrum Teknologi was called by the Ministry of State Secretariat to safeguard a momentous national event with precision and reliability. Lithium Fire Killer Hartindo AF31 was distributed for the EV units escorting the international VVIP guests attending the presidential inauguration ceremony.",
       color: "from-blue-600/20 to-transparent",
       borderColor: "group-hover:border-blue-500/50"
     },
@@ -121,7 +121,7 @@ const ClientBasePage = () => {
 
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Secure Your Assets?</h2>
-            <p className="text-lg text-foreground-muted mb-10 max-w-2xl mx-auto font-light">Join our growing list of prestigious clients who trust PT. FAST for their critical fire safety needs.</p>
+            <p className="text-lg text-foreground-muted mb-10 max-w-2xl mx-auto font-light">Join our growing list of prestigious clients who trust FAST | PT. Famindo Alfa Spektrum Teknologi for their critical fire safety needs.</p>
             <a href="/#kontak" className="inline-flex items-center gap-2 bg-accent hover:bg-accent/80 text-white px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_40px_rgba(56,152,212,0.6)] hover:-translate-y-1 uppercase text-sm">
               Consult With Our Experts
             </a>

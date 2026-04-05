@@ -50,7 +50,7 @@ const ContactFooter = () => {
   };
 
   return (
-    <footer id="kontak" className="bg-background pt-24 border-t border-border relative overflow-hidden">
+    <footer id="kontak" className="bg-surface pt-24 border-t border-border relative overflow-hidden">
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
 
@@ -98,14 +98,14 @@ const ContactFooter = () => {
             <div className="mt-10 rounded-card overflow-hidden border border-border shadow-card h-64 relative bg-surface">
               <iframe
                 title="Peta Lokasi Kantor Pusat PT Famindo Alfa Spektrum Teknologi (FAST)"
-                src="[https://maps.google.com/maps?q=TCC+Tower+One+Menara+Batavia&t=&z=15&ie=UTF8&iwloc=&output=embed](https://maps.google.com/maps?q=TCC+Tower+One+Menara+Batavia&t=&z=15&ie=UTF8&iwloc=&output=embed)"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.398361941328!2d106.8138512746038!3d-6.2110753608376985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f6a9eb4646b1%3A0xd1fdd0d354acf37!2sFP%20One%20TCC%20Batavia%20Tower%20One!5e0!3m2!1sid!2sid!4v1775395133848!5m2!1sid!2sid"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0 grayscale contrast-125 opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                className="absolute inset-0 opacity-100 transition-all duration-500"
               ></iframe>
             </div>
           </div>
@@ -176,7 +176,7 @@ const ContactFooter = () => {
 
         </div>
 
-        <div className="mb-12 border-t border-border pt-12">
+        <div className="mb-12 border-t border-border pt-12 bg-surface">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <div>
               <h3 className="text-2xl font-bold flex items-center gap-2 mb-1">
@@ -209,7 +209,7 @@ const ContactFooter = () => {
         <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Logo Resmi PT Famindo Alfa Spektrum Teknologi (FAST)" className="h-6 w-auto grayscale opacity-70" />
+              <img src={logo} alt="Logo Resmi PT Famindo Alfa Spektrum Teknologi (FAST)" className="h-6 w-auto  opacity-100" />
               <span className="text-foreground-muted text-sm font-medium">PT. Famindo Alfa Spektrum Teknologi</span>
             </div>
           </div>
@@ -224,7 +224,7 @@ const ContactFooter = () => {
           </div>
 
           <p className="text-foreground-muted text-sm text-center md:text-right">
-            © {new Date().getFullYear()} PT. FAST. All rights reserved. <br className="md:hidden" /> "Every Second Matters"
+            © {new Date().getFullYear()} FAST | PT. Famindo Alfa Spektrum Teknologi. All rights reserved. <br className="md:hidden" /> "Every Second Matters"
           </p>
         </div>
       </div>

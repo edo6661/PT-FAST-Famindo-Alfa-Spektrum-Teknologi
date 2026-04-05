@@ -4,59 +4,59 @@ const Certifications = () => {
   const nationalCerts = [
     {
       title: "TKDN (49.31%)",
-      desc: "Passed the test from the Indonesia's Ministry of Industry. Top-of-mind choice to secure the mining industry."
+      desc: "Approved by the Ministry of Industry. The preferred choice for mining security."
     },
     {
       title: "Ministry of Environment & Forestry",
-      desc: "Effective solution for combating forest fires. Safe for humans, animals, and the environment. Prevents fire re-ignition."
+      desc: "Eco-friendly forest fire solution that safely prevents re-ignition."
     },
     {
       title: "DAMKAR",
-      desc: "Qualified to extinguish every classes of fire [A, B, C, D, F/K] according to DAMKAR test method parameters."
+      desc: "Certified for all fire classes [A, B, C, D, F/K] per DAMKAR standards."
     },
     {
       title: "Ministry of Transportation",
-      desc: "A fire extinguisher for classes A, B, C, D. Effective solution for forest fires and prevents re-ignition."
+      desc: "Class A, B, C, D certified. Highly effective for combating forest fires."
     },
     {
       title: "POLRI",
-      desc: "Certified and trusted to meet the highest safety and operational standards for law enforcement environments."
+      desc: "Meets rigorous safety and operational standards for law enforcement."
     }
   ];
 
   const internationalCerts = [
     {
       title: "UL Solutions (USA)",
-      desc: "GREENGUARD Certification Gold Standard. Verified to have low total VOC emissions, highly committed to human health."
+      desc: "GREENGUARD Gold. Verified low VOC emissions for human health safety."
     },
     {
       title: "EUROFINS - Environment Test",
-      desc: "Certified as a non-PFAS fire extinguisher. Removing the fear and risk of cancer development for its users."
+      desc: "Non-PFAS certified, eliminating user cancer risks."
     },
     {
       title: "SGS (USA)",
-      desc: "ASTM E84-07, UL723. Certified as an effective fire suppression solution for building material surfaces."
+      desc: "ASTM E84-07 & UL723. Effective fire suppression for building surfaces."
     },
     {
       title: "KGK Synergize (Canada) OECD",
-      desc: "Certified 'non-irritation' status. Doesn't cause acute eye/skin irritation or toxicity based on strict OECD guidelines."
+      desc: "OECD-certified 'non-irritating' to eyes and skin."
     },
     {
       title: "Pollutech EnviroQuatics (Canada)",
-      desc: "LC50 Certified to not cause acute toxicity and death to living organisms in their natural environment."
+      desc: "LC50 certified: non-toxic and safe for natural ecosystems."
     },
     {
       title: "EN1568-3",
-      desc: "Certified in line with stringent European Standard for Fire Extinguishing Equipment."
+      desc: "Complies with stringent European fire extinguishing standards."
     },
     {
       title: "Nucro Technics",
-      desc: "Passed strict international laboratory testing for chemical safety and efficacy."
+      desc: "Internationally verified for chemical safety and efficacy."
     }
   ];
 
   return (
-    <section className="py-24 bg-background border-y border-border relative overflow-hidden">
+    <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -67,7 +67,7 @@ const Certifications = () => {
           </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Our Certifications <br />& Lab Test</h2>
           <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            From European standards to American quality assurances, and local regulations, Lithium Fire Killer AF31 proudly bears the badges of the world's most prestigious certifications as a testament to excellence and dedication.
+            Lithium Fire Killer AF31 holds prestigious local and global certifications, ensuring top-tier safety and excellence.
           </p>
         </div>
 

@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Advanced Fire Safety Solutions"
-        description="Setiap detik berharga. PT. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion."
+        title="FAST | PT. Famindo Alfa Spektrum Teknologi"
+        description="Setiap detik berharga. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion."
         url="/"
       />
       <Hero />

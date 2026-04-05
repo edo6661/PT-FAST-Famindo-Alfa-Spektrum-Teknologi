@@ -37,7 +37,7 @@ const BrandDetail = () => {
     "description": brandData.description,
     "brand": {
       "@type": "Brand",
-      "name": "PT. FAST"
+      "name": "FAST | PT. Famindo Alfa Spektrum Teknologi"
     },
     "slogan": brandData.tagline
   };

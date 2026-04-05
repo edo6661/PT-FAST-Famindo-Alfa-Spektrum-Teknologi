@@ -1,47 +1,11 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Zap, ShieldAlert, Cpu, Droplets } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import SpotlightCard from './SpotlightCard';
+import { mainBrands } from '../constants/brands';
 
 const Brands = () => {
-  const brands = [
-    {
-      name: "Lithium Fire Killer Hartindo AF31",
-      slug: "hartindo-af31",
-      description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
-      logo: "AF31",
-      icon: <ShieldAlert size={32} className="text-accent" />,
-      gridClass: "md:col-span-2 md:row-span-2",
-      bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
-    },
-    {
-      name: "BALLISTIC App",
-      slug: "ballistic-app",
-      description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
-      logo: "APP",
-      icon: <Cpu size={24} className="text-white" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      name: "USS For EV",
-      slug: "uss-ev",
-      description: "Undercarriage Suppressions System jet-spraying its content directly under EV cars.",
-      logo: "USS",
-      icon: <Zap size={24} className="text-white" />,
-      gridClass: "md:col-span-1 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-      name: "FLAT Hartindo AF11E",
-      slug: "flat-af11e",
-      description: "A sophisticated liquid gas that can put off several classes of fire without leaving any destructive residue behind.",
-      logo: "FLAT",
-      icon: <Droplets size={28} className="text-white" />,
-      gridClass: "md:col-span-3 md:row-span-1",
-      bgImage: "https://images.unsplash.com/photo-1621252179027-94459d278660?q=80&w=1200&auto=format&fit=crop"
-    }
-  ];
+
 
   return (
     <section id="brands" className="py-24 bg-surface relative overflow-hidden border-y border-white/5">
@@ -76,7 +40,7 @@ const Brands = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
-          {brands.map((brand, index) => (
+          {mainBrands.map((brand, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
