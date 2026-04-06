@@ -97,7 +97,7 @@ const BlogDetailPage = () => {
       </section>
 
       <section className="py-16 relative">
-        <div className="container mx-auto  relative z-10 max-w-4xl">
+        <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl">
           <div className="prose prose-invert prose-lg max-w-none prose-p:leading-relaxed prose-p:text-foreground-muted/90 prose-headings:text-white prose-a:text-accent hover:prose-a:text-accent/80">
             {blog.deskripsi.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-6">{paragraph}</p>
