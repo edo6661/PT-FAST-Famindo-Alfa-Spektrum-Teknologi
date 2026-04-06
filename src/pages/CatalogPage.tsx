@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Grid, Filter } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Grid } from 'lucide-react';
 import { products, categories } from '../constants/catalogs';
 import SEO from '../components/SEO';
 
