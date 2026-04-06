@@ -75,7 +75,7 @@ export const getBlogById = async (id: string): Promise<Blog | null> => {
   return null;
 };
 
-export const createBlog = async (data: Omit<Blog, "id">) => {
+export const createBlog = async (data: Omit<Blog, "id" | "createdAt">) => {
   const docRef = await addDoc(blogsRef, {
     ...data,
     createdAt: Date.now(),
