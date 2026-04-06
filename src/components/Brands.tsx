@@ -5,8 +5,6 @@ import SpotlightCard from './SpotlightCard';
 import { mainBrands } from '../constants/brands';
 
 const Brands = () => {
-
-
   return (
     <section id="brands" className="py-24 bg-surface relative overflow-hidden border-y border-white/5">
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -26,17 +24,20 @@ const Brands = () => {
             </p>
           </motion.div>
 
-          <motion.a
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            href="#katalog"
-            aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
-            className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
           >
-            View Complete Catalog <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </motion.a>
+            <Link
+              to="/catalog"
+              aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
+              className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
+            >
+              View Complete Catalog <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </Link>
+          </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
@@ -65,7 +66,6 @@ const Brands = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
                   </div>
 
-                  {/* Di sinilah letak perbaikannya: memindahkan p-8 dan flex-col ke pembungkus konten, sehingga gambar background tetap full */}
                   <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end transform-gpu transition-transform duration-500">
                     <div className="flex justify-between items-start mb-4">
                       <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>

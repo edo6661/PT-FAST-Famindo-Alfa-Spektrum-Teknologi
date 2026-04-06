@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { MapPin, Phone, Mail, Send, Facebook, Linkedin, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail, Send, Facebook, Linkedin, BookOpen, ArrowRight } from 'lucide-react';
 import logo from '../assets/FAST_Logo_PNG/logo.png';
 import { getLandingPageBlogs } from '../services/blogService';
 import type { Blog } from '../types/blog';
@@ -13,7 +14,6 @@ const ContactFooter = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
-  // State untuk Blog
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loadingBlogs, setLoadingBlogs] = useState(true);
 
@@ -195,13 +195,17 @@ const ContactFooter = () => {
 
         </div>
 
-        {/* Bagian Blog yang Ditampilkan di Landing Page */}
         <div className="mb-12 border-t border-border pt-12 bg-surface">
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold flex items-center gap-2 mb-2">
-              <BookOpen className="text-accent" size={24} /> Latest Insights
-            </h3>
-            <p className="text-foreground-muted text-sm">Follow our latest technology updates and fire safety education.</p>
+          <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <h3 className="text-2xl font-bold flex items-center gap-2 mb-2">
+                <BookOpen className="text-accent" size={24} /> Latest Insights
+              </h3>
+              <p className="text-foreground-muted text-sm">Follow our latest technology updates and fire safety education.</p>
+            </div>
+            <Link to="/blogs" className="inline-flex items-center gap-2 text-accent hover:text-white transition-colors text-sm font-semibold">
+              View All Articles <ArrowRight size={16} />
+            </Link>
           </div>
 
           {loadingBlogs ? (
@@ -211,7 +215,7 @@ const ContactFooter = () => {
           ) : blogs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {blogs.map((blog) => (
-                <div key={blog.id} className="group flex flex-col rounded-card overflow-hidden bg-background border border-border hover:border-accent/40 transition-all duration-300">
+                <Link to={`/blogs/${blog.id}`} key={blog.id} className="group flex flex-col rounded-card overflow-hidden bg-background border border-border hover:border-accent/40 transition-all duration-300">
                   <div className="h-48 overflow-hidden relative">
                     <img
                       src={blog.foto}
@@ -234,7 +238,7 @@ const ContactFooter = () => {
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           ) : (

@@ -1,6 +1,7 @@
 import {
   collection,
   getDocs,
+  getDoc,
   addDoc,
   updateDoc,
   deleteDoc,
@@ -63,6 +64,15 @@ export const getLandingPageBlogs = async (): Promise<Blog[]> => {
     id: doc.id,
     ...doc.data(),
   })) as Blog[];
+};
+
+export const getBlogById = async (id: string): Promise<Blog | null> => {
+  const docRef = doc(db, "blogs", id);
+  const snapshot = await getDoc(docRef);
+  if (snapshot.exists()) {
+    return { id: snapshot.id, ...snapshot.data() } as Blog;
+  }
+  return null;
 };
 
 export const createBlog = async (data: Omit<Blog, "id">) => {

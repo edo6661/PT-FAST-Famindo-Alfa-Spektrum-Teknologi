@@ -11,7 +11,14 @@ const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
 const Login = lazy(() => import('./pages/Login'));
 const AdminBlog = lazy(() => import('./pages/AdminBlog'));
 
+const BlogsPage = lazy(() => import('./pages/BlogsPage'));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
+const CatalogPage = lazy(() => import('./pages/CatalogPage'));
+const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+
 const PageLoader = () => (
+
   <div className="min-h-screen flex items-center justify-center bg-background">
     <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
   </div>
@@ -28,6 +35,13 @@ const App = () => {
                 <Route index element={<Home />} />
                 <Route path="brand/:slug" element={<BrandDetail />} />
                 <Route path="clients" element={<ClientBasePage />} />
+
+                <Route path="catalog" element={<CatalogPage />} />
+                <Route path="catalog/:slug" element={<ProductDetailPage />} />
+                <Route path="category/:slug" element={<CategoryDetailPage />} />
+
+                <Route path="blogs" element={<BlogsPage />} />
+                <Route path="blogs/:id" element={<BlogDetailPage />} />
               </Route>
 
               <Route path="/login" element={<Login />} />
