@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { MapPin, Phone, Mail, Send, Instagram, Facebook, Linkedin, ExternalLink } from 'lucide-react';
-import { igFeeds } from '../constants/contacts';
+import { useState, useEffect } from 'react';
+import { MapPin, Phone, Mail, Send, Facebook, Linkedin, BookOpen } from 'lucide-react';
 import logo from '../assets/FAST_Logo_PNG/logo.png';
+import { getLandingPageBlogs } from '../services/blogService';
+import type { Blog } from '../types/blog';
 
 const ContactFooter = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,24 @@ const ContactFooter = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+
+  // State untuk Blog
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loadingBlogs, setLoadingBlogs] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const data = await getLandingPageBlogs();
+        setBlogs(data);
+      } catch (error) {
+        console.error('Gagal mengambil blog:', error);
+      } finally {
+        setLoadingBlogs(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -176,40 +195,59 @@ const ContactFooter = () => {
 
         </div>
 
+        {/* Bagian Blog yang Ditampilkan di Landing Page */}
         <div className="mb-12 border-t border-border pt-12 bg-surface">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-            <div>
-              <h3 className="text-2xl font-bold flex items-center gap-2 mb-1">
-                <Instagram className="text-accent" size={24} /> Instagram Highlights
-              </h3>
-              <p className="text-foreground-muted text-sm">Follow our latest technology updates and fire safety education.</p>
-            </div>
-            <a href="[https://instagram.com/famindofast](https://instagram.com/famindofast)" target="_blank" rel="noopener noreferrer" aria-label="Kunjungi profil Instagram resmi PT FAST" className="flex items-center gap-2 text-sm font-semibold text-accent hover:text-white transition-colors">
-              @famindofast <ExternalLink size={16} />
-            </a>
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold flex items-center gap-2 mb-2">
+              <BookOpen className="text-accent" size={24} /> Latest Insights
+            </h3>
+            <p className="text-foreground-muted text-sm">Follow our latest technology updates and fire safety education.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {igFeeds.map((feed, idx) => (
-              <a key={idx} href="[https://instagram.com/famindofast](https://instagram.com/famindofast)" target="_blank" rel="noopener noreferrer" aria-label={`Lihat postingan Instagram edukasi mitigasi kebakaran baterai lithium ke-${idx + 1}`} className="group relative aspect-square rounded-card overflow-hidden bg-surface border border-border block">
-                <img
-                  src={feed}
-                  alt={`Highlight dokumentasi dan produk keselamatan kebakaran PT FAST di Instagram - Bagian ${idx + 1}`}
-                  loading="lazy"
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <Instagram className="text-white" size={32} />
+          {loadingBlogs ? (
+            <div className="flex justify-center items-center py-12">
+              <div className="w-8 h-8 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
+            </div>
+          ) : blogs.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {blogs.map((blog) => (
+                <div key={blog.id} className="group flex flex-col rounded-card overflow-hidden bg-background border border-border hover:border-accent/40 transition-all duration-300">
+                  <div className="h-48 overflow-hidden relative">
+                    <img
+                      src={blog.foto}
+                      alt={blog.nama}
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow relative z-10 -mt-10">
+                    <h4 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300 drop-shadow-md">
+                      {blog.nama}
+                    </h4>
+                    <p className="text-sm text-foreground-muted line-clamp-3 mb-6 flex-grow leading-relaxed">
+                      {blog.deskripsi}
+                    </p>
+                    <div className="pt-4 border-t border-border flex justify-between items-center">
+                      <span className="text-xs font-medium text-foreground-muted uppercase tracking-wider">
+                        {new Date(blog.createdAt).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-              </a>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 border border-border rounded-card bg-background/50">
+              <p className="text-foreground-muted">Belum ada pembaruan artikel saat ini.</p>
+            </div>
+          )}
         </div>
 
         <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Logo Resmi PT Famindo Alfa Spektrum Teknologi (FAST)" className="h-6 w-auto  opacity-100" />
+              <img src={logo} alt="Logo Resmi PT Famindo Alfa Spektrum Teknologi (FAST)" className="h-6 w-auto opacity-100" />
               <span className="text-foreground-muted text-sm font-medium">PT. Famindo Alfa Spektrum Teknologi</span>
             </div>
           </div>
