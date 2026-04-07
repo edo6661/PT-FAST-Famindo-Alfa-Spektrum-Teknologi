@@ -1,7 +1,6 @@
 export const navLinks = [
   { name: 'Home', href: '/#beranda' },
-  { name: 'Profile', href: '/#profil' },
+  { name: 'About Us', href: '/about' },
   { name: 'Catalog', href: '/#katalog' },
   { name: 'Clients', href: '/#klien' },
-  { name: 'Contact', href: '/#kontak' },
 ];

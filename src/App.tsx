@@ -16,6 +16,7 @@ const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage'));
 const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
 
 const PageLoader = () => (
 
@@ -42,9 +43,11 @@ const App = () => {
 
                 <Route path="blogs" element={<BlogsPage />} />
                 <Route path="blogs/:id" element={<BlogDetailPage />} />
+                <Route path="about" element={<AboutUsPage />} />
               </Route>
 
               <Route path="/login" element={<Login />} />
+
 
               <Route element={<ProtectedRoute />}>
                 <Route path="/admin/blog" element={<AdminBlog />} />
