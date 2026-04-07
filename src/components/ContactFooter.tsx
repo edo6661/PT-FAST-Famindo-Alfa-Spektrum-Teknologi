@@ -34,31 +34,39 @@ const ContactFooter = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ type: '', message: '' });
 
+    // 1. Gabungkan data form dengan access_key dari Web3Forms
+    const payload = {
+      ...formData,
+      access_key: "21fdab41-15c9-4f2e-8ebb-6101613f102c"
+    };
+
     try {
-      const response = await fetch('[https://formspree.io/f/xykbjjov](https://formspree.io/f/xykbjjov)', {
+      // 2. Ganti URL fetch ke API Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(payload)
       });
 
-      if (response.ok) {
+      // 3. Web3Forms mengembalikan response JSON yang bisa kita cek
+      const result = await response.json();
+
+      if (result.success) {
         setSubmitStatus({ type: 'success', message: 'Message sent successfully! We will contact you shortly.' });
         setFormData({ name: '', email: '', message: '' });
-
         setTimeout(() => {
           setSubmitStatus({ type: '', message: '' });
         }, 5000);
       } else {
-        setSubmitStatus({ type: 'error', message: 'An error occurred while sending the message. Please try again.' });
+        setSubmitStatus({ type: 'error', message: result.message || 'An error occurred while sending the message. Please try again.' });
       }
     } catch (error) {
       console.error('Error:', error);
