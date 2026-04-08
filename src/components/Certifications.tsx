@@ -1,59 +1,18 @@
 import { ShieldCheck, Award, Globe, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+
+interface CertItem {
+  title: string;
+  desc: string;
+}
 
 const Certifications = () => {
-  const nationalCerts = [
-    {
-      title: "TKDN (49.31%)",
-      desc: "Approved by the Ministry of Industry. The preferred choice for mining security."
-    },
-    {
-      title: "Ministry of Environment & Forestry",
-      desc: "Eco-friendly forest fire solution that safely prevents re-ignition."
-    },
-    {
-      title: "DAMKAR",
-      desc: "Certified for all fire classes [A, B, C, D, F/K] per DAMKAR standards."
-    },
-    {
-      title: "Ministry of Transportation",
-      desc: "Class A, B, C, D certified. Highly effective for combating forest fires."
-    },
-    {
-      title: "POLRI",
-      desc: "Meets rigorous safety and operational standards for law enforcement."
-    }
-  ];
+  const { t } = useTranslation();
 
-  const internationalCerts = [
-    {
-      title: "UL Solutions (USA)",
-      desc: "GREENGUARD Gold. Verified low VOC emissions for human health safety."
-    },
-    {
-      title: "EUROFINS - Environment Test",
-      desc: "Non-PFAS certified, eliminating user cancer risks."
-    },
-    {
-      title: "SGS (USA)",
-      desc: "ASTM E84-07 & UL723. Effective fire suppression for building surfaces."
-    },
-    {
-      title: "KGK Synergize (Canada) OECD",
-      desc: "OECD-certified 'non-irritating' to eyes and skin."
-    },
-    {
-      title: "Pollutech EnviroQuatics (Canada)",
-      desc: "LC50 certified: non-toxic and safe for natural ecosystems."
-    },
-    {
-      title: "EN1568-3",
-      desc: "Complies with stringent European fire extinguishing standards."
-    },
-    {
-      title: "Nucro Technics",
-      desc: "Internationally verified for chemical safety and efficacy."
-    }
-  ];
+
+  const nationalCerts = t('certifications.national', { returnObjects: true }) as CertItem[];
+  const internationalCerts = t('certifications.international', { returnObjects: true }) as CertItem[];
 
   return (
     <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
@@ -63,11 +22,11 @@ const Certifications = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
             <Globe size={16} className="text-accent" />
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">World-Class Standard</span>
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">{t('certifications.badge')}</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Our Certifications <br />& Lab Test</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">{t('certifications.title')}</h2>
           <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            Lithium Fire Killer AF31 holds prestigious local and global certifications, ensuring top-tier safety and excellence.
+            {t('certifications.desc')}
           </p>
         </div>
 
@@ -78,7 +37,7 @@ const Certifications = () => {
               <div className="p-3 rounded-xl bg-background border border-border">
                 <Award size={28} className="text-accent" />
               </div>
-              <h3 className="text-2xl font-bold text-white">National Certifications</h3>
+              <h3 className="text-2xl font-bold text-white">{t('certifications.nationalTitle')}</h3>
             </div>
             <div className="space-y-6">
               {nationalCerts.map((cert, index) => (
@@ -102,7 +61,7 @@ const Certifications = () => {
               <div className="p-3 rounded-xl bg-background border border-border">
                 <ShieldCheck size={28} className="text-accent" />
               </div>
-              <h3 className="text-2xl font-bold text-white">International Certifications</h3>
+              <h3 className="text-2xl font-bold text-white">{t('certifications.internationalTitle')}</h3>
             </div>
             <div className="space-y-6 relative z-10">
               {internationalCerts.map((cert, index) => (

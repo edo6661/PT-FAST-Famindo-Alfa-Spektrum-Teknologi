@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import type { Blog } from "../types/blog";
 import { uploadBlogImage } from "../services/blogService";
 import { X, Upload, Loader2 } from "lucide-react";
-
 
 interface BlogModalProps {
   isOpen: boolean;
@@ -12,6 +12,7 @@ interface BlogModalProps {
 }
 
 const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     nama: "",
     deskripsi: "",
@@ -59,7 +60,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
       <div className="bg-surface w-full max-w-2xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
         <div className="flex justify-between items-center p-6 border-b border-white/10">
-          <h3 className="text-xl font-bold text-white">{initialData ? "Edit Blog" : "Tambah Blog Baru"}</h3>
+          <h3 className="text-xl font-bold text-white">{initialData ? t('adminBlog.editTitle') : t('adminBlog.addTitle')}</h3>
           <button onClick={onClose} className="text-foreground-muted hover:text-white transition-colors">
             <X size={24} />
           </button>
@@ -69,7 +70,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Judul Blog</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.titleLabel')}</label>
                 <input
                   type="text"
                   required
@@ -79,7 +80,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Deskripsi</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.descLabel')}</label>
                 <textarea
                   required
                   rows={4}
@@ -92,7 +93,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Foto Blog</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.photoLabel')}</label>
                 <div className="relative group cursor-pointer">
                   <input
                     type="file"
@@ -108,7 +109,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                     ) : (
                       <>
                         <Upload className="text-foreground-muted mb-2" />
-                        <span className="text-xs text-foreground-muted">Klik untuk upload foto</span>
+                        <span className="text-xs text-foreground-muted">{t('adminBlog.uploadHint')}</span>
                       </>
                     )}
                   </div>
@@ -123,20 +124,20 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                   onChange={(e) => setFormData({ ...formData, ditampilkan_di_landing_page: e.target.checked })}
                   className="w-5 h-5 rounded border-white/10 bg-background text-accent focus:ring-accent"
                 />
-                <label htmlFor="landing" className="text-sm text-white cursor-pointer">Tampilkan di Landing Page</label>
+                <label htmlFor="landing" className="text-sm text-white cursor-pointer">{t('adminBlog.showLanding')}</label>
               </div>
             </div>
           </div>
 
           <div className="pt-6 border-t border-white/10 flex justify-end gap-4">
-            <button type="button" onClick={onClose} className="px-6 py-2.5 rounded-xl text-foreground-muted hover:text-white transition-colors">Batal</button>
+            <button type="button" onClick={onClose} className="px-6 py-2.5 rounded-xl text-foreground-muted hover:text-white transition-colors">{t('adminBlog.cancel')}</button>
             <button
               type="submit"
               disabled={loading}
               className="bg-accent hover:bg-accent/80 text-white px-8 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 disabled:opacity-50"
             >
               {loading && <Loader2 size={18} className="animate-spin" />}
-              {loading ? "Menyimpan..." : "Simpan Blog"}
+              {loading ? t('adminBlog.saving') : t('adminBlog.save')}
             </button>
           </div>
         </form>
