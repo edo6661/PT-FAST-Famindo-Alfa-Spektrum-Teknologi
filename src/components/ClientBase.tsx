@@ -1,27 +1,30 @@
 import { Landmark, Shield, Car, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next'; // 1. Import hook
 import SpotlightCard from './SpotlightCard';
 
 const ClientBase = () => {
+  const { t } = useTranslation(); // 2. Inisialisasi hook
+
+  // 3. Tarik data dari i18n untuk mapping
   const clients = [
     {
       icon: <Landmark size={32} className="text-white" />,
-      name: "2024 Presidential Inauguration",
-      desc: "Safeguarded international VVIPs by equipping EV escorts with LFK Hartindo AF31.",
+      name: t('clientBase.clients.presidential.name'),
+      desc: t('clientBase.clients.presidential.desc'),
       gradient: "from-blue-600/20"
     },
     {
       icon: <Shield size={32} className="text-white" />,
-      name: "Securing Pope Francis's Visit",
-      desc: "Ensured absolute safety for the Pope's escort vehicle during his Indonesian visit.",
+      name: t('clientBase.clients.pope.name'),
+      desc: t('clientBase.clients.pope.desc'),
       gradient: "from-amber-500/20"
     },
-
     {
       icon: <Car size={32} className="text-white" />,
-      name: "Bluebird Group",
-      desc: "Official fire safety supplier and training provider at their Mampang headquarters.",
+      name: t('clientBase.clients.bluebird.name'),
+      desc: t('clientBase.clients.bluebird.desc'),
       gradient: "from-cyan-500/20"
     },
   ];
@@ -37,10 +40,12 @@ const ClientBase = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-wide">Engineered for Excellence, <span className="text-accent">Proven in Practice</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white tracking-wide">
+            {t('clientBase.title')} <span className="text-accent">{t('clientBase.titleHighlight')}</span>
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent/50 to-transparent mx-auto"></div>
           <p className="text-foreground-muted mt-6 max-w-3xl mx-auto font-light leading-relaxed">
-            Delivering advanced, custom fire safety solutions for the most demanding environments.
+            {t('clientBase.desc')}
           </p>
         </motion.div>
 
@@ -82,10 +87,9 @@ const ClientBase = () => {
         >
           <Link
             to="/clients"
-            aria-label="Lihat portofolio lengkap klien korporat dan institusi PT FAST"
             className="inline-flex items-center gap-2 bg-transparent border border-white/20 text-white px-8 py-3 rounded-full font-medium hover:bg-surface hover:border-accent/40 transition-all duration-300 group"
           >
-            View Complete Portfolios
+            {t('clientBase.viewAll')}
             <ArrowRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </motion.div>

@@ -4,6 +4,70 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      clientBase: {
+        title: "Engineered for Excellence,",
+        titleHighlight: "Proven in Practice",
+        desc: "Advanced fire safety solutions for the most demanding environments.",
+        viewAll: "View Complete Portfolios",
+        clients: {
+          presidential: {
+            name: "2024 Presidential Inauguration",
+            desc: "Safeguarded international VVIPs with LFK Hartindo AF31 equipped EV escorts.",
+          },
+          pope: {
+            name: "Pope Francis's Visit",
+            desc: "Ensured absolute fire safety for the Pope's escort vehicle in Indonesia.",
+          },
+          bluebird: {
+            name: "Bluebird Group",
+            desc: "Official fire safety supplier and training provider at Mampang HQ.",
+          },
+        },
+      },
+      footer: {
+        title: "Secure Your Business",
+        titleHighlight: "Today.",
+        desc: "Contact our experts for an in-depth fire protection audit specific to your scale.",
+        headquarters: "Headquarters",
+        phone: "Phone & WhatsApp",
+        emailTitle: "Email",
+        form: {
+          title: "Schedule a Consultation",
+          name: "Full Name",
+          namePlaceholder: "Enter your name",
+          email: "Company Email",
+          emailPlaceholder: "email@company.com",
+          message: "Protection Needs",
+          messagePlaceholder: "Tell us about your fire safety needs...",
+          submit: "Send Message",
+          submitting: "Sending Request...",
+          success: "Message sent successfully! We will contact you shortly.",
+          error: "An error occurred. Please try again.",
+        },
+        insights: {
+          title: "Latest Insights",
+          desc: "Follow our latest technology updates & education.",
+          viewAll: "View All Articles",
+          empty: "No article updates available right now.",
+        },
+        copyright: "All rights reserved.",
+      },
+      hero: {
+        badge: "Every Second Matters",
+        badgeSuffix: "Securing Safety",
+        title: "Securing Businesses",
+        titleHighlight: "One At A Time.",
+        subtitle: "Advanced Lithium Fire Solutions.",
+        desc: "Trusted by top enterprises for maximum safety since 2022.",
+        cta1: "Explore Catalog",
+        cta2: "Consult Us",
+        trusted: "Securing High-Profile Assets",
+      },
+      floatingWa: {
+        tooltip: "Chat via WhatsApp",
+        message:
+          "Hello FAST team, I want to consult about Fire Safety solutions for my facility.",
+      },
       about: {
         title: "Advanced Fire Solutions",
         desc: "We provide trusted tech for your safety & peace of mind.",
@@ -129,6 +193,70 @@ const resources = {
   },
   id: {
     translation: {
+      clientBase: {
+        title: "Keunggulan Teruji,",
+        titleHighlight: "Terbukti di Lapangan",
+        desc: "Solusi fire safety canggih untuk lingkungan yang paling menantang.",
+        viewAll: "Lihat Semua Portofolio",
+        clients: {
+          presidential: {
+            name: "Pelantikan Presiden 2024",
+            desc: "Mengamankan VVIP internasional dengan armada EV berbasis LFK Hartindo AF31.",
+          },
+          pope: {
+            name: "Kunjungan Paus Fransiskus",
+            desc: "Memastikan keamanan mutlak kendaraan pengawal Paus selama di Indonesia.",
+          },
+          bluebird: {
+            name: "Bluebird Group",
+            desc: "Pemasok resmi dan penyedia pelatihan fire safety di kantor pusat Mampang.",
+          },
+        },
+      },
+      footer: {
+        title: "Amankan Bisnis Anda",
+        titleHighlight: "Hari Ini.",
+        desc: "Hubungi ahli kami untuk audit proteksi kebakaran mendalam sesuai skala bisnis Anda.",
+        headquarters: "Kantor Pusat",
+        phone: "Telepon & WhatsApp",
+        emailTitle: "Email",
+        form: {
+          title: "Jadwalkan Konsultasi",
+          name: "Nama Lengkap",
+          namePlaceholder: "Masukkan nama Anda",
+          email: "Email Perusahaan",
+          emailPlaceholder: "email@perusahaan.com",
+          message: "Kebutuhan Proteksi",
+          messagePlaceholder: "Ceritakan kebutuhan keamanan fasilitas Anda...",
+          submit: "Kirim Pesan",
+          submitting: "Mengirim Pesan...",
+          success: "Pesan berhasil dikirim! Kami akan segera menghubungi Anda.",
+          error: "Terjadi kesalahan. Silakan coba lagi.",
+        },
+        insights: {
+          title: "Artikel Terbaru",
+          desc: "Ikuti pembaruan teknologi dan edukasi fire safety kami.",
+          viewAll: "Lihat Semua Artikel",
+          empty: "Belum ada pembaruan artikel saat ini.",
+        },
+        copyright: "Hak cipta dilindungi.",
+      },
+      hero: {
+        badge: "Setiap Detik Berharga",
+        badgeSuffix: "Menjaga Keamanan",
+        title: "Mengamankan Bisnis",
+        titleHighlight: "Tanpa Kompromi.",
+        subtitle: "Solusi Canggih Kebakaran Lithium.",
+        desc: "Dipercaya perusahaan top untuk keamanan maksimal sejak 2022.",
+        cta1: "Lihat Katalog",
+        cta2: "Konsultasi",
+        trusted: "Mengamankan Aset Berharga",
+      },
+      floatingWa: {
+        tooltip: "Chat WhatsApp",
+        message:
+          "Halo tim FAST, saya ingin konsultasi solusi Fire Safety untuk fasilitas saya.",
+      },
       about: {
         title: "Solusi Kebakaran Modern",
         desc: "Kami hadirkan teknologi terpercaya untuk keamanan Anda.",

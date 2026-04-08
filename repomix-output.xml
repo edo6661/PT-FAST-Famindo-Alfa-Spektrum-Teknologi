@@ -1,510 +1,3 @@
-This file is a merged representation of a subset of the codebase, containing specifically included files and files not matching ignore patterns, combined into a single document by Repomix.
-
-<file_summary>
-This section contains a summary of this file.
-
-<purpose>
-This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
-It is designed to be easily consumable by AI systems for analysis, code review,
-or other automated processes.
-</purpose>
-
-<file_format>
-The content is organized as follows:
-1. This summary section
-2. Repository information
-3. Directory structure
-4. Repository files (if enabled)
-5. Multiple file entries, each consisting of:
-  - File path as an attribute
-  - Full contents of the file
-</file_format>
-
-<usage_guidelines>
-- This file should be treated as read-only. Any changes should be made to the
-  original repository files, not this packed version.
-- When processing this file, use the file path to distinguish
-  between different files in the repository.
-- Be aware that this file may contain sensitive information. Handle it with
-  the same level of security as you would the original repository.
-</usage_guidelines>
-
-<notes>
-- Some files may have been excluded based on .gitignore rules and Repomix's configuration
-- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
-- Only files matching these patterns are included: src/**/*, package.json, vite.config.ts, tsconfig.json, prisma/schema.prisma, prisma/seeds/*
-- Files matching these patterns are excluded: **/*.test.ts
-- Files matching patterns in .gitignore are excluded
-- Files matching default ignore patterns are excluded
-- Files are sorted by Git change count (files with more changes are at the bottom)
-</notes>
-
-</file_summary>
-
-<directory_structure>
-package.json
-src/App.tsx
-src/assets/about-us/about-us-hero.avif
-src/assets/about-us/franky-affandi.avif
-src/assets/about-us/rolando-fam.avif
-src/assets/about-us/sean-justin.avif
-src/assets/about-us/willy-hadiwijaya.avif
-src/assets/clients/astra-daihatsu.webp
-src/assets/clients/astra-honda-motor.jpg
-src/assets/clients/astra-otoparts.webp
-src/assets/clients/bmw.webp
-src/assets/clients/lexus.jpg
-src/assets/clients/mitsubishi.png
-src/assets/clients/porsche.png
-src/assets/clients/toyota-astra-motor.webp
-src/assets/download.png
-src/assets/FAST_Favicons/FAST Logogram on Dark Navy.png
-src/assets/FAST_Favicons/FAST WEB ICON.jpg
-src/assets/FAST_Favicons/Icon_
-src/assets/FAST_Logo_JPEG/FAST Black [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Black Logogram.jpg
-src/assets/FAST_Logo_JPEG/FAST Blue Logogram.jpg
-src/assets/FAST_Logo_JPEG/FAST Color [Primary White] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Color [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Silver [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Silver Logogram.jpg
-src/assets/FAST_Logo_JPEG/FAST White [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST White Logogram.jpg
-src/assets/FAST_Logo_JPEG/Icon_
-src/assets/FAST_Logo_PNG/FAST Black [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST Black Logogram.png
-src/assets/FAST_Logo_PNG/FAST Color [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST Silver [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST Silver Logogram.png
-src/assets/FAST_Logo_PNG/FAST White [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST White Logogram.png
-src/assets/FAST_Logo_PNG/Icon_
-src/assets/FAST_Logo_PNG/logo-tadinya.png
-src/assets/FAST_Logo_PNG/logo.png
-src/assets/hero_2.png
-src/assets/hero.png
-src/assets/hero.webp
-src/assets/products/ballistic.avif
-src/assets/products/flame_accurate_termination.avif
-src/assets/products/lithium_fire_killer.avif
-src/assets/products/preventive-altech.avif
-src/assets/products/preventive-g_tech.avif
-src/assets/products/preventive-power_tech_shield.avif
-src/assets/products/undercarriage_suppressions_system.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-033.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-034.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-035.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-036.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-037.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-038.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-039.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-040.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-041.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-042.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-043.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-044.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-045.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-046.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-047.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-048.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-049.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-050.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-051.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-052.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-053.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-054.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-055.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-056.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-057.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-058.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-059.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-060.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-061.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-062.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-063.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-064.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-065.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-066.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-067.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-068.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-069.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-070.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-071.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-072.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-073.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-074.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-075.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-076.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-077.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-078.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-079.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-080.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-081.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-082.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-083.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-084.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-085.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-086.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-087.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-088.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-089.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-090.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-091.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-092.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-093.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-094.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-095.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-096.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-097.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-098.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-099.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-100.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-101.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-102.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-103.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-104.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-105.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-106.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-107.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-108.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-109.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-110.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-111.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-112.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-113.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-114.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-115.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-116.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-117.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-118.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-119.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-120.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-121.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-122.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-123.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-124.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-125.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-126.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-127.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-128.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-129.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-130.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-131.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-132.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-133.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-134.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-135.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-136.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-137.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-138.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-139.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-140.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-141.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-142.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-143.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-144.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-145.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-146.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-147.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-148.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-149.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-150.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-151.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-152.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-153.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-154.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-155.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-156.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-157.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-158.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-159.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-160.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-161.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-162.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-163.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-164.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-165.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-166.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-167.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-168.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-169.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-170.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-171.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-172.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-173.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-174.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-175.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-176.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-177.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-178.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-179.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-180.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-181.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-182.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-183.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-184.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-185.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-186.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-187.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-188.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-189.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-190.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-191.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-192.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-193.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-194.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-195.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-196.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-197.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-198.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-199.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-200.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-201.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-202.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-203.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-204.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-205.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-206.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-207.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-208.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-209.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-210.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-211.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-212.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-213.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-214.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-215.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-216.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-217.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-218.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-219.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-220.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-221.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-222.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-223.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-224.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-225.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-226.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-227.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-228.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-229.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-230.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-231.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-232.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-233.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-234.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-235.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-236.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-237.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-238.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-239.jpg
-src/assets/sequence/frame-by-frame/ezgif-frame-240.jpg
-src/components/About.tsx
-src/components/BlogModal.tsx
-src/components/Brands.tsx
-src/components/Catalog.tsx
-src/components/Certifications.tsx
-src/components/ClientBase.tsx
-src/components/ContactFooter.tsx
-src/components/FloatingWA.tsx
-src/components/Hero.tsx
-src/components/Layout.tsx
-src/components/Navbar.tsx
-src/components/OldAbout.tsx
-src/components/ProtectedRoute.tsx
-src/components/SEO.tsx
-src/components/SpotlightCard.tsx
-src/constants/brands.tsx
-src/constants/catalogs.tsx
-src/constants/contacts.ts
-src/constants/navs.tsx
-src/contexts/AuthContext.tsx
-src/i18n.ts
-src/index.css
-src/lib/firebase.ts
-src/main.tsx
-src/pages/AboutUsPage.tsx
-src/pages/AdminBlog.tsx
-src/pages/BlogDetailPage.tsx
-src/pages/BlogsPage.tsx
-src/pages/BrandDetail.tsx
-src/pages/CatalogPage.tsx
-src/pages/CategoryDetailPage.tsx
-src/pages/ClientBasePage.tsx
-src/pages/Home.tsx
-src/pages/Login.tsx
-src/pages/ProductDetailPage.tsx
-src/services/blogService.ts
-src/types/blog.ts
-tsconfig.json
-vite.config.ts
-</directory_structure>
-
-<files>
-This section contains the contents of the repository's files.
-
-<file path="src/assets/FAST_Favicons/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_JPEG/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_PNG/Icon_">
-
-</file>
-
-<file path="src/components/BlogModal.tsx">
-import { useState, useEffect } from "react";
-import type { Blog } from "../types/blog";
-import { uploadBlogImage } from "../services/blogService";
-import { X, Upload, Loader2 } from "lucide-react";
-
-
-interface BlogModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSubmit: (data: Omit<Blog, "id" | "createdAt">) => Promise<void>;
-  initialData?: Blog | null;
-}
-
-const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) => {
-  const [formData, setFormData] = useState({
-    nama: "",
-    deskripsi: "",
-    foto: "",
-    ditampilkan_di_landing_page: false
-  });
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    if (initialData) {
-      setFormData({
-        nama: initialData.nama,
-        deskripsi: initialData.deskripsi,
-        foto: initialData.foto,
-        ditampilkan_di_landing_page: initialData.ditampilkan_di_landing_page
-      });
-    } else {
-      setFormData({ nama: "", deskripsi: "", foto: "", ditampilkan_di_landing_page: false });
-      setImageFile(null);
-    }
-  }, [initialData, isOpen]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      let imageUrl = formData.foto;
-      if (imageFile) {
-        imageUrl = await uploadBlogImage(imageFile);
-      }
-      await onSubmit({ ...formData, foto: imageUrl });
-      onClose();
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("Terjadi kesalahan saat menyimpan data.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-      <div className="bg-surface w-full max-w-2xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
-        <div className="flex justify-between items-center p-6 border-b border-white/10">
-          <h3 className="text-xl font-bold text-white">{initialData ? "Edit Blog" : "Tambah Blog Baru"}</h3>
-          <button onClick={onClose} className="text-foreground-muted hover:text-white transition-colors">
-            <X size={24} />
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Judul Blog</label>
-                <input
-                  type="text"
-                  required
-                  value={formData.nama}
-                  onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
-                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Deskripsi</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.deskripsi}
-                  onChange={(e) => setFormData({ ...formData, deskripsi: e.target.value })}
-                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none resize-none"
-                />
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">Foto Blog</label>
-                <div className="relative group cursor-pointer">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => setImageFile(e.target.files ? e.target.files[0] : null)}
-                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                  />
-                  <div className="h-40 rounded-xl border-2 border-dashed border-white/10 flex flex-col items-center justify-center bg-background/50 group-hover:border-accent transition-colors overflow-hidden">
-                    {imageFile ? (
-                      <img src={URL.createObjectURL(imageFile)} className="w-full h-full object-cover" />
-                    ) : formData.foto ? (
-                      <img src={formData.foto} className="w-full h-full object-cover" />
-                    ) : (
-                      <>
-                        <Upload className="text-foreground-muted mb-2" />
-                        <span className="text-xs text-foreground-muted">Klik untuk upload foto</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-white/5">
-                <input
-                  type="checkbox"
-                  id="landing"
-                  checked={formData.ditampilkan_di_landing_page}
-                  onChange={(e) => setFormData({ ...formData, ditampilkan_di_landing_page: e.target.checked })}
-                  className="w-5 h-5 rounded border-white/10 bg-background text-accent focus:ring-accent"
-                />
-                <label htmlFor="landing" className="text-sm text-white cursor-pointer">Tampilkan di Landing Page</label>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-6 border-t border-white/10 flex justify-end gap-4">
-            <button type="button" onClick={onClose} className="px-6 py-2.5 rounded-xl text-foreground-muted hover:text-white transition-colors">Batal</button>
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-accent hover:bg-accent/80 text-white px-8 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 disabled:opacity-50"
-            >
-              {loading && <Loader2 size={18} className="animate-spin" />}
-              {loading ? "Menyimpan..." : "Simpan Blog"}
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default BlogModal;
-</file>
 
 <file path="src/components/OldAbout.tsx">
 import { motion } from 'framer-motion';
@@ -796,49 +289,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 };
 // eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);
-</file>
-
-<file path="src/i18n.ts">
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-
-const resources = {
-  en: {
-    translation: {
-      about: {
-        title: "Advanced Fire Solutions",
-        desc: "We provide trusted tech for your safety & peace of mind.",
-        missionTitle: "Our Mission",
-        missionDesc:
-          "Provide top fire safety tech to mitigate lithium battery risks.",
-        visionTitle: "Our Vision",
-        visionDesc: "Creating a safer world so you can focus on what matters.",
-      },
-    },
-  },
-  id: {
-    translation: {
-      about: {
-        title: "Solusi Kebakaran Modern",
-        desc: "Kami hadirkan teknologi terpercaya untuk keamanan Anda.",
-        missionTitle: "Misi Kami",
-        missionDesc:
-          "Memberikan solusi mitigasi risiko baterai lithium terbaik.",
-        visionTitle: "Visi Kami",
-        visionDesc: "Menciptakan dunia yang aman agar Anda lebih tenang.",
-      },
-    },
-  },
-};
-
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "id",
-  fallbackLng: "id",
-  interpolation: { escapeValue: false },
-});
-
-export default i18n;
 </file>
 
 <file path="src/lib/firebase.ts">
@@ -1612,133 +1062,156 @@ export default defineConfig({
 });
 </file>
 
-<file path="src/components/Certifications.tsx">
-import { ShieldCheck, Award, Globe, CheckCircle2 } from 'lucide-react';
+<file path="src/components/BlogModal.tsx">
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import type { Blog } from "../types/blog";
+import { uploadBlogImage } from "../services/blogService";
+import { X, Upload, Loader2 } from "lucide-react";
 
-const Certifications = () => {
-  const nationalCerts = [
-    {
-      title: "TKDN (49.31%)",
-      desc: "Approved by the Ministry of Industry. The preferred choice for mining security."
-    },
-    {
-      title: "Ministry of Environment & Forestry",
-      desc: "Eco-friendly forest fire solution that safely prevents re-ignition."
-    },
-    {
-      title: "DAMKAR",
-      desc: "Certified for all fire classes [A, B, C, D, F/K] per DAMKAR standards."
-    },
-    {
-      title: "Ministry of Transportation",
-      desc: "Class A, B, C, D certified. Highly effective for combating forest fires."
-    },
-    {
-      title: "POLRI",
-      desc: "Meets rigorous safety and operational standards for law enforcement."
-    }
-  ];
+interface BlogModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSubmit: (data: Omit<Blog, "id" | "createdAt">) => Promise<void>;
+  initialData?: Blog | null;
+}
 
-  const internationalCerts = [
-    {
-      title: "UL Solutions (USA)",
-      desc: "GREENGUARD Gold. Verified low VOC emissions for human health safety."
-    },
-    {
-      title: "EUROFINS - Environment Test",
-      desc: "Non-PFAS certified, eliminating user cancer risks."
-    },
-    {
-      title: "SGS (USA)",
-      desc: "ASTM E84-07 & UL723. Effective fire suppression for building surfaces."
-    },
-    {
-      title: "KGK Synergize (Canada) OECD",
-      desc: "OECD-certified 'non-irritating' to eyes and skin."
-    },
-    {
-      title: "Pollutech EnviroQuatics (Canada)",
-      desc: "LC50 certified: non-toxic and safe for natural ecosystems."
-    },
-    {
-      title: "EN1568-3",
-      desc: "Complies with stringent European fire extinguishing standards."
-    },
-    {
-      title: "Nucro Technics",
-      desc: "Internationally verified for chemical safety and efficacy."
+const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) => {
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    nama: "",
+    deskripsi: "",
+    foto: "",
+    ditampilkan_di_landing_page: false
+  });
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (initialData) {
+      setFormData({
+        nama: initialData.nama,
+        deskripsi: initialData.deskripsi,
+        foto: initialData.foto,
+        ditampilkan_di_landing_page: initialData.ditampilkan_di_landing_page
+      });
+    } else {
+      setFormData({ nama: "", deskripsi: "", foto: "", ditampilkan_di_landing_page: false });
+      setImageFile(null);
     }
-  ];
+  }, [initialData, isOpen]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      let imageUrl = formData.foto;
+      if (imageFile) {
+        imageUrl = await uploadBlogImage(imageFile);
+      }
+      await onSubmit({ ...formData, foto: imageUrl });
+      onClose();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Terjadi kesalahan saat menyimpan data.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (!isOpen) return null;
 
   return (
-    <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
-            <Globe size={16} className="text-accent" />
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">World-Class Standard</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">Our Certifications <br />& Lab Test</h2>
-          <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            Lithium Fire Killer AF31 holds prestigious local and global certifications, ensuring top-tier safety and excellence.
-          </p>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+      <div className="bg-surface w-full max-w-2xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+        <div className="flex justify-between items-center p-6 border-b border-white/10">
+          <h3 className="text-xl font-bold text-white">{initialData ? t('adminBlog.editTitle') : t('adminBlog.addTitle')}</h3>
+          <button onClick={onClose} className="text-foreground-muted hover:text-white transition-colors">
+            <X size={24} />
+          </button>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
-          {/* National Certifications */}
-          <div className="p-8 rounded-3xl bg-surface/40 border border-white/5 backdrop-blur-sm shadow-lg">
-            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
-              <div className="p-3 rounded-xl bg-background border border-border">
-                <Award size={28} className="text-accent" />
+        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.titleLabel')}</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.nama}
+                  onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
+                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none"
+                />
               </div>
-              <h3 className="text-2xl font-bold text-white">National Certifications</h3>
+              <div>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.descLabel')}</label>
+                <textarea
+                  required
+                  rows={4}
+                  value={formData.deskripsi}
+                  onChange={(e) => setFormData({ ...formData, deskripsi: e.target.value })}
+                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none resize-none"
+                />
+              </div>
             </div>
-            <div className="space-y-6">
-              {nationalCerts.map((cert, index) => (
-                <div key={index} className="flex gap-4 group">
-                  <CheckCircle2 size={20} className="text-accent shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-white/90 mb-1">{cert.title}</h4>
-                    <p className="text-sm text-foreground-muted leading-relaxed">{cert.desc}</p>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.photoLabel')}</label>
+                <div className="relative group cursor-pointer">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => setImageFile(e.target.files ? e.target.files[0] : null)}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                  />
+                  <div className="h-40 rounded-xl border-2 border-dashed border-white/10 flex flex-col items-center justify-center bg-background/50 group-hover:border-accent transition-colors overflow-hidden">
+                    {imageFile ? (
+                      <img src={URL.createObjectURL(imageFile)} className="w-full h-full object-cover" />
+                    ) : formData.foto ? (
+                      <img src={formData.foto} className="w-full h-full object-cover" />
+                    ) : (
+                      <>
+                        <Upload className="text-foreground-muted mb-2" />
+                        <span className="text-xs text-foreground-muted">{t('adminBlog.uploadHint')}</span>
+                      </>
+                    )}
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-white/5">
+                <input
+                  type="checkbox"
+                  id="landing"
+                  checked={formData.ditampilkan_di_landing_page}
+                  onChange={(e) => setFormData({ ...formData, ditampilkan_di_landing_page: e.target.checked })}
+                  className="w-5 h-5 rounded border-white/10 bg-background text-accent focus:ring-accent"
+                />
+                <label htmlFor="landing" className="text-sm text-white cursor-pointer">{t('adminBlog.showLanding')}</label>
+              </div>
             </div>
           </div>
 
-          {/* International Certifications */}
-          <div className="p-8 rounded-3xl bg-surface/40 border border-white/5 backdrop-blur-sm shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-              <Globe size={120} />
-            </div>
-            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10 relative z-10">
-              <div className="p-3 rounded-xl bg-background border border-border">
-                <ShieldCheck size={28} className="text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">International Certifications</h3>
-            </div>
-            <div className="space-y-6 relative z-10">
-              {internationalCerts.map((cert, index) => (
-                <div key={index} className="flex gap-4 group">
-                  <CheckCircle2 size={20} className="text-accent shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-white/90 mb-1">{cert.title}</h4>
-                    <p className="text-sm text-foreground-muted leading-relaxed">{cert.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="pt-6 border-t border-white/10 flex justify-end gap-4">
+            <button type="button" onClick={onClose} className="px-6 py-2.5 rounded-xl text-foreground-muted hover:text-white transition-colors">{t('adminBlog.cancel')}</button>
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-accent hover:bg-accent/80 text-white px-8 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 disabled:opacity-50"
+            >
+              {loading && <Loader2 size={18} className="animate-spin" />}
+              {loading ? t('adminBlog.saving') : t('adminBlog.save')}
+            </button>
           </div>
-        </div>
-
+        </form>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Certifications;
+export default BlogModal;
 </file>
 
 <file path="src/components/Layout.tsx">
@@ -2201,101 +1674,92 @@ const ClientBasePage = () => {
 export default ClientBasePage;
 </file>
 
-<file path="src/constants/brands.tsx">
-import { Cpu, ShieldAlert } from "lucide-react";
+<file path="src/components/Certifications.tsx">
+import { ShieldCheck, Award, Globe, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
-export interface BrandProduct {
-  name: string;
+
+interface CertItem {
+  title: string;
   desc: string;
 }
 
-export interface BrandData {
-  name: string;
-  tagline: string;
-  description: string;
-  heroImage: string;
-  features: string[];
-  products: BrandProduct[];
-}
-export const brands: Record<string, BrandData> = {
-  "hartindo-af31": {
-    name: "Lithium Fire Killer Hartindo AF31",
-    tagline: "The next level solution to face the rising risk of lithium-ion battery fire hazard.",
-    description: "A revolutionary fire extinguisher specifically designed for lithium-ion batteries. Formulated to be non-toxic, non-ozone depleting, PFAS-free (eliminating cancer risks), and complies with TKDN standards (49.31%). LFK AF31 is the ultimate choice for EV and mining fire mitigation, while also highly effective at preventing re-ignition in forest fires.",
-    heroImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2000&auto=format&fit=crop",
-    features: [
-      "Eco-Friendly & PFAS-Free (Eurofins Certified)",
-      "Passed National Standard TKDN Test (49.31%)",
-      "Global Certifications (UL Greenguard Gold, SGS, OECD)",
-      "Multi-function for all classes of fire (A, B, C, D, F/K)"
-    ],
-    products: [
-      { name: "LFK AF31 Portable", desc: "Lightweight suppression cylinder for electric vehicles and commercial areas." },
-      { name: "LFK for Mining & Forestry", desc: "Large-scale solution for the mining industry and forest fire prevention." }
-    ]
-  },
-  "ballistic-app": {
-    name: "BALLISTIC App",
-    tagline: "Predictive IoT Battery Monitoring System",
-    description: "BALLISTIC is an IoT-powered mobile application that monitors lithium battery conditions in real-time for electric vehicles (EV) and data centers. Designed to address potential battery failures, it detects temperature anomalies and sends early warnings directly to your smartphone.",
-    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop",
-    features: [
-      "Real-time battery temperature monitoring",
-      "Smart early warning notifications to smartphone",
-      "Seamless IoT sensor integration",
-      "Prevents thermal runaway before ignition"
-    ],
-    products: [
-      { name: "BALLISTIC for EV", desc: "Dedicated integrated monitoring for electric vehicle users." },
-      { name: "BALLISTIC Enterprise", desc: "Centralized monitoring system for modern Data Centers." }
-    ]
-  },
-  "altex": {
-    name: "Altex",
-    tagline: "Advanced Anti-Fire Liquid Coating",
-    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
-    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop",
-    features: [
-      "Prevents material ignition",
-      "Stops fire spreading",
-      "Easy liquid application",
-      "Long-lasting protection"
-    ],
-    products: [
-      { name: "Altex Coating Solution", desc: "Premium anti-fire liquid coating for industrial and commercial use." }
-    ]
-  }
+const Certifications = () => {
+  const { t } = useTranslation();
+
+
+  const nationalCerts = t('certifications.national', { returnObjects: true }) as CertItem[];
+  const internationalCerts = t('certifications.international', { returnObjects: true }) as CertItem[];
+
+  return (
+    <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
+            <Globe size={16} className="text-accent" />
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">{t('certifications.badge')}</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">{t('certifications.title')}</h2>
+          <p className="text-foreground-muted text-lg font-light leading-relaxed">
+            {t('certifications.desc')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
+          {/* National Certifications */}
+          <div className="p-8 rounded-3xl bg-surface/40 border border-white/5 backdrop-blur-sm shadow-lg">
+            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+              <div className="p-3 rounded-xl bg-background border border-border">
+                <Award size={28} className="text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">{t('certifications.nationalTitle')}</h3>
+            </div>
+            <div className="space-y-6">
+              {nationalCerts.map((cert, index) => (
+                <div key={index} className="flex gap-4 group">
+                  <CheckCircle2 size={20} className="text-accent shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity" />
+                  <div>
+                    <h4 className="text-lg font-semibold text-white/90 mb-1">{cert.title}</h4>
+                    <p className="text-sm text-foreground-muted leading-relaxed">{cert.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* International Certifications */}
+          <div className="p-8 rounded-3xl bg-surface/40 border border-white/5 backdrop-blur-sm shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+              <Globe size={120} />
+            </div>
+            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10 relative z-10">
+              <div className="p-3 rounded-xl bg-background border border-border">
+                <ShieldCheck size={28} className="text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">{t('certifications.internationalTitle')}</h3>
+            </div>
+            <div className="space-y-6 relative z-10">
+              {internationalCerts.map((cert, index) => (
+                <div key={index} className="flex gap-4 group">
+                  <CheckCircle2 size={20} className="text-accent shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity" />
+                  <div>
+                    <h4 className="text-lg font-semibold text-white/90 mb-1">{cert.title}</h4>
+                    <p className="text-sm text-foreground-muted leading-relaxed">{cert.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
-export const mainBrands = [
-  {
-    name: "Lithium Fire Killer Hartindo AF31",
-    slug: "hartindo-af31",
-    description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
-    logo: "AF31",
-    icon: <ShieldAlert size={32} className="text-accent" />,
-    gridClass: "md:col-span-2 md:row-span-2",
-    bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
-  },
-  {
-    name: "BALLISTIC App",
-    slug: "ballistic-app",
-    description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
-    logo: "APP",
-    icon: <Cpu size={24} className="text-white" />,
-    gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    name: "Altex",
-    slug: "altex",
-    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
-    logo: "APP",
-    icon: <ShieldAlert size={24} className="text-white" />,
-    gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-  }
-];
+export default Certifications;
 </file>
 
 <file path="src/constants/navs.tsx">
@@ -2305,6 +1769,274 @@ export const navLinks = [
   { name: 'Catalog', href: '/#katalog' },
   { name: 'Clients', href: '/#klien' },
 ];
+</file>
+
+<file path="src/i18n.ts">
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+const resources = {
+  en: {
+    translation: {
+      about: {
+        title: "Advanced Fire Solutions",
+        desc: "We provide trusted tech for your safety & peace of mind.",
+        missionTitle: "Our Mission",
+        missionDesc:
+          "Provide top fire safety tech to mitigate lithium battery risks.",
+        visionTitle: "Our Vision",
+        visionDesc: "Creating a safer world so you can focus on what matters.",
+      },
+      brands: {
+        sectionTitle: "Innovation &",
+        sectionHighlight: "Technology",
+        sectionDesc: "Specialized tech for precision fire risk handling.",
+        viewCatalog: "View Complete Catalog",
+        items: {
+          "hartindo-af31": {
+            name: "Lithium Fire Killer AF31",
+            desc: "Eco-friendly lithium fire mitigation with global certification.",
+          },
+          "ballistic-app": {
+            name: "BALLISTIC App",
+            desc: "Advanced IoT mobile app for real-time battery monitoring.",
+          },
+          altex: {
+            name: "Altex Coating",
+            desc: "Anti-fire liquid coating to effectively stop fire spread.",
+          },
+        },
+      },
+      catalog: {
+        tagline: "Embark On Your Safety Journey",
+        title: "No Fire",
+        titleHighlight: "No Fear",
+        desc: "High-level fire safety engineered for maximum reliability in critical industries.",
+        explore: "Explore Category",
+        categories: {
+          predictive: {
+            name: "Predictive",
+            desc: "IoT battery monitoring system to detect anomalies early.",
+          },
+          preventive: {
+            name: "Preventive",
+            desc: "Anti-fire gel and coating to suppress fire at first ignition.",
+          },
+          protective: {
+            name: "Protective",
+            desc: "Advanced liquid gas and specialized suppression systems.",
+          },
+        },
+      },
+      adminBlog: {
+        addTitle: "Add New Blog",
+        editTitle: "Edit Blog",
+        titleLabel: "Blog Title",
+        descLabel: "Description",
+        photoLabel: "Blog Photo",
+        uploadHint: "Click to upload photo",
+        showLanding: "Show on Landing Page",
+        cancel: "Cancel",
+        save: "Save Blog",
+        saving: "Saving...",
+      },
+      certifications: {
+        badge: "World-Class Standard",
+        title: "Global Certifications",
+        desc: "LFK AF31 is certified globally, ensuring top-tier safety and excellence.",
+        nationalTitle: "National Certifications",
+        internationalTitle: "International Certifications",
+        national: [
+          {
+            title: "TKDN (49.31%)",
+            desc: "Approved by Ministry of Industry. Top choice for mining.",
+          },
+          {
+            title: "KLHK",
+            desc: "Eco-friendly solution to safely prevent re-ignition.",
+          },
+          {
+            title: "DAMKAR",
+            desc: "Certified for fire classes A, B, C, D, and F/K.",
+          },
+          {
+            title: "Kemenhub",
+            desc: "Class A, B, C, D certified. Effective for forest fires.",
+          },
+          {
+            title: "POLRI",
+            desc: "Meets rigorous safety standards for law enforcement.",
+          },
+        ],
+        international: [
+          {
+            title: "UL Solutions (USA)",
+            desc: "GREENGUARD Gold. Low VOC emissions, human safe.",
+          },
+          {
+            title: "EUROFINS",
+            desc: "Non-PFAS certified, eliminating cancer risks.",
+          },
+          {
+            title: "SGS (USA)",
+            desc: "ASTM E84-07 & UL723. Effective for building surfaces.",
+          },
+          {
+            title: "KGK Synergize (Canada)",
+            desc: "OECD-certified: non-irritating to eyes and skin.",
+          },
+          {
+            title: "Pollutech (Canada)",
+            desc: "LC50 certified: non-toxic and safe for ecosystems.",
+          },
+          {
+            title: "EN1568-3",
+            desc: "Complies with stringent European extinguishing standards.",
+          },
+          {
+            title: "Nucro Technics",
+            desc: "Internationally verified for chemical safety.",
+          },
+        ],
+      },
+    },
+  },
+  id: {
+    translation: {
+      about: {
+        title: "Solusi Kebakaran Modern",
+        desc: "Kami hadirkan teknologi terpercaya untuk keamanan Anda.",
+        missionTitle: "Misi Kami",
+        missionDesc:
+          "Memberikan solusi mitigasi risiko baterai lithium terbaik.",
+        visionTitle: "Visi Kami",
+        visionDesc: "Menciptakan dunia yang aman agar Anda lebih tenang.",
+      },
+      brands: {
+        sectionTitle: "Inovasi &",
+        sectionHighlight: "Teknologi",
+        sectionDesc:
+          "Teknologi khusus untuk penanganan risiko kebakaran yang presisi.",
+        viewCatalog: "Lihat Semua Katalog",
+        items: {
+          "hartindo-af31": {
+            name: "Lithium Fire Killer AF31",
+            desc: "Mitigasi kebakaran lithium ramah lingkungan bersertifikasi global.",
+          },
+          "ballistic-app": {
+            name: "Aplikasi BALLISTIC",
+            desc: "Aplikasi IoT canggih untuk pemantauan baterai real-time.",
+          },
+          altex: {
+            name: "Pelapis Altex",
+            desc: "Pelapis cairan anti-api untuk mencegah penyebaran api.",
+          },
+        },
+      },
+      catalog: {
+        tagline: "Mulai Perjalanan Keamanan Anda",
+        title: "Tanpa Api",
+        titleHighlight: "Tanpa Takut",
+        desc: "Keamanan tingkat tinggi yang dirancang untuk keandalan di industri kritis.",
+        explore: "Lihat Kategori",
+        categories: {
+          predictive: {
+            name: "Prediktif",
+            desc: "Sistem IoT pemantauan baterai untuk deteksi dini anomali.",
+          },
+          preventive: {
+            name: "Preventif",
+            desc: "Gel dan pelapis anti-api untuk meredam titik api pertama.",
+          },
+          protective: {
+            name: "Protektif",
+            desc: "Gas cair tingkat lanjut dan sistem supresi kebakaran khusus.",
+          },
+        },
+      },
+      adminBlog: {
+        addTitle: "Tambah Blog Baru",
+        editTitle: "Edit Blog",
+        titleLabel: "Judul Blog",
+        descLabel: "Deskripsi",
+        photoLabel: "Foto Blog",
+        uploadHint: "Klik untuk upload foto",
+        showLanding: "Tampilkan di Landing Page",
+        cancel: "Batal",
+        save: "Simpan Blog",
+        saving: "Menyimpan...",
+      },
+      certifications: {
+        badge: "Standar Dunia",
+        title: "Sertifikasi Global",
+        desc: "LFK AF31 tersertifikasi secara global, menjamin keamanan tingkat tinggi.",
+        nationalTitle: "Sertifikasi Nasional",
+        internationalTitle: "Sertifikasi Internasional",
+        national: [
+          {
+            title: "TKDN (49.31%)",
+            desc: "Disetujui Kemenperin. Pilihan utama industri tambang.",
+          },
+          {
+            title: "KLHK",
+            desc: "Solusi ramah lingkungan pencegah re-ignisi karhutla.",
+          },
+          {
+            title: "DAMKAR",
+            desc: "Tersertifikasi untuk kelas api A, B, C, D, dan F/K.",
+          },
+          {
+            title: "Kemenhub",
+            desc: "Sertifikasi Kelas A, B, C, D. Efektif untuk karhutla.",
+          },
+          {
+            title: "POLRI",
+            desc: "Memenuhi standar keamanan ketat untuk kepolisian.",
+          },
+        ],
+        international: [
+          {
+            title: "UL Solutions (USA)",
+            desc: "GREENGUARD Gold. Emisi VOC rendah, sangat aman.",
+          },
+          {
+            title: "EUROFINS",
+            desc: "Bebas PFAS, menghilangkan risiko kanker pada tubuh.",
+          },
+          {
+            title: "SGS (USA)",
+            desc: "ASTM E84-07 & UL723. Efektif untuk permukaan bangunan.",
+          },
+          {
+            title: "KGK Synergize",
+            desc: "Sertifikasi OECD: tidak mengiritasi mata dan kulit.",
+          },
+          {
+            title: "Pollutech",
+            desc: "Sertifikasi LC50: tidak beracun dan aman ekosistem.",
+          },
+          {
+            title: "EN1568-3",
+            desc: "Memenuhi standar ketat pemadaman api Eropa.",
+          },
+          {
+            title: "Nucro Technics",
+            desc: "Terverifikasi internasional untuk keamanan kimia.",
+          },
+        ],
+      },
+    },
+  },
+};
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: "id",
+  fallbackLng: "id",
+  interpolation: { escapeValue: false },
+});
+
+export default i18n;
 </file>
 
 <file path="src/pages/Home.tsx">
@@ -2479,6 +2211,103 @@ export const deleteBlog = async (id: string) => {
     "vite": "^7.3.1"
   }
 }
+</file>
+
+<file path="src/constants/brands.tsx">
+import { Cpu, ShieldAlert } from "lucide-react";
+
+export interface BrandProduct {
+  name: string;
+  desc: string;
+}
+
+export interface BrandData {
+  name: string;
+  tagline: string;
+  description: string;
+  heroImage: string;
+  features: string[];
+  products: BrandProduct[];
+}
+export const brands: Record<string, BrandData> = {
+  "hartindo-af31": {
+    name: "Lithium Fire Killer Hartindo AF31",
+    tagline: "The next level solution to face the rising risk of lithium-ion battery fire hazard.",
+    description: "A revolutionary fire extinguisher specifically designed for lithium-ion batteries. Formulated to be non-toxic, non-ozone depleting, PFAS-free (eliminating cancer risks), and complies with TKDN standards (49.31%). LFK AF31 is the ultimate choice for EV and mining fire mitigation, while also highly effective at preventing re-ignition in forest fires.",
+    heroImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2000&auto=format&fit=crop",
+    features: [
+      "Eco-Friendly & PFAS-Free (Eurofins Certified)",
+      "Passed National Standard TKDN Test (49.31%)",
+      "Global Certifications (UL Greenguard Gold, SGS, OECD)",
+      "Multi-function for all classes of fire (A, B, C, D, F/K)"
+    ],
+    products: [
+      { name: "LFK AF31 Portable", desc: "Lightweight suppression cylinder for electric vehicles and commercial areas." },
+      { name: "LFK for Mining & Forestry", desc: "Large-scale solution for the mining industry and forest fire prevention." }
+    ]
+  },
+  "ballistic-app": {
+    name: "BALLISTIC App",
+    tagline: "Predictive IoT Battery Monitoring System",
+    description: "BALLISTIC is an IoT-powered mobile application that monitors lithium battery conditions in real-time for electric vehicles (EV) and data centers. Designed to address potential battery failures, it detects temperature anomalies and sends early warnings directly to your smartphone.",
+    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop",
+    features: [
+      "Real-time battery temperature monitoring",
+      "Smart early warning notifications to smartphone",
+      "Seamless IoT sensor integration",
+      "Prevents thermal runaway before ignition"
+    ],
+    products: [
+      { name: "BALLISTIC for EV", desc: "Dedicated integrated monitoring for electric vehicle users." },
+      { name: "BALLISTIC Enterprise", desc: "Centralized monitoring system for modern Data Centers." }
+    ]
+  },
+  "altex": {
+    name: "Altex",
+    tagline: "Advanced Anti-Fire Liquid Coating",
+    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
+    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop",
+    features: [
+      "Prevents material ignition",
+      "Stops fire spreading",
+      "Easy liquid application",
+      "Long-lasting protection"
+    ],
+    products: [
+      { name: "Altex Coating Solution", desc: "Premium anti-fire liquid coating for industrial and commercial use." }
+    ]
+  }
+};
+
+export const mainBrands = [
+  {
+    name: "Lithium Fire Killer Hartindo AF31",
+    slug: "hartindo-af31",
+    description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
+    logo: "AF31",
+    icon: <ShieldAlert size={32} className="text-accent" />,
+    gridClass: "md:col-span-2 md:row-span-2",
+    bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
+  },
+  {
+    name: "BALLISTIC App",
+    slug: "ballistic-app",
+    description: "Mobile application that monitors and provides warnings of lithium battery conditions using advanced IoT technology.",
+    logo: "APP",
+    icon: <Cpu size={24} className="text-white" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+  },
+  {
+    name: "Altex",
+    slug: "altex",
+    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
+    logo: "APP",
+    icon: <ShieldAlert size={24} className="text-white" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+  }
+];
 </file>
 
 <file path="src/constants/catalogs.tsx">
@@ -2812,77 +2641,6 @@ const App = () => {
 export default App;
 </file>
 
-<file path="src/components/Navbar.tsx">
-import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { navLinks } from '../constants/navs';
-import logo from '../assets/FAST_Logo_PNG/logo.png';
-
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${isScrolled || isMobileMenuOpen ? 'bg-surface/80 backdrop-blur-xl border-b border-white/10 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]' : 'bg-gradient-to-b from-background/80 to-transparent py-6'}`}>
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-
-        <a href="/#beranda" className="flex items-center gap-3 relative z-10 group">
-          <img src={logo} alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 will-change-transform" />
-        </a>
-
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="relative text-sm font-medium text-foreground/80 hover:text-white transition-colors duration-300 group py-2">
-              {link.name}
-              {/* Efek garis bawah modern saat di-hover */}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-            </a>
-          ))}
-          <a href="#kontak" className="ml-4 bg-white/5 border border-accent/30 text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-accent hover:border-accent transition-all duration-500 shadow-[0_0_15px_rgba(56,152,212,0.1)] hover:shadow-[0_0_25px_rgba(56,152,212,0.5)] hover:-translate-y-0.5 transform will-change-transform">
-            Contact Us
-          </a>
-        </div>
-
-        <button
-          className="md:hidden text-foreground relative z-10 hover:text-accent transition-colors focus:outline-none rounded-md p-1"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={isMobileMenuOpen}
-        >
-          {isMobileMenuOpen ? <X size={28} className="transform rotate-90 transition-transform duration-300" aria-hidden="true" /> : <Menu size={28} className="transition-transform duration-300" aria-hidden="true" />}
-        </button>
-
-      </div>
-
-      {/* Mobile Menu dengan animasi Dropdown yang mulus */}
-      <div className={`absolute top-full left-0 w-full bg-surface/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-500 ease-[0.16,1,0.3,1] md:hidden overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100 py-6 shadow-2xl' : 'max-h-0 opacity-0 py-0'}`}>
-        <div className="flex flex-col items-center space-y-6">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-accent transition-colors tracking-wide">
-              {link.name}
-            </a>
-          ))}
-          <a href="#kontak" onClick={() => setIsMobileMenuOpen(false)} className="bg-accent text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(56,152,212,0.3)] mt-4 w-3/4 text-center">
-            Contact Us
-          </a>
-        </div>
-      </div>
-    </nav >
-  );
-};
-
-export default Navbar;
-</file>
-
 <file path="src/components/ClientBase.tsx">
 import { Landmark, Shield, Car, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -2982,6 +2740,109 @@ const ClientBase = () => {
 };
 
 export default ClientBase;
+</file>
+
+<file path="src/components/Navbar.tsx">
+import { useState, useEffect } from 'react';
+import { Menu, X, Globe } from 'lucide-react';
+import { navLinks } from '../constants/navs';
+import logo from '../assets/FAST_Logo_PNG/logo.png';
+import { useTranslation } from 'react-i18next';
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'id' ? 'en' : 'id';
+    i18n.changeLanguage(newLang);
+  };
+
+  return (
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${isScrolled || isMobileMenuOpen
+        ? 'bg-surface/80 backdrop-blur-xl border-b border-white/10 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
+        : 'bg-gradient-to-b from-background/80 to-transparent py-6'
+        }`}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+
+        <a href="/#beranda" className="flex items-center gap-3 relative z-10 group">
+          <img src={logo} alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 will-change-transform" />
+        </a>
+
+        <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <a key={link.name} href={link.href} className="relative text-sm font-medium text-foreground/80 hover:text-white transition-colors duration-300 group py-2">
+              {link.name}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+            </a>
+          ))}
+
+          <div className="flex items-center border-l border-white/20 pl-6 ml-2">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-foreground/80 hover:text-white transition-colors uppercase text-sm font-semibold"
+              aria-label="Toggle Language"
+            >
+              <Globe size={18} />
+              {i18n.language === 'id' ? 'ID' : 'EN'}
+            </button>
+          </div>
+
+          <a href="#kontak" className="ml-4 bg-white/5 border border-accent/30 text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-accent hover:border-accent transition-all duration-500 shadow-[0_0_15px_rgba(56,152,212,0.1)] hover:shadow-[0_0_25px_rgba(56,152,212,0.5)] hover:-translate-y-0.5 transform will-change-transform">
+            Contact Us
+          </a>
+        </div>
+
+        <div className="md:hidden flex items-center gap-6 relative z-10">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 text-foreground/80 hover:text-accent transition-colors uppercase text-sm font-semibold"
+            aria-label="Toggle Language"
+          >
+            <Globe size={20} />
+            {i18n.language === 'id' ? 'ID' : 'EN'}
+          </button>
+
+          <button
+            className="text-foreground hover:text-accent transition-colors focus:outline-none rounded-md p-1"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={28} className="transform rotate-90 transition-transform duration-300" aria-hidden="true" /> : <Menu size={28} className="transition-transform duration-300" aria-hidden="true" />}
+          </button>
+        </div>
+
+      </div>
+
+      <div className={`absolute top-full left-0 w-full bg-surface/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-500 ease-[0.16,1,0.3,1] md:hidden overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100 py-6 shadow-2xl' : 'max-h-0 opacity-0 py-0'}`}>
+        <div className="flex flex-col items-center space-y-6">
+          {navLinks.map((link) => (
+            <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-accent transition-colors tracking-wide">
+              {link.name}
+            </a>
+          ))}
+          <a href="#kontak" onClick={() => setIsMobileMenuOpen(false)} className="bg-accent text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(56,152,212,0.3)] mt-4 w-3/4 text-center">
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
 </file>
 
 <file path="src/components/SEO.tsx">
@@ -3144,17 +3005,18 @@ export default About;
 <file path="src/components/Catalog.tsx">
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { categories } from '../constants/catalogs';
 import SpotlightCard from './SpotlightCard';
 
 const Catalog = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="katalog" className="py-24 bg-background relative overflow-hidden">
-
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -3163,11 +3025,13 @@ const Catalog = () => {
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm cursor-default">
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">Embark On Your Safety Journey</span>
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">{t('catalog.tagline')}</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">No Fire <span className="text-accent">No Fear</span></h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+            {t('catalog.title')} <span className="text-accent">{t('catalog.titleHighlight')}</span>
+          </h2>
           <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            High-level fire safety engineered for maximum reliability in critical industries.
+            {t('catalog.desc')}
           </p>
         </motion.div>
 
@@ -3187,24 +3051,17 @@ const Catalog = () => {
                 <SpotlightCard className="group h-full w-full hover:border-accent/40 hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)]">
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
 
-                  {/* <img
-                src={category.icon}
-                alt={`Solusi ${category.name} - Teknologi Pemadam Kebakaran Baterai Lithium oleh PT FAST`}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-transform duration-700 ease-out group-hover:scale-105"
-              /> */}
-
                   <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
                     <div className="w-14 h-14 rounded-2xl bg-surface/90 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 transform-gpu transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)]">
                       <IconComponent size={32} />
                     </div>
 
                     <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                      {category.name}
+                      {t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })}
                     </h3>
 
                     <p className="text-foreground-muted mb-6 font-light leading-relaxed transform-gpu translate-y-4 opacity-70 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 line-clamp-3">
-                      {category.description}
+                      {t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
                     </p>
 
                     <div className="overflow-hidden h-8">
@@ -3213,7 +3070,7 @@ const Catalog = () => {
                         aria-label={`Pelajari lebih lanjut tentang teknologi ${category.name}`}
                         className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors uppercase transform-gpu translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500"
                       >
-                        Explore Category <ArrowRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1" />
+                        {t('catalog.explore')} <ArrowRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1" />
                       </a>
                     </div>
                   </div>
@@ -3222,113 +3079,12 @@ const Catalog = () => {
             );
           })}
         </div>
-
       </div>
     </section>
   );
 };
 
 export default Catalog;
-</file>
-
-<file path="src/components/Brands.tsx">
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import SpotlightCard from './SpotlightCard';
-import { mainBrands } from '../constants/brands';
-
-const Brands = () => {
-  return (
-    <section id="brands" className="py-24 bg-surface relative overflow-hidden border-y border-white/5">
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl"
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">Innovation & <span className="text-accent">Technology</span></h2>
-            <p className="text-foreground-muted text-lg font-light leading-relaxed">
-              Explore our specialized technological innovations designed to handle various levels of fire risks with absolute precision.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Link
-              to="/catalog"
-              aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
-              className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
-            >
-              View Complete Catalog <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </Link>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
-          {mainBrands.map((brand, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`h-full ${brand.gridClass}`}
-            >
-              <Link
-                to={`/brand/${brand.slug}`}
-                aria-label={`Pelajari lebih detail mengenai spesifikasi produk ${brand.name}`}
-                className="group relative w-full h-full block"
-              >
-                <SpotlightCard className="w-full h-full rounded-3xl border-white/5 hover:border-accent/30">
-                  <div className="absolute inset-0 z-0 bg-background overflow-hidden rounded-3xl">
-                    <img
-                      src={brand.bgImage}
-                      alt={`Sistem Proteksi Kebakaran dan Teknologi Mitigasi ${brand.name} dari PT FAST`}
-                      loading="lazy"
-                      className="w-full h-full object-cover opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
-                  </div>
-
-                  <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end transform-gpu transition-transform duration-500">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>
-                        {brand.icon}
-                      </div>
-                      <div className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-white opacity-0 transform-gpu translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:translate-x-0">
-                        <ArrowUpRight size={20} />
-                      </div>
-                    </div>
-
-                    <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 tracking-tight ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
-                      {brand.name}
-                    </h3>
-
-                    <p className={`text-foreground-muted font-light leading-relaxed transform-gpu translate-y-2 opacity-80 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2'}`}>
-                      {brand.description}
-                    </p>
-                  </div>
-                </SpotlightCard>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Brands;
 </file>
 
 <file path="src/components/ContactFooter.tsx">
@@ -3836,6 +3592,111 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
     </div>
   );
 }
+</file>
+
+<file path="src/components/Brands.tsx">
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import SpotlightCard from './SpotlightCard';
+import { mainBrands } from '../constants/brands';
+
+const Brands = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section id="brands" className="py-24 bg-surface relative overflow-hidden border-y border-white/5">
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">
+              {t('brands.sectionTitle')} <span className="text-accent">{t('brands.sectionHighlight')}</span>
+            </h2>
+            <p className="text-foreground-muted text-lg font-light leading-relaxed">
+              {t('brands.sectionDesc')}
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              to="/catalog"
+              aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
+              className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
+            >
+              {t('brands.viewCatalog')} <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </Link>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
+          {mainBrands.map((brand, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`h-full ${brand.gridClass}`}
+            >
+              <Link
+                to={`/brand/${brand.slug}`}
+                aria-label={`Pelajari lebih detail mengenai spesifikasi produk ${brand.name}`}
+                className="group relative w-full h-full block"
+              >
+                <SpotlightCard className="w-full h-full rounded-3xl border-white/5 hover:border-accent/30">
+                  <div className="absolute inset-0 z-0 bg-background overflow-hidden rounded-3xl">
+                    <img
+                      src={brand.bgImage}
+                      alt={`Sistem Proteksi Kebakaran dan Teknologi Mitigasi ${brand.name} dari PT FAST`}
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
+                  </div>
+
+                  <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end transform-gpu transition-transform duration-500">
+                    <div className="flex justify-between items-start mb-4">
+                      <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>
+                        {brand.icon}
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-surface border border-white/10 flex items-center justify-center text-white opacity-0 transform-gpu translate-x-4 transition-all duration-500 group-hover:opacity-100 group-hover:bg-accent group-hover:border-accent group-hover:translate-x-0">
+                        <ArrowUpRight size={20} />
+                      </div>
+                    </div>
+
+                    <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 tracking-tight ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
+                      {t(`brands.items.${brand.slug}.name`, { defaultValue: brand.name })}
+                    </h3>
+
+                    <p className={`text-foreground-muted font-light leading-relaxed transform-gpu translate-y-2 opacity-80 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2'}`}>
+                      {t(`brands.items.${brand.slug}.desc`, { defaultValue: brand.description })}
+                    </p>
+                  </div>
+                </SpotlightCard>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Brands;
 </file>
 
 </files>
