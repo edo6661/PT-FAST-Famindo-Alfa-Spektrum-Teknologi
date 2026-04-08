@@ -1,3 +1,359 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files and files not matching ignore patterns, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: src/**/*, package.json, vite.config.ts, tsconfig.json, prisma/schema.prisma, prisma/seeds/*
+- Files matching these patterns are excluded: **/*.test.ts
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+package.json
+src/App.tsx
+src/assets/about-us/about-us-hero.avif
+src/assets/about-us/franky-affandi.avif
+src/assets/about-us/rolando-fam.avif
+src/assets/about-us/sean-justin.avif
+src/assets/about-us/willy-hadiwijaya.avif
+src/assets/clients/astra-daihatsu.webp
+src/assets/clients/astra-honda-motor.jpg
+src/assets/clients/astra-otoparts.webp
+src/assets/clients/bmw.webp
+src/assets/clients/lexus.jpg
+src/assets/clients/mitsubishi.png
+src/assets/clients/porsche.png
+src/assets/clients/toyota-astra-motor.webp
+src/assets/download.png
+src/assets/FAST_Favicons/FAST Logogram on Dark Navy.png
+src/assets/FAST_Favicons/FAST WEB ICON.jpg
+src/assets/FAST_Favicons/Icon_
+src/assets/FAST_Logo_JPEG/FAST Black [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Black Logogram.jpg
+src/assets/FAST_Logo_JPEG/FAST Blue Logogram.jpg
+src/assets/FAST_Logo_JPEG/FAST Color [Primary White] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Color [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Silver [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST Silver Logogram.jpg
+src/assets/FAST_Logo_JPEG/FAST White [Primary] Logo.jpg
+src/assets/FAST_Logo_JPEG/FAST White Logogram.jpg
+src/assets/FAST_Logo_JPEG/Icon_
+src/assets/FAST_Logo_PNG/FAST Black [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST Black Logogram.png
+src/assets/FAST_Logo_PNG/FAST Color [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST Silver [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST Silver Logogram.png
+src/assets/FAST_Logo_PNG/FAST White [Primary] Logo.png
+src/assets/FAST_Logo_PNG/FAST White Logogram.png
+src/assets/FAST_Logo_PNG/Icon_
+src/assets/FAST_Logo_PNG/logo-tadinya.png
+src/assets/FAST_Logo_PNG/logo.png
+src/assets/hero_2.png
+src/assets/hero.png
+src/assets/hero.webp
+src/assets/products/ballistic.avif
+src/assets/products/flame_accurate_termination.avif
+src/assets/products/lithium_fire_killer.avif
+src/assets/products/preventive-altech.avif
+src/assets/products/preventive-g_tech.avif
+src/assets/products/preventive-power_tech_shield.avif
+src/assets/products/undercarriage_suppressions_system.avif
+src/assets/sequence/frame-by-frame/ezgif-frame-033.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-034.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-035.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-036.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-037.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-038.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-039.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-040.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-041.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-042.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-043.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-044.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-045.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-046.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-047.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-048.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-049.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-050.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-051.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-052.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-053.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-054.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-055.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-056.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-057.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-058.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-059.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-060.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-061.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-062.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-063.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-064.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-065.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-066.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-067.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-068.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-069.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-070.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-071.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-072.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-073.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-074.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-075.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-076.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-077.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-078.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-079.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-080.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-081.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-082.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-083.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-084.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-085.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-086.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-087.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-088.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-089.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-090.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-091.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-092.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-093.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-094.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-095.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-096.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-097.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-098.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-099.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-100.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-101.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-102.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-103.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-104.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-105.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-106.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-107.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-108.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-109.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-110.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-111.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-112.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-113.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-114.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-115.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-116.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-117.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-118.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-119.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-120.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-121.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-122.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-123.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-124.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-125.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-126.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-127.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-128.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-129.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-130.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-131.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-132.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-133.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-134.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-135.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-136.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-137.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-138.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-139.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-140.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-141.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-142.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-143.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-144.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-145.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-146.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-147.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-148.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-149.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-150.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-151.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-152.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-153.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-154.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-155.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-156.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-157.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-158.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-159.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-160.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-161.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-162.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-163.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-164.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-165.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-166.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-167.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-168.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-169.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-170.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-171.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-172.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-173.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-174.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-175.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-176.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-177.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-178.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-179.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-180.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-181.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-182.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-183.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-184.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-185.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-186.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-187.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-188.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-189.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-190.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-191.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-192.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-193.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-194.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-195.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-196.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-197.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-198.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-199.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-200.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-201.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-202.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-203.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-204.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-205.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-206.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-207.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-208.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-209.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-210.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-211.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-212.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-213.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-214.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-215.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-216.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-217.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-218.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-219.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-220.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-221.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-222.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-223.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-224.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-225.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-226.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-227.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-228.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-229.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-230.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-231.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-232.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-233.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-234.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-235.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-236.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-237.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-238.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-239.jpg
+src/assets/sequence/frame-by-frame/ezgif-frame-240.jpg
+src/components/About.tsx
+src/components/BlogModal.tsx
+src/components/Brands.tsx
+src/components/Catalog.tsx
+src/components/Certifications.tsx
+src/components/ClientBase.tsx
+src/components/ContactFooter.tsx
+src/components/FloatingWA.tsx
+src/components/Hero.tsx
+src/components/Layout.tsx
+src/components/Navbar.tsx
+src/components/OldAbout.tsx
+src/components/ProtectedRoute.tsx
+src/components/SEO.tsx
+src/components/SpotlightCard.tsx
+src/constants/brands.tsx
+src/constants/catalogs.tsx
+src/constants/contacts.ts
+src/constants/navs.tsx
+src/contexts/AuthContext.tsx
+src/i18n.ts
+src/index.css
+src/lib/firebase.ts
+src/main.tsx
+src/pages/AboutUsPage.tsx
+src/pages/AdminBlog.tsx
+src/pages/BlogDetailPage.tsx
+src/pages/BlogsPage.tsx
+src/pages/BrandDetail.tsx
+src/pages/CatalogPage.tsx
+src/pages/CategoryDetailPage.tsx
+src/pages/ClientBasePage.tsx
+src/pages/Home.tsx
+src/pages/Login.tsx
+src/pages/ProductDetailPage.tsx
+src/services/blogService.ts
+src/types/blog.ts
+tsconfig.json
+vite.config.ts
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="src/assets/FAST_Favicons/Icon_">
+
+</file>
+
+<file path="src/assets/FAST_Logo_JPEG/Icon_">
+
+</file>
+
+<file path="src/assets/FAST_Logo_PNG/Icon_">
+
+</file>
 
 <file path="src/components/BlogModal.tsx">
 import { useState, useEffect } from "react";
@@ -448,10 +804,30 @@ import { initReactI18next } from "react-i18next";
 
 const resources = {
   en: {
-    translation: {},
+    translation: {
+      about: {
+        title: "Advanced Fire Solutions",
+        desc: "We provide trusted tech for your safety & peace of mind.",
+        missionTitle: "Our Mission",
+        missionDesc:
+          "Provide top fire safety tech to mitigate lithium battery risks.",
+        visionTitle: "Our Vision",
+        visionDesc: "Creating a safer world so you can focus on what matters.",
+      },
+    },
   },
   id: {
-    translation: {},
+    translation: {
+      about: {
+        title: "Solusi Kebakaran Modern",
+        desc: "Kami hadirkan teknologi terpercaya untuk keamanan Anda.",
+        missionTitle: "Misi Kami",
+        missionDesc:
+          "Memberikan solusi mitigasi risiko baterai lithium terbaik.",
+        visionTitle: "Visi Kami",
+        visionDesc: "Menciptakan dunia yang aman agar Anda lebih tenang.",
+      },
+    },
   },
 };
 
@@ -497,6 +873,150 @@ import './i18n';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <App />
 );
+</file>
+
+<file path="src/pages/AboutUsPage.tsx">
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Users, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import SpotlightCard from '../components/SpotlightCard';
+
+// Import Assets
+import heroImg from '../assets/about-us/about-us-hero.avif';
+import willyImg from '../assets/about-us/willy-hadiwijaya.avif';
+import seanImg from '../assets/about-us/sean-justin.avif';
+import frankyImg from '../assets/about-us/franky-affandi.avif';
+import rolandoImg from '../assets/about-us/rolando-fam.avif';
+
+const teamMembers = [
+  {
+    name: "Willy Hadiwijaya",
+    role: "CEO",
+    bio: "A visionary and adept entrepreneur, proprietor of Famindo Group, with a wealth of experience spanning over 18 years across diverse industries. Currently serving as Director & Commissioner in Famindo Group, he possesses a robust background in the automotive industry and brings a passion for brand building to the challenging landscape of fire safety. He is committed to contributing to the growth and success of the fire safety industry.",
+    image: willyImg
+  },
+  {
+    name: "Sean Justin",
+    role: "President Commissioner",
+    bio: "A dedicated entrepreneur and proprietor of Famindo Group, bringing over nine years of expertise in human resources and marketing within diverse industries, with a recent focus on the fire safety business. Renowned for developing strategic initiatives, he has played a pivotal role in steering the company's rapid growth, aligning it with the unique challenges and opportunities prevalent in the fire safety industry.",
+    image: seanImg
+  },
+  {
+    name: "Franky Affandi",
+    role: "Chief Technical Officer",
+    bio: "Embarked on a career in the fire engineering sector with PT Hartindo Chemicatama Industri in 2009. Currently holds directorial positions in various companies, he continuously extends his expertise in fire safety, integrating his extensive experience from the agricultural, plastics, and fire engineering domains.",
+    image: frankyImg
+  },
+  {
+    name: "Rolando Fam",
+    role: "Chief Operating Officer",
+    bio: "With a rich background in various industries and armed with insights from diverse operational expertise, his focus is now dedicated to the fire safety industry. Currently serving as an Operational Director, he foresees significant transformations in fire safety and is committed to revolutionizing the standards of fire safety systems across various sectors.",
+    image: rolandoImg
+  }
+];
+
+const AboutUsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+      <SEO
+        title="About Us - PT. FAST"
+        description="Founded by the FAST FOUR. A team of dedicated people with passion for safety."
+        url="/about"
+      />
+
+      {/* Background Effects */}
+      <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-surface via-background to-background z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none z-0" />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
+
+        {/* Header Section */}
+        <div className="mb-16 text-center flex flex-col items-center">
+          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:border-white/30 hover:bg-surface">
+            <ArrowLeft size={16} /> Back to Home
+          </Link>
+          <div className="inline-flex items-center gap-2 mb-4">
+            <Users className="text-accent" size={24} />
+            <span className="text-accent font-bold tracking-widest uppercase text-sm">About PT. FAST</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">FAST FOUR</span>
+          </h1>
+          <p className="text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed">
+            Founded by the FAST FOUR. A team of dedicated people with passion for safety.
+          </p>
+        </div>
+
+        {/* Hero Image Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative h-[200px] md:h-[350px]"
+        >
+          <img
+            src={heroImg}
+            alt="About PT FAST"
+            // PERBAIKAN: Mengubah object-top menjadi object posisi arbitrary (center 25% dari atas)
+            className="w-full h-full object-cover object-[center_25%] opacity-80 hover:opacity-100 transition-opacity duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+        </motion.div>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <SpotlightCard className="group h-full p-8 md:p-10 rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md">
+                <div className="flex flex-col xl:flex-row gap-8 items-start">
+
+                  {/* Photo Profile */}
+                  <div className="w-32 h-32 xl:w-40 xl:h-40 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-white/10 group-hover:border-accent/50 transition-colors duration-500 bg-background">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      // Kita pertahankan object-top untuk foto profil kotak agar wajah tetap jadi fokus utama
+                      className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex-grow">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold tracking-widest uppercase">
+                      {member.role}
+                    </div>
+                    <p className="text-foreground-muted font-light leading-relaxed text-sm md:text-base text-justify">
+                      {member.bio}
+                    </p>
+                  </div>
+
+                </div>
+              </SpotlightCard>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default AboutUsPage;
 </file>
 
 <file path="src/pages/AdminBlog.tsx">
@@ -1259,16 +1779,6 @@ export const igFeeds = [
 ];
 </file>
 
-<file path="src/constants/navs.tsx">
-export const navLinks = [
-  { name: 'Home', href: '/#beranda' },
-  { name: 'Profile', href: '/#profil' },
-  { name: 'Catalog', href: '/#katalog' },
-  { name: 'Clients', href: '/#klien' },
-  { name: 'Contact', href: '/#kontak' },
-];
-</file>
-
 <file path="src/index.css">
 @import "tailwindcss";
 
@@ -1707,7 +2217,6 @@ export interface BrandData {
   features: string[];
   products: BrandProduct[];
 }
-
 export const brands: Record<string, BrandData> = {
   "hartindo-af31": {
     name: "Lithium Fire Killer Hartindo AF31",
@@ -1741,10 +2250,22 @@ export const brands: Record<string, BrandData> = {
       { name: "BALLISTIC Enterprise", desc: "Centralized monitoring system for modern Data Centers." }
     ]
   },
-
+  "altex": {
+    name: "Altex",
+    tagline: "Advanced Anti-Fire Liquid Coating",
+    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
+    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop",
+    features: [
+      "Prevents material ignition",
+      "Stops fire spreading",
+      "Easy liquid application",
+      "Long-lasting protection"
+    ],
+    products: [
+      { name: "Altex Coating Solution", desc: "Premium anti-fire liquid coating for industrial and commercial use." }
+    ]
+  }
 };
-
-
 
 export const mainBrands = [
   {
@@ -1768,14 +2289,21 @@ export const mainBrands = [
   {
     name: "Altex",
     slug: "altex",
-    description: "Belum ada data.",
+    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
     logo: "APP",
-    icon: <Cpu size={24} className="text-white" />,
+    icon: <ShieldAlert size={24} className="text-white" />,
     gridClass: "md:col-span-1 md:row-span-1",
     bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-
   }
+];
+</file>
 
+<file path="src/constants/navs.tsx">
+export const navLinks = [
+  { name: 'Home', href: '/#beranda' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Catalog', href: '/#katalog' },
+  { name: 'Clients', href: '/#klien' },
 ];
 </file>
 
@@ -2191,6 +2719,33 @@ const BrandDetail = () => {
 export default BrandDetail;
 </file>
 
+<file path="src/components/FloatingWA.tsx">
+import { MessageCircle } from 'lucide-react';
+
+const FloatingWA = () => {
+  const phoneNumber = "6281290003278";
+  const message = "Hello FAST | PT. Famindo Alfa Spektrum Teknologi team, I am interested in consulting about Fire Safety solutions and Lithium-ion battery risk mitigation for my facility/company.";
+  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+  return (
+    <a
+      href={waLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_25px_rgba(37,211,102,0.6)] transition-all duration-300 group"
+      aria-label="Contact us on WhatsApp"
+    >
+      <div className="absolute right-16 bg-surface border border-border text-foreground px-4 py-2 rounded-btn text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-card">
+        Consult via WhatsApp
+      </div>
+      <MessageCircle size={32} />
+    </a>
+  );
+};
+
+export default FloatingWA;
+</file>
+
 <file path="src/App.tsx">
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -2210,6 +2765,7 @@ const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage'));
 const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
 
 const PageLoader = () => (
 
@@ -2236,9 +2792,11 @@ const App = () => {
 
                 <Route path="blogs" element={<BlogsPage />} />
                 <Route path="blogs/:id" element={<BlogDetailPage />} />
+                <Route path="about" element={<AboutUsPage />} />
               </Route>
 
               <Route path="/login" element={<Login />} />
+
 
               <Route element={<ProtectedRoute />}>
                 <Route path="/admin/blog" element={<AdminBlog />} />
@@ -2252,33 +2810,6 @@ const App = () => {
 };
 
 export default App;
-</file>
-
-<file path="src/components/FloatingWA.tsx">
-import { MessageCircle } from 'lucide-react';
-
-const FloatingWA = () => {
-  const phoneNumber = "6281290003278";
-  const message = "Hello FAST | PT. Famindo Alfa Spektrum Teknologi team, I am interested in consulting about Fire Safety solutions and Lithium-ion battery risk mitigation for my facility/company.";
-  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-
-  return (
-    <a
-      href={waLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_25px_rgba(37,211,102,0.6)] transition-all duration-300 group"
-      aria-label="Contact us on WhatsApp"
-    >
-      <div className="absolute right-16 bg-surface border border-border text-foreground px-4 py-2 rounded-btn text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-card">
-        Consult via WhatsApp
-      </div>
-      <MessageCircle size={32} />
-    </a>
-  );
-};
-
-export default FloatingWA;
 </file>
 
 <file path="src/components/Navbar.tsx">
@@ -2533,10 +3064,11 @@ export default SEO;
 <file path="src/components/About.tsx">
 import { motion } from 'framer-motion';
 import { Heart, ShieldCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
 
 const About = () => {
-
+  const { t } = useTranslation();
 
   return (
     <section id="profil" className="py-24 bg-background relative overflow-hidden">
@@ -2553,11 +3085,10 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-              Protecting What Matters Most with <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Advanced Fire Solutions</span>
+              {t('about.title')}
             </h2>
             <p className="text-foreground-muted text-lg leading-relaxed font-light">
-              FAST combines advanced technology and trust to protect what matters most. We don't just install systems; we engineer peace of mind.
+              {t('about.desc')}
             </p>
           </motion.div>
         </div>
@@ -2569,15 +3100,14 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* p-8 md:p-10 dipindahkan ke pembungkus konten */}
             <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
               <div className="p-8 md:p-10 flex flex-col h-full">
                 <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
                   <ShieldCheck size={28} className="text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Mission</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.missionTitle')}</h3>
                 <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                  We're on a mission to change people's lifestyle about safety and providing the best fire safety solution to mitigate lithium-ion battery risk.
+                  {t('about.missionDesc')}
                 </p>
               </div>
             </SpotlightCard>
@@ -2594,9 +3124,9 @@ const About = () => {
                 <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
                   <Heart size={28} className="text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">Our Vision</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.visionTitle')}</h3>
                 <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                  We want to live in a world where people can feel safe and focus on pursuing the things that matter.
+                  {t('about.visionDesc')}
                 </p>
               </div>
             </SpotlightCard>

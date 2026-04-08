@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
 import { mainBrands } from '../constants/brands';
 
 const Brands = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="brands" className="py-24 bg-surface relative overflow-hidden border-y border-white/5">
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -18,9 +21,11 @@ const Brands = () => {
             transition={{ duration: 0.6 }}
             className="max-w-2xl"
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">Innovation & <span className="text-accent">Technology</span></h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-tight">
+              {t('brands.sectionTitle')} <span className="text-accent">{t('brands.sectionHighlight')}</span>
+            </h2>
             <p className="text-foreground-muted text-lg font-light leading-relaxed">
-              Explore our specialized technological innovations designed to handle various levels of fire risks with absolute precision.
+              {t('brands.sectionDesc')}
             </p>
           </motion.div>
 
@@ -35,7 +40,7 @@ const Brands = () => {
               aria-label="Lihat seluruh katalog produk inovasi teknologi PT FAST"
               className="text-white hover:text-accent font-medium flex items-center gap-2 transition-all duration-300 bg-background/50 px-7 py-3.5 rounded-full border border-white/10 hover:border-accent/40 shadow-sm backdrop-blur-md group"
             >
-              View Complete Catalog <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+              {t('brands.viewCatalog')} <ArrowUpRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
           </motion.div>
         </div>
@@ -77,11 +82,11 @@ const Brands = () => {
                     </div>
 
                     <h3 className={`font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 tracking-tight ${index === 0 ? 'text-3xl' : 'text-xl'}`}>
-                      {brand.name}
+                      {t(`brands.items.${brand.slug}.name`, { defaultValue: brand.name })}
                     </h3>
 
                     <p className={`text-foreground-muted font-light leading-relaxed transform-gpu translate-y-2 opacity-80 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 ${index === 0 ? 'text-base max-w-md' : 'text-sm line-clamp-2'}`}>
-                      {brand.description}
+                      {t(`brands.items.${brand.slug}.desc`, { defaultValue: brand.description })}
                     </p>
                   </div>
                 </SpotlightCard>

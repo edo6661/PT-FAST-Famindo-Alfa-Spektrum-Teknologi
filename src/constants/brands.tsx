@@ -13,7 +13,6 @@ export interface BrandData {
   features: string[];
   products: BrandProduct[];
 }
-
 export const brands: Record<string, BrandData> = {
   "hartindo-af31": {
     name: "Lithium Fire Killer Hartindo AF31",
@@ -47,10 +46,22 @@ export const brands: Record<string, BrandData> = {
       { name: "BALLISTIC Enterprise", desc: "Centralized monitoring system for modern Data Centers." }
     ]
   },
-
+  "altex": {
+    name: "Altex",
+    tagline: "Advanced Anti-Fire Liquid Coating",
+    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
+    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2000&auto=format&fit=crop",
+    features: [
+      "Prevents material ignition",
+      "Stops fire spreading",
+      "Easy liquid application",
+      "Long-lasting protection"
+    ],
+    products: [
+      { name: "Altex Coating Solution", desc: "Premium anti-fire liquid coating for industrial and commercial use." }
+    ]
+  }
 };
-
-
 
 export const mainBrands = [
   {
@@ -74,12 +85,10 @@ export const mainBrands = [
   {
     name: "Altex",
     slug: "altex",
-    description: "Belum ada data.",
+    description: "Anti-fire liquid coating that can prevent any material from catching and spreading fire.",
     logo: "APP",
-    icon: <Cpu size={24} className="text-white" />,
+    icon: <ShieldAlert size={24} className="text-white" />,
     gridClass: "md:col-span-1 md:row-span-1",
     bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
-
   }
-
 ];
