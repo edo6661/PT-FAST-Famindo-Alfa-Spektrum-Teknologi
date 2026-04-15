@@ -205,7 +205,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
           <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-6">{t('hero.trusted')}</p>
           <div className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-12 gap-y-4 opacity-80">
             <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">2024 Presidential Inauguration</span>
-            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">KTT Visit</span>
+            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">Pope Francis's Visit</span>
             <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">Bluebird Group</span>
             <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">KTT IAF Bali</span>
           </div>

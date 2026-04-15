@@ -15,7 +15,7 @@ const resources = {
             desc: "Safeguarded international VVIPs with LFK HARTINDO AF31 equipped EV escorts.",
           },
           pope: {
-            name: "Pope Francis's Visit",
+            name: "KTT Visit",
             desc: "Ensured absolute fire safety for the Pope's escort vehicle in Indonesia.",
           },
           bluebird: {
@@ -204,7 +204,7 @@ const resources = {
             desc: "Mengamankan VVIP internasional dengan armada EV berbasis LFK HARTINDO AF31.",
           },
           pope: {
-            name: "Kunjungan Paus Fransiskus",
+            name: "Kunjungan KTT",
             desc: "Memastikan keamanan mutlak kendaraan pengawal Paus selama di Indonesia.",
           },
           bluebird: {

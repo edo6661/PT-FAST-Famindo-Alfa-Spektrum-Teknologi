@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/r2-assets/(.*)",
+      "destination": "https://pub-91a3902655154c469ff62cbe2c500408.r2.dev/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

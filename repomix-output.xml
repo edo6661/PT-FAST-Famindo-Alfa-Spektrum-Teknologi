@@ -1,4 +1,22 @@
-semua kalimat yang mengandung Pope Franci's ganti menjadi KTT, 
+semua kalimat yang mengandung Pope Franci's ganti menjadi KTT.
+dan di production gabisa ke halaman login, di local berjalan dengan baik:
+https://pt-fast-famindo-alfa-spektrum-tekno.vercel.app/login:
+404: NOT_FOUND
+Code: NOT_FOUND
+ID: sin1::26hqp-1776264488027-c84da4967c97
+
+Read our documentation to learn more about this error.
+
+terus ini saya pakai cloudflare untuk gambarnya, tapi begini:
+https://pub-91a3902655154c469ff62cbe2c500408.r2.dev/blogs/1775458820541_natsume.jpg
+
+Koneksi Anda tidak pribadi
+Penyerang mungkin mencoba mencuri informasi Anda dari pub-91a3902655154c469ff62cbe2c500408.r2.dev (misalnya, sandi, pesan, atau kartu kredit). Pelajari lebih lanjut peringatan ini
+net::ERR_CERT_COMMON_NAME_INVALID
+Aktifkan perlindungan yang ditingkatkan untuk mendapatkan tingkat keamanan tertinggi Chrome
+
+
+
 <file path="src/components/OldAbout.tsx">
 import { motion } from 'framer-motion';
 import { Flame, Droplets, Wind, ShieldAlert, Heart, ShieldCheck } from 'lucide-react';

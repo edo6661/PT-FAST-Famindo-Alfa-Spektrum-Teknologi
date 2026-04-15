@@ -20,7 +20,7 @@ const ClientBasePage = () => {
     },
     {
       icon: <Shield size={32} className="text-white" />,
-      name: "Securing Pope Francis's Visit",
+      name: "Securing KTT Visit",
       category: "VVIP Protection",
       status: "Absolute Zero Incident",
       desc: "Lithium Fire Killer HARTINDO AF31 was trusted to secure the vehicle that escorted the Pope during his historic visit to Indonesia, ensuring maximum safety against potential battery thermal runaway.",
