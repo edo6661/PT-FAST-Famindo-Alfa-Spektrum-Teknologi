@@ -116,7 +116,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-white/5">
+              {/* <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-white/5">
                 <input
                   type="checkbox"
                   id="landing"
@@ -125,7 +125,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                   className="w-5 h-5 rounded border-white/10 bg-background text-accent focus:ring-accent"
                 />
                 <label htmlFor="landing" className="text-sm text-white cursor-pointer">{t('adminBlog.showLanding')}</label>
-              </div>
+              </div> */}
             </div>
           </div>
 

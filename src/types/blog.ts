@@ -4,5 +4,6 @@ export interface Blog {
   deskripsi: string;
   foto: string;
   ditampilkan_di_landing_page: boolean;
+  urutan?: number;
   createdAt: number;
 }

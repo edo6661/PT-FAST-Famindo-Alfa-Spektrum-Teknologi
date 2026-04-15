@@ -2,18 +2,23 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../lib/firebase";
-import { getAllBlogs, deleteBlog, createBlog, updateBlog } from "../services/blogService";
+import { getAllBlogs, deleteBlog, createBlog, updateBlog, updateLandingPageOrder } from "../services/blogService";
 import type { Blog } from "../types/blog";
 import BlogModal from "../components/BlogModal";
+import { Settings2, X } from "lucide-react"; // Pastikan lucide-react diimport
 
 const AdminBlog = () => {
   const navigate = useNavigate();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
 
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
+
+  // State untuk Modal Pengaturan Landing Page
+  const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
+  const [landingSlots, setLandingSlots] = useState<(string | null)[]>([null, null, null]);
+  const [savingLanding, setSavingLanding] = useState(false);
 
   const fetchBlogs = async () => {
     try {
@@ -79,6 +84,35 @@ const AdminBlog = () => {
     }
   };
 
+  // --- LOGIC UNTUK PENGATURAN POSISI LANDING PAGE ---
+  const openLandingModal = () => {
+    const landingBlogs = blogs
+      .filter((b) => b.ditampilkan_di_landing_page)
+      .sort((a, b) => (a.urutan || 0) - (b.urutan || 0));
+
+    const initialSlots: (string | null)[] = [null, null, null];
+    landingBlogs.forEach((b, i) => {
+      if (i < 3) initialSlots[i] = b.id!;
+    });
+
+    setLandingSlots(initialSlots);
+    setIsLandingModalOpen(true);
+  };
+
+  const handleSaveLanding = async () => {
+    setSavingLanding(true);
+    try {
+      await updateLandingPageOrder(blogs, landingSlots);
+      setIsLandingModalOpen(false);
+      fetchBlogs(); // Reload data setelah order disimpan
+    } catch (error) {
+      console.error("Gagal menyimpan urutan:", error);
+      alert("Gagal menyimpan urutan landing page.");
+    } finally {
+      setSavingLanding(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-white p-8">
       <div className="max-w-6xl mx-auto">
@@ -93,14 +127,22 @@ const AdminBlog = () => {
         </div>
 
         <div className="bg-surface p-8 rounded-2xl border border-white/10 shadow-xl">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <h2 className="text-xl font-semibold">Daftar Blog</h2>
-            <button
-              className="bg-accent hover:bg-accent/80 text-white px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg"
-              onClick={handleAddClick}
-            >
-              + Tambah Blog Baru
-            </button>
+            <div className="flex gap-3">
+              <button
+                className="bg-surface border border-accent text-accent hover:bg-accent/10 px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg flex items-center gap-2"
+                onClick={openLandingModal}
+              >
+                <Settings2 size={16} /> Atur Posisi Landing Page
+              </button>
+              <button
+                className="bg-accent hover:bg-accent/80 text-white px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg"
+                onClick={handleAddClick}
+              >
+                + Tambah Blog Baru
+              </button>
+            </div>
           </div>
 
           {loading ? (
@@ -116,7 +158,7 @@ const AdminBlog = () => {
                   <tr className="border-b border-white/10 text-sm text-foreground-muted">
                     <th className="py-4 px-4 font-medium">Foto</th>
                     <th className="py-4 px-4 font-medium">Judul</th>
-                    <th className="py-4 px-4 font-medium">Tampil di Depan</th>
+                    <th className="py-4 px-4 font-medium text-center">Tampil di Depan</th>
                     <th className="py-4 px-4 font-medium">Tanggal Dibuat</th>
                     <th className="py-4 px-4 font-medium text-right">Aksi</th>
                   </tr>
@@ -131,10 +173,16 @@ const AdminBlog = () => {
                         <div className="font-medium text-white">{blog.nama}</div>
                         <div className="text-xs text-foreground-muted truncate max-w-xs">{blog.deskripsi}</div>
                       </td>
-                      <td className="py-4 px-4">
-                        <span className={`text-xs px-2 py-1 rounded-full ${blog.ditampilkan_di_landing_page ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-white/5 text-foreground-muted border border-white/10'}`}>
-                          {blog.ditampilkan_di_landing_page ? 'Ya' : 'Tidak'}
-                        </span>
+                      <td className="py-4 px-4 text-center">
+                        {blog.ditampilkan_di_landing_page ? (
+                          <span className="text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 font-medium tracking-wide">
+                            Ya (Posisi {blog.urutan})
+                          </span>
+                        ) : (
+                          <span className="text-xs px-3 py-1 rounded-full bg-white/5 text-foreground-muted border border-white/10">
+                            Tidak
+                          </span>
+                        )}
                       </td>
                       <td className="py-4 px-4 text-sm text-foreground-muted">
                         {new Date(blog.createdAt).toLocaleDateString('id-ID')}
@@ -168,6 +216,65 @@ const AdminBlog = () => {
         onSubmit={handleModalSubmit}
         initialData={editingBlog}
       />
+
+      {/* --- MODAL PENGATURAN LANDING PAGE --- */}
+      {isLandingModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-surface w-full max-w-lg rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col">
+            <div className="flex justify-between items-center p-6 border-b border-white/10">
+              <h3 className="text-xl font-bold text-white">Atur Posisi Blog Landing Page</h3>
+              <button onClick={() => setIsLandingModalOpen(false)} className="text-foreground-muted hover:text-white transition-colors">
+                <X size={24} />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-5">
+              <p className="text-sm text-foreground-muted mb-2">
+                Pilih maksimal 3 blog. Posisi 1 akan berada di paling kiri, Posisi 2 di tengah, dan Posisi 3 di paling kanan.
+              </p>
+
+              {[0, 1, 2].map((index) => (
+                <div key={index} className="flex flex-col">
+                  <label className="text-sm font-semibold text-white mb-2">
+                    Posisi {index + 1} {index === 0 ? "(Paling Kiri)" : index === 1 ? "(Tengah)" : "(Paling Kanan)"}
+                  </label>
+                  <select
+                    value={landingSlots[index] || ""}
+                    onChange={(e) => {
+                      const newSlots = [...landingSlots];
+                      newSlots[index] = e.target.value || null;
+                      setLandingSlots(newSlots);
+                    }}
+                    className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none appearance-none"
+                  >
+                    <option value="">-- Kosongkan Slot --</option>
+                    {blogs.map((b) => (
+                      <option
+                        key={b.id}
+                        value={b.id!}
+                        disabled={landingSlots.includes(b.id!) && landingSlots[index] !== b.id}
+                      >
+                        {b.nama}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-6 border-t border-white/10 flex justify-end gap-4">
+              <button onClick={() => setIsLandingModalOpen(false)} className="px-6 py-2.5 rounded-xl text-foreground-muted hover:text-white transition-colors">Batal</button>
+              <button
+                onClick={handleSaveLanding}
+                disabled={savingLanding}
+                className="bg-accent hover:bg-accent/80 text-white px-8 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 disabled:opacity-50"
+              >
+                {savingLanding ? "Menyimpan..." : "Simpan Urutan"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
