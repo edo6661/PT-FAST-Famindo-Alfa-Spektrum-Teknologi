@@ -57,7 +57,11 @@ const BlogsPage = () => {
         ) : blogs.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
-              <div key={blog.id} className="group flex flex-col rounded-3xl overflow-hidden bg-surface/40 border border-white/10 hover:border-accent/40 hover:bg-surface/60 backdrop-blur-md transition-all duration-500 shadow-xl">
+              <Link
+                key={blog.id}
+                to={`/blogs/${blog.id}`}
+                className="group flex flex-col rounded-3xl overflow-hidden bg-surface/40 border border-white/10 hover:border-accent/40 hover:bg-surface/60 backdrop-blur-md transition-all duration-500 shadow-xl cursor-pointer"
+              >
                 <div className="h-56 overflow-hidden relative">
                   <img
                     src={blog.foto}
@@ -79,11 +83,13 @@ const BlogsPage = () => {
                   <p className="text-sm text-foreground-muted line-clamp-3 mb-8 flex-grow leading-relaxed">
                     {blog.deskripsi}
                   </p>
-                  <Link to={`/blogs/${blog.id}`} className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
+
+                  {/* UBAH Link INI MENJADI div biasa */}
+                  <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
                     Read Full Article <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (
