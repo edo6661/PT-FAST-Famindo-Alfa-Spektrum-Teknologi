@@ -163,7 +163,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
         <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.15)]">
           <ShieldCheck size={18} className="text-accent shrink-0" />
           <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase flex items-center gap-2">
-            {t('hero.badge')} <span className="w-1.5 h-1.5 rounded-full bg-accent/50 hidden sm:block"></span> <span className="hidden sm:inline">{t('hero.badgeSuffix')}</span>
+            {t('hero.badge')} <span className="hidden sm:inline">{t('hero.badgeSuffix')}</span>
           </span>
         </div>
 

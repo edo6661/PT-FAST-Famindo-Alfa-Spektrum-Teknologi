@@ -122,7 +122,7 @@ const ContactFooter = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg mb-1">{t('footer.emailTitle')}</h4>
-                  <p className="text-foreground-muted">support@famindofast.co</p>
+                  <p className="text-foreground-muted">support@famindofast.com</p>
                 </div>
               </div>
             </div>
@@ -284,7 +284,7 @@ const ContactFooter = () => {
           </div>
 
           <p className="text-foreground-muted text-sm text-center md:text-right">
-            © {new Date().getFullYear()} FAST | PT. Famindo Alfa Spektrum Teknologi. {t('footer.copyright')} <br className="md:hidden" /> "Every Second Matters"
+            © {new Date().getFullYear()} FAST | PT. Famindo Alfa Spektrum Teknologi. {t('footer.copyright')} <br className="md:hidden" />
           </p>
         </div>
       </div>

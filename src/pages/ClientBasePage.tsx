@@ -14,7 +14,7 @@ const ClientBasePage = () => {
       name: "2024 Presidential Inauguration",
       category: "Government & National Event",
       status: "Deployment Secured",
-      desc: "FAST | PT. Famindo Alfa Spektrum Teknologi was called by the Ministry of State Secretariat to safeguard a momentous national event with precision and reliability. Lithium Fire Killer Hartindo AF31 was distributed for the EV units escorting the international VVIP guests attending the presidential inauguration ceremony.",
+      desc: "FAST | PT. Famindo Alfa Spektrum Teknologi was called by the Ministry of State Secretariat to safeguard a momentous national event with precision and reliability. Lithium Fire Killer HARTINDO AF31 was distributed for the EV units escorting the international VVIP guests attending the presidential inauguration ceremony.",
       color: "from-blue-600/20 to-transparent",
       borderColor: "group-hover:border-blue-500/50"
     },
@@ -23,7 +23,7 @@ const ClientBasePage = () => {
       name: "Securing Pope Francis's Visit",
       category: "VVIP Protection",
       status: "Absolute Zero Incident",
-      desc: "Lithium Fire Killer Hartindo AF31 was trusted to secure the vehicle that escorted the Pope during his historic visit to Indonesia, ensuring maximum safety against potential battery thermal runaway.",
+      desc: "Lithium Fire Killer HARTINDO AF31 was trusted to secure the vehicle that escorted the Pope during his historic visit to Indonesia, ensuring maximum safety against potential battery thermal runaway.",
       color: "from-amber-500/20 to-transparent",
       borderColor: "group-hover:border-amber-500/50"
     },
@@ -32,7 +32,7 @@ const ClientBasePage = () => {
       name: "IKT Terminal & KTT IAF Bali",
       category: "International Summit",
       status: "Mass Fleet Protection",
-      desc: "Lithium Fire Killer Hartindo AF31 was trusted to secure hundreds of EV units at the IKT Terminal. These units were responsible for escorting international VVIP guests at the prestigious KTT IAF (Indonesia Africa Forum) event in Bali.",
+      desc: "Lithium Fire Killer HARTINDO AF31 was trusted to secure hundreds of EV units at the IKT Terminal. These units were responsible for escorting international VVIP guests at the prestigious KTT IAF (Indonesia Africa Forum) event in Bali.",
       color: "from-accent/20 to-transparent",
       borderColor: "group-hover:border-accent/50"
     },

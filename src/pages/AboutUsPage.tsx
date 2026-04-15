@@ -28,7 +28,7 @@ const teamMembers = [
   {
     name: "Franky Affandi",
     role: "Chief Technical Officer",
-    bio: "Embarked on a career in the fire engineering sector with PT Hartindo Chemicatama Industri in 2009. Currently holds directorial positions in various companies, he continuously extends his expertise in fire safety, integrating his extensive experience from the agricultural, plastics, and fire engineering domains.",
+    bio: "Embarked on a career in the fire engineering sector with PT HARTINDO Chemicatama Industri in 2009. Currently holds directorial positions in various companies, he continuously extends his expertise in fire safety, integrating his extensive experience from the agricultural, plastics, and fire engineering domains.",
     image: frankyImg
   },
   {

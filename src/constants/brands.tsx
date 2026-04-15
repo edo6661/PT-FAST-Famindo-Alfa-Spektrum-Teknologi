@@ -15,7 +15,7 @@ export interface BrandData {
 }
 export const brands: Record<string, BrandData> = {
   "hartindo-af31": {
-    name: "Lithium Fire Killer Hartindo AF31",
+    name: "Lithium Fire Killer HARTINDO AF31",
     tagline: "The next level solution to face the rising risk of lithium-ion battery fire hazard.",
     description: "A revolutionary fire extinguisher specifically designed for lithium-ion batteries. Formulated to be non-toxic, non-ozone depleting, PFAS-free (eliminating cancer risks), and complies with TKDN standards (49.31%). LFK AF31 is the ultimate choice for EV and mining fire mitigation, while also highly effective at preventing re-ignition in forest fires.",
     heroImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2000&auto=format&fit=crop",
@@ -65,7 +65,7 @@ export const brands: Record<string, BrandData> = {
 
 export const mainBrands = [
   {
-    name: "Lithium Fire Killer Hartindo AF31",
+    name: "Lithium Fire Killer HARTINDO AF31",
     slug: "hartindo-af31",
     description: "The next level solution to face the rising risk of lithium-ion battery fire hazard. Eco-friendly, highly effective, and globally certified.",
     logo: "AF31",

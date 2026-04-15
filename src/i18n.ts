@@ -12,7 +12,7 @@ const resources = {
         clients: {
           presidential: {
             name: "2024 Presidential Inauguration",
-            desc: "Safeguarded international VVIPs with LFK Hartindo AF31 equipped EV escorts.",
+            desc: "Safeguarded international VVIPs with LFK HARTINDO AF31 equipped EV escorts.",
           },
           pope: {
             name: "Pope Francis's Visit",
@@ -54,8 +54,8 @@ const resources = {
       },
       hero: {
         badge: "Every Second Matters",
-        badgeSuffix: "Securing Safety",
-        title: "Securing Businesses",
+        badgeSuffix: "",
+        title: "Securing Safety",
         titleHighlight: "One At A Time.",
         subtitle: "Advanced Lithium Fire Solutions.",
         desc: "Trusted by top enterprises for maximum safety since 2022.",
@@ -201,7 +201,7 @@ const resources = {
         clients: {
           presidential: {
             name: "Pelantikan Presiden 2024",
-            desc: "Mengamankan VVIP internasional dengan armada EV berbasis LFK Hartindo AF31.",
+            desc: "Mengamankan VVIP internasional dengan armada EV berbasis LFK HARTINDO AF31.",
           },
           pope: {
             name: "Kunjungan Paus Fransiskus",
