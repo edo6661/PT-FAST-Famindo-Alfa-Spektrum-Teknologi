@@ -11,36 +11,36 @@ import {
   orderBy,
   limit,
 } from "firebase/firestore";
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { db } from "../lib/firebase";
 import type { Blog } from "../types/blog";
 
 const blogsRef = collection(db, "blogs");
 
-const s3Client = new S3Client({
-  region: "auto",
-  endpoint: import.meta.env.VITE_R2_ENDPOINT,
-  credentials: {
-    accessKeyId: import.meta.env.VITE_R2_ACCESS_KEY_ID,
-    secretAccessKey: import.meta.env.VITE_R2_SECRET_ACCESS_KEY,
-  },
-});
-
 export const uploadBlogImage = async (file: File): Promise<string> => {
-  const fileName = `blogs/${Date.now()}_${file.name.replace(/\s+/g, "-")}`;
-  const arrayBuffer = await file.arrayBuffer();
-  const buffer = new Uint8Array(arrayBuffer);
+  const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
 
-  const command = new PutObjectCommand({
-    Bucket: import.meta.env.VITE_R2_BUCKET_NAME,
-    Key: fileName,
-    Body: buffer,
-    ContentType: file.type,
-  });
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", uploadPreset);
 
-  await s3Client.send(command);
+  formData.append("folder", "fast-blogs");
 
-  return `${import.meta.env.VITE_R2_PUBLIC_URL}/${fileName}`;
+  const response = await fetch(
+    `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+    {
+      method: "POST",
+      body: formData,
+    },
+  );
+
+  if (!response.ok) {
+    throw new Error("Gagal mengunggah gambar ke Cloudinary");
+  }
+
+  const data = await response.json();
+
+  return data.secure_url;
 };
 
 export const getAllBlogs = async (): Promise<Blog[]> => {
