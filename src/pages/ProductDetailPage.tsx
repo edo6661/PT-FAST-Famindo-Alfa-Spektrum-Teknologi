@@ -59,10 +59,8 @@ const ProductDetailPage = () => {
         <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-            {/* Kolom Kiri: Deskripsi, Fitur, Varian, Partnership */}
             <div className="lg:col-span-2 space-y-12">
 
-              {/* Product Description & Features */}
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                   System Overview
@@ -72,7 +70,6 @@ const ProductDetailPage = () => {
                   {product.description}
                 </p>
 
-                {/* Menampilkan Daftar Fitur / Sertifikasi SNI */}
                 {product.features && product.features.length > 0 && (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {product.features.map((feature, index) => (
@@ -89,7 +86,6 @@ const ProductDetailPage = () => {
                 )}
               </div>
 
-              {/* Available Variants (Interactive) */}
               {product.variants && product.variants.length > 0 && (
                 <div>
                   <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
@@ -100,7 +96,6 @@ const ProductDetailPage = () => {
                     {product.variants.map((variant) => (
                       <div key={variant.id} className="flex flex-col h-full bg-surface/40 border border-white/10 hover:border-accent/30 rounded-3xl p-8 backdrop-blur-md transition-all duration-300 shadow-xl group">
 
-                        {/* PERBAIKAN TS ERROR: Pengecekan aman menggunakan operator 'in' */}
                         {'images' in variant && variant.images ? (
                           <div className="mb-8 flex flex-col items-center">
                             <div className="w-full aspect-square max-h-[250px] relative flex items-center justify-center bg-background/50 rounded-2xl overflow-hidden border border-white/5 mb-4 group/image">
@@ -121,8 +116,8 @@ const ProductDetailPage = () => {
                                   key={view}
                                   onClick={() => setActiveView(prev => ({ ...prev, [variant.id]: view }))}
                                   className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-300 flex-1 ${(activeView[variant.id] || 'front') === view
-                                      ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
-                                      : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
+                                    ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
+                                    : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
                                     }`}
                                 >
                                   {view}
@@ -137,7 +132,6 @@ const ProductDetailPage = () => {
                           </div>
                         )}
 
-                        {/* Detail Teks Varian */}
                         <div className="mt-auto">
                           {'weight' in variant && variant.weight && (
                             <span className="block text-xs text-foreground-muted uppercase tracking-wider mb-2">Weight: {variant.weight}</span>
@@ -158,8 +152,6 @@ const ProductDetailPage = () => {
                 </div>
               )}
 
-              {/* Official Partnership */}
-              {/* @ts-expect-error partners might be optionally missing but that is okay */}
               {product.partners && product.partners.length > 0 && (
                 <div>
                   <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
@@ -167,7 +159,6 @@ const ProductDetailPage = () => {
                     <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                   </h3>
                   <div className="flex flex-wrap gap-6 items-center">
-                    {/* @ts-expect-error mapping over partners safely */}
                     {product.partners.map((partner, index) => (
                       <div key={index} className="bg-surface/50 border border-white/10 px-6 py-4 rounded-2xl hover:border-accent/30 hover:bg-surface/80 transition-all duration-300 group">
                         <img
@@ -184,7 +175,6 @@ const ProductDetailPage = () => {
 
             </div>
 
-            {/* Kolom Kanan: Sticky CTA */}
             <div className="lg:col-span-1">
               <div className="bg-surface/60 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl sticky top-28">
                 <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 text-accent">
