@@ -11,6 +11,9 @@ import {
   orderBy,
   limit,
   writeBatch,
+  QueryDocumentSnapshot,
+  type DocumentData,
+  startAfter,
 } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import type { Blog } from "../types/blog";
@@ -104,4 +107,63 @@ export const updateLandingPageOrder = async (
   });
 
   await batch.commit();
+};
+
+export const getPaginatedBlogs = async (
+  pageSize: number,
+  lastDoc: QueryDocumentSnapshot<DocumentData> | null = null,
+) => {
+  let q = query(blogsRef, orderBy("createdAt", "desc"), limit(pageSize));
+
+  if (lastDoc) {
+    q = query(
+      blogsRef,
+      orderBy("createdAt", "desc"),
+      startAfter(lastDoc),
+      limit(pageSize),
+    );
+  }
+
+  const snapshot = await getDocs(q);
+  const blogs = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as Blog[];
+  const lastVisible =
+    snapshot.docs.length > 0 ? snapshot.docs[snapshot.docs.length - 1] : null;
+
+  return { blogs, lastVisible };
+};
+
+export const seedDummyBlogs = async (count: number = 25) => {
+  try {
+    const batch = writeBatch(db);
+    const blogsCollectionRef = collection(db, "blogs");
+
+    for (let i = 1; i <= count; i++) {
+      const newDocRef = doc(blogsCollectionRef);
+
+      const pastDate = new Date();
+      pastDate.setDate(pastDate.getDate() - i);
+
+      const dummyBlog = {
+        nama: `Artikel Dummy Ke-${i} untuk Testing Pagination`,
+        deskripsi: `Ini adalah paragraf deskripsi panjang untuk artikel dummy nomor ${i}. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Keberadaan teks ini sangat penting untuk memastikan UI tidak rusak saat menampilkan teks panjang pada halaman blog detail maupun list.`,
+        foto: `https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop&random=${i}`,
+        ditampilkan_di_landing_page: false,
+        urutan: 0,
+        createdAt: pastDate.getTime(),
+      };
+
+      batch.set(newDocRef, dummyBlog);
+    }
+
+    await batch.commit();
+    alert(
+      `Berhasil menambahkan ${count} artikel dummy! Silakan refresh halaman.`,
+    );
+  } catch (error) {
+    console.error("Gagal melakukan seeding:", error);
+    alert("Gagal menambahkan data dummy.");
+  }
 };

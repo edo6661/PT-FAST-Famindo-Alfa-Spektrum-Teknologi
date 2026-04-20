@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../lib/firebase";
-import { getAllBlogs, deleteBlog, createBlog, updateBlog, updateLandingPageOrder } from "../services/blogService";
+import { getAllBlogs, deleteBlog, createBlog, updateBlog, updateLandingPageOrder, seedDummyBlogs } from "../services/blogService";
 import type { Blog } from "../types/blog";
 import BlogModal from "../components/BlogModal";
-import { Settings2, X } from "lucide-react"; // Pastikan lucide-react diimport
+import { Settings2, X } from "lucide-react";
 
 const AdminBlog = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const AdminBlog = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
 
-  // State untuk Modal Pengaturan Landing Page
+
   const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
   const [landingSlots, setLandingSlots] = useState<(string | null)[]>([null, null, null]);
   const [savingLanding, setSavingLanding] = useState(false);
@@ -84,7 +84,7 @@ const AdminBlog = () => {
     }
   };
 
-  // --- LOGIC UNTUK PENGATURAN POSISI LANDING PAGE ---
+
   const openLandingModal = () => {
     const landingBlogs = blogs
       .filter((b) => b.ditampilkan_di_landing_page)
@@ -104,7 +104,7 @@ const AdminBlog = () => {
     try {
       await updateLandingPageOrder(blogs, landingSlots);
       setIsLandingModalOpen(false);
-      fetchBlogs(); // Reload data setelah order disimpan
+      fetchBlogs();
     } catch (error) {
       console.error("Gagal menyimpan urutan:", error);
       alert("Gagal menyimpan urutan landing page.");
@@ -130,6 +130,17 @@ const AdminBlog = () => {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <h2 className="text-xl font-semibold">Daftar Blog</h2>
             <div className="flex gap-3">
+              <button
+                className="bg-purple-500/10 border border-purple-500 text-purple-400 hover:bg-purple-500/20 px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg"
+                onClick={async () => {
+                  if (window.confirm('Yakin mau generate 25 blog dummy?')) {
+                    await seedDummyBlogs(25);
+                    fetchBlogs();
+                  }
+                }}
+              >
+                Generate 25 Dummy Blogs
+              </button>
               <button
                 className="bg-surface border border-accent text-accent hover:bg-accent/10 px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg flex items-center gap-2"
                 onClick={openLandingModal}
