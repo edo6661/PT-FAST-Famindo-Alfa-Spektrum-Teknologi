@@ -1,8 +1,61 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Zap } from 'lucide-react';
 import { brands, type BrandProduct } from '../constants/brands';
 import SEO from '../components/SEO';
+
+// --- Komponen Interactive Variant Card yang Diperbarui ---
+const VariantCard = ({ product }: { product: BrandProduct }) => {
+  const [activeView, setActiveView] = useState<'front' | 'back' | 'left' | 'right'>('front');
+
+  return (
+    <div className="flex flex-col h-full bg-surface/40 border border-white/10 hover:border-accent/30 rounded-3xl p-8 backdrop-blur-md transition-all duration-300 shadow-xl group">
+
+      {/* Jika ada gambar, tampilkan Viewer di atas */}
+      {product.images && (
+        <div className="mb-8 flex flex-col items-center">
+          <div className="w-full aspect-square max-h-[300px] relative flex items-center justify-center bg-background/50 rounded-2xl overflow-hidden border border-white/5 mb-4 group/image">
+            <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-50"></div>
+            <img
+              src={product.images[activeView]}
+              alt={`${product.name} - ${activeView} view`}
+              className="w-full h-full object-contain p-4 transform transition-all duration-500 group-hover/image:scale-110 drop-shadow-2xl"
+            />
+            <span className="absolute top-3 left-3 bg-surface/80 backdrop-blur-md border border-white/10 text-[9px] font-bold px-2 py-1 rounded text-foreground-muted uppercase tracking-wider">
+              {activeView}
+            </span>
+          </div>
+
+          <div className="flex justify-center gap-2 w-full">
+            {(['front', 'back', 'left', 'right'] as const).map((view) => (
+              <button
+                key={view}
+                onClick={() => setActiveView(view)}
+                className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-300 flex-1 ${activeView === view
+                    ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
+                    : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
+                  }`}
+              >
+                {view}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Detail Teks di bawah */}
+      <div className="mt-auto">
+        <h4 className="text-xl font-bold text-white/90 mb-3 group-hover:text-accent transition-colors">
+          {product.name}
+        </h4>
+        <p className="text-sm text-foreground-muted font-light leading-relaxed">
+          {product.desc}
+        </p>
+      </div>
+    </div>
+  );
+};
+// --------------------------------------------------------
 
 const BrandDetail = () => {
   const { slug } = useParams();
@@ -28,7 +81,6 @@ const BrandDetail = () => {
     );
   }
 
-  // Generate Schema Markup khusus untuk produk ini
   const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
@@ -52,6 +104,8 @@ const BrandDetail = () => {
         type="product"
         schemaMarkup={productSchema}
       />
+
+      {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-background z-0" />
         <img
@@ -80,14 +134,17 @@ const BrandDetail = () => {
         </div>
       </section>
 
+      {/* Content Section */}
       <section className="py-20 relative">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
-            <div className="lg:col-span-7 space-y-16">
+          {/* BAGIAN ATAS: Overview (Kiri) & CTA (Kanan) */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
 
+            {/* Kiri: Overview & Features (Lebar 7 Kolom) */}
+            <div className="lg:col-span-7 space-y-12">
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                   System Overview
@@ -98,7 +155,6 @@ const BrandDetail = () => {
                 </p>
               </div>
 
-              {/* Pastikan features di-render dengan aman */}
               {brandData.features && brandData.features.length > 0 && (
                 <div>
                   <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
@@ -111,40 +167,32 @@ const BrandDetail = () => {
                         <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                           <CheckCircle2 size={18} className="text-accent" />
                         </div>
-                        <span className="text-foreground-muted group-hover:text-white/90 transition-colors font-light leading-relaxed">{feature}</span>
+                        <span className="text-foreground-muted group-hover:text-white/90 transition-colors font-light leading-relaxed text-sm">
+                          {feature}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </div>
               )}
-
             </div>
 
-            <div className="lg:col-span-5 space-y-8">
-
-              <div className="bg-surface/60 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-xl">
-                <h3 className="text-xl font-bold mb-8 text-white">Product Variants</h3>
-                <div className="space-y-6">
-                  {brandData.products.map((product: BrandProduct, index: number) => (
-                    <div key={index} className="group border-b border-white/10 last:border-0 pb-6 last:pb-0 relative">
-
-                      <h4 className="text-lg font-semibold text-white/90 mb-2 group-hover:text-accent transition-colors">{product.name}</h4>
-                      <p className="text-sm text-foreground-muted font-light leading-relaxed">{product.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="relative overflow-hidden p-8 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group">
+            {/* Kanan: CTA Secure This Technology (Lebar 5 Kolom) */}
+            <div className="lg:col-span-5">
+              <div className="relative overflow-hidden p-8 md:p-10 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group sticky top-28">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-surface to-background opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-accent/30 blur-3xl rounded-full"></div>
 
                 <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center text-accent mb-6">
+                    <ShieldCheck size={28} />
+                  </div>
                   <h3 className="text-2xl font-bold text-white mb-3">Secure This Technology</h3>
-                  <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">Request a full technical catalog or consult directly with our enterprise safety engineers.</p>
+                  <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">
+                    Request a full technical catalog or consult directly with our enterprise safety engineers to secure your assets.
+                  </p>
 
                   <div className="space-y-4">
-                    {/* Render tombol download HANYA jika brochureUrl tersedia */}
                     {brandData.brochureUrl && (
                       <a
                         href={brandData.brochureUrl}
@@ -169,13 +217,31 @@ const BrandDetail = () => {
                   </div>
                 </div>
               </div>
-
             </div>
 
           </div>
+
+          {/* BAGIAN BAWAH: Product Variants (Full Width Grid) */}
+          {brandData.products && brandData.products.length > 0 && (
+            <div className="pt-12 border-t border-white/10">
+              <div className="text-center mb-12">
+                <h3 className="text-3xl font-bold text-white mb-4">Available Variants</h3>
+                <p className="text-foreground-muted font-light max-w-2xl mx-auto">
+                  Explore our range of purpose-built configurations designed to meet specific industrial and commercial requirements.
+                </p>
+              </div>
+
+              {/* Grid Responsif: 1 kolom (HP), 2 kolom (Tablet), 3 kolom (Desktop) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+                {brandData.products.map((product: BrandProduct, index: number) => (
+                  <VariantCard key={index} product={product} />
+                ))}
+              </div>
+            </div>
+          )}
+
         </div>
       </section>
-
     </div>
   );
 };

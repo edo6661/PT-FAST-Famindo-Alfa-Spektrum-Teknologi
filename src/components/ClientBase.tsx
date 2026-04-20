@@ -1,30 +1,29 @@
-import { Landmark, Shield, Car, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next'; // 1. Import hook
-import SpotlightCard from './SpotlightCard';
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import SpotlightCard from "./SpotlightCard";
 
 const ClientBase = () => {
-  const { t } = useTranslation(); // 2. Inisialisasi hook
+  const { t } = useTranslation();
 
-  // 3. Tarik data dari i18n untuk mapping
   const clients = [
     {
-      icon: <Landmark size={32} className="text-white" />,
-      name: t('clientBase.clients.presidential.name'),
-      desc: t('clientBase.clients.presidential.desc'),
+      logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.png",
+      name: t("clientBase.clients.presidential.name"),
+      desc: t("clientBase.clients.presidential.desc"),
       gradient: "from-blue-600/20"
     },
     {
-      icon: <Shield size={32} className="text-white" />,
-      name: t('clientBase.clients.pope.name'),
-      desc: t('clientBase.clients.pope.desc'),
+      logoImg: "/clients/government/Kepolisian_Negara_Republik_Indonesia_Logo.png",
+      name: t("clientBase.clients.pope.name"),
+      desc: t("clientBase.clients.pope.desc"),
       gradient: "from-amber-500/20"
     },
     {
-      icon: <Car size={32} className="text-white" />,
-      name: t('clientBase.clients.bluebird.name'),
-      desc: t('clientBase.clients.bluebird.desc'),
+      logoImg: "/clients/transportation/Bluebird_Logogram.png",
+      name: t("clientBase.clients.bluebird.name"),
+      desc: t("clientBase.clients.bluebird.desc"),
       gradient: "from-cyan-500/20"
     },
   ];
@@ -32,6 +31,7 @@ const ClientBase = () => {
   return (
     <section id="klien" className="py-24 bg-background relative border-y border-white/5 overflow-hidden">
       <div className="container mx-auto px-6 md:px-12 relative z-10">
+
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ const ClientBase = () => {
 
                 <div className="relative z-10 p-8 flex flex-col h-full">
                   <div className="mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
-                    {client.icon}
+                    <img src={client.logoImg} alt={client.name} className="w-full h-full object-contain" />
                   </div>
 
                   <h3 className="text-lg font-bold text-white/90 mb-3 group-hover:text-accent transition-colors duration-300 leading-tight">

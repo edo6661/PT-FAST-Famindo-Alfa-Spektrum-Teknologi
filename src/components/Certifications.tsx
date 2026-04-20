@@ -32,7 +32,7 @@ const Certifications = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
           {/* National Certifications */}
-          <div className="p-8 rounded-3xl bg-surface/40 border border-white/5 backdrop-blur-sm shadow-lg">
+          <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg">
             <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
               <div className="p-3 rounded-xl bg-background border border-border">
                 <Award size={28} className="text-accent" />
@@ -53,7 +53,7 @@ const Certifications = () => {
           </div>
 
           {/* International Certifications */}
-          <div className="p-8 rounded-3xl bg-surface/40 border border-white/5 backdrop-blur-sm shadow-lg relative overflow-hidden">
+          <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
               <Globe size={120} />
             </div>

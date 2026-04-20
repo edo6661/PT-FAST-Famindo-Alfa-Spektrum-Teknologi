@@ -1,8 +1,15 @@
 import { Cpu, ShieldAlert, Layers, Flame, Car } from "lucide-react";
 
+// 1. Tambahkan tipe 'images' pada interface BrandProduct
 export interface BrandProduct {
   name: string;
   desc: string;
+  images?: {
+    front: string;
+    back: string;
+    left: string;
+    right: string;
+  };
 }
 
 export interface BrandData {
@@ -12,11 +19,10 @@ export interface BrandData {
   heroImage: string;
   features: string[];
   products: BrandProduct[];
-  brochureUrl?: string; // Tautan brosur
+  brochureUrl?: string;
 }
 
 export const brands: Record<string, BrandData> = {
-  // --- 1. LFK AF31 ---
   "lithium-fire-killer-hartindo-af31": {
     name: "Lithium Fire Killer HARTINDO AF31",
     tagline: "The First Lithium Fire Extinguisher In The World",
@@ -28,14 +34,62 @@ export const brands: Record<string, BrandData> = {
       "Lab-tested & TKDN Certified",
       "Eco-friendly & Non-toxic"
     ],
+    // 2. Perbarui list products (varian) dengan memasukkan path gambar yang baru Anda upload
     products: [
-      { name: "LFK AF31 Portable", desc: "Lightweight suppression cylinder for electric vehicles and commercial areas." },
-      { name: "LFK Trolley", desc: "Heavy-duty mobility solution for the mining industry and large-scale fires." }
+      {
+        name: "LFK AF31 Portable - 1 KG",
+        desc: "Lightweight suppression cylinder ideal for personal electric vehicles and compact areas.",
+        images: {
+          front: "/products/LFK/LFK_1_KG_[Font].png",
+          back: "/products/LFK/LFK_1_KG_[Back].png",
+          left: "/products/LFK/LFK_1_KG_[Left].png",
+          right: "/products/LFK/LFK_1_KG_[Right].png"
+        }
+      },
+      {
+        name: "LFK AF31 Portable - 3 KG",
+        desc: "Versatile cylinder for standard EV garages, server rooms, and commercial spaces.",
+        images: {
+          front: "/products/LFK/LFK_3_KG_[Font].png",
+          back: "/products/LFK/LFK_3_KG_[Back].png",
+          left: "/products/LFK/LFK_3_KG_[Left].png",
+          right: "/products/LFK/LFK_3_KG_[Right].png"
+        }
+      },
+      {
+        name: "LFK AF31 Portable - 6 KG",
+        desc: "High-capacity portable unit for industrial facilities and larger scale protection.",
+        images: {
+          front: "/products/LFK/LFK_6_KG_[Font].png",
+          back: "/products/LFK/LFK_6_KG_[Back].png",
+          left: "/products/LFK/LFK_6_KG_[Left].png",
+          right: "/products/LFK/LFK_6_KG_[Right].png"
+        }
+      },
+      {
+        name: "LFK AF31 Trolley - 25 KG",
+        desc: "Heavy-duty mobility solution for mining sites, large warehouses, and EV charging stations.",
+        images: {
+          front: "/products/LFK/LFK_25_KG_[Font].png",
+          back: "/products/LFK/LFK_25_KG_[Back].png",
+          left: "/products/LFK/LFK_25_KG_[Left].png",
+          right: "/products/LFK/LFK_25_KG_[Right].png"
+        }
+      },
+      {
+        name: "LFK AF31 Trolley - 50 KG",
+        desc: "Maximum capacity suppression system for extreme industrial environments and massive battery banks.",
+        images: {
+          front: "/products/LFK/LFK_50_KG_[Font].png",
+          back: "/products/LFK/LFK_50_KG_[Back].png",
+          left: "/products/LFK/LFK_50_KG_[Left].png",
+          right: "/products/LFK/LFK_50_KG_[Right].png"
+        }
+      }
     ],
     brochureUrl: "/brochures/lfk-brochure.pdf"
   },
 
-  // --- 2. ALTEX ---
   "altex-alpha-tech-shield": {
     name: "ALTEX ALPHA TECH SHIELD",
     tagline: "Indoor Anti-Fire Coating with Thermafrost Technology",
@@ -54,7 +108,6 @@ export const brands: Record<string, BrandData> = {
     brochureUrl: "/brochures/altex-brochure.pdf"
   },
 
-  // --- 3. FIRE BLANKET ---
   "power-tech-shield-fire-blanket": {
     name: "Power Tech Shield - Fire Blanket",
     tagline: "The Heavy-Duty Armor Built to Withstand the Extreme",
@@ -72,7 +125,6 @@ export const brands: Record<string, BrandData> = {
     ]
   },
 
-  // --- 4. BALLISTIC ---
   "ballistic-app": {
     name: "BALLISTIC App",
     tagline: "Battery Life Diagnostic System",
@@ -90,7 +142,6 @@ export const brands: Record<string, BrandData> = {
     ]
   },
 
-  // --- 5. FLAT AF11E ---
   "flat-af11e": {
     name: "FLAT Flame Accurate Termination",
     tagline: "Advanced Clean Liquefied Gas Extinguisher (AF11E)",
@@ -108,7 +159,6 @@ export const brands: Record<string, BrandData> = {
     ]
   },
 
-  // --- 6. USS ---
   "uss-undercarriage": {
     name: "Undercarriage Suppression System (USS)",
     tagline: "Specialized Extinguisher Extension for EV Bottom Fires",
@@ -125,7 +175,6 @@ export const brands: Record<string, BrandData> = {
     ]
   },
 
-  // --- 7. G-TECH ---
   "g-tech-defend": {
     name: "G-TECH & DEFEND",
     tagline: "Passive Gel Technology Fire Suppression",
