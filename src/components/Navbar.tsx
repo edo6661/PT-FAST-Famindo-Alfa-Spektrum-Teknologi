@@ -29,7 +29,7 @@ const Navbar = () => {
         : 'bg-gradient-to-b from-background/80 to-transparent py-6'
         }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center gap-8">
 
         <a href="/#beranda" className="flex items-center gap-3 relative z-10 group">
           <img src={logo} alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 will-change-transform" />
