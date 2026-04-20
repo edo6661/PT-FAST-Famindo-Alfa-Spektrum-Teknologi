@@ -1,6 +1,5 @@
-import { Cpu, ShieldAlert, Layers, Flame, Car } from "lucide-react";
+import { Cpu, ShieldAlert, Layers, } from "lucide-react";
 
-// 1. Tambahkan tipe 'images' pada interface BrandProduct
 export interface BrandProduct {
   name: string;
   desc: string;
@@ -34,7 +33,6 @@ export const brands: Record<string, BrandData> = {
       "Lab-tested & TKDN Certified",
       "Eco-friendly & Non-toxic"
     ],
-    // 2. Perbarui list products (varian) dengan memasukkan path gambar yang baru Anda upload
     products: [
       {
         name: "LFK AF31 Portable - 1 KG",
@@ -221,31 +219,5 @@ export const mainBrands = [
     gridClass: "md:col-span-1 md:row-span-1",
     bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
   },
-  {
-    name: "Power Tech Shield - Fire Blanket",
-    slug: "power-tech-shield-fire-blanket",
-    description: "Heavy duty thermal isolation blanket resistant up to 1600°C to cut off oxygen supply instantly.",
-    logo: "SHIELD",
-    icon: <ShieldAlert size={24} className="text-white" />,
-    gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "https://images.unsplash.com/photo-1620325867502-2211b5f70f6f?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    name: "FLAT Flame Accurate Termination",
-    slug: "flat-af11e",
-    description: "Clean liquefied gas fire extinguishing media. The perfect Halon alternative leaving zero residue.",
-    logo: "FLAT",
-    icon: <Flame size={24} className="text-white" />,
-    gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "https://images.unsplash.com/photo-1485575301924-6891ebbfaf88?q=80&w=800&auto=format&fit=crop"
-  },
-  {
-    name: "USS Undercarriage System",
-    slug: "uss-undercarriage",
-    description: "Specialized portable fire extinguisher extension device for EV undercarriage fires.",
-    logo: "USS",
-    icon: <Car size={24} className="text-white" />,
-    gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=800&auto=format&fit=crop"
-  }
+
 ];
