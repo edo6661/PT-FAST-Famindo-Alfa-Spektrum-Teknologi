@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { clientCategories, clientLogos } from '../constants/clientsData';
+import SpotlightCard from '../components/SpotlightCard';
 
 const ClientBasePage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -55,22 +57,6 @@ const ClientBasePage = () => {
 
   return (
     <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
-      <style>
-        {`
-          @keyframes marquee-scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-20%); }
-          }
-          .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee-scroll linear infinite;
-          }
-          .animate-marquee:hover {
-            animation-play-state: paused;
-          }
-        `}
-      </style>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-20 text-center flex flex-col items-center">
@@ -148,35 +134,48 @@ const ClientBasePage = () => {
         </div>
 
         {filteredLogos.length > 0 ? (
-          <div className="relative w-full overflow-hidden mb-32 py-4">
-            <div className="absolute top-0 left-0 w-24 md:w-48 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-24 md:w-48 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
+          <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6 mb-32">
+            <AnimatePresence mode="popLayout">
+              {filteredLogos.map((logo, index) => (
+                <motion.div
+                  layout
+                  key={logo.id}
+                  initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
+                  animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                  exit={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
+                  transition={{
+                    duration: 0.5,
+                    type: "spring",
+                    bounce: 0.3,
+                    delay: index * 0.03 // Efek masuk satu per satu
+                  }}
+                >
+                  <SpotlightCard className="group h-full bg-surface/20 border-white/5 hover:border-white/20 p-6 sm:p-8 flex items-center justify-center aspect-[4/3] cursor-default rounded-3xl overflow-hidden relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
-            <div
-              className="animate-marquee"
-              style={{ animationDuration: activeCategory === 'all' ? '50s' : '20s' }}
-            >
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="flex">
-                  {filteredLogos.map((logo, index) => (
-                    <div key={`${logo.id}-${i}-${index}`} className="px-4 py-2">
-                      <div
-                        className="group bg-white/95 border border-white/20 rounded-2xl p-6 h-32 w-[200px] md:w-[240px] flex items-center justify-center hover:bg-white transition-all duration-500 hover:-translate-y-2 shadow-lg hover:shadow-cyan-500/10"
+                    <motion.div
+                      animate={{ y: [0, -6, 0] }}
+                      transition={{
+                        duration: 4 + (index % 3),
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: (index % 5) * 0.3
+                      }}
+                      className="relative z-10 w-full h-full flex items-center justify-center"
+                    >
+                      <img
+                        src={logo.src}
+                        alt={logo.name}
+                        loading="lazy"
                         title={logo.name}
-                      >
-                        <img
-                          src={logo.src}
-                          alt={logo.name}
-                          loading="lazy"
-                          className="w-full h-full object-contain filter grayscale-50 opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                        className="max-w-full max-h-[60px] md:max-h-[80px] w-auto object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110 drop-shadow-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                      />
+                    </motion.div>
+                  </SpotlightCard>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </AnimatePresence>
+          </motion.div>
         ) : (
           <div className="text-center py-20 mb-32 border border-white/10 rounded-3xl bg-surface/30">
             <p className="text-foreground-muted">More logos will be added soon.</p>
