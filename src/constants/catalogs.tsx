@@ -25,6 +25,7 @@ export interface Product {
   categoryId: string;
   description: string;
   tagline?: string;
+  brochureUrl?: string;
   image: string;
   features?: string[];
   variants?: ProductVariant[];
@@ -101,6 +102,7 @@ export const products: Product[] = [
   {
     id: 'altex-alpha-tech-shield',
     slug: 'altex-alpha-tech-shield',
+    brochureUrl: "/brochures/altex-brochure.pdf",
     title: 'ALTEX ALPHA TECH SHIELD',
     tagline: 'Indoor Anti-Fire Coating with Thermafrost Technology',
     categoryId: 'preventive',
@@ -140,6 +142,8 @@ export const products: Product[] = [
   // --- PROTECTIVE ---
   {
     id: 'lithium-fire-killer-hartindo-af31',
+    brochureUrl: "/brochures/lfk-brochure.pdf",
+
     slug: 'lithium-fire-killer-hartindo-af31',
     title: 'Lithium Fire Killer HARTINDO AF31',
     tagline: 'The First Lithium Fire Extinguisher In The World',

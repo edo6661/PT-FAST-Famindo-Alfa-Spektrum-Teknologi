@@ -6,7 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
 
 const Home = lazy(() => import('./pages/Home'));
-const BrandDetail = lazy(() => import('./pages/BrandDetail'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
 const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
 const Login = lazy(() => import('./pages/Login'));
 const AdminBlog = lazy(() => import('./pages/AdminBlog'));
@@ -15,7 +15,6 @@ const BlogsPage = lazy(() => import('./pages/BlogsPage'));
 const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
 const CatalogPage = lazy(() => import('./pages/CatalogPage'));
 const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
-const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
 const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
 
 const PageLoader = () => (
@@ -43,8 +42,7 @@ const App = () => {
                 <Route path="blogs/:id" element={<BlogDetailPage />} />
                 <Route path="about" element={<AboutUsPage />} />
 
-                {/* Ubah path "brand/:slug" menjadi ":slug" dan taruh paling bawah */}
-                <Route path=":slug" element={<BrandDetail />} />
+                <Route path=":slug" element={<ProductDetailPage />} />
               </Route>
 
               <Route path="/login" element={<Login />} />
