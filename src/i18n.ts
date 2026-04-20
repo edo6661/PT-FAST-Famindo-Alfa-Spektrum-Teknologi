@@ -83,7 +83,7 @@ const resources = {
         sectionDesc: "Specialized tech for precision fire risk handling.",
         viewCatalog: "View Complete Catalog",
         items: {
-          "hartindo-af31": {
+          "lithium-fire-killer-hartindo-af31": {
             name: "Lithium Fire Killer AF31",
             desc: "Eco-friendly lithium fire mitigation with global certification.",
           },
@@ -91,8 +91,8 @@ const resources = {
             name: "BALLISTIC App",
             desc: "Advanced IoT mobile app for real-time battery monitoring.",
           },
-          altex: {
-            name: "Altex Coating",
+          "altex-alpha-tech-shield": {
+            name: "ALTEX ALPHA TECH SHIELD",
             desc: "Anti-fire liquid coating to effectively stop fire spread.",
           },
         },
@@ -273,13 +273,17 @@ const resources = {
           "Teknologi khusus untuk penanganan risiko kebakaran yang presisi.",
         viewCatalog: "Lihat Semua Katalog",
         items: {
-          "hartindo-af31": {
+          "lithium-fire-killer-hartindo-af31": {
             name: "Lithium Fire Killer AF31",
             desc: "Mitigasi kebakaran lithium ramah lingkungan bersertifikasi global.",
           },
           "ballistic-app": {
             name: "Aplikasi BALLISTIC",
             desc: "Aplikasi IoT canggih untuk pemantauan baterai real-time.",
+          },
+          "altex-alpha-tech-shield": {
+            name: "ALTEX ALPHA TECH SHIELD",
+            desc: "Pelapis cairan anti-api untuk mencegah penyebaran api secara efektif.",
           },
           altex: {
             name: "Pelapis Altex",

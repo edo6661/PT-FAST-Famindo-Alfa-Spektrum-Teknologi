@@ -49,17 +49,22 @@ const CategoryDetailPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categoryProducts.map((product) => (
-            <div key={product.id} className="group rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col">
+            <div key={product.id} className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col">
+
+              <Link to={`/catalog/${product.slug}`} className="absolute inset-0 z-10" aria-label={product.title}></Link>
+
               <div className="h-56 overflow-hidden relative">
                 <img src={product.image} alt={product.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
               </div>
-              <div className="p-8 flex flex-col flex-grow relative z-10 -mt-10">
+
+              <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{product.title}</h3>
                 <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">{product.description}</p>
-                <Link to={`/catalog/${product.slug}`} className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
-                  View Details <ArrowRight size={18} />
-                </Link>
+
+                <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                  View Details <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                </div>
               </div>
             </div>
           ))}

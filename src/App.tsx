@@ -24,7 +24,6 @@ const PageLoader = () => (
     <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
   </div>
 );
-
 const App = () => {
   return (
     <HelmetProvider>
@@ -34,7 +33,6 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
-                <Route path="brand/:slug" element={<BrandDetail />} />
                 <Route path="clients" element={<ClientBasePage />} />
 
                 <Route path="catalog" element={<CatalogPage />} />
@@ -44,10 +42,12 @@ const App = () => {
                 <Route path="blogs" element={<BlogsPage />} />
                 <Route path="blogs/:id" element={<BlogDetailPage />} />
                 <Route path="about" element={<AboutUsPage />} />
+
+                {/* Ubah path "brand/:slug" menjadi ":slug" dan taruh paling bawah */}
+                <Route path=":slug" element={<BrandDetail />} />
               </Route>
 
               <Route path="/login" element={<Login />} />
-
 
               <Route element={<ProtectedRoute />}>
                 <Route path="/admin/blog" element={<AdminBlog />} />

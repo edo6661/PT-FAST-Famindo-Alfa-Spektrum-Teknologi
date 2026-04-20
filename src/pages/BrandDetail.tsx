@@ -48,7 +48,7 @@ const BrandDetail = () => {
         title={brandData.name}
         description={brandData.description}
         image={brandData.heroImage}
-        url={`/brand/${slug}`}
+        url={`/${slug}`}
         type="product"
         schemaMarkup={productSchema}
       />
@@ -98,22 +98,25 @@ const BrandDetail = () => {
                 </p>
               </div>
 
-              <div>
-                <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
-                  Core Capabilities
-                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  {brandData.features.map((feature: string, index: number) => (
-                    <div key={index} className="flex items-start gap-4 p-6 rounded-2xl bg-surface/40 border border-white/5 hover:border-accent/30 hover:bg-surface/60 transition-all duration-300 backdrop-blur-sm group">
-                      <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <CheckCircle2 size={18} className="text-accent" />
+              {/* Pastikan features di-render dengan aman */}
+              {brandData.features && brandData.features.length > 0 && (
+                <div>
+                  <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
+                    Core Capabilities
+                    <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {brandData.features.map((feature: string, index: number) => (
+                      <div key={index} className="flex items-center gap-4 p-6 rounded-2xl bg-surface/40 border border-white/5 hover:border-accent/30 hover:bg-surface/60 transition-all duration-300 backdrop-blur-sm group">
+                        <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <CheckCircle2 size={18} className="text-accent" />
+                        </div>
+                        <span className="text-foreground-muted group-hover:text-white/90 transition-colors font-light leading-relaxed">{feature}</span>
                       </div>
-                      <span className="text-foreground-muted group-hover:text-white/90 transition-colors font-light leading-relaxed">{feature}</span>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
             </div>
 
@@ -124,7 +127,7 @@ const BrandDetail = () => {
                 <div className="space-y-6">
                   {brandData.products.map((product: BrandProduct, index: number) => (
                     <div key={index} className="group border-b border-white/10 last:border-0 pb-6 last:pb-0 relative">
-                      <div className="absolute -left-8 top-1.5 w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
                       <h4 className="text-lg font-semibold text-white/90 mb-2 group-hover:text-accent transition-colors">{product.name}</h4>
                       <p className="text-sm text-foreground-muted font-light leading-relaxed">{product.desc}</p>
                     </div>
@@ -141,10 +144,19 @@ const BrandDetail = () => {
                   <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">Request a full technical catalog or consult directly with our enterprise safety engineers.</p>
 
                   <div className="space-y-4">
-                    <button className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 group/btn text-sm uppercase tracking-wide">
-                      <Download size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
-                      Download Brochure
-                    </button>
+                    {/* Render tombol download HANYA jika brochureUrl tersedia */}
+                    {brandData.brochureUrl && (
+                      <a
+                        href={brandData.brochureUrl}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 group/btn text-sm uppercase tracking-wide"
+                      >
+                        <Download size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
+                        Download Brochure
+                      </a>
+                    )}
                     <a
                       href="https://wa.me/6281290003278?text=Halo%20tim%20PT.%20FAST,%20saya%20tertarik%20dengan%20solusi%20teknologi%20ini."
                       target="_blank"
