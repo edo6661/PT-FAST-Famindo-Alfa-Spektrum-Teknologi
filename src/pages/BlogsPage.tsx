@@ -53,7 +53,7 @@ const BlogsPage = () => {
   };
 
   return (
-    <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
       <SEO
         title="All Insights & Updates - FAST"
         description="Follow our latest technology updates and fire safety education."

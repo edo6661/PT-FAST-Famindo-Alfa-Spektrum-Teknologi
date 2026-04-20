@@ -20,7 +20,7 @@ const ClientBasePage = () => {
     {
       logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.png",
       name: "2024 Presidential Inauguration",
-      category: "Government & National Event",
+      category: "Government",
       status: "Deployment Secured",
       desc: "FAST | PT. Famindo Alfa Spektrum Teknologi was called by the Ministry of State Secretariat to safeguard a momentous national event with precision and reliability. Lithium Fire Killer HARTINDO AF31 was distributed for the EV units escorting the international VVIP guests attending the presidential inauguration ceremony.",
       color: "from-blue-600/20 to-transparent",
@@ -56,7 +56,7 @@ const ClientBasePage = () => {
   ];
 
   return (
-    <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-20 text-center flex flex-col items-center">
@@ -84,7 +84,7 @@ const ClientBasePage = () => {
               <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${client.color} opacity-50 group-hover:opacity-100 transition-opacity duration-500`}></div>
 
               <div className="relative z-10 flex flex-col h-full">
-                <div className="flex justify-between items-start mb-8">
+                <div className="flex justify-between items-start mb-8 gap-4">
                   <div className="w-20 h-20 rounded-2xl bg-white border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-500 z-10 overflow-hidden p-3">
                     <img src={client.logoImg} alt={client.name} className="w-full h-full object-contain" />
                   </div>
@@ -168,7 +168,7 @@ const ClientBasePage = () => {
                         alt={logo.name}
                         loading="lazy"
                         title={logo.name}
-                        className="max-w-full max-h-[60px] md:max-h-[80px] w-auto object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110 drop-shadow-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                        className="max-w-full max-h-[60px] md:max-h-[80px] w-auto object-contain filter opacity-40  group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110 drop-shadow-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
                       />
                     </motion.div>
                   </SpotlightCard>

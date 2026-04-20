@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Zap } from 'lucide-react';
-import { brands, type BrandProduct } from '../constants/brands';
 import SEO from '../components/SEO';
+import { products, type ProductVariant } from '../constants/catalogs';
 
-// --- Komponen Interactive Variant Card yang Diperbarui ---
-const VariantCard = ({ product }: { product: BrandProduct }) => {
+const VariantCard = ({ variant }: { variant: ProductVariant }) => {
   const [activeView, setActiveView] = useState<'front' | 'back' | 'left' | 'right'>('front');
 
   return (
     <div className="flex flex-col h-full bg-surface/40 border border-white/10 hover:border-accent/30 rounded-3xl p-8 backdrop-blur-md transition-all duration-300 shadow-xl group">
 
-      {/* Jika ada gambar, tampilkan Viewer di atas */}
-      {product.images && (
+      {/* Cek keberadaan images dengan aman berkat typing */}
+      {variant.images && (
         <div className="mb-8 flex flex-col items-center">
           <div className="w-full aspect-square max-h-[300px] relative flex items-center justify-center bg-background/50 rounded-2xl overflow-hidden border border-white/5 mb-4 group/image">
             <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-50"></div>
             <img
-              src={product.images[activeView]}
-              alt={`${product.name} - ${activeView} view`}
+              src={variant.images[activeView]}
+              alt={`${variant.name || variant.weight} - ${activeView} view`}
               className="w-full h-full object-contain p-4 transform transition-all duration-500 group-hover/image:scale-110 drop-shadow-2xl"
             />
             <span className="absolute top-3 left-3 bg-surface/80 backdrop-blur-md border border-white/10 text-[9px] font-bold px-2 py-1 rounded text-foreground-muted uppercase tracking-wider">
@@ -32,8 +31,8 @@ const VariantCard = ({ product }: { product: BrandProduct }) => {
                 key={view}
                 onClick={() => setActiveView(view)}
                 className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-300 flex-1 ${activeView === view
-                    ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
-                    : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
+                  ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
+                  : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
                   }`}
               >
                 {view}
@@ -46,20 +45,21 @@ const VariantCard = ({ product }: { product: BrandProduct }) => {
       {/* Detail Teks di bawah */}
       <div className="mt-auto">
         <h4 className="text-xl font-bold text-white/90 mb-3 group-hover:text-accent transition-colors">
-          {product.name}
+          {variant.name || variant.weight}
         </h4>
-        <p className="text-sm text-foreground-muted font-light leading-relaxed">
-          {product.desc}
-        </p>
+        {variant.desc && (
+          <p className="text-sm text-foreground-muted font-light leading-relaxed">
+            {variant.desc}
+          </p>
+        )}
       </div>
     </div>
   );
 };
-// --------------------------------------------------------
 
 const BrandDetail = () => {
   const { slug } = useParams();
-  const brandData = slug && brands[slug] ? brands[slug] : null;
+  const brandData = products.find(p => p.slug === slug);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -84,8 +84,8 @@ const BrandDetail = () => {
   const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
-    "name": brandData.name,
-    "image": brandData.heroImage,
+    "name": brandData.title,
+    "image": brandData.image,
     "description": brandData.description,
     "brand": {
       "@type": "Brand",
@@ -95,11 +95,11 @@ const BrandDetail = () => {
   };
 
   return (
-    <div className="pb-24 bg-background min-h-screen">
+    <div className="py-24 bg-background min-h-screen ">
       <SEO
-        title={brandData.name}
+        title={brandData.title}
         description={brandData.description}
-        image={brandData.heroImage}
+        image={brandData.image}
         url={`/${slug}`}
         type="product"
         schemaMarkup={productSchema}
@@ -109,8 +109,8 @@ const BrandDetail = () => {
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-background z-0" />
         <img
-          src={brandData.heroImage}
-          alt={brandData.name}
+          src={brandData.image}
+          alt={brandData.title}
           className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
@@ -126,7 +126,7 @@ const BrandDetail = () => {
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight max-w-4xl leading-tight">
-            {brandData.name}
+            {brandData.title}
           </h1>
           <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-300 font-medium max-w-3xl leading-relaxed">
             {brandData.tagline}
@@ -140,10 +140,9 @@ const BrandDetail = () => {
 
         <div className="container mx-auto px-6 md:px-12 relative z-10">
 
-          {/* BAGIAN ATAS: Overview (Kiri) & CTA (Kanan) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
 
-            {/* Kiri: Overview & Features (Lebar 7 Kolom) */}
+            {/* Kiri: Overview & Features */}
             <div className="lg:col-span-7 space-y-12">
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
@@ -177,7 +176,7 @@ const BrandDetail = () => {
               )}
             </div>
 
-            {/* Kanan: CTA Secure This Technology (Lebar 5 Kolom) */}
+            {/* Kanan: CTA Secure This Technology */}
             <div className="lg:col-span-5">
               <div className="relative overflow-hidden p-8 md:p-10 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group sticky top-28">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-surface to-background opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -193,8 +192,10 @@ const BrandDetail = () => {
                   </p>
 
                   <div className="space-y-4">
+                    {/* @ts-expect-error property might optionally exist in the schema */}
                     {brandData.brochureUrl && (
                       <a
+                        // @ts-expect-error property might optionally exist in the schema
                         href={brandData.brochureUrl}
                         download
                         target="_blank"
@@ -206,7 +207,7 @@ const BrandDetail = () => {
                       </a>
                     )}
                     <a
-                      href="https://wa.me/6281290003278?text=Halo%20tim%20PT.%20FAST,%20saya%20tertarik%20dengan%20solusi%20teknologi%20ini."
+                      href={`https://wa.me/6281290003278?text=Halo%20tim%20PT.%20FAST,%20saya%20tertarik%20dengan%20solusi%20teknologi%20${encodeURIComponent(brandData.title)}.`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 text-sm uppercase tracking-wide"
@@ -221,8 +222,8 @@ const BrandDetail = () => {
 
           </div>
 
-          {/* BAGIAN BAWAH: Product Variants (Full Width Grid) */}
-          {brandData.products && brandData.products.length > 0 && (
+          {/* BAGIAN BAWAH: Product Variants */}
+          {brandData.variants && brandData.variants.length > 0 && (
             <div className="pt-12 border-t border-white/10">
               <div className="text-center mb-12">
                 <h3 className="text-3xl font-bold text-white mb-4">Available Variants</h3>
@@ -231,10 +232,10 @@ const BrandDetail = () => {
                 </p>
               </div>
 
-              {/* Grid Responsif: 1 kolom (HP), 2 kolom (Tablet), 3 kolom (Desktop) */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-                {brandData.products.map((product: BrandProduct, index: number) => (
-                  <VariantCard key={index} product={product} />
+                {/* Melewati tipe ProductVariant murni tanpa any */}
+                {brandData.variants.map((variant: ProductVariant, index: number) => (
+                  <VariantCard key={index} variant={variant} />
                 ))}
               </div>
             </div>

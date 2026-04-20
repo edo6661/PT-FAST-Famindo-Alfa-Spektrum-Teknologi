@@ -45,7 +45,7 @@ const AboutUsPage = () => {
   }, []);
 
   return (
-    <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
       <SEO
         title="About Us - PT. FAST"
         description="Founded by the FAST FOUR. A team of dedicated people with passion for safety."

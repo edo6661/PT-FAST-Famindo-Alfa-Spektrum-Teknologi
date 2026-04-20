@@ -72,7 +72,7 @@ const Brands = () => {
                   </div>
 
                   <div className="relative z-10 w-full h-full p-8 flex flex-col justify-end transform-gpu transition-transform duration-500">
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="sm:flex hidden justify-between items-start mb-4">
                       <div className={`w-14 h-14 rounded-2xl bg-surface/80 backdrop-blur-md border border-white/10 flex items-center justify-center transition-colors duration-500 group-hover:border-accent/50 ${index === 0 ? 'w-16 h-16' : ''}`}>
                         {brand.icon}
                       </div>

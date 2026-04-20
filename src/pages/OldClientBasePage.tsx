@@ -18,7 +18,7 @@ const ClientBasePage = () => {
     {
       logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.png",
       name: "2024 Presidential Inauguration",
-      category: "Government & National Event",
+      category: "Government",
       status: "Deployment Secured",
       desc: "FAST | PT. Famindo Alfa Spektrum Teknologi was called by the Ministry of State Secretariat to safeguard a momentous national event with precision and reliability. Lithium Fire Killer HARTINDO AF31 was distributed for the EV units escorting the international VVIP guests attending the presidential inauguration ceremony.",
       color: "from-blue-600/20 to-transparent",
@@ -54,7 +54,7 @@ const ClientBasePage = () => {
   ];
 
   return (
-    <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
       <style>
         {`
           @keyframes marquee-scroll {

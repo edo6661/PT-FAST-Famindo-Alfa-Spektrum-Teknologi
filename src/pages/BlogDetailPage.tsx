@@ -58,7 +58,7 @@ const BlogDetailPage = () => {
   }
 
   return (
-    <div className="pb-24 bg-background min-h-screen">
+    <div className="py-24 bg-background min-h-screen">
       <SEO
         title={`${blog.nama} - FAST Insights`}
         description={blog.deskripsi.substring(0, 150)}

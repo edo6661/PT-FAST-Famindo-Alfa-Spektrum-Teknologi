@@ -25,7 +25,7 @@ const CategoryDetailPage = () => {
   const Icon = category.icon || Layers;
 
   return (
-    <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
       <SEO title={`${category.name} Category - FAST`} description={category.description} url={`/category/${slug}`} />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">

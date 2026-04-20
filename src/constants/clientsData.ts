@@ -15,11 +15,11 @@ export interface ClientLogo {
 
 export const clientCategories: { id: ClientCategory; label: string }[] = [
   { id: "all", label: "All Clients" },
-  { id: "energy", label: "Energy & Mining" },
-  { id: "government", label: "Government & State-Owned" },
-  { id: "private-sector", label: "Private Sector & Enterprise" },
-  { id: "property", label: "Property & Hospitality" },
-  { id: "transportation", label: "Transportation & Logistics" },
+  { id: "energy", label: "Energy" },
+  { id: "government", label: "Government" },
+  { id: "private-sector", label: "Private Sector" },
+  { id: "property", label: "Property" },
+  { id: "transportation", label: "Transportation" },
 ];
 
 export const clientLogos: ClientLogo[] = [
