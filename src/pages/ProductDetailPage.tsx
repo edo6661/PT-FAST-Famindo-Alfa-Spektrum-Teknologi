@@ -30,8 +30,8 @@ const VariantCard = ({ variant }: { variant: ProductVariant }) => {
                 key={view}
                 onClick={() => setActiveView(view)}
                 className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-300 flex-1 ${activeView === view
-                    ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
-                    : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
+                  ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
+                  : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
                   }`}
               >
                 {view}
@@ -115,12 +115,7 @@ const ProductDetailPage = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
 
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-          <Link
-            to={isFromCatalog ? "/catalog" : "/"}
-            className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-10 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:bg-surface"
-          >
-            <ArrowLeft size={16} /> Back to {isFromCatalog ? "Catalog" : "Innovation & Technology"}
-          </Link>
+
 
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
             <Zap size={16} className="text-accent" />
@@ -179,7 +174,7 @@ const ProductDetailPage = () => {
                     Official Partnership
                     <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                   </h3>
-                  <div className="flex flex-wrap gap-6 items-center">
+                  <div className="flex flex-wrap gap-6 items-center justify-center">
                     {product.partners.map((partner, index) => (
                       <div key={index} className="bg-surface/50 border border-white/10 px-6 py-4 rounded-2xl hover:border-accent/30 hover:bg-surface/80 transition-all duration-300 group">
                         <img
@@ -211,10 +206,8 @@ const ProductDetailPage = () => {
                   </p>
 
                   <div className="space-y-4">
-                    {/* @ts-expect-error Optional property check */}
                     {product.brochureUrl && (
                       <a
-                        /* @ts-expect-error */
                         href={product.brochureUrl}
                         download
                         target="_blank"
