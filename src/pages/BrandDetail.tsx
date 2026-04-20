@@ -115,10 +115,7 @@ const BrandDetail = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
 
-        <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-10 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:bg-surface">
-            <ArrowLeft size={16} /> Back to Innovation & Technology
-          </Link>
+        <div className="container mx-auto px-6 md:px-12 relative z-20 py-16">
 
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
             <Zap size={16} className="text-accent" />

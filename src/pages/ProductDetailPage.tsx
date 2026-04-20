@@ -158,14 +158,14 @@ const ProductDetailPage = () => {
                     Official Partnership
                     <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                   </h3>
-                  <div className="flex flex-wrap gap-6 items-center">
+                  <div className="flex flex-wrap gap-6 items-center justify-center">
                     {product.partners.map((partner, index) => (
                       <div key={index} className="bg-surface/50 border border-white/10 px-6 py-4 rounded-2xl hover:border-accent/30 hover:bg-surface/80 transition-all duration-300 group">
                         <img
                           src={partner.logo}
                           alt={partner.name}
                           title={partner.name}
-                          className="h-10 md:h-12 w-auto object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          className="h-10 md:h-12 w-auto object-contain filter opacity-50  group-hover:opacity-100 transition-all duration-300"
                         />
                       </div>
                     ))}

@@ -16,7 +16,7 @@ const CatalogPage = () => {
     : products.filter(p => p.categoryId === activeCategory);
 
   return (
-    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+    <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
       <SEO
         title="Complete Catalog - FAST"
         description="Explore our complete range of advanced fire safety technology solutions."
