@@ -1,4 +1,3 @@
-import { Cpu, ShieldAlert, Layers, } from "lucide-react";
 
 export interface BrandProduct {
   name: string;
@@ -197,27 +196,26 @@ export const mainBrands = [
     slug: "lithium-fire-killer-hartindo-af31",
     description: "The ultimate 100% Indonesian patented solution for lithium-ion battery fire hazards. Eco-friendly and TKDN certified.",
     logo: "AF31",
-    icon: <ShieldAlert size={32} className="text-accent" />,
+    icon: <img src="/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" alt="LFK Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-2 md:row-span-2",
-    bgImage: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop"
+    bgImage: "/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" // Menggunakan logo besar sebagai background faint
   },
   {
     name: "BALLISTIC App",
     slug: "ballistic-app",
     description: "IoT and Machine Learning application to detect lithium battery temperature anomalies in real-time.",
     logo: "APP",
-    icon: <Cpu size={24} className="text-white" />,
+    icon: <img src="/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png" alt="Ballistic Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+    bgImage: "/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png"
   },
   {
     name: "ALTEX ALPHA TECH SHIELD",
     slug: "altex-alpha-tech-shield",
     description: "Epoxy Fire Coating based anti-fire liquid that prevents any material from catching and spreading fire.",
     logo: "ALTEX",
-    icon: <Layers size={24} className="text-white" />,
+    icon: <img src="/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png" alt="Altex Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop"
+    bgImage: "/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png"
   },
-
 ];

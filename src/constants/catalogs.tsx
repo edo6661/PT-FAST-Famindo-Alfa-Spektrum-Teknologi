@@ -66,7 +66,7 @@ export const products: Product[] = [
     tagline: 'Battery Life Diagnostic System',
     categoryId: 'predictive',
     description: 'BALLISTIC is an IoT (Internet of Things) and Machine Learning application designed to detect lithium battery temperature anomalies in real-time. Trusted by PLN as a Battery Monitoring Center (BMC) for large portable UPS/Power Banks across data centers.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop',
+    image: '/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png',
     features: [
       "Real-time battery temperature monitoring",
       "Smart early warning notifications",
@@ -88,7 +88,7 @@ export const products: Product[] = [
     tagline: 'The Heavy-Duty Armor Built to Withstand the Extreme',
     categoryId: 'preventive',
     description: 'A specialized safety blanket designed to isolate and prevent fire spread by cutting off the oxygen supply. The ultimate heavy-duty armor for electric vehicles, garages, and parking areas.',
-    image: 'https://images.unsplash.com/photo-1620325867502-2211b5f70f6f?q=80&w=1000&auto=format&fit=crop',
+    image: '/logo/PTS_Logo_PNG/PTS Color [Primary] Logo.png',
     features: [
       "Heat resistant up to 1600°C",
       "Withstands 1100°C for up to 50 hours",
@@ -109,7 +109,7 @@ export const products: Product[] = [
     tagline: 'Indoor Anti-Fire Coating with Thermafrost Technology',
     categoryId: 'preventive',
     description: 'A high-performance indoor anti-fire coating designed to protect your valuable assets. It works by reflecting heat and forming a dense char barrier to isolate the building structure, giving you critical extra time during emergencies.',
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1000&auto=format&fit=crop',
+    image: '/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png',
     features: [
       "Withstands extreme heat up to 1300°C",
       "Provides 3 hours of fire resistance duration",
@@ -129,7 +129,7 @@ export const products: Product[] = [
     tagline: 'Passive Gel Technology Fire Suppression',
     categoryId: 'preventive',
     description: 'Passive fire damper based on advanced Gel technology to secure Lithium batteries. It works by absorbing heat, forming a cooling coating, and preventing re-ignition. DEFEND products are lifestyle containers integrated with G-Tech, perfect for placing directly over lithium battery compartments.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop',
+    image: '/logo/G-TECH_Logo_PNG/G-TECH Color [Primary] Logo.png',
     features: [
       "Advanced heat absorption capabilities",
       "Forms a proactive cooling coating",
@@ -152,7 +152,7 @@ export const products: Product[] = [
     tagline: 'The First Lithium Fire Extinguisher In The World',
     categoryId: 'protective',
     description: 'A multi-function, eco-friendly extinguisher that handles it all. From common paper fires to high-stakes lithium battery blazes. Protect your home, your fleet, and your life with our specialized fire safety solutions.',
-    image: '/products/LFK/LFK_3_KG_[Font].png',
+    image: '/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png',
     features: [
       "SNI Certified (Standar Nasional Indonesia)",
       "Fire Classes: A, B, D, F/K, & L (Lithium)",
@@ -238,7 +238,7 @@ export const products: Product[] = [
     tagline: 'Advanced Clean Liquefied Gas Extinguisher (AF11E)',
     categoryId: 'protective',
     description: 'Clean liquefied gas fire extinguishing media (HCFC 123 blend). The perfect Halon alternative without harmful environmental side effects. It leaves no residue, has low environmental impact, and is non-conductive, making it highly suitable for critical areas like Hospitals, Panel Rooms, Data Centers, and Military bases.',
-    image: 'https://images.unsplash.com/photo-1485575301924-6891ebbfaf88?q=80&w=1000&auto=format&fit=crop',
+    image: '/logo/FLAT_Logo_PNG/1_FLAT RED [Complete].png',
     features: [
       "Leaves zero residue after discharge",
       "Safe for human respiration during accidental discharge",
@@ -258,7 +258,7 @@ export const products: Product[] = [
     tagline: 'Specialized Extinguisher Extension for EV Bottom Fires',
     categoryId: 'protective',
     description: 'A portable fire extinguisher extension device specifically designed to tackle fires in electric vehicles where the battery is located underneath the chassis. Developed in collaboration with Pindad Indonesia for maximum deployment safety.',
-    image: 'https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=1000&auto=format&fit=crop',
+    image: '/logo/USS_Logo_PNG/USS Primary Logo.png',
     features: [
       "High-pressure Jet Spray & Fine Mist modes",
       "Spear extension for safe undercarriage insertion",

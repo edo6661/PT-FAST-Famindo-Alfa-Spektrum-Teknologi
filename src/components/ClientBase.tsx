@@ -15,6 +15,12 @@ const ClientBase = () => {
       gradient: "from-blue-600/20"
     },
     {
+      logoImg: "/clients/government/IAF_LOGO.png",
+      name: t("clientBase.clients.iaf.name"),
+      desc: t("clientBase.clients.iaf.desc"),
+      gradient: "from-accent/20"
+    },
+    {
       logoImg: "/clients/government/Kepolisian_Negara_Republik_Indonesia_Logo.png",
       name: t("clientBase.clients.pope.name"),
       desc: t("clientBase.clients.pope.desc"),

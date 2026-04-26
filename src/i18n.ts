@@ -143,23 +143,23 @@ const resources = {
         internationalTitle: "International Certifications",
         national: [
           {
-            title: "TKDN",
-            desc: "Passed the test from Indonesia's Ministry of Industry. A top-of-mind choice to secure the mining and manufacturing industry.",
+            title: "Fullfills TKDN Component Standards",
+            desc: "Passed the test from Indonesia's Ministry of Industry with a total value of 49.31%. A top-of-mind choice to secure the mining and manufacturing industry.",
             logo: "/certi/lfk-af31/TKDN.svg.png",
           },
           {
             title: "Ministry of Environment & Forestry (KLHK)",
-            desc: "Effective solution for combating forest fires. Safe for humans, animals, and the environment. Prevents fire re-ignition.",
+            desc: "Passed as an effective solution for combating forest fires. Safe for humans, animals, and the environment. Prevents fire re-ignition.",
             logo: "/certi/lfk-af31/KLKH_[Kementerian_Lingkungan_Hidup_dan_Kehutanan]_Logo.png",
           },
           {
             title: "DAMKAR",
-            desc: "Qualified for extinguishing every class of fire [A, B, C, D, F/K] according to stringent test method parameters.",
+            desc: "Qualified for extinguishing every class of fire [A, B, C, D, F/K] according to stringent DAMKAR test method parameters.",
             logo: "/certi/lfk-af31/LOGO_DAMKAR_YUDHA_BRAMA_JAYA.png",
           },
           {
             title: "Ministry of Transportation",
-            desc: "Certified as a fire extinguisher for classes A, B, C, and D. Highly reliable for transportation fleets.",
+            desc: "Certified as an effective fire extinguisher for classes A, B, C, and D. Highly reliable for transportation fleets.",
             logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia_(Kemenhub)_Logo.png",
           },
           {
@@ -176,7 +176,7 @@ const resources = {
         international: [
           {
             title: "Nucro Technics",
-            desc: "Certified testing and standard approvals for international quality and safety.",
+            desc: "Certified testing and standard approvals ensuring our solutions meet rigorous international quality and safety benchmarks.",
             logo: "/certi/lfk-af31/Nucro-Technics.svg",
           },
           {
@@ -186,29 +186,27 @@ const resources = {
           },
           {
             title: "SGS (USA): ASTM E84-07 & UL723",
-            desc: "Effective fire suppression solution for building material surfaces in accordance with ASTM standards.",
+            desc: "Effective fire suppression solution for building material surfaces in accordance with the American Society for Testing and Materials (ASTM).",
             logo: "/certi/lfk-af31/SGS_Logo.svg.png",
           },
           {
             title: "Pollutech EnviroQuatics (Canada)",
-            desc: "LC50 Certified. Proven not to cause acute toxicity and death to living organisms in natural environments.",
+            desc: "LC50 Certified. Proven not to cause acute toxicity and death to living organisms (tested on fish in their natural environment).",
             logo: "/certi/lfk-af31/Pollutec_Logo.png",
           },
           {
             title: "KGK Synergize (Canada) OECD",
             desc: "Achieved 'non-irritation' status. Causes no acute eye, skin irritation, or oral toxicity following OECD guidelines.",
-            logo: "/certi/lfk-af31/KGK_Science_Logo.svg",
+            logo: "/certi/lfk-af31/KGK_Science_Logo.png",
           },
-
+          {
+            title: "EN1568-3 European Standard",
+            desc: "Certified in line with European fire extinguishing standards for reliable and consistent performance.",
+          },
           {
             title: "UL Solutions (USA) - GREENGUARD Gold",
             desc: "Verified to have low total VOC emissions, ensuring high suitability for sensitive environments like schools and healthcare.",
             logo: "/certi/lfk-af31/Greenguard_Logo_2.png",
-          },
-          {
-            title: "FAA (US Dept. of Transportation)",
-            desc: "Successfully and rapidly extinguished lithium battery fires in Federal Aviation Administration testing.",
-            logo: "/certi/lfk-af31/Department_of_Transportation_USA.png",
           },
         ],
       },
@@ -356,23 +354,23 @@ const resources = {
         internationalTitle: "Sertifikasi Internasional",
         national: [
           {
-            title: "TKDN",
-            desc: "Disetujui Kemenperin. Menjadi pilihan utama produk dalam negeri untuk mengamankan industri tambang dan manufaktur.",
+            title: "Standar Komponen TKDN",
+            desc: "Lulus uji Kementerian Perindustrian dengan nilai total 49.31%. Pilihan utama produk dalam negeri untuk mengamankan industri tambang dan manufaktur.",
             logo: "/certi/lfk-af31/TKDN.svg.png",
           },
           {
-            title: "KLHK",
-            desc: "Solusi efektif kebakaran hutan (Karhutla). Aman bagi manusia, hewan, dan lingkungan, serta mencegah re-ignisi.",
+            title: "Kementerian Lingkungan Hidup & Kehutanan",
+            desc: "Solusi efektif penanggulangan kebakaran hutan (Karhutla). Aman bagi manusia, hewan, dan lingkungan, serta mencegah re-ignisi.",
             logo: "/certi/lfk-af31/KLKH_[Kementerian_Lingkungan_Hidup_dan_Kehutanan]_Logo.png",
           },
           {
             title: "DAMKAR",
-            desc: "Lulus kualifikasi memadamkan semua kelas api [A, B, C, D, F/K] berdasarkan parameter uji yang ketat.",
+            desc: "Lulus kualifikasi memadamkan semua kelas api [A, B, C, D, F/K] berdasarkan parameter metode uji ketat dari DAMKAR.",
             logo: "/certi/lfk-af31/LOGO_DAMKAR_YUDHA_BRAMA_JAYA.png",
           },
           {
             title: "Kementerian Perhubungan",
-            desc: "Sertifikasi pemadam untuk Kelas A, B, C, D. Sangat andal untuk proteksi armada transportasi dan logistik.",
+            desc: "Sertifikasi pemadam efektif untuk Kelas A, B, C, dan D. Sangat andal untuk proteksi armada transportasi dan logistik.",
             logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia_(Kemenhub)_Logo.png",
           },
           {
@@ -382,18 +380,18 @@ const resources = {
           },
           {
             title: "SNI",
-            desc: "Memenuhi Standar Nasional Indonesia untuk kualitas material dan keamanan produk pemadam.",
+            desc: "Memenuhi Standar Nasional Indonesia untuk kualitas material dan keamanan produk.",
             logo: "/certi/lfk-af31/SNI_Logo.png",
           },
         ],
         international: [
           {
             title: "Nucro Technics",
-            desc: "Lulus standar pengujian sertifikasi untuk jaminan kualitas dan keselamatan.",
+            desc: "Lulus pengujian sertifikasi untuk jaminan kualitas dan tolak ukur keselamatan standar internasional.",
             logo: "/certi/lfk-af31/Nucro-Technics.svg",
           },
           {
-            title: "EUROFINS",
+            title: "EUROFINS - Environment Test",
             desc: "Sertifikasi bebas PFAS (senyawa kimia abadi), menghilangkan risiko pembentukan kanker bagi penggunanya.",
             logo: "/certi/lfk-af31/EUROFINS.png",
           },
@@ -403,19 +401,19 @@ const resources = {
             logo: "/certi/lfk-af31/SGS_Logo.svg.png",
           },
           {
-            title: "Pollutech EnviroQuatics",
+            title: "Pollutech EnviroQuatics (Kanada)",
             desc: "Sertifikasi LC50: terbukti tidak menyebabkan toksisitas akut maupun kematian pada organisme hidup di air/alam.",
             logo: "/certi/lfk-af31/Pollutec_Logo.png",
           },
           {
-            title: "KGK Synergize (Kanada)",
-            desc: "Status non-iritasi sesuai pedoman OECD. Tidak beracun untuk mata, kulit, maupun konsumsi oral.",
-            logo: "/certi/lfk-af31/KGK_Science_Logo.svg",
+            title: "KGK Synergize (Kanada) OECD",
+            desc: "Status non-iritasi sesuai pedoman OECD. Tidak menyebabkan iritasi mata, kulit, maupun toksisitas oral.",
+            logo: "/certi/lfk-af31/KGK_Science_Logo.png",
           },
 
           {
             title: "UL Solutions - GREENGUARD Gold",
-            desc: "Emisi VOC sangat rendah, menjamin keamanan untuk digunakan di lingkungan sensitif seperti sekolah & rumah sakit.",
+            desc: "Emisi VOC sangat rendah, menjamin keamanan untuk digunakan di lingkungan sensitif seperti sekolah & fasilitas kesehatan.",
             logo: "/certi/lfk-af31/Greenguard_Logo_2.png",
           },
         ],
