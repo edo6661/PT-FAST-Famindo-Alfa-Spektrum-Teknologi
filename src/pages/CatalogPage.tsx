@@ -83,7 +83,7 @@ const CatalogPage = () => {
                 </div>
 
                 <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300 pt-8">
                     {product.title}
                   </h3>
                   <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow">
