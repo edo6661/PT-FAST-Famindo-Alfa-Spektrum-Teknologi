@@ -15,7 +15,6 @@ const ClientBasePage = () => {
   const filteredLogos = activeCategory === 'all'
     ? clientLogos
     : clientLogos.filter(logo => logo.category === activeCategory);
-
   const featuredClients = [
     {
       logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.png",
@@ -29,7 +28,7 @@ const ClientBasePage = () => {
     {
       logoImg: "/clients/government/IAF_LOGO.png",
       name: "KTT IAF Bali [2024]",
-      category: "International Summit",
+      category: "Government",
       status: "Mass Fleet Protection",
       desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali [2024].",
       color: "from-accent/20 to-transparent",
@@ -38,7 +37,7 @@ const ClientBasePage = () => {
     {
       logoImg: "/clients/government/Kepolisian_Negara_Republik_Indonesia_Logo.png",
       name: "Kunjungan Paus Fransiskus [2024]",
-      category: "VVIP Protection",
+      category: "Government",
       status: "Absolute Zero Incident",
       desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus [2024].",
       color: "from-amber-500/20 to-transparent",
@@ -47,7 +46,7 @@ const ClientBasePage = () => {
     {
       logoImg: "/clients/transportation/Bluebird_Logogram.png",
       name: "Bluebird Group [2025]",
-      category: "Corporate Fleet",
+      category: "Transportation",
       status: "Official Supplier",
       desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group [2025].",
       color: "from-cyan-500/20 to-transparent",
