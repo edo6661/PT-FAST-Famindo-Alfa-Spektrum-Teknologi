@@ -171,7 +171,7 @@ const ProductDetailPage = () => {
               {product.partners && product.partners.length > 0 && (
                 <div>
                   <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
-                    Official Partnership
+                    Official Store
                     <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                   </h3>
                   <div className="flex flex-wrap gap-6 items-center justify-center">
@@ -181,7 +181,7 @@ const ProductDetailPage = () => {
                           src={partner.logo}
                           alt={partner.name}
                           title={partner.name}
-                          className="h-10 md:h-12 w-auto object-contain filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                          className="h-10 md:h-12 w-auto object-contain filter  opacity-50  group-hover:opacity-100 transition-all duration-300"
                         />
                       </div>
                     ))}
@@ -225,7 +225,7 @@ const ProductDetailPage = () => {
                       className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 text-sm uppercase tracking-wide"
                     >
                       <MessageSquare size={18} />
-                      Contact Enterprise Sales
+                      Contact
                     </a>
                   </div>
                 </div>

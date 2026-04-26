@@ -61,6 +61,7 @@ export const products: Product[] = [
   {
     id: 'ballistic-app',
     slug: 'ballistic-app',
+    brochureUrl: '/brochures/ballistic-brochure.pdf',
     title: 'BALLISTIC (Battery Life Diagnostic)',
     tagline: 'Battery Life Diagnostic System',
     categoryId: 'predictive',
@@ -82,6 +83,7 @@ export const products: Product[] = [
   {
     id: 'power-tech-shield-fire-blanket',
     slug: 'power-tech-shield-fire-blanket',
+    brochureUrl: '/brochures/powertechshield-brochure.pdf',
     title: 'Power Tech Shield - Fire Blanket',
     tagline: 'The Heavy-Duty Armor Built to Withstand the Extreme',
     categoryId: 'preventive',
@@ -122,6 +124,7 @@ export const products: Product[] = [
   {
     id: 'g-tech-defend',
     slug: 'g-tech-defend',
+    brochureUrl: '/brochures/gtech-brochure.pdf',
     title: 'G-TECH & DEFEND',
     tagline: 'Passive Gel Technology Fire Suppression',
     categoryId: 'preventive',
@@ -149,7 +152,7 @@ export const products: Product[] = [
     tagline: 'The First Lithium Fire Extinguisher In The World',
     categoryId: 'protective',
     description: 'A multi-function, eco-friendly extinguisher that handles it all. From common paper fires to high-stakes lithium battery blazes. Protect your home, your fleet, and your life with our specialized fire safety solutions.',
-    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000&auto=format&fit=crop',
+    image: '/products/LFK/LFK_3_KG_[Font].png',
     features: [
       "SNI Certified (Standar Nasional Indonesia)",
       "Fire Classes: A, B, D, F/K, & L (Lithium)",
@@ -160,7 +163,9 @@ export const products: Product[] = [
     partners: [
       { name: "Azko", logo: "/partners/azko.png" },
       { name: "Motovillage", logo: "/partners/motovillage.png" },
-      { name: "Blackstone", logo: "/partners/blackstone.png" }
+      { name: "Blackstone", logo: "/partners/blackstone.png" },
+      { name: "Jaecoo Andalan", logo: "/partners/jaecoo.webp" },
+
     ],
     variants: [
       {
@@ -228,6 +233,7 @@ export const products: Product[] = [
   {
     id: 'flat-af11e',
     slug: 'flat-af11e',
+    brochureUrl: '/brochures/flat-brochure.pdf',
     title: 'FLAT Flame Accurate Termination (AF11E)',
     tagline: 'Advanced Clean Liquefied Gas Extinguisher (AF11E)',
     categoryId: 'protective',
@@ -247,6 +253,7 @@ export const products: Product[] = [
   {
     id: 'uss-undercarriage',
     slug: 'uss-undercarriage',
+    brochureUrl: '/brochures/uss-brochure.pdf',
     title: 'Undercarriage Suppression System (USS)',
     tagline: 'Specialized Extinguisher Extension for EV Bottom Fires',
     categoryId: 'protective',
@@ -260,6 +267,24 @@ export const products: Product[] = [
     ],
     variants: [
       { id: 'u1', name: "USS Deployment Kit", desc: "Complete nozzle and spear extension kit for emergency EV response teams." }
+    ]
+  },
+  {
+    id: 'x-cap-xcape',
+    slug: 'x-cap-xcape',
+    brochureUrl: '/brochures/X-CAP-A5-Flyer-brochure.pdf',
+    title: 'X-CAP & XCAPE',
+    tagline: 'Advanced Rapid Extinguishing Solutions',
+    categoryId: 'protective',
+    description: 'Specialized fire suppression tools designed for rapid deployment and maximum efficiency in critical scenarios. Ensures that emergency exits and escape routes are quickly secured.',
+    image: '/logo/XCAP_Logo_PNG/XCAP Color [Primary] Logo.png',
+    features: [
+      "Rapid deployment mechanism",
+      "High-efficiency suppression",
+      "Compact and reliable"
+    ],
+    variants: [
+      { id: 'xc1', name: "X-CAP Standard", desc: "Standard deployment unit for rapid suppression." }
     ]
   }
 ];

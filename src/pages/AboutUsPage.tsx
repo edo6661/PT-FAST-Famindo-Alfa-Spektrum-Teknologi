@@ -36,6 +36,12 @@ const teamMembers = [
     role: "Chief Operating Officer",
     bio: "With a rich background in various industries and armed with insights from diverse operational expertise, his focus is now dedicated to the fire safety industry. Currently serving as an Operational Director, he foresees significant transformations in fire safety and is committed to revolutionizing the standards of fire safety systems across various sectors.",
     image: rolandoImg
+  },
+  {
+    name: "Fio",
+    role: "Creative Director",
+    bio: "Driving the visual and creative strategy to ensure FAST's life-saving technology is communicated with clarity and impact across all platforms.",
+    image: rolandoImg
   }
 ];
 

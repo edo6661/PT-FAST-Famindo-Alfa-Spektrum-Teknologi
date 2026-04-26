@@ -63,21 +63,26 @@ const CatalogPage = () => {
           {filteredProducts.map((product) => {
             const category = categories.find(c => c.id === product.categoryId);
             return (
-              <div key={product.id} className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md overflow-hidden flex flex-col">
-
-                <Link to={`/catalog/${product.slug}`} className="absolute inset-0 z-10" aria-label={product.title}></Link>
+              // UBAH: div diganti langsung menjadi Link agar iOS langsung merespons tap
+              <Link
+                to={`/catalog/${product.slug}`}
+                key={product.id}
+                className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md overflow-hidden flex flex-col block"
+              >
+                {/* HAPUS Link absolute yang sebelumnya ada di sini */}
 
                 <div className="h-64 overflow-hidden relative">
-                  <img src={product.image} alt={product.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent"></div>
+                  <img src={product.image} alt={product.title} className="w-full h-full object-contain p-4 bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent pointer-events-none"></div>
+
                   {category && (
-                    <Link to={`/category/${category.slug}`} className="absolute top-4 left-4 bg-background/80 backdrop-blur-md border border-white/10 text-xs font-bold px-3 py-1.5 rounded-full text-accent hover:text-white transition-colors z-20">
+                    <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md border border-white/10 text-xs font-bold px-3 py-1.5 rounded-full text-accent z-20">
                       {category.name}
-                    </Link>
+                    </div>
                   )}
                 </div>
 
-                <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10">
+                <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300">
                     {product.title}
                   </h3>
@@ -90,7 +95,7 @@ const CatalogPage = () => {
                     <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

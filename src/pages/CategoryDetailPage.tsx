@@ -49,16 +49,18 @@ const CategoryDetailPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categoryProducts.map((product) => (
-            <div key={product.id} className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col">
-
-              <Link to={`/catalog/${product.slug}`} className="absolute inset-0 z-10" aria-label={product.title}></Link>
-
+            <Link
+              to={`/catalog/${product.slug}`}
+              key={product.id}
+              className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col block"
+            >
               <div className="h-56 overflow-hidden relative">
-                <img src={product.image} alt={product.title} className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
+                {/* Mengubah object-cover menjadi object-contain jika menggunakan foto produk utuh tanpa background */}
+                <img src={product.image} alt={product.title} className="w-full h-full object-contain p-4 bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
               </div>
 
-              <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10">
+              <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{product.title}</h3>
                 <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">{product.description}</p>
 
@@ -66,7 +68,7 @@ const CategoryDetailPage = () => {
                   View Details <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
           {categoryProducts.length === 0 && (
             <div className="col-span-full text-center py-12 border border-white/10 rounded-3xl bg-surface/30">
@@ -75,7 +77,7 @@ const CategoryDetailPage = () => {
           )}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

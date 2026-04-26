@@ -147,8 +147,8 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
   const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
   const titleY = useTransform(scrollYProgress, [0, 0.25], [0, -100]);
 
-  const descOpacity = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0, 1, 1, 0]);
-  const descY = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [100, 0, 0, -100]);
+  // const descOpacity = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0, 1, 1, 0]);
+  // const descY = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [100, 0, 0, -100]);
 
   const ctaOpacity = useTransform(scrollYProgress, [0.7, 0.85, 1], [0, 1, 1]);
   const ctaY = useTransform(scrollYProgress, [0.7, 0.85], [100, 0]);
@@ -167,7 +167,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
           </span>
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance drop-shadow-2xl">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance drop-shadow-2xl">
           {t('hero.title')} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-cyan-300">
             {t('hero.titleHighlight')}
@@ -175,7 +175,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
         </h1>
       </motion.div>
 
-      <motion.div
+      {/* <motion.div
         style={{ opacity: descOpacity, y: descY }}
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center px-4"
       >
@@ -185,7 +185,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
         <p className="text-base sm:text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed text-pretty">
           {t('hero.desc')}
         </p>
-      </motion.div>
+      </motion.div> */}
 
       <motion.div
         style={{ opacity: ctaOpacity, y: ctaY }}

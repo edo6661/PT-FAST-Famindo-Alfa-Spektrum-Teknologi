@@ -19,42 +19,41 @@ const ClientBasePage = () => {
   const featuredClients = [
     {
       logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.png",
-      name: "2024 Presidential Inauguration",
+      name: "Pelantikan Presiden 2024",
       category: "Government",
       status: "Deployment Secured",
-      desc: "FAST | PT. Famindo Alfa Spektrum Teknologi was called by the Ministry of State Secretariat to safeguard a momentous national event with precision and reliability. Lithium Fire Killer HARTINDO AF31 was distributed for the EV units escorting the international VVIP guests attending the presidential inauguration ceremony.",
+      desc: "Proteksi untuk seluruh unit EV yang mengawal tamu VVIP dari luar negeri untuk pelantikan presiden 2024.",
       color: "from-blue-600/20 to-transparent",
       borderColor: "group-hover:border-blue-500/50"
     },
     {
-      logoImg: "/clients/government/Kepolisian_Negara_Republik_Indonesia_Logo.png",
-      name: "Securing KTT Visit",
-      category: "VVIP Protection",
-      status: "Absolute Zero Incident",
-      desc: "Lithium Fire Killer HARTINDO AF31 was trusted to secure the vehicle that escorted the Pope during his historic visit to Indonesia, ensuring maximum safety against potential battery thermal runaway.",
-      color: "from-amber-500/20 to-transparent",
-      borderColor: "group-hover:border-amber-500/50"
-    },
-    {
       logoImg: "/clients/government/IAF_LOGO.png",
-      name: "IKT Terminal & KTT IAF Bali",
+      name: "KTT IAF Bali [2024]",
       category: "International Summit",
       status: "Mass Fleet Protection",
-      desc: "Lithium Fire Killer HARTINDO AF31 was trusted to secure hundreds of EV units at the IKT Terminal. These units were responsible for escorting international VVIP guests at the prestigious KTT IAF (Indonesia Africa Forum) event in Bali.",
+      desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali [2024].",
       color: "from-accent/20 to-transparent",
       borderColor: "group-hover:border-accent/50"
     },
     {
+      logoImg: "/clients/government/Kepolisian_Negara_Republik_Indonesia_Logo.png",
+      name: "Kunjungan Paus Fransiskus [2024]",
+      category: "VVIP Protection",
+      status: "Absolute Zero Incident",
+      desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus [2024].",
+      color: "from-amber-500/20 to-transparent",
+      borderColor: "group-hover:border-amber-500/50"
+    },
+    {
       logoImg: "/clients/transportation/Bluebird_Logogram.png",
-      name: "Bluebird Group",
+      name: "Bluebird Group [2025]",
       category: "Corporate Fleet",
-      status: "Official Supplier & Training",
-      desc: "FAST was appointed as the official fire safety supplier for Bluebird Group and successfully conducted comprehensive fire safety training at the company's Mampang headquarters.",
+      status: "Official Supplier",
+      desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group [2025].",
       color: "from-cyan-500/20 to-transparent",
       borderColor: "group-hover:border-cyan-500/50"
     }
   ];
-
   return (
     <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
 
@@ -65,7 +64,7 @@ const ClientBasePage = () => {
           </Link>
           <div className="inline-flex items-center gap-2 mb-4">
             <ShieldCheck className="text-accent" size={24} />
-            <span className="text-accent font-bold tracking-widest uppercase text-sm">Proven Track Record</span>
+            <span className="text-accent font-bold tracking-widest uppercase text-sm">Strategic Deployments</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Client Base</span>

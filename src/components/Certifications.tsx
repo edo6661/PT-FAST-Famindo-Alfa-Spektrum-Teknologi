@@ -1,18 +1,46 @@
-import { ShieldCheck, Award, Globe, CheckCircle2 } from 'lucide-react';
+import { useState } from 'react';
+import { ShieldCheck, Award, Globe, CheckCircle2, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
 
 interface CertItem {
   title: string;
   desc: string;
+  logo?: string;
 }
 
 const Certifications = () => {
   const { t } = useTranslation();
-
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
   const nationalCerts = t('certifications.national', { returnObjects: true }) as CertItem[];
   const internationalCerts = t('certifications.international', { returnObjects: true }) as CertItem[];
+
+  // Fungsi untuk me-render item sertifikasi (membuat kode lebih rapi/DRY)
+  const renderCertCard = (cert: CertItem, index: number) => (
+    <div
+      key={index}
+      className={`flex flex-col group p-4 rounded-2xl bg-surface/30 border border-white/5 transition-all duration-300 ${cert.logo ? 'cursor-pointer hover:border-accent/30' : ''}`}
+      onClick={() => cert.logo && setSelectedCert(cert.logo)}
+    >
+      {cert.logo ? (
+        <div className="h-14 mb-4 flex items-center justify-start">
+          <img
+            src={cert.logo}
+            alt={cert.title}
+            className="max-h-full max-w-[120px] object-contain filter opacity-70 group-hover:opacity-100 transition-all duration-300"
+          />
+        </div>
+      ) : (
+        <div className="h-14 mb-4 flex items-center">
+          <CheckCircle2 size={28} className="text-accent opacity-70 group-hover:opacity-100 transition-opacity" />
+        </div>
+      )}
+      <div>
+        <h4 className="text-base font-bold text-white/90 mb-2">{cert.title}</h4>
+        <p className="text-xs text-foreground-muted leading-relaxed">{cert.desc}</p>
+      </div>
+    </div>
+  );
 
   return (
     <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
@@ -31,7 +59,6 @@ const Certifications = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
-          {/* National Certifications */}
           <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg">
             <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
               <div className="p-3 rounded-xl bg-background border border-border">
@@ -39,23 +66,15 @@ const Certifications = () => {
               </div>
               <h3 className="text-2xl font-bold text-white">{t('certifications.nationalTitle')}</h3>
             </div>
-            <div className="space-y-6">
-              {nationalCerts.map((cert, index) => (
-                <div key={index} className="flex gap-4 group">
-                  <CheckCircle2 size={20} className="text-accent shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-white/90 mb-1">{cert.title}</h4>
-                    <p className="text-sm text-foreground-muted leading-relaxed">{cert.desc}</p>
-                  </div>
-                </div>
-              ))}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {nationalCerts.map(renderCertCard)}
             </div>
           </div>
 
-          {/* International Certifications */}
           <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-              <Globe size={120} />
+            <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+              <Globe size={180} />
             </div>
             <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10 relative z-10">
               <div className="p-3 rounded-xl bg-background border border-border">
@@ -63,21 +82,42 @@ const Certifications = () => {
               </div>
               <h3 className="text-2xl font-bold text-white">{t('certifications.internationalTitle')}</h3>
             </div>
-            <div className="space-y-6 relative z-10">
-              {internationalCerts.map((cert, index) => (
-                <div key={index} className="flex gap-4 group">
-                  <CheckCircle2 size={20} className="text-accent shrink-0 mt-1 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-white/90 mb-1">{cert.title}</h4>
-                    <p className="text-sm text-foreground-muted leading-relaxed">{cert.desc}</p>
-                  </div>
-                </div>
-              ))}
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+              {internationalCerts.map(renderCertCard)}
             </div>
           </div>
         </div>
-
       </div>
+
+      {selectedCert && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+          onClick={() => setSelectedCert(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full flex justify-center items-center" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setSelectedCert(null)}
+              className="absolute -top-12 right-0 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+            >
+              <X size={24} />
+            </button>
+
+            <div
+              className="relative rounded-xl overflow-hidden bg-white/5 p-4 border border-white/10"
+              onContextMenu={(e) => e.preventDefault()} // Mencegah klik kanan
+            >
+              <img
+                src={selectedCert}
+                alt="Certificate Scan"
+                className="max-w-full max-h-[80vh] object-contain select-none"
+                draggable="false" // Mencegah drag gambar
+              />
+              <div className="absolute inset-0 z-10 bg-transparent"></div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

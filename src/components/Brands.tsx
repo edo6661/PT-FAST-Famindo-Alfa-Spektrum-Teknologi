@@ -66,7 +66,7 @@ const Brands = () => {
                       src={brand.bgImage}
                       alt={`Sistem Proteksi Kebakaran dan Teknologi Mitigasi ${brand.name} dari PT FAST`}
                       loading="lazy"
-                      className="w-full h-full object-cover opacity-20 group-hover:opacity-40 grayscale group-hover:grayscale-0 transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
+                      className="w-full h-full object-cover opacity-20 group-hover:opacity-40   transform-gpu transition-all duration-700 ease-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent"></div>
                   </div>
