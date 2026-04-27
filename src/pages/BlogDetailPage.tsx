@@ -68,10 +68,8 @@ const BlogDetailPage = () => {
       />
 
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
-        {/* Mengubah opacity menjadi 80 agar lebih cerah */}
         <img src={blog.foto} alt={blog.nama} className="absolute inset-0 w-full h-full object-cover opacity-80 scale-105" />
-        {/* Mengurangi ketebalan overlay gradient agar gambar lebih terlihat */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent z-10" />
 
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
           <Link to="/blogs" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:bg-surface">

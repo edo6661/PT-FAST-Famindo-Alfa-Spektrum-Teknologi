@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../lib/firebase";
-import { getAllBlogs, deleteBlog, createBlog, updateBlog, updateLandingPageOrder, seedDummyBlogs } from "../services/blogService";
+import { getAllBlogs, deleteBlog, createBlog, updateBlog, updateLandingPageOrder } from "../services/blogService";
 import type { Blog } from "../types/blog";
 import BlogModal from "../components/BlogModal";
 import { Settings2, X } from "lucide-react";
@@ -130,17 +130,7 @@ const AdminBlog = () => {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <h2 className="text-xl font-semibold">Daftar Blog</h2>
             <div className="flex gap-3">
-              <button
-                className="bg-purple-500/10 border border-purple-500 text-purple-400 hover:bg-purple-500/20 px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg"
-                onClick={async () => {
-                  if (window.confirm('Yakin mau generate 25 blog dummy?')) {
-                    await seedDummyBlogs(25);
-                    fetchBlogs();
-                  }
-                }}
-              >
-                Generate 25 Dummy Blogs
-              </button>
+
               <button
                 className="bg-surface border border-accent text-accent hover:bg-accent/10 px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg flex items-center gap-2"
                 onClick={openLandingModal}
@@ -169,8 +159,8 @@ const AdminBlog = () => {
                   <tr className="border-b border-white/10 text-sm text-foreground-muted">
                     <th className="py-4 px-4 font-medium">Foto</th>
                     <th className="py-4 px-4 font-medium">Judul</th>
-                    <th className="py-4 px-4 font-medium text-center">Tampil di Depan</th>
-                    <th className="py-4 px-4 font-medium">Tanggal Dibuat</th>
+                    <th className="py-4 px-4 font-medium text-center">Tampil </th>
+                    <th className="py-4 px-4 font-medium">Tanggal </th>
                     <th className="py-4 px-4 font-medium text-right">Aksi</th>
                   </tr>
                 </thead>
@@ -187,11 +177,11 @@ const AdminBlog = () => {
                       <td className="py-4 px-4 text-center">
                         {blog.ditampilkan_di_landing_page ? (
                           <span className="text-xs px-3 py-1 rounded-full bg-green-500/10 text-green-400 border border-green-500/20 font-medium tracking-wide">
-                            Ya (Posisi {blog.urutan})
+                            {blog.urutan}
                           </span>
                         ) : (
                           <span className="text-xs px-3 py-1 rounded-full bg-white/5 text-foreground-muted border border-white/10">
-                            Tidak
+                            No
                           </span>
                         )}
                       </td>

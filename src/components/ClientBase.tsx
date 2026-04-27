@@ -21,12 +21,6 @@ const ClientBase = () => {
       gradient: "from-accent/20"
     },
     {
-      logoImg: "/clients/government/Kepolisian_Negara_Republik_Indonesia_Logo.png",
-      name: t("clientBase.clients.pope.name"),
-      desc: t("clientBase.clients.pope.desc"),
-      gradient: "from-amber-500/20"
-    },
-    {
       logoImg: "/clients/transportation/Bluebird_Logogram.png",
       name: t("clientBase.clients.bluebird.name"),
       desc: t("clientBase.clients.bluebird.desc"),
@@ -68,7 +62,7 @@ const ClientBase = () => {
                 <div className={`absolute top-0 left-0 w-full h-32 bg-gradient-to-b ${client.gradient} to-transparent opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
                 <div className="relative z-10 p-8 flex flex-col h-full">
-                  <div className="mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300">
+                  <div className="mb-6 w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center transform-gpu group-hover:-translate-y-1 transition-transform duration-300 bg-white">
                     <img src={client.logoImg} alt={client.name} className="w-full h-full object-contain" />
                   </div>
 

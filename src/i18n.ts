@@ -19,10 +19,7 @@ const resources = {
             name: "KTT IAF Bali [2024]",
             desc: "Protection for all EV units escorting international VVIP guests for the IAF Summit, Bali.",
           },
-          pope: {
-            name: "Pope Francis Visit [2024]",
-            desc: "Protection for the electric vehicle (EV) units escorting Pope Francis.",
-          },
+
           bluebird: {
             name: "Bluebird Group [2025]",
             desc: "FAST was appointed as the official fire safety supplier for the Bluebird Group.",
@@ -228,10 +225,7 @@ const resources = {
             name: "KTT IAF Bali [2024]",
             desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali.",
           },
-          pope: {
-            name: "Kunjungan Paus Fransiskus [2024]",
-            desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus.",
-          },
+
           bluebird: {
             name: "Bluebird Group [2025]",
             desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group.",
