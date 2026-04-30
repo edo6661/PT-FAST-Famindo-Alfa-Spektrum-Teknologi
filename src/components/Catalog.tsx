@@ -35,13 +35,15 @@ const Catalog = () => {
             const IconComponent = category.icon;
 
             return (
-              <motion.div
+              <motion.a
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                href={`/category/${category.slug}`}
                 className={`h-[450px] md:col-span-1 transform-gpu`}
+
               >
                 <SpotlightCard className="group h-full w-full hover:border-accent/40 hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)]">
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
@@ -59,18 +61,10 @@ const Catalog = () => {
                       {t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
                     </p>
 
-                    <div className="overflow-hidden h-8">
-                      <a
-                        href={`/category/${category.slug}`}
-                        aria-label={`Pelajari lebih lanjut tentang teknologi ${category.name}`}
-                        className="inline-flex items-center gap-2 text-sm text-accent font-semibold tracking-wide hover:text-white transition-colors uppercase transform-gpu translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 duration-500"
-                      >
-                        {t('catalog.explore')} <ArrowRight size={18} className="transform-gpu transition-transform duration-300 group-hover:translate-x-1" />
-                      </a>
-                    </div>
+
                   </div>
                 </SpotlightCard>
-              </motion.div>
+              </motion.a>
             );
           })}
         </div>

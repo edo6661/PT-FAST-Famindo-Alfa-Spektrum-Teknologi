@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap } from 'lucide-react';
-import { products, categories, type ProductVariant } from '../constants/catalogs';
+import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X } from 'lucide-react';
+import { products, categories, type ProductVariant, type ProductPartner } from '../constants/catalogs';
 import SEO from '../components/SEO';
 
-// --- Komponen Interactive Variant Card ---
 const VariantCard = ({ variant }: { variant: ProductVariant }) => {
   const [activeView, setActiveView] = useState<'front' | 'back' | 'left' | 'right'>('front');
 
@@ -61,15 +60,17 @@ const VariantCard = ({ variant }: { variant: ProductVariant }) => {
     </div>
   );
 };
-// ------------------------------------------
+
 
 const ProductDetailPage = () => {
   const { slug } = useParams();
-  const location = useLocation(); // Untuk mendeteksi URL saat ini
+  const location = useLocation();
   const product = products.find(p => p.slug === slug);
   const category = categories.find(c => c.id === product?.categoryId);
 
-  // Cek apakah user mengakses dari halaman /catalog atau halaman depan /
+  // State untuk menyimpan partner yang dipilih
+  const [selectedPartner, setSelectedPartner] = useState<ProductPartner | null>(null);
+
   const isFromCatalog = location.pathname.includes('/catalog');
 
   useEffect(() => {
@@ -106,16 +107,14 @@ const ProductDetailPage = () => {
   };
 
   return (
-    <div className="pb-24 bg-background min-h-screen">
+    <div className="pb-24 bg-background min-h-screen relative">
       <SEO title={`${product.title} - FAST`} description={product.description} url={location.pathname} image={product.image} type="product" schemaMarkup={productSchema} />
 
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-background z-0" />
-        <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-luminosity scale-105" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10" />
+        <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-40 rounded-b-3xl" />
 
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-
 
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
             <Zap size={16} className="text-accent" />
@@ -140,7 +139,6 @@ const ProductDetailPage = () => {
         <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
-            {/* Kolom Kiri (Lebar 7 Kolom) */}
             <div className="lg:col-span-7 space-y-12">
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
@@ -167,7 +165,6 @@ const ProductDetailPage = () => {
                 )}
               </div>
 
-              {/* Partnership Section */}
               {product.partners && product.partners.length > 0 && (
                 <div>
                   <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
@@ -176,21 +173,24 @@ const ProductDetailPage = () => {
                   </h3>
                   <div className="flex flex-wrap gap-6 items-center justify-center">
                     {product.partners.map((partner, index) => (
-                      <div key={index} className="bg-surface/50 border border-white/10 px-6 py-4 rounded-2xl hover:border-accent/30 hover:bg-surface/80 transition-all duration-300 group">
+                      <button
+                        key={index}
+                        onClick={() => partner.locations ? setSelectedPartner(partner) : undefined}
+                        className="bg-gradient-to-br from-accent/20 via-surface to-background border border-white/10 px-6 py-4 rounded-2xl hover:border-accent/30 hover:bg-surface/80 transition-all duration-300 group cursor-pointer focus:outline-none"
+                      >
                         <img
                           src={partner.logo}
                           alt={partner.name}
                           title={partner.name}
-                          className="h-10 md:h-12 w-auto object-contain filter  opacity-50  group-hover:opacity-100 transition-all duration-300"
+                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter   transition-all duration-300 scale-200" : "h-10 md:h-12 w-auto object-contain filter   transition-all duration-300"}
                         />
-                      </div>
+                      </button>
                     ))}
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Kolom Kanan: Sticky CTA (Lebar 5 Kolom) */}
             <div className="lg:col-span-5">
               <div className="relative overflow-hidden p-8 md:p-10 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group sticky top-28">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-surface to-background opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -234,7 +234,6 @@ const ProductDetailPage = () => {
 
           </div>
 
-          {/* BAGIAN BAWAH: Product Variants */}
           {product.variants && product.variants.length > 0 && (
             <div className="pt-20 mt-12 border-t border-white/10">
               <div className="text-center mb-12">
@@ -254,6 +253,49 @@ const ProductDetailPage = () => {
 
         </div>
       </section>
+
+      {/* Modal / Card Partner Locations */}
+      {selectedPartner && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
+          onClick={() => setSelectedPartner(null)}
+        >
+          <div
+            className="bg-surface border border-accent/30 rounded-3xl p-8 max-w-md w-full shadow-[0_10px_40px_rgba(56,152,212,0.15)] relative"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedPartner(null)}
+              className="absolute top-4 right-4 text-white/50 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors focus:outline-none"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="flex justify-center mb-6 bg-white/5 p-6 rounded-2xl border border-white/5">
+              <img
+                src={selectedPartner.logo}
+                alt={selectedPartner.name}
+                className="h-12 object-contain filter opacity-90 scale-200"
+              />
+            </div>
+
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+              <MapPin className="text-accent" size={24} />
+              Location Details
+            </h4>
+
+            <ul className="space-y-3 mt-4">
+              {selectedPartner.locations?.map((loc, i) => (
+                <li key={i} className="flex items-center gap-3 text-foreground-muted font-light p-3 rounded-xl bg-background/50 border border-white/5 hover:border-white/10 transition-colors">
+                  <div className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(56,152,212,0.6)] flex-shrink-0"></div>
+                  <span>{loc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

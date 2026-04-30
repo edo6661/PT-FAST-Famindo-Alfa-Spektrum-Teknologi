@@ -52,11 +52,10 @@ const CategoryDetailPage = () => {
             <Link
               to={`/catalog/${product.slug}`}
               key={product.id}
-              className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col block"
+              className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col"
             >
               <div className="h-56 overflow-hidden relative">
-                {/* Mengubah object-cover menjadi object-contain jika menggunakan foto produk utuh tanpa background */}
-                <img src={product.image} alt={product.title} className="w-full h-full object-contain p-4 bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                <img src={product.image} alt={product.title} className="w-full h-full object-cover  bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
               </div>
 

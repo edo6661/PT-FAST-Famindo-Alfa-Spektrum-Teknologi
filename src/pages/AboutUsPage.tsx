@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import SpotlightCard from '../components/SpotlightCard';
 
-// Import Assets
+
 import heroImg from '../assets/about-us/about-us-hero.avif';
 import willyImg from '../assets/about-us/willy-hadiwijaya.avif';
 import seanImg from '../assets/about-us/sean-justin.avif';
 import frankyImg from '../assets/about-us/franky-affandi.avif';
 import rolandoImg from '../assets/about-us/rolando-fam.avif';
+import fioImg from '../assets/about-us/fio.png';
 
 const teamMembers = [
   {
@@ -41,7 +42,7 @@ const teamMembers = [
     name: "Fio",
     role: "Creative Director",
     bio: "Driving the visual and creative strategy to ensure FAST's life-saving technology is communicated with clarity and impact across all platforms.",
-    image: rolandoImg
+    image: fioImg
   }
 ];
 
@@ -91,7 +92,7 @@ const AboutUsPage = () => {
           <img
             src={heroImg}
             alt="About PT FAST"
-            // PERBAIKAN: Mengubah object-top menjadi object posisi arbitrary (center 25% dari atas)
+
             className="w-full h-full object-cover object-[center_25%] opacity-80 hover:opacity-100 transition-opacity duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
@@ -115,7 +116,7 @@ const AboutUsPage = () => {
                     <img
                       src={member.image}
                       alt={member.name}
-                      // Kita pertahankan object-top untuk foto profil kotak agar wajah tetap jadi fokus utama
+
                       className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
