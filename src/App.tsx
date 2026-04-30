@@ -5,6 +5,7 @@ import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import { Analytics } from '@vercel/analytics/react';
+import { domAnimation, LazyMotion } from 'framer-motion';
 
 const Home = lazy(() => import('./pages/Home'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
@@ -30,32 +31,34 @@ const App = () => {
       <Analytics />
 
       <AuthProvider>
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="clients" element={<ClientBasePage />} />
+        <LazyMotion features={domAnimation}>
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="clients" element={<ClientBasePage />} />
 
-                <Route path="catalog" element={<CatalogPage />} />
-                <Route path="catalog/:slug" element={<ProductDetailPage />} />
-                <Route path="category/:slug" element={<CategoryDetailPage />} />
+                  <Route path="catalog" element={<CatalogPage />} />
+                  <Route path="catalog/:slug" element={<ProductDetailPage />} />
+                  <Route path="category/:slug" element={<CategoryDetailPage />} />
 
-                <Route path="blogs" element={<BlogsPage />} />
-                <Route path="blogs/:id" element={<BlogDetailPage />} />
-                <Route path="about" element={<AboutUsPage />} />
+                  <Route path="blogs" element={<BlogsPage />} />
+                  <Route path="blogs/:id" element={<BlogDetailPage />} />
+                  <Route path="about" element={<AboutUsPage />} />
 
-                <Route path=":slug" element={<ProductDetailPage />} />
-              </Route>
+                  <Route path=":slug" element={<ProductDetailPage />} />
+                </Route>
 
-              <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login />} />
 
-              <Route element={<ProtectedRoute />}>
-                <Route path="/admin/blog" element={<AdminBlog />} />
-              </Route>
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/admin/blog" element={<AdminBlog />} />
+                </Route>
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </LazyMotion>
       </AuthProvider>
     </HelmetProvider>
   );

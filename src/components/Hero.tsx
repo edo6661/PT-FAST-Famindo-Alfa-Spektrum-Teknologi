@@ -12,26 +12,38 @@ export default function Hero() {
   const TOTAL_FRAMES = END_FRAME - START_FRAME + 1;
   useEffect(() => {
     const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-    const FRAMES_TO_WAIT = 15;
-    for (let i = START_FRAME; i <= END_FRAME; i++) {
-      const img = new Image();
-      const paddedNum = i.toString().padStart(3, '0');
-      img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
-      const handleLoad = () => {
-        loadedCount++;
-        if (loadedCount === FRAMES_TO_WAIT || (END_FRAME - START_FRAME + 1) < FRAMES_TO_WAIT) {
-          setIsLoaded(true);
+
+
+    const loadImage = (index: number) => {
+      return new Promise<void>((resolve) => {
+        const img = new Image();
+        const paddedNum = index.toString().padStart(3, '0');
+        img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
+
+        img.onload = () => {
+          loadedImages[index - START_FRAME] = img;
+          resolve();
+        };
+        img.onerror = () => resolve();
+      });
+    };
+
+
+    const loadInitialFrame = async () => {
+      await loadImage(START_FRAME);
+      setImages([...loadedImages]);
+      setIsLoaded(true);
+
+
+      setTimeout(async () => {
+        for (let i = START_FRAME + 1; i <= END_FRAME; i++) {
+          await loadImage(i);
         }
-      };
-      img.onload = handleLoad;
-      img.onerror = () => {
-        console.warn(`Failed to load frame: ${paddedNum}`);
-        handleLoad();
-      };
-      loadedImages[i - START_FRAME] = img;
-    }
-    setImages(loadedImages);
+        setImages([...loadedImages]);
+      }, 1000);
+    };
+
+    loadInitialFrame();
   }, []);
   const { scrollYProgress } = useScroll({
     target: containerRef,

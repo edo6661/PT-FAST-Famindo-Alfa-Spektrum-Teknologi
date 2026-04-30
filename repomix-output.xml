@@ -1,6 +1,4 @@
-tolong optimisasi kecepatan website nya di landing page saja dulu prioritaskan
-
-
+tolong optimisasi kecepatan landing page nya.
 <file path="eslint.config.js">
 import js from '@eslint/js'
 import globals from 'globals'
@@ -335,41 +333,6 @@ export default Login;
     "noUncheckedSideEffectImports": true
   },
   "include": ["vite.config.ts"]
-}
-</file>
-
-<file path="vercel.json">
-{
-  "rewrites": [
-    {
-      "source": "/r2-assets/(.*)",
-      "destination": "https://pub-91a3902655154c469ff62cbe2c500408.r2.dev/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*)\\.(png|jpg|jpeg|avif|webp|svg|ico|gif)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ]
 }
 </file>
 
@@ -976,44 +939,39 @@ export interface Blog {
 }
 </file>
 
-<file path="vite.config.ts">
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import tailwindcss from "@tailwindcss/vite";
-import viteCompression from "vite-plugin-compression";
-import vitePrerender from "vite-plugin-prerender";
-import path from "path";
-export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-    viteCompression({
-      algorithm: "gzip",
-      ext: ".gz",
-      threshold: 10240,
-    }),
-    viteCompression({
-      algorithm: "brotliCompress",
-      ext: ".br",
-      threshold: 10240,
-    }),
-    vitePrerender({
-      staticDir: path.resolve(import.meta.dirname, "dist"),
-      routes: ["/", "/about", "/catalog", "/clients", "/blogs"],
-    }),
-  ],
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
-          animations: ["framer-motion", "gsap"],
-          firebase: ["firebase/app", "firebase/auth", "firebase/firestore"],
-        },
-      },
+<file path="vercel.json">
+{
+  "rewrites": [
+    {
+      "source": "/r2-assets/(.*)",
+      "destination": "https://pub-91a3902655154c469ff62cbe2c500408.r2.dev/$1"
     },
-  },
-});
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|avif|webp|svg|ico|gif)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
 </file>
 
 <file path="src/components/BlogModal.tsx">
@@ -1177,84 +1135,39 @@ export const navLinks = [
 ];
 </file>
 
-<file path="src/pages/Home.tsx">
-import SEO from '../components/SEO';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Catalog from '../components/Catalog';
-import Brands from '../components/Brands';
-import ClientBase from '../components/ClientBase';
-import Certifications from '../components/Certifications';
+<file path="vite.config.ts">
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import tailwindcss from "@tailwindcss/vite";
+import viteCompression from "vite-plugin-compression";
 
-const Home = () => {
-  return (
-    <>
-      <SEO
-        title="FAST | PT. Famindo Alfa Spektrum Teknologi"
-        description="Setiap detik berharga. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion."
-        url="/"
-      />
-      <Hero />
-      <About />
-      <Brands />
-      <Catalog />
-      <Certifications />
-      <ClientBase />
-    </>
-  );
-};
-
-export default Home;
-</file>
-
-<file path="package.json">
-{
-  "name": "landing-page",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwindcss(),
+    viteCompression({
+      algorithm: "gzip",
+      ext: ".gz",
+      threshold: 10240,
+    }),
+    viteCompression({
+      algorithm: "brotliCompress",
+      ext: ".br",
+      threshold: 10240,
+    }),
+  ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          animations: ["framer-motion", "gsap"],
+          firebase: ["firebase/app", "firebase/auth", "firebase/firestore"],
+        },
+      },
+    },
   },
-  "dependencies": {
-    "@aws-sdk/client-s3": "^3.1024.0",
-    "@tailwindcss/vite": "^4.2.0",
-    "@vercel/analytics": "^2.0.1",
-    "firebase": "^12.11.0",
-    "framer-motion": "^12.38.0",
-    "gsap": "^3.14.2",
-    "i18next": "^25.8.11",
-    "lucide-react": "^0.575.0",
-    "motion": "^12.34.2",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-helmet-async": "^3.0.0",
-    "react-i18next": "^16.5.4",
-    "react-router-dom": "^7.13.2",
-    "tailwindcss": "^4.2.0",
-    "three": "^0.183.0",
-    "unity-webgl": "^4.4.3"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.39.1",
-    "@types/node": "^24.10.1",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react-swc": "^4.2.2",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.48.0",
-    "vite": "^7.3.1",
-    "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-prerender": "^1.0.8"
-  }
-}
+});
 </file>
 
 <file path="src/pages/AdminBlog.tsx">
@@ -1807,156 +1720,89 @@ const BlogsPage = () => {
 export default BlogsPage;
 </file>
 
-<file path="src/pages/AboutUsPage.tsx">
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Users, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+<file path="src/pages/Home.tsx">
+import { Suspense, lazy } from 'react';
 import SEO from '../components/SEO';
-import SpotlightCard from '../components/SpotlightCard';
+import Hero from '../components/Hero';
 
+// Lazy load komponen yang berada di bawah layar utama (below the fold)
+const About = lazy(() => import('../components/About'));
+const Brands = lazy(() => import('../components/Brands'));
+const Catalog = lazy(() => import('../components/Catalog'));
+const Certifications = lazy(() => import('../components/Certifications'));
+const ClientBase = lazy(() => import('../components/ClientBase'));
 
-import heroImg from '../assets/about-us/about-us-hero.avif';
-import willyImg from '../assets/about-us/willy-hadiwijaya.avif';
-import seanImg from '../assets/about-us/sean-justin.avif';
-import frankyImg from '../assets/about-us/franky-affandi.avif';
-import rolandoImg from '../assets/about-us/rolando-fam.avif';
-import fioImg from '../assets/about-us/fio.png';
-
-const teamMembers = [
-  {
-    name: "Willy Hadiwijaya",
-    role: "CEO",
-    bio: "A visionary and adept entrepreneur, proprietor of Famindo Group, with a wealth of experience spanning over 18 years across diverse industries. Currently serving as Director & Commissioner in Famindo Group, he possesses a robust background in the automotive industry and brings a passion for brand building to the challenging landscape of fire safety. He is committed to contributing to the growth and success of the fire safety industry.",
-    image: willyImg
-  },
-  {
-    name: "Sean Justin",
-    role: "President Commissioner",
-    bio: "A dedicated entrepreneur and proprietor of Famindo Group, bringing over nine years of expertise in human resources and marketing within diverse industries, with a recent focus on the fire safety business. Renowned for developing strategic initiatives, he has played a pivotal role in steering the company's rapid growth, aligning it with the unique challenges and opportunities prevalent in the fire safety industry.",
-    image: seanImg
-  },
-  {
-    name: "Franky Affandi",
-    role: "Chief Technical Officer",
-    bio: "Embarked on a career in the fire engineering sector with PT HARTINDO Chemicatama Industri in 2009. Currently holds directorial positions in various companies, he continuously extends his expertise in fire safety, integrating his extensive experience from the agricultural, plastics, and fire engineering domains.",
-    image: frankyImg
-  },
-  {
-    name: "Rolando Fam",
-    role: "Chief Operating Officer",
-    bio: "With a rich background in various industries and armed with insights from diverse operational expertise, his focus is now dedicated to the fire safety industry. Currently serving as an Operational Director, he foresees significant transformations in fire safety and is committed to revolutionizing the standards of fire safety systems across various sectors.",
-    image: rolandoImg
-  },
-  {
-    name: "Fio",
-    role: "Creative Director",
-    bio: "Driving the visual and creative strategy to ensure FAST's life-saving technology is communicated with clarity and impact across all platforms.",
-    image: fioImg
-  }
-];
-
-const AboutUsPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+const Home = () => {
   return (
-    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+    <>
       <SEO
-        title="About Us - PT. FAST"
-        description="Founded by the FAST FOUR. A team of dedicated people with passion for safety."
-        url="/about"
+        title="FAST | PT. Famindo Alfa Spektrum Teknologi"
+        description="Setiap detik berharga. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion."
+        url="/"
       />
+      <Hero />
 
-      {/* Background Effects */}
-      <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-surface via-background to-background z-0" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none z-0" />
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
-
-        {/* Header Section */}
-        <div className="mb-16 text-center flex flex-col items-center">
-          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:border-white/30 hover:bg-surface">
-            <ArrowLeft size={16} /> Back to Home
-          </Link>
-          <div className="inline-flex items-center gap-2 mb-4">
-            <Users className="text-accent" size={24} />
-            <span className="text-accent font-bold tracking-widest uppercase text-sm">About PT. FAST</span>
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">FAST FOUR</span>
-          </h1>
-          <p className="text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed">
-            Founded by the FAST FOUR. A team of dedicated people with passion for safety.
-          </p>
-        </div>
-
-        {/* Hero Image Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative h-[200px] md:h-[350px]"
-        >
-          <img
-            src={heroImg}
-            alt="About PT FAST"
-            fetchPriority='high'
-
-            className="w-full h-full object-cover object-[center_25%] opacity-80 hover:opacity-100 transition-opacity duration-700"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
-        </motion.div>
-
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <SpotlightCard className="group h-full p-8 md:p-10 rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md">
-                <div className="flex flex-col xl:flex-row gap-8 items-start">
-
-                  {/* Photo Profile */}
-                  <div className="w-32 h-32 xl:w-40 xl:h-40 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-white/10 group-hover:border-accent/50 transition-colors duration-500 bg-background">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-
-                      className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-
-                  {/* Details */}
-                  <div className="flex-grow">
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">
-                      {member.name}
-                    </h3>
-                    <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold tracking-widest uppercase">
-                      {member.role}
-                    </div>
-                    <p className="text-foreground-muted font-light leading-relaxed text-sm md:text-base text-justify">
-                      {member.bio}
-                    </p>
-                  </div>
-
-                </div>
-              </SpotlightCard>
-            </motion.div>
-          ))}
-        </div>
-
-      </div>
-    </div>
+      <Suspense fallback={<div className="h-32"></div>}>
+        <About />
+        <Brands />
+        <Catalog />
+        <Certifications />
+        <ClientBase />
+      </Suspense>
+    </>
   );
 };
 
-export default AboutUsPage;
+export default Home;
+</file>
+
+<file path="package.json">
+{
+  "name": "landing-page",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1024.0",
+    "@tailwindcss/vite": "^4.2.0",
+    "@vercel/analytics": "^2.0.1",
+    "firebase": "^12.11.0",
+    "framer-motion": "^12.38.0",
+    "gsap": "^3.14.2",
+    "i18next": "^25.8.11",
+    "lucide-react": "^0.575.0",
+    "motion": "^12.34.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-helmet-async": "^3.0.0",
+    "react-i18next": "^16.5.4",
+    "react-router-dom": "^7.13.2",
+    "tailwindcss": "^4.2.0",
+    "three": "^0.183.0",
+    "unity-webgl": "^4.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.48.0",
+    "vite": "^7.3.1",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}
 </file>
 
 <file path="src/pages/CategoryDetailPage.tsx">
@@ -2202,6 +2048,158 @@ const FloatingWA = () => {
 export default FloatingWA;
 </file>
 
+<file path="src/pages/AboutUsPage.tsx">
+import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Users, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import SpotlightCard from '../components/SpotlightCard';
+
+
+import heroImg from '../assets/about-us/about-us-hero.avif';
+import willyImg from '../assets/about-us/willy-hadiwijaya.avif';
+import seanImg from '../assets/about-us/sean-justin.avif';
+import frankyImg from '../assets/about-us/franky-affandi.avif';
+import rolandoImg from '../assets/about-us/rolando-fam.avif';
+import fioImg from '../assets/about-us/fio.png';
+
+const teamMembers = [
+  {
+    name: "Willy Hadiwijaya",
+    role: "CEO",
+    bio: "A visionary and adept entrepreneur, proprietor of Famindo Group, with a wealth of experience spanning over 18 years across diverse industries. Currently serving as Director & Commissioner in Famindo Group, he possesses a robust background in the automotive industry and brings a passion for brand building to the challenging landscape of fire safety. He is committed to contributing to the growth and success of the fire safety industry.",
+    image: willyImg
+  },
+  {
+    name: "Sean Justin",
+    role: "President Commissioner",
+    bio: "A dedicated entrepreneur and proprietor of Famindo Group, bringing over nine years of expertise in human resources and marketing within diverse industries, with a recent focus on the fire safety business. Renowned for developing strategic initiatives, he has played a pivotal role in steering the company's rapid growth, aligning it with the unique challenges and opportunities prevalent in the fire safety industry.",
+    image: seanImg
+  },
+  {
+    name: "Franky Affandi",
+    role: "Chief Technical Officer",
+    bio: "Embarked on a career in the fire engineering sector with PT HARTINDO Chemicatama Industri in 2009. Currently holds directorial positions in various companies, he continuously extends his expertise in fire safety, integrating his extensive experience from the agricultural, plastics, and fire engineering domains.",
+    image: frankyImg
+  },
+  {
+    name: "Rolando Fam",
+    role: "Chief Operating Officer",
+    bio: "With a rich background in various industries and armed with insights from diverse operational expertise, his focus is now dedicated to the fire safety industry. Currently serving as an Operational Director, he foresees significant transformations in fire safety and is committed to revolutionizing the standards of fire safety systems across various sectors.",
+    image: rolandoImg
+  },
+  {
+    name: "Fio",
+    role: "Creative Director",
+    bio: "Driving the visual and creative strategy to ensure FAST's life-saving technology is communicated with clarity and impact across all platforms.",
+    image: fioImg
+  }
+];
+
+const AboutUsPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+      <SEO
+        title="About Us - PT. FAST"
+        description="Founded by the FAST FOUR. A team of dedicated people with passion for safety."
+        url="/about"
+      />
+
+      {/* Background Effects */}
+      <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-surface via-background to-background z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none z-0" />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
+
+        {/* Header Section */}
+        <div className="mb-16 text-center flex flex-col items-center">
+          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:border-white/30 hover:bg-surface">
+            <ArrowLeft size={16} /> Back to Home
+          </Link>
+          <div className="inline-flex items-center gap-2 mb-4">
+            <Users className="text-accent" size={24} />
+            <span className="text-accent font-bold tracking-widest uppercase text-sm">About PT. FAST</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">FAST FOUR</span>
+          </h1>
+          <p className="text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed">
+            Founded by the FAST FOUR. A team of dedicated people with passion for safety.
+          </p>
+        </div>
+
+        {/* Hero Image Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-16 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative h-[200px] md:h-[350px]"
+        >
+          <img
+            src={heroImg}
+            alt="About PT FAST"
+            fetchPriority='high'
+
+            className="w-full h-full object-cover object-[center_25%] opacity-80 hover:opacity-100 transition-opacity duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+        </motion.div>
+
+        {/* Team Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <SpotlightCard className="group h-full p-8 md:p-10 rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md">
+                <div className="flex flex-col xl:flex-row gap-8 items-start">
+
+                  {/* Photo Profile */}
+                  <div className="w-32 h-32 xl:w-40 xl:h-40 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-white/10 group-hover:border-accent/50 transition-colors duration-500 bg-background">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+
+                      className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+
+                  {/* Details */}
+                  <div className="flex-grow">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">
+                      {member.name}
+                    </h3>
+                    <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold tracking-widest uppercase">
+                      {member.role}
+                    </div>
+                    <p className="text-foreground-muted font-light leading-relaxed text-sm md:text-base text-justify">
+                      {member.bio}
+                    </p>
+                  </div>
+
+                </div>
+              </SpotlightCard>
+            </motion.div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default AboutUsPage;
+</file>
+
 <file path="src/components/SEO.tsx">
 import { Helmet } from 'react-helmet-async';
 
@@ -2418,74 +2416,6 @@ export const getPaginatedBlogs = async (
 };
 </file>
 
-<file path="src/App.tsx">
-import { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './contexts/AuthContext';
-import { Analytics } from '@vercel/analytics/next';
-
-
-const Home = lazy(() => import('./pages/Home'));
-const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
-const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
-const Login = lazy(() => import('./pages/Login'));
-const AdminBlog = lazy(() => import('./pages/AdminBlog'));
-
-const BlogsPage = lazy(() => import('./pages/BlogsPage'));
-const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
-const CatalogPage = lazy(() => import('./pages/CatalogPage'));
-const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
-const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
-
-const PageLoader = () => (
-
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
-  </div>
-);
-const App = () => {
-  return (
-    <HelmetProvider>
-      <Analytics />
-
-      <AuthProvider>
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="clients" element={<ClientBasePage />} />
-
-                <Route path="catalog" element={<CatalogPage />} />
-                <Route path="catalog/:slug" element={<ProductDetailPage />} />
-                <Route path="category/:slug" element={<CategoryDetailPage />} />
-
-                <Route path="blogs" element={<BlogsPage />} />
-                <Route path="blogs/:id" element={<BlogDetailPage />} />
-                <Route path="about" element={<AboutUsPage />} />
-
-                <Route path=":slug" element={<ProductDetailPage />} />
-              </Route>
-
-              <Route path="/login" element={<Login />} />
-
-              <Route element={<ProtectedRoute />}>
-                <Route path="/admin/blog" element={<AdminBlog />} />
-              </Route>
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </AuthProvider>
-    </HelmetProvider>
-  );
-};
-
-export default App;
-</file>
-
 <file path="src/components/Navbar.tsx">
 import { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
@@ -2698,6 +2628,153 @@ const CatalogPage = () => {
 export default CatalogPage;
 </file>
 
+<file path="src/App.tsx">
+import { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import Layout from './components/Layout';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext';
+import { Analytics } from '@vercel/analytics/react';
+
+const Home = lazy(() => import('./pages/Home'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
+const Login = lazy(() => import('./pages/Login'));
+const AdminBlog = lazy(() => import('./pages/AdminBlog'));
+
+const BlogsPage = lazy(() => import('./pages/BlogsPage'));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
+const CatalogPage = lazy(() => import('./pages/CatalogPage'));
+const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
+
+const PageLoader = () => (
+
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
+  </div>
+);
+const App = () => {
+  return (
+    <HelmetProvider>
+      <Analytics />
+
+      <AuthProvider>
+        <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="clients" element={<ClientBasePage />} />
+
+                <Route path="catalog" element={<CatalogPage />} />
+                <Route path="catalog/:slug" element={<ProductDetailPage />} />
+                <Route path="category/:slug" element={<CategoryDetailPage />} />
+
+                <Route path="blogs" element={<BlogsPage />} />
+                <Route path="blogs/:id" element={<BlogDetailPage />} />
+                <Route path="about" element={<AboutUsPage />} />
+
+                <Route path=":slug" element={<ProductDetailPage />} />
+              </Route>
+
+              <Route path="/login" element={<Login />} />
+
+              <Route element={<ProtectedRoute />}>
+                <Route path="/admin/blog" element={<AdminBlog />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </AuthProvider>
+    </HelmetProvider>
+  );
+};
+
+export default App;
+</file>
+
+<file path="src/components/About.tsx">
+import { motion } from 'framer-motion';
+import { Heart, ShieldCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import SpotlightCard from './SpotlightCard';
+
+const About = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section id="profil" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-0 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 -right-64 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+        <div className="max-w-4xl mx-auto text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+              {t('about.title')}
+            </h2>
+            <p className="text-foreground-muted text-lg leading-relaxed font-light">
+              {t('about.desc')}
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                  <ShieldCheck size={28} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.missionTitle')}</h3>
+                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                  {t('about.missionDesc')}
+                </p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                  <Heart size={28} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.visionTitle')}</h3>
+                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                  {t('about.visionDesc')}
+                </p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default About;
+</file>
+
 <file path="index.html">
 <!doctype html>
 <html lang="en">
@@ -2815,86 +2892,6 @@ export default CatalogPage;
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-</file>
-
-<file path="src/components/About.tsx">
-import { motion } from 'framer-motion';
-import { Heart, ShieldCheck } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import SpotlightCard from './SpotlightCard';
-
-const About = () => {
-  const { t } = useTranslation();
-
-  return (
-    <section id="profil" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute top-0 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 -right-64 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-
-        <div className="max-w-4xl mx-auto text-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-              {t('about.title')}
-            </h2>
-            <p className="text-foreground-muted text-lg leading-relaxed font-light">
-              {t('about.desc')}
-            </p>
-          </motion.div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
-              <div className="p-8 md:p-10 flex flex-col h-full">
-                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
-                  <ShieldCheck size={28} className="text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.missionTitle')}</h3>
-                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                  {t('about.missionDesc')}
-                </p>
-              </div>
-            </SpotlightCard>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
-              <div className="p-8 md:p-10 flex flex-col h-full">
-                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
-                  <Heart size={28} className="text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.visionTitle')}</h3>
-                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                  {t('about.visionDesc')}
-                </p>
-              </div>
-            </SpotlightCard>
-          </motion.div>
-        </div>
-
-      </div>
-    </section>
-  );
-};
-
-export default About;
 </file>
 
 <file path="src/pages/ProductDetailPage.tsx">
