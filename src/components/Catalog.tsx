@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { categories } from '../constants/catalogs';
 import SpotlightCard from './SpotlightCard';
