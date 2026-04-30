@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
+import { Analytics } from '@vercel/analytics/react';
 
 const Home = lazy(() => import('./pages/Home'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
@@ -26,6 +27,8 @@ const PageLoader = () => (
 const App = () => {
   return (
     <HelmetProvider>
+      <Analytics />
+
       <AuthProvider>
         <BrowserRouter>
           <Suspense fallback={<PageLoader />}>

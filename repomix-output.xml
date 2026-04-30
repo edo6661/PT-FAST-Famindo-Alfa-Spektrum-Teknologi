@@ -1,98 +1,5 @@
-This file is a merged representation of a subset of the codebase, containing specifically included files and files not matching ignore patterns, combined into a single document by Repomix.
+tolong optimisasi kecepatan website nya di landing page saja dulu prioritaskan
 
-<file_summary>
-This section contains a summary of this file.
-
-<purpose>
-This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
-It is designed to be easily consumable by AI systems for analysis, code review,
-or other automated processes.
-</purpose>
-
-<file_format>
-The content is organized as follows:
-1. This summary section
-2. Repository information
-3. Directory structure
-4. Repository files (if enabled)
-5. Multiple file entries, each consisting of:
-  - File path as an attribute
-  - Full contents of the file
-</file_format>
-
-<usage_guidelines>
-- This file should be treated as read-only. Any changes should be made to the
-  original repository files, not this packed version.
-- When processing this file, use the file path to distinguish
-  between different files in the repository.
-- Be aware that this file may contain sensitive information. Handle it with
-  the same level of security as you would the original repository.
-</usage_guidelines>
-
-<notes>
-- Some files may have been excluded based on .gitignore rules and Repomix's configuration
-- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
-- Only files matching these patterns are included: **/*
-- Files matching these patterns are excluded: **/*.test.ts, node_modules/**/*, public/**/*, src/assets/**/*
-- Files matching patterns in .gitignore are excluded
-- Files matching default ignore patterns are excluded
-- Files are sorted by Git change count (files with more changes are at the bottom)
-</notes>
-
-</file_summary>
-
-<directory_structure>
-.gitignore
-eslint.config.js
-index.html
-package.json
-README.md
-src/App.tsx
-src/components/About.tsx
-src/components/BlogModal.tsx
-src/components/Brands.tsx
-src/components/Catalog.tsx
-src/components/Certifications.tsx
-src/components/ClientBase.tsx
-src/components/ContactFooter.tsx
-src/components/FloatingWA.tsx
-src/components/Hero.tsx
-src/components/Layout.tsx
-src/components/Navbar.tsx
-src/components/ProtectedRoute.tsx
-src/components/SEO.tsx
-src/components/SpotlightCard.tsx
-src/constants/catalogs.tsx
-src/constants/clientsData.ts
-src/constants/contacts.ts
-src/constants/navs.tsx
-src/contexts/AuthContext.tsx
-src/i18n.ts
-src/index.css
-src/lib/firebase.ts
-src/main.tsx
-src/pages/AboutUsPage.tsx
-src/pages/AdminBlog.tsx
-src/pages/BlogDetailPage.tsx
-src/pages/BlogsPage.tsx
-src/pages/CatalogPage.tsx
-src/pages/CategoryDetailPage.tsx
-src/pages/ClientBasePage.tsx
-src/pages/Home.tsx
-src/pages/Login.tsx
-src/pages/OldClientBasePage.tsx
-src/pages/ProductDetailPage.tsx
-src/services/blogService.ts
-src/types/blog.ts
-tsconfig.app.json
-tsconfig.json
-tsconfig.node.json
-vercel.json
-vite.config.ts
-</directory_structure>
-
-<files>
-This section contains the contents of the repository's files.
 
 <file path="eslint.config.js">
 import js from '@eslint/js'
@@ -441,6 +348,26 @@ export default Login;
     {
       "source": "/(.*)",
       "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(png|jpg|jpeg|avif|webp|svg|ico|gif)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ]
 }
@@ -1053,9 +980,28 @@ export interface Blog {
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
-
+import viteCompression from "vite-plugin-compression";
+import vitePrerender from "vite-plugin-prerender";
+import path from "path";
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    viteCompression({
+      algorithm: "gzip",
+      ext: ".gz",
+      threshold: 10240,
+    }),
+    viteCompression({
+      algorithm: "brotliCompress",
+      ext: ".br",
+      threshold: 10240,
+    }),
+    vitePrerender({
+      staticDir: path.resolve(import.meta.dirname, "dist"),
+      routes: ["/", "/about", "/catalog", "/clients", "/blogs"],
+    }),
+  ],
   build: {
     rollupOptions: {
       output: {
@@ -1063,7 +1009,6 @@ export default defineConfig({
           vendor: ["react", "react-dom", "react-router-dom"],
           animations: ["framer-motion", "gsap"],
           firebase: ["firebase/app", "firebase/auth", "firebase/firestore"],
-          icons: ["lucide-react"],
         },
       },
     },
@@ -1277,6 +1222,7 @@ export default Home;
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1024.0",
     "@tailwindcss/vite": "^4.2.0",
+    "@vercel/analytics": "^2.0.1",
     "firebase": "^12.11.0",
     "framer-motion": "^12.38.0",
     "gsap": "^3.14.2",
@@ -1304,7 +1250,9 @@ export default Home;
     "globals": "^16.5.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-prerender": "^1.0.8"
   }
 }
 </file>
@@ -1954,6 +1902,7 @@ const AboutUsPage = () => {
           <img
             src={heroImg}
             alt="About PT FAST"
+            fetchPriority='high'
 
             className="w-full h-full object-cover object-[center_25%] opacity-80 hover:opacity-100 transition-opacity duration-700"
           />
@@ -2476,6 +2425,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
+import { Analytics } from '@vercel/analytics/next';
+
 
 const Home = lazy(() => import('./pages/Home'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
@@ -2498,6 +2449,8 @@ const PageLoader = () => (
 const App = () => {
   return (
     <HelmetProvider>
+      <Analytics />
+
       <AuthProvider>
         <BrowserRouter>
           <Suspense fallback={<PageLoader />}>
@@ -2750,18 +2703,15 @@ export default CatalogPage;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Path favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="/src/assets/FAST_Logo_JPEG/fast-blue.png"
-    />
+
+    <link rel="icon" type="image/png" href="/fast-blue.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
       FAST | PT. Famindo Alfa Spektrum Teknologi - Advanced Fire Safety
       Solutions
     </title>
+
     <meta
       name="title"
       content="FAST | PT. Famindo Alfa Spektrum Teknologi - Advanced Fire Safety Solutions"
@@ -2788,11 +2738,14 @@ export default CatalogPage;
       property="og:description"
       content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
     />
-    <!-- og:image diganti menjadi logo lokal -->
+
     <meta
       property="og:image"
-      content="/src/assets/FAST_Logo_JPEG/fast-blue.png"
+      content="https://www.famindofast.com/fast-blue.png"
     />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
     <meta
       property="og:site_name"
       content="FAST | PT. Famindo Alfa Spektrum Teknologi"
@@ -2809,10 +2762,10 @@ export default CatalogPage;
       property="twitter:description"
       content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
     />
-    <!-- twitter:image diganti menjadi logo lokal -->
+
     <meta
       property="twitter:image"
-      content="/src/assets/FAST_Logo_JPEG/fast-blue.png"
+      content="https://www.famindofast.com/fast-blue.png"
     />
 
     <script type="application/ld+json">
@@ -2820,8 +2773,7 @@ export default CatalogPage;
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
-        // Gambar Schema diganti menjadi logo lokal
-        "image": "/src/assets/FAST_Logo_JPEG/fast-blue.png",
+        "image": "https://www.famindofast.com/fast-blue.png",
         "@id": "https://www.famindofast.com/",
         "url": "https://www.famindofast.com/",
         "telephone": "+6281290003278",
@@ -2849,8 +2801,13 @@ export default CatalogPage;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+    />
+    <link
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
     />
   </head>
   <body>
@@ -3126,7 +3083,7 @@ const ProductDetailPage = () => {
                           src={partner.logo}
                           alt={partner.name}
                           title={partner.name}
-                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter transition-all duration-300 scale-200" : "h-10 md:h-12 w-auto object-contain filter transition-all duration-300"}
+                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter transition-all duration-300" : "h-10 md:h-12 w-auto object-contain filter transition-all duration-300"}
                         />
                       </button>
                     ))}

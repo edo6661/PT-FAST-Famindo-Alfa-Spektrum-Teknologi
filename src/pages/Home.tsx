@@ -1,10 +1,13 @@
+import { Suspense, lazy } from 'react';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
-import About from '../components/About';
-import Catalog from '../components/Catalog';
-import Brands from '../components/Brands';
-import ClientBase from '../components/ClientBase';
-import Certifications from '../components/Certifications';
+
+// Lazy load komponen yang berada di bawah layar utama (below the fold)
+const About = lazy(() => import('../components/About'));
+const Brands = lazy(() => import('../components/Brands'));
+const Catalog = lazy(() => import('../components/Catalog'));
+const Certifications = lazy(() => import('../components/Certifications'));
+const ClientBase = lazy(() => import('../components/ClientBase'));
 
 const Home = () => {
   return (
@@ -15,11 +18,14 @@ const Home = () => {
         url="/"
       />
       <Hero />
-      <About />
-      <Brands />
-      <Catalog />
-      <Certifications />
-      <ClientBase />
+
+      <Suspense fallback={<div className="h-32"></div>}>
+        <About />
+        <Brands />
+        <Catalog />
+        <Certifications />
+        <ClientBase />
+      </Suspense>
     </>
   );
 };

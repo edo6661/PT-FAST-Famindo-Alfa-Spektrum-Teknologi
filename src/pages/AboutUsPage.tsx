@@ -92,6 +92,7 @@ const AboutUsPage = () => {
           <img
             src={heroImg}
             alt="About PT FAST"
+            fetchPriority='high'
 
             className="w-full h-full object-cover object-[center_25%] opacity-80 hover:opacity-100 transition-opacity duration-700"
           />
