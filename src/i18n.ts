@@ -167,14 +167,14 @@ const resources = {
           {
             title: "SNI",
             desc: "Complies with the Indonesian National Standard (Standar Nasional Indonesia) for product quality and safety.",
-            logo: "/certi/lfk-af31/SNI_Logo.png",
+            logo: "/products/sni.png",
           },
         ],
         international: [
           {
             title: "Nucro Technics",
             desc: "Certified testing and standard approvals ensuring our solutions meet rigorous international quality and safety benchmarks.",
-            logo: "/certi/lfk-af31/Nucro-Technics.svg",
+            logo: "/certi/lfk-af31/Nucro-Technics.png",
           },
           {
             title: "EUROFINS - Environment Test",
@@ -382,7 +382,7 @@ const resources = {
           {
             title: "Nucro Technics",
             desc: "Lulus pengujian sertifikasi untuk jaminan kualitas dan tolak ukur keselamatan standar internasional.",
-            logo: "/certi/lfk-af31/Nucro-Technics.svg",
+            logo: "/certi/lfk-af31/Nucro-Technics.png",
           },
           {
             title: "EUROFINS - Environment Test",
