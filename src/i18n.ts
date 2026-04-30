@@ -12,7 +12,7 @@ const resources = {
         viewAll: "View Complete Portfolios",
         clients: {
           presidential: {
-            name: "2024 Presidential Inauguration",
+            name: "Presidential Inauguration [2024]",
             desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
           },
           iaf: {
@@ -218,7 +218,7 @@ const resources = {
         viewAll: "Lihat Semua Portofolio",
         clients: {
           presidential: {
-            name: "Pelantikan Presiden 2024",
+            name: "Pelantikan Presiden [2024]",
             desc: "Proteksi untuk seluruh unit EV yang mengawal tamu VVIP dari luar negeri untuk pelantikan presiden 2024.",
           },
           iaf: {
