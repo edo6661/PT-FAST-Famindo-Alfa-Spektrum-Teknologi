@@ -3,7 +3,37 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
-import { mainBrands } from '../constants/brands';
+
+
+const mainBrands = [
+  {
+    name: "Lithium Fire Killer HARTINDO AF31",
+    slug: "lithium-fire-killer-hartindo-af31",
+    description: "The ultimate 100% Indonesian patented solution for lithium-ion battery fire hazards. Eco-friendly and TKDN certified.",
+    logo: "AF31",
+    icon: <img src="/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" alt="LFK Icon" className="w-8 h-8 object-contain" />,
+    gridClass: "md:col-span-2 md:row-span-2",
+    bgImage: "/products/lfk.png"
+  },
+  {
+    name: "BALLISTIC App",
+    slug: "ballistic-app",
+    description: "IoT and Machine Learning application to detect lithium battery temperature anomalies in real-time.",
+    logo: "APP",
+    icon: <img src="/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png" alt="Ballistic Icon" className="w-8 h-8 object-contain" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "/products/ballistic-for-ups.png"
+  },
+  {
+    name: "ALTEX ALPHA TECH SHIELD",
+    slug: "altex-alpha-tech-shield",
+    description: "Epoxy Fire Coating based anti-fire liquid that prevents any material from catching and spreading fire.",
+    logo: "ALTEX",
+    icon: <img src="/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png" alt="Altex Icon" className="w-8 h-8 object-contain" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "/products/altex.png"
+  },
+];
 
 const Brands = () => {
   const { t } = useTranslation();

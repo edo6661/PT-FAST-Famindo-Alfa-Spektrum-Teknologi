@@ -2,78 +2,58 @@ import { useEffect, useRef, useState } from 'react';
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
-
   const START_FRAME = 33;
   const END_FRAME = 240;
   const TOTAL_FRAMES = END_FRAME - START_FRAME + 1;
-
   useEffect(() => {
     const loadedImages: HTMLImageElement[] = [];
     let loadedCount = 0;
-
+    const FRAMES_TO_WAIT = 15;
     for (let i = START_FRAME; i <= END_FRAME; i++) {
       const img = new Image();
       const paddedNum = i.toString().padStart(3, '0');
-
       img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
-
-      img.onload = () => {
+      const handleLoad = () => {
         loadedCount++;
-        if (loadedCount === TOTAL_FRAMES) {
+        if (loadedCount === FRAMES_TO_WAIT || (END_FRAME - START_FRAME + 1) < FRAMES_TO_WAIT) {
           setIsLoaded(true);
         }
       };
-
+      img.onload = handleLoad;
       img.onerror = () => {
         console.warn(`Failed to load frame: ${paddedNum}`);
-        loadedCount++;
-        if (loadedCount === TOTAL_FRAMES) {
-          setIsLoaded(true);
-        }
-      }
-
+        handleLoad();
+      };
       loadedImages[i - START_FRAME] = img;
     }
-
     setImages(loadedImages);
   }, []);
-
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
-
   const currentFrameIndex = useTransform(scrollYProgress, [0, 1], [0, TOTAL_FRAMES - 1]);
-
   useEffect(() => {
     if (!isLoaded || !canvasRef.current) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
-
     const render = () => {
       const frameIndex = Math.round(currentFrameIndex.get());
       const img = images[frameIndex];
-
       if (img && img.complete && img.naturalHeight !== 0) {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
-
         canvas.width = windowWidth;
         canvas.height = windowHeight;
-
         const imgRatio = img.width / img.height;
         const windowRatio = windowWidth / windowHeight;
-
         let drawWidth, drawHeight, offsetX, offsetY;
-
         if (windowRatio > imgRatio) {
           drawWidth = windowWidth;
           drawHeight = windowWidth / imgRatio;
@@ -85,22 +65,16 @@ export default function Hero() {
           offsetX = (windowWidth - drawWidth) / 2;
           offsetY = 0;
         }
-
         ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       }
-
       requestAnimationFrame(render);
     };
-
     render();
-
     const unsubscribe = currentFrameIndex.on('change', () => { });
-
     return () => {
       unsubscribe();
     };
   }, [isLoaded, currentFrameIndex, images]);
-
   return (
     <section
       id="beranda"
@@ -114,10 +88,8 @@ export default function Hero() {
             <div className="absolute inset-0 rounded-full border-t-2 border-accent animate-spin"></div>
             <div className="absolute inset-2 rounded-full border-r-2 border-blue-400 animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
           </div>
-
         </div>
       )}
-
       <div
         className="w-full overflow-hidden flex items-center justify-center transition-opacity duration-1000"
         style={{
@@ -129,33 +101,23 @@ export default function Hero() {
       >
         <div className="absolute inset-0 bg-background/50 z-0 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-transparent to-background z-0" />
-
         <canvas
           ref={canvasRef}
           className="block w-full h-full object-cover mix-blend-normal z-[-1]"
         />
-
         <HeroTextOverlay scrollYProgress={scrollYProgress} />
       </div>
     </section>
   );
 }
-
 function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) {
   const { t } = useTranslation();
-
   const titleOpacity = useTransform(scrollYProgress, [0, 0.15, 0.25], [1, 1, 0]);
   const titleY = useTransform(scrollYProgress, [0, 0.25], [0, -100]);
-
-  // const descOpacity = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [0, 1, 1, 0]);
-  // const descY = useTransform(scrollYProgress, [0.25, 0.35, 0.55, 0.65], [100, 0, 0, -100]);
-
   const ctaOpacity = useTransform(scrollYProgress, [0.7, 0.85, 1], [0, 1, 1]);
   const ctaY = useTransform(scrollYProgress, [0.7, 0.85], [100, 0]);
-
   return (
     <div className="absolute inset-0 pointer-events-none text-white container mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center z-20">
-
       <motion.div
         style={{ opacity: titleOpacity, y: titleY }}
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center"
@@ -166,7 +128,6 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
             {t('hero.badge')} <span className="hidden sm:inline">{t('hero.badgeSuffix')}</span>
           </span>
         </div>
-
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight max-w-5xl tracking-tight text-white text-balance drop-shadow-2xl">
           {t('hero.title')} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-blue-400 to-cyan-300">
@@ -174,7 +135,6 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
           </span>
         </h1>
       </motion.div>
-
       {/* <motion.div
         style={{ opacity: descOpacity, y: descY }}
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center px-4"
@@ -186,7 +146,6 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
           {t('hero.desc')}
         </p>
       </motion.div> */}
-
       <motion.div
         style={{ opacity: ctaOpacity, y: ctaY }}
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
@@ -200,7 +159,6 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
             {t('hero.cta2')}
           </a>
         </div>
-
         <div className="pt-8 border-t border-white/20 w-full max-w-4xl relative">
           <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-6">{t('hero.trusted')}</p>
           <div className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-12 gap-y-4 opacity-80">
@@ -211,7 +169,6 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
           </div>
         </div>
       </motion.div>
-
     </div>
   );
 }

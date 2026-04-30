@@ -84,7 +84,7 @@ const ClientBasePage = () => {
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8 gap-4">
                   <div className="w-20 h-20 rounded-2xl bg-white border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] transition-all duration-500 z-10 overflow-hidden p-3">
-                    <img src={client.logoImg} alt={client.name} className="w-full h-full object-contain" />
+                    <img src={client.logoImg} alt={client.name} loading='lazy' className="w-full h-full object-contain" />
                   </div>
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-background/50 border border-white/5 backdrop-blur-sm">
                     <span className="text-[10px] font-bold tracking-wider text-foreground-muted uppercase">{client.category}</span>
