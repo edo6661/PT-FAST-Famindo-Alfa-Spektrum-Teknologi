@@ -183,7 +183,7 @@ const ProductDetailPage = () => {
                           src={partner.logo}
                           alt={partner.name}
                           title={partner.name}
-                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter transition-all duration-300 scale-200" : "h-10 md:h-12 w-auto object-contain filter transition-all duration-300"}
+                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter transition-all duration-300" : "h-10 md:h-12 w-auto object-contain filter transition-all duration-300"}
                         />
                       </button>
                     ))}
