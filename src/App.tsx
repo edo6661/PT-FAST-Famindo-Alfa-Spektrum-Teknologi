@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
@@ -52,6 +53,7 @@ const App = () => {
               </Route>
             </Routes>
           </Suspense>
+          <Analytics />
         </BrowserRouter>
       </AuthProvider>
     </HelmetProvider>
