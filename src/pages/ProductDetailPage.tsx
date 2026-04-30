@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X } from 'lucide-react';
+// Tambahkan import ShoppingCart di sini
+import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X, ShoppingCart } from 'lucide-react';
 import { products, categories, type ProductVariant, type ProductPartner } from '../constants/catalogs';
 import SEO from '../components/SEO';
 
@@ -182,7 +183,7 @@ const ProductDetailPage = () => {
                           src={partner.logo}
                           alt={partner.name}
                           title={partner.name}
-                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter   transition-all duration-300 scale-200" : "h-10 md:h-12 w-auto object-contain filter   transition-all duration-300"}
+                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter transition-all duration-300 scale-200" : "h-10 md:h-12 w-auto object-contain filter transition-all duration-300"}
                         />
                       </button>
                     ))}
@@ -218,6 +219,20 @@ const ProductDetailPage = () => {
                         Download Brochure
                       </a>
                     )}
+
+                    {/* Tombol Tokopedia Baru */}
+                    {product.tokopediaUrl && (
+                      <a
+                        href={product.tokopediaUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-[#03AC0E]/10 hover:bg-[#03AC0E]/20 border border-[#03AC0E]/30 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(3,172,14,0.1)] hover:shadow-[0_0_25px_rgba(3,172,14,0.25)] hover:-translate-y-1 text-sm uppercase tracking-wide group/tokped"
+                      >
+                        <ShoppingCart size={18} className="text-[#03AC0E] group-hover/tokped:scale-110 transition-transform" />
+                        Buy on Tokopedia
+                      </a>
+                    )}
+
                     <a
                       href={`https://wa.me/6281290003278?text=Halo%20tim%20FAST,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.title)}.`}
                       target="_blank"

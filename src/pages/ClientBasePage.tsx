@@ -35,7 +35,7 @@ const ClientBasePage = () => {
       borderColor: "group-hover:border-accent/50"
     },
     {
-      logoImg: "/clients/government/Kepolisian_Negara_Republik_Indonesia_Logo.png",
+      logoImg: "/clients/government/kementrian-sekertariat-negaraa-ri-removebg-preview.png",
       name: "Kunjungan Paus Fransiskus [2024]",
       category: "Government",
       status: "Absolute Zero Incident",
@@ -138,18 +138,9 @@ const ClientBasePage = () => {
                 <motion.div
                   layout
                   key={logo.id}
-                  initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
-                  animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                  exit={{ opacity: 0, scale: 0.8, filter: 'blur(10px)' }}
-                  transition={{
-                    duration: 0.5,
-                    type: "spring",
-                    bounce: 0.3,
-                    delay: index * 0.03 // Efek masuk satu per satu
-                  }}
+
                 >
                   <SpotlightCard className="group h-full bg-surface/20 border-white/5 hover:border-white/20 p-6 sm:p-8 flex items-center justify-center aspect-[4/3] cursor-default rounded-3xl overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
 
                     <motion.div
                       animate={{ y: [0, -6, 0] }}
@@ -166,7 +157,7 @@ const ClientBasePage = () => {
                         alt={logo.name}
                         loading="lazy"
                         title={logo.name}
-                        className="max-w-full max-h-[60px] md:max-h-[80px] w-auto object-contain filter opacity-40  group-hover:opacity-100 transition-all duration-700 ease-out group-hover:scale-110 drop-shadow-none group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                        className="max-w-full max-h-[60px] md:max-h-[80px] w-auto object-cover  transition-all duration-700 ease-out group-hover:scale-110 "
                       />
                     </motion.div>
                   </SpotlightCard>

@@ -8,7 +8,8 @@ interface SpotlightCardProps {
 const SpotlightCard = ({ children, className = '' }: SpotlightCardProps) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [isFocused, setIsFocused] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -44,13 +45,13 @@ const SpotlightCard = ({ children, className = '' }: SpotlightCardProps) => {
       onBlur={handleBlur}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative overflow-hidden rounded-3xl border border-white/5 bg-surface transition-colors duration-500 shadow-lg ${className}`}
+      className={`relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-accent/20 via-surface to-background transition-colors duration-500 shadow-lg ${className}`}
     >
       <div
-        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0"
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300 z-0 "
         style={{
           opacity,
-          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(56, 152, 212, .15), transparent 40%)`,
+
         }}
       />
       <div className="relative z-10 h-full w-full">

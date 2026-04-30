@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail, Send, Facebook, Linkedin, BookOpen, ArrowRight } from 'lucide-react';
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { MapPin, Phone, Mail, Send, Facebook, Linkedin, BookOpen, ArrowRight, Instagram, Youtube } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import logo from '../assets/FAST_Logo_PNG/logo.png';
 import { getLandingPageBlogs } from '../services/blogService';
 import type { Blog } from '../types/blog';
+
 const ContactFooter = () => {
-  const { t, i18n } = useTranslation(); // Inisialisasi hook i18n
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,6 +17,7 @@ const ContactFooter = () => {
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loadingBlogs, setLoadingBlogs] = useState(true);
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -29,18 +31,21 @@ const ContactFooter = () => {
     };
     fetchBlogs();
   }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus({ type: '', message: '' });
-    // Gabungkan data form dengan access_key dari Web3Forms
+
     const payload = {
       ...formData,
       access_key: "21fdab41-15c9-4f2e-8ebb-6101613f102c"
     };
+
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -51,6 +56,7 @@ const ContactFooter = () => {
         body: JSON.stringify(payload)
       });
       const result = await response.json();
+
       if (result.success) {
         setSubmitStatus({ type: 'success', message: t('footer.form.success') });
         setFormData({ name: '', email: '', message: '' });
@@ -67,6 +73,7 @@ const ContactFooter = () => {
       setIsSubmitting(false);
     }
   };
+
   return (
     <footer id="kontak" className="bg-surface pt-24 border-t border-border relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
@@ -82,6 +89,7 @@ const ContactFooter = () => {
               {t('footer.insights.viewAll')} <ArrowRight size={16} />
             </Link>
           </div>
+
           {loadingBlogs ? (
             <div className="flex justify-center items-center py-12">
               <div className="w-8 h-8 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
@@ -108,7 +116,6 @@ const ContactFooter = () => {
                     </p>
                     <div className="pt-4 border-t border-border flex justify-between items-center">
                       <span className="text-xs font-medium text-foreground-muted uppercase tracking-wider">
-                        {/* Format tanggal menyesuaikan bahasa aktif */}
                         {new Date(blog.createdAt).toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                       </span>
                     </div>
@@ -122,7 +129,8 @@ const ContactFooter = () => {
             </div>
           )}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 my-20 ">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 my-20">
           {/* Bagian Kiri: Info Kontak & Map */}
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -131,6 +139,7 @@ const ContactFooter = () => {
             <p className="text-foreground-muted mb-10 text-lg">
               {t('footer.desc')}
             </p>
+
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center flex-shrink-0 text-accent">
@@ -160,6 +169,7 @@ const ContactFooter = () => {
                 </div>
               </div>
             </div>
+
             <div className="mt-10 rounded-card overflow-hidden border border-border shadow-card h-64 relative bg-surface">
               <iframe
                 title="Peta Lokasi Kantor Pusat PT Famindo Alfa Spektrum Teknologi (FAST)"
@@ -174,6 +184,7 @@ const ContactFooter = () => {
               ></iframe>
             </div>
           </div>
+
           {/* Bagian Kanan: Form Konsultasi */}
           <div className="bg-surface p-8 rounded-card border border-border shadow-card relative h-fit">
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 blur-2xl rounded-full"></div>
@@ -237,7 +248,7 @@ const ContactFooter = () => {
             </form>
           </div>
         </div>
-        {/* Bagian Bawah: Artikel/Blog */}
+
         {/* Bagian Paling Bawah: Copyright & Socials */}
         <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
@@ -246,14 +257,29 @@ const ContactFooter = () => {
               <span className="text-foreground-muted text-sm font-medium">PT. Famindo Alfa Spektrum Teknologi</span>
             </div>
           </div>
+
+          {/* Social Media Links Update */}
           <div className="flex items-center gap-5">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi halaman Facebook resmi PT FAST">
+            <a href="https://www.facebook.com/pages/PT.%20Famindo%20Inovasi%20Teknologi/526158344445002/#" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi halaman Facebook resmi PT FAST">
               <Facebook size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil LinkedIn profesional PT FAST">
+            <a href="https://www.linkedin.com/company/pt-famindo-fast" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil LinkedIn profesional PT FAST">
               <Linkedin size={20} />
             </a>
+            <a href="https://www.youtube.com/@lithiumfirekiller" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi channel YouTube PT FAST">
+              <Youtube size={20} />
+            </a>
+            <a href="https://www.instagram.com/lithiumfirekiller" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil Instagram PT FAST">
+              <Instagram size={20} />
+            </a>
+            <a href="https://www.tiktok.com/@lithiumfirekiller" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil TikTok PT FAST">
+              {/* Custom SVG untuk TikTok menyesuaikan style lucide-react */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
           </div>
+
           <p className="text-foreground-muted text-sm text-center md:text-right">
             © {new Date().getFullYear()} FAST | PT. Famindo Alfa Spektrum Teknologi. {t('footer.copyright')} <br className="md:hidden" />
           </p>
@@ -262,4 +288,5 @@ const ContactFooter = () => {
     </footer>
   );
 };
+
 export default ContactFooter;

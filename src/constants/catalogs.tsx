@@ -16,7 +16,7 @@ export interface ProductVariant {
 export interface ProductPartner {
   name: string;
   logo: string;
-  locations?: string[]; // Properti baru untuk menyimpan data lokasi
+  locations?: string[];
 }
 
 export interface Product {
@@ -27,6 +27,7 @@ export interface Product {
   description: string;
   tagline?: string;
   brochureUrl?: string;
+  tokopediaUrl?: string; // <-- Tambahkan properti ini
   image: string;
   features?: string[];
   variants?: ProductVariant[];
@@ -142,6 +143,7 @@ export const products: Product[] = [
   {
     id: 'lithium-fire-killer-hartindo-af31',
     brochureUrl: "/brochures/lfk-brochure.pdf",
+    tokopediaUrl: "https://www.tokopedia.com/famindofast", // <-- Link Tokopedia
     slug: 'lithium-fire-killer-hartindo-af31',
     title: 'Lithium Fire Killer HARTINDO AF31',
     tagline: 'The First Lithium Fire Extinguisher In The World',

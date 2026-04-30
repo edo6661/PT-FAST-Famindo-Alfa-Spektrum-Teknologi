@@ -375,7 +375,7 @@ const resources = {
           {
             title: "SNI",
             desc: "Memenuhi Standar Nasional Indonesia untuk kualitas material dan keamanan produk.",
-            logo: "/certi/lfk-af31/SNI_Logo.png",
+            logo: "/products/sni.png",
           },
         ],
         international: [

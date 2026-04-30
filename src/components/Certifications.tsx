@@ -15,7 +15,7 @@ const Certifications = () => {
   const nationalCerts = t('certifications.national', { returnObjects: true }) as CertItem[];
   const internationalCerts = t('certifications.international', { returnObjects: true }) as CertItem[];
 
-  // Fungsi untuk me-render item sertifikasi (membuat kode lebih rapi/DRY)
+
   const renderCertCard = (cert: CertItem, index: number) => (
     <div
       key={index}
@@ -27,7 +27,7 @@ const Certifications = () => {
           <img
             src={cert.logo}
             alt={cert.title}
-            className="max-h-full max-w-[120px] object-contain filter opacity-70 group-hover:opacity-100 transition-all duration-300"
+            className={`max-h-full max-w-30 object-contain filter opacity-70 group-hover:opacity-100 transition-all duration-300 ${cert.title === "SNI" ? "scale-200" : ""}`}
           />
         </div>
       ) : (
@@ -105,13 +105,13 @@ const Certifications = () => {
 
             <div
               className="relative rounded-xl overflow-hidden bg-white/5 p-4 border border-white/10"
-              onContextMenu={(e) => e.preventDefault()} // Mencegah klik kanan
+              onContextMenu={(e) => e.preventDefault()}
             >
               <img
                 src={selectedCert}
                 alt="Certificate Scan"
                 className="max-w-full max-h-[80vh] object-contain select-none"
-                draggable="false" // Mencegah drag gambar
+                draggable="false"
               />
               <div className="absolute inset-0 z-10 bg-transparent"></div>
             </div>
