@@ -1,4 +1,4 @@
-tolong optimisasi kecepatan landing page nya.
+tolong optimasi kecepatan landing page nya
 <file path="eslint.config.js">
 import js from '@eslint/js'
 import globals from 'globals'
@@ -2628,73 +2628,6 @@ const CatalogPage = () => {
 export default CatalogPage;
 </file>
 
-<file path="src/App.tsx">
-import { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './contexts/AuthContext';
-import { Analytics } from '@vercel/analytics/react';
-
-const Home = lazy(() => import('./pages/Home'));
-const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
-const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
-const Login = lazy(() => import('./pages/Login'));
-const AdminBlog = lazy(() => import('./pages/AdminBlog'));
-
-const BlogsPage = lazy(() => import('./pages/BlogsPage'));
-const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
-const CatalogPage = lazy(() => import('./pages/CatalogPage'));
-const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
-const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
-
-const PageLoader = () => (
-
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
-  </div>
-);
-const App = () => {
-  return (
-    <HelmetProvider>
-      <Analytics />
-
-      <AuthProvider>
-        <BrowserRouter>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path="/" element={<Layout />}>
-                <Route index element={<Home />} />
-                <Route path="clients" element={<ClientBasePage />} />
-
-                <Route path="catalog" element={<CatalogPage />} />
-                <Route path="catalog/:slug" element={<ProductDetailPage />} />
-                <Route path="category/:slug" element={<CategoryDetailPage />} />
-
-                <Route path="blogs" element={<BlogsPage />} />
-                <Route path="blogs/:id" element={<BlogDetailPage />} />
-                <Route path="about" element={<AboutUsPage />} />
-
-                <Route path=":slug" element={<ProductDetailPage />} />
-              </Route>
-
-              <Route path="/login" element={<Login />} />
-
-              <Route element={<ProtectedRoute />}>
-                <Route path="/admin/blog" element={<AdminBlog />} />
-              </Route>
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
-      </AuthProvider>
-    </HelmetProvider>
-  );
-};
-
-export default App;
-</file>
-
 <file path="src/components/About.tsx">
 import { motion } from 'framer-motion';
 import { Heart, ShieldCheck } from 'lucide-react';
@@ -2775,123 +2708,74 @@ const About = () => {
 export default About;
 </file>
 
-<file path="index.html">
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
+<file path="src/App.tsx">
+import { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import Layout from './components/Layout';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext';
+import { Analytics } from '@vercel/analytics/react';
+import { domAnimation, LazyMotion } from 'framer-motion';
 
-    <link rel="icon" type="image/png" href="/fast-blue.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+const Home = lazy(() => import('./pages/Home'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
+const Login = lazy(() => import('./pages/Login'));
+const AdminBlog = lazy(() => import('./pages/AdminBlog'));
 
-    <title>
-      FAST | PT. Famindo Alfa Spektrum Teknologi - Advanced Fire Safety
-      Solutions
-    </title>
+const BlogsPage = lazy(() => import('./pages/BlogsPage'));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
+const CatalogPage = lazy(() => import('./pages/CatalogPage'));
+const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
 
-    <meta
-      name="title"
-      content="FAST | PT. Famindo Alfa Spektrum Teknologi - Advanced Fire Safety Solutions"
-    />
-    <meta
-      name="description"
-      content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
-    />
-    <meta
-      name="keywords"
-      content="fire safety indonesia, lithium fire extinguisher, EV fire protection, smart fire detection, PT FAST, Famindo Alfa Spektrum Teknologi, HARTINDO AF31, fire safety B2B"
-    />
-    <meta name="author" content="PT. Famindo Alfa Spektrum Teknologi" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.famindofast.com/" />
+const PageLoader = () => (
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.famindofast.com/" />
-    <meta
-      property="og:title"
-      content="FAST | PT. Famindo Alfa Spektrum Teknologi | Advanced Fire Safety Solutions"
-    />
-    <meta
-      property="og:description"
-      content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
-    />
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
+  </div>
+);
+const App = () => {
+  return (
+    <HelmetProvider>
+      <Analytics />
 
-    <meta
-      property="og:image"
-      content="https://www.famindofast.com/fast-blue.png"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+      <AuthProvider>
+        <LazyMotion features={domAnimation}>
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="clients" element={<ClientBasePage />} />
 
-    <meta
-      property="og:site_name"
-      content="FAST | PT. Famindo Alfa Spektrum Teknologi"
-    />
-    <meta property="og:locale" content="en_US" />
+                  <Route path="catalog" element={<CatalogPage />} />
+                  <Route path="catalog/:slug" element={<ProductDetailPage />} />
+                  <Route path="category/:slug" element={<CategoryDetailPage />} />
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://www.famindofast.com/" />
-    <meta
-      property="twitter:title"
-      content="FAST | PT. Famindo Alfa Spektrum Teknologi | Advanced Fire Safety Solutions"
-    />
-    <meta
-      property="twitter:description"
-      content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
-    />
+                  <Route path="blogs" element={<BlogsPage />} />
+                  <Route path="blogs/:id" element={<BlogDetailPage />} />
+                  <Route path="about" element={<AboutUsPage />} />
 
-    <meta
-      property="twitter:image"
-      content="https://www.famindofast.com/fast-blue.png"
-    />
+                  <Route path=":slug" element={<ProductDetailPage />} />
+                </Route>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
-        "image": "https://www.famindofast.com/fast-blue.png",
-        "@id": "https://www.famindofast.com/",
-        "url": "https://www.famindofast.com/",
-        "telephone": "+6281290003278",
-        "email": "support@famindofast.com",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "TCC Tower One Menara Batavia, Jl. K.H. Mas Mansyur No. Kav. 126, RT.9/RW.3, Karet Tengsin",
-          "addressLocality": "Tanah Abang",
-          "addressRegion": "Jakarta Pusat",
-          "postalCode": "10220",
-          "addressCountry": "ID"
-        },
-        "sameAs": [
-          "https://instagram.com/famindofast",
-          "https://www.facebook.com/pages/PT.%20Famindo%20Inovasi%20Teknologi/526158344445002/#",
-          "https://www.linkedin.com/company/pt-famindo-fast",
-          "https://www.youtube.com/@lithiumfirekiller",
-          "https://www.instagram.com/lithiumfirekiller",
-          "https://www.tiktok.com/@lithiumfirekiller"
-        ],
-        "description": "Provider of advanced fire safety solutions and lithium-ion battery fire mitigation in Indonesia."
-      }
-    </script>
+                <Route path="/login" element={<Login />} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
-</html>
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/admin/blog" element={<AdminBlog />} />
+                </Route>
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </LazyMotion>
+      </AuthProvider>
+    </HelmetProvider>
+  );
+};
+
+export default App;
 </file>
 
 <file path="src/pages/ProductDetailPage.tsx">
@@ -3213,6 +3097,129 @@ const ProductDetailPage = () => {
 };
 
 export default ProductDetailPage;
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link rel="icon" type="image/png" href="/fast-blue.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      FAST | PT. Famindo Alfa Spektrum Teknologi - Advanced Fire Safety
+      Solutions
+    </title>
+
+    <meta
+      name="title"
+      content="FAST | PT. Famindo Alfa Spektrum Teknologi - Advanced Fire Safety Solutions"
+    />
+    <meta
+      name="description"
+      content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
+    />
+    <meta
+      name="keywords"
+      content="fire safety indonesia, lithium fire extinguisher, EV fire protection, smart fire detection, PT FAST, Famindo Alfa Spektrum Teknologi, HARTINDO AF31, fire safety B2B"
+    />
+    <meta name="author" content="PT. Famindo Alfa Spektrum Teknologi" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.famindofast.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.famindofast.com/" />
+    <meta
+      property="og:title"
+      content="FAST | PT. Famindo Alfa Spektrum Teknologi | Advanced Fire Safety Solutions"
+    />
+    <meta
+      property="og:description"
+      content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
+    />
+
+    <meta
+      property="og:image"
+      content="https://www.famindofast.com/fast-blue.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta
+      property="og:site_name"
+      content="FAST | PT. Famindo Alfa Spektrum Teknologi"
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.famindofast.com/" />
+    <meta
+      property="twitter:title"
+      content="FAST | PT. Famindo Alfa Spektrum Teknologi | Advanced Fire Safety Solutions"
+    />
+    <meta
+      property="twitter:description"
+      content="Every second matters. FAST | PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities."
+    />
+
+    <meta
+      property="twitter:image"
+      content="https://www.famindofast.com/fast-blue.png"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
+        "image": "https://www.famindofast.com/fast-blue.png",
+        "@id": "https://www.famindofast.com/",
+        "url": "https://www.famindofast.com/",
+        "telephone": "+6281290003278",
+        "email": "support@famindofast.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "TCC Tower One Menara Batavia, Jl. K.H. Mas Mansyur No. Kav. 126, RT.9/RW.3, Karet Tengsin",
+          "addressLocality": "Tanah Abang",
+          "addressRegion": "Jakarta Pusat",
+          "postalCode": "10220",
+          "addressCountry": "ID"
+        },
+        "sameAs": [
+          "https://instagram.com/famindofast",
+          "https://www.facebook.com/pages/PT.%20Famindo%20Inovasi%20Teknologi/526158344445002/#",
+          "https://www.linkedin.com/company/pt-famindo-fast",
+          "https://www.youtube.com/@lithiumfirekiller",
+          "https://www.instagram.com/lithiumfirekiller",
+          "https://www.tiktok.com/@lithiumfirekiller"
+        ],
+        "description": "Provider of advanced fire safety solutions and lithium-ion battery fire mitigation in Indonesia."
+      }
+    </script>
+    <link
+      rel="preload"
+      as="image"
+      href="/src/assets/sequence/frame-by-frame/ezgif-frame-033.jpg"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
 </file>
 
 <file path="src/components/ClientBase.tsx">
@@ -4636,26 +4643,38 @@ export default function Hero() {
   const TOTAL_FRAMES = END_FRAME - START_FRAME + 1;
   useEffect(() => {
     const loadedImages: HTMLImageElement[] = [];
-    let loadedCount = 0;
-    const FRAMES_TO_WAIT = 15;
-    for (let i = START_FRAME; i <= END_FRAME; i++) {
-      const img = new Image();
-      const paddedNum = i.toString().padStart(3, '0');
-      img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
-      const handleLoad = () => {
-        loadedCount++;
-        if (loadedCount === FRAMES_TO_WAIT || (END_FRAME - START_FRAME + 1) < FRAMES_TO_WAIT) {
-          setIsLoaded(true);
+
+
+    const loadImage = (index: number) => {
+      return new Promise<void>((resolve) => {
+        const img = new Image();
+        const paddedNum = index.toString().padStart(3, '0');
+        img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
+
+        img.onload = () => {
+          loadedImages[index - START_FRAME] = img;
+          resolve();
+        };
+        img.onerror = () => resolve();
+      });
+    };
+
+
+    const loadInitialFrame = async () => {
+      await loadImage(START_FRAME);
+      setImages([...loadedImages]);
+      setIsLoaded(true);
+
+
+      setTimeout(async () => {
+        for (let i = START_FRAME + 1; i <= END_FRAME; i++) {
+          await loadImage(i);
         }
-      };
-      img.onload = handleLoad;
-      img.onerror = () => {
-        console.warn(`Failed to load frame: ${paddedNum}`);
-        handleLoad();
-      };
-      loadedImages[i - START_FRAME] = img;
-    }
-    setImages(loadedImages);
+        setImages([...loadedImages]);
+      }, 1000);
+    };
+
+    loadInitialFrame();
   }, []);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -4812,7 +4831,7 @@ const mainBrands = [
     slug: "lithium-fire-killer-hartindo-af31",
     description: "The ultimate 100% Indonesian patented solution for lithium-ion battery fire hazards. Eco-friendly and TKDN certified.",
     logo: "AF31",
-    icon: <img src="/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" alt="LFK Icon" className="w-8 h-8 object-contain" />,
+    icon: <img loading='lazy' src="/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" alt="LFK Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-2 md:row-span-2",
     bgImage: "/products/lfk.png"
   },
@@ -4821,7 +4840,7 @@ const mainBrands = [
     slug: "ballistic-app",
     description: "IoT and Machine Learning application to detect lithium battery temperature anomalies in real-time.",
     logo: "APP",
-    icon: <img src="/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png" alt="Ballistic Icon" className="w-8 h-8 object-contain" />,
+    icon: <img loading='lazy' src="/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png" alt="Ballistic Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-1 md:row-span-1",
     bgImage: "/products/ballistic-for-ups.png"
   },
@@ -4830,7 +4849,7 @@ const mainBrands = [
     slug: "altex-alpha-tech-shield",
     description: "Epoxy Fire Coating based anti-fire liquid that prevents any material from catching and spreading fire.",
     logo: "ALTEX",
-    icon: <img src="/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png" alt="Altex Icon" className="w-8 h-8 object-contain" />,
+    icon: <img loading='lazy' src="/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png" alt="Altex Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-1 md:row-span-1",
     bgImage: "/products/altex.png"
   },
