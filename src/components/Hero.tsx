@@ -33,7 +33,7 @@ export default function Hero() {
 
     const loadAllFrames = async () => {
 
-      await loadImage(START_FRAME);
+      loadImage(START_FRAME);
       setIsLoaded(true);
 
 
@@ -59,17 +59,27 @@ export default function Hero() {
     if (!ctx) return;
 
     const render = () => {
-      const frameIndex = Math.round(currentFrameIndex.get());
+      const targetFrameIndex = Math.round(currentFrameIndex.get());
 
-      const img = imagesRef.current[frameIndex];
+      // LOGIKA FALLBACK: 
+      // Cari frame dari yang paling ditargetkan, mundur ke belakang
+      // sampai ketemu gambar yang sudah selesai didownload (lengkap)
+      let imgToDraw = null;
+      for (let i = targetFrameIndex; i >= 0; i--) {
+        const img = imagesRef.current[i];
+        if (img && img.complete && img.naturalHeight !== 0) {
+          imgToDraw = img;
+          break; // Berhenti mencari jika sudah ketemu gambar yang siap
+        }
+      }
 
-      if (img && img.complete && img.naturalHeight !== 0) {
+      if (imgToDraw) {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
         canvas.width = windowWidth;
         canvas.height = windowHeight;
 
-        const imgRatio = img.width / img.height;
+        const imgRatio = imgToDraw.width / imgToDraw.height;
         const windowRatio = windowWidth / windowHeight;
         let drawWidth, drawHeight, offsetX, offsetY;
 
@@ -84,7 +94,7 @@ export default function Hero() {
           offsetX = (windowWidth - drawWidth) / 2;
           offsetY = 0;
         }
-        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+        ctx.drawImage(imgToDraw, offsetX, offsetY, drawWidth, drawHeight);
       }
       requestAnimationFrame(render);
     };
