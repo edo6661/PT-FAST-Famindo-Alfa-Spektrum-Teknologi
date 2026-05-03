@@ -2,18 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
 export default function Hero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [images, setImages] = useState<HTMLImageElement[]>([]);
+
+
+  const imagesRef = useRef<HTMLImageElement[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+
   const START_FRAME = 33;
   const END_FRAME = 240;
   const TOTAL_FRAMES = END_FRAME - START_FRAME + 1;
+
   useEffect(() => {
-    const loadedImages: HTMLImageElement[] = [];
-
-
     const loadImage = (index: number) => {
       return new Promise<void>((resolve) => {
         const img = new Image();
@@ -21,51 +23,56 @@ export default function Hero() {
         img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
 
         img.onload = () => {
-          loadedImages[index - START_FRAME] = img;
+
+          imagesRef.current[index - START_FRAME] = img;
           resolve();
         };
         img.onerror = () => resolve();
       });
     };
 
+    const loadAllFrames = async () => {
 
-    const loadInitialFrame = async () => {
       await loadImage(START_FRAME);
-      setImages([...loadedImages]);
       setIsLoaded(true);
 
 
-      setTimeout(async () => {
-        for (let i = START_FRAME + 1; i <= END_FRAME; i++) {
-          await loadImage(i);
-        }
-        setImages([...loadedImages]);
-      }, 1000);
+      for (let i = START_FRAME + 1; i <= END_FRAME; i++) {
+        await loadImage(i);
+      }
     };
 
-    loadInitialFrame();
+    loadAllFrames();
   }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end end'],
   });
+
   const currentFrameIndex = useTransform(scrollYProgress, [0, 1], [0, TOTAL_FRAMES - 1]);
+
   useEffect(() => {
     if (!isLoaded || !canvasRef.current) return;
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
+
     const render = () => {
       const frameIndex = Math.round(currentFrameIndex.get());
-      const img = images[frameIndex];
+
+      const img = imagesRef.current[frameIndex];
+
       if (img && img.complete && img.naturalHeight !== 0) {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
         canvas.width = windowWidth;
         canvas.height = windowHeight;
+
         const imgRatio = img.width / img.height;
         const windowRatio = windowWidth / windowHeight;
         let drawWidth, drawHeight, offsetX, offsetY;
+
         if (windowRatio > imgRatio) {
           drawWidth = windowWidth;
           drawHeight = windowWidth / imgRatio;
@@ -81,12 +88,14 @@ export default function Hero() {
       }
       requestAnimationFrame(render);
     };
+
     render();
+
     const unsubscribe = currentFrameIndex.on('change', () => { });
     return () => {
       unsubscribe();
     };
-  }, [isLoaded, currentFrameIndex, images]);
+  }, [isLoaded, currentFrameIndex]);
   return (
     <section
       id="beranda"
