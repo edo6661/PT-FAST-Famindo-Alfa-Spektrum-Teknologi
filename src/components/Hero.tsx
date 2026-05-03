@@ -163,7 +163,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
       >
         <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto mb-16">
-          <a href="#katalog" className="bg-accent text-white px-10 py-4 sm:py-5 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-accent/80 transition-all duration-300 shadow-[0_0_30px_rgba(56,152,212,0.4)] hover:shadow-[0_0_50px_rgba(56,152,212,0.6)] hover:-translate-y-1">
+          <a href="#brands" className="bg-accent text-white px-10 py-4 sm:py-5 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-accent/80 transition-all duration-300 shadow-[0_0_30px_rgba(56,152,212,0.4)] hover:shadow-[0_0_50px_rgba(56,152,212,0.6)] hover:-translate-y-1">
             {t('hero.cta1')}
             <ArrowRight size={20} className="ml-2" />
           </a>

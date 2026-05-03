@@ -38,9 +38,9 @@ const teamMembers = [
     image: rolandoImg
   },
   {
-    name: "Fio",
-    role: "Creative Director",
-    bio: "Driving the visual and creative strategy to ensure FAST's life-saving technology is communicated with clarity and impact across all platforms.",
+    name: "Fiorentin Stella",
+    role: "Chief Creative Officer",
+    bio: "Kicked off her creative path in graphic design, cultivating a sharp eye for visual storytelling and brand identity. Having navigated diverse creative roles across multiple industries, she now leads as Creative Director, seamlessly integrating her design roots with strategic digital expertise. She is dedicated to elevating brand narratives and redefining creative standards through innovative, multi-dimensional campaigns.",
     image: fioImg
   }
 ];

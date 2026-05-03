@@ -176,7 +176,7 @@ export const products: Product[] = [
       {
         name: "Jaecoo Andalan",
         logo: "/partners/jaecoo.png",
-        locations: ["Jaecoo Mampang"]
+        locations: ["Jaecoo Andalan Mampang"]
       },
     ],
     variants: [
