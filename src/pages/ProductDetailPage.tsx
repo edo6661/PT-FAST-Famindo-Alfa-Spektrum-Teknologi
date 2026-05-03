@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, useLocation } from 'react-router-dom';
-// Tambahkan import ShoppingCart di sini
-import { ArrowLeft, CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X, ShoppingCart } from 'lucide-react';
+import { useParams, useLocation } from 'react-router-dom';
+import { CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X, ShoppingCart } from 'lucide-react';
 import { products, categories, type ProductVariant, type ProductPartner } from '../constants/catalogs';
 import SEO from '../components/SEO';
 
@@ -69,7 +68,6 @@ const ProductDetailPage = () => {
   const product = products.find(p => p.slug === slug);
   const category = categories.find(c => c.id === product?.categoryId);
 
-  // State untuk menyimpan partner yang dipilih
   const [selectedPartner, setSelectedPartner] = useState<ProductPartner | null>(null);
 
   const isFromCatalog = location.pathname.includes('/catalog');
@@ -87,9 +85,7 @@ const ProductDetailPage = () => {
         </div>
         <h1 className="text-3xl md:text-4xl font-bold text-white">Product Not Found</h1>
         <p className="text-foreground-muted max-w-md">The safety solution you are looking for might have been moved or doesn't exist.</p>
-        <Link to={isFromCatalog ? "/catalog" : "/"} className="mt-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white px-8 py-3 rounded-full font-medium transition-all flex items-center gap-2">
-          <ArrowLeft size={18} /> Back to {isFromCatalog ? "Catalog" : "Headquarters"}
-        </Link>
+
       </div>
     );
   }

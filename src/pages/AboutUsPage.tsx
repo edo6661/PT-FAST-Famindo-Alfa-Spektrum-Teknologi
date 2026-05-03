@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Users, ArrowLeft } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Users } from 'lucide-react';
 import SEO from '../components/SEO';
 import SpotlightCard from '../components/SpotlightCard';
 
@@ -59,17 +58,13 @@ const AboutUsPage = () => {
         url="/about"
       />
 
-      {/* Background Effects */}
       <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-surface via-background to-background z-0" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none z-0" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
 
-        {/* Header Section */}
         <div className="mb-16 text-center flex flex-col items-center">
-          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:border-white/30 hover:bg-surface">
-            <ArrowLeft size={16} /> Back to Home
-          </Link>
+
           <div className="inline-flex items-center gap-2 mb-4">
             <Users className="text-accent" size={24} />
             <span className="text-accent font-bold tracking-widest uppercase text-sm">About PT. FAST</span>
@@ -82,7 +77,6 @@ const AboutUsPage = () => {
           </p>
         </div>
 
-        {/* Hero Image Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +93,6 @@ const AboutUsPage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
         </motion.div>
 
-        {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {teamMembers.map((member, index) => (
             <motion.div
@@ -112,7 +105,6 @@ const AboutUsPage = () => {
               <SpotlightCard className="group h-full p-8 md:p-10 rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md">
                 <div className="flex flex-col xl:flex-row gap-8 items-start">
 
-                  {/* Photo Profile */}
                   <div className="w-32 h-32 xl:w-40 xl:h-40 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-white/10 group-hover:border-accent/50 transition-colors duration-500 bg-background">
                     <img
                       src={member.image}
@@ -122,7 +114,6 @@ const AboutUsPage = () => {
                     />
                   </div>
 
-                  {/* Details */}
                   <div className="flex-grow">
                     <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">
                       {member.name}

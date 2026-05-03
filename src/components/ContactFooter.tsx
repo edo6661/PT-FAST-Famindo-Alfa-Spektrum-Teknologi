@@ -75,7 +75,7 @@ const ContactFooter = () => {
   };
 
   return (
-    <footer id="kontak" className="bg-surface pt-24 border-t border-border relative overflow-hidden">
+    <footer className="bg-surface pt-24 border-t border-border relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         <div className="mt-12 border-b border-border pb-12 bg-surface">
           <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
@@ -130,8 +130,7 @@ const ContactFooter = () => {
           )}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 my-20">
-          {/* Bagian Kiri: Info Kontak & Map */}
+        <div id="kontak" className="grid grid-cols-1 lg:grid-cols-2 gap-16 my-20">
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
               {t('footer.title')} <br /><span className="text-accent">{t('footer.titleHighlight')}</span>
@@ -185,7 +184,6 @@ const ContactFooter = () => {
             </div>
           </div>
 
-          {/* Bagian Kanan: Form Konsultasi */}
           <div className="bg-surface p-8 rounded-card border border-border shadow-card relative h-fit">
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 blur-2xl rounded-full"></div>
             <h3 className="text-2xl font-semibold mb-6 relative z-10">{t('footer.form.title')}</h3>
@@ -249,7 +247,6 @@ const ContactFooter = () => {
           </div>
         </div>
 
-        {/* Bagian Paling Bawah: Copyright & Socials */}
         <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="flex items-center gap-3">
@@ -258,7 +255,6 @@ const ContactFooter = () => {
             </div>
           </div>
 
-          {/* Social Media Links Update */}
           <div className="flex items-center gap-5">
             <a href="https://www.facebook.com/pages/PT.%20Famindo%20Inovasi%20Teknologi/526158344445002/#" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi halaman Facebook resmi PT FAST">
               <Facebook size={20} />
@@ -273,7 +269,6 @@ const ContactFooter = () => {
               <Instagram size={20} />
             </a>
             <a href="https://www.tiktok.com/@lithiumfirekiller" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil TikTok PT FAST">
-              {/* Custom SVG untuk TikTok menyesuaikan style lucide-react */}
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
               </svg>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clientCategories, clientLogos } from '../constants/clientsData';
 import SpotlightCard from '../components/SpotlightCard';
@@ -58,9 +57,7 @@ const ClientBasePage = () => {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-20 text-center flex flex-col items-center">
-          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:border-white/30 hover:bg-surface">
-            <ArrowLeft size={16} /> Back to Home
-          </Link>
+
           <div className="inline-flex items-center gap-2 mb-4">
             <ShieldCheck className="text-accent" size={24} />
             <span className="text-accent font-bold tracking-widest uppercase text-sm">Strategic Deployments</span>
@@ -178,9 +175,9 @@ const ClientBasePage = () => {
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Secure Your Assets?</h2>
             <p className="text-lg text-foreground-muted mb-10 max-w-2xl mx-auto font-light">Join our growing list of prestigious clients who trust FAST | PT. Famindo Alfa Spektrum Teknologi for their critical fire safety needs.</p>
-            <a href="/#kontak" className="inline-flex items-center gap-2 bg-accent hover:bg-accent/80 text-white px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_40px_rgba(56,152,212,0.6)] hover:-translate-y-1 uppercase text-sm">
+            <button onClick={() => document.getElementById('kontak')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center gap-2 bg-accent hover:bg-accent/80 text-white px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_40px_rgba(56,152,212,0.6)] hover:-translate-y-1 uppercase text-sm cursor-pointer">
               Consult With Our Experts
-            </a>
+            </button>
           </div>
         </div>
       </div>

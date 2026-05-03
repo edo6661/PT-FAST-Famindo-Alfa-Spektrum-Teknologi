@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Grid } from 'lucide-react';
+import { ArrowRight, Grid } from 'lucide-react';
 import { products, categories } from '../constants/catalogs';
 import SEO from '../components/SEO';
 
@@ -26,9 +26,7 @@ const CatalogPage = () => {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-16 text-center flex flex-col items-center">
-          <Link to="/" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:bg-surface">
-            <ArrowLeft size={16} /> Back to Home
-          </Link>
+
           <div className="inline-flex items-center gap-2 mb-4">
             <Grid className="text-accent" size={24} />
             <span className="text-accent font-bold tracking-widest uppercase text-sm">Our Solutions</span>

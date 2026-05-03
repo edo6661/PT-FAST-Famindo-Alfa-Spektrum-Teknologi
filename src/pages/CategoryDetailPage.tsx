@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Layers } from 'lucide-react';
+import { ArrowRight, Layers } from 'lucide-react';
 import { products, categories } from '../constants/catalogs';
 import SEO from '../components/SEO';
 
@@ -17,7 +17,7 @@ const CategoryDetailPage = () => {
     return (
       <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center text-center">
         <h1 className="text-3xl font-bold text-white mb-4">Category Not Found</h1>
-        <Link to="/catalog" className="bg-accent text-white px-6 py-2 rounded-full font-medium">Back to Catalog</Link>
+
       </div>
     );
   }
@@ -30,9 +30,7 @@ const CategoryDetailPage = () => {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-16">
-          <Link to="/catalog" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium">
-            <ArrowLeft size={16} /> Back to Catalog
-          </Link>
+
           <div className="flex items-center gap-4 mb-6">
             <div className="w-16 h-16 rounded-2xl bg-surface border border-white/10 flex items-center justify-center text-accent">
               <Icon size={32} />

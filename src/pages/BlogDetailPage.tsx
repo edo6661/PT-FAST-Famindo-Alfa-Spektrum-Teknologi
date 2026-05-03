@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Calendar, Share2 } from 'lucide-react';
+import { useParams } from 'react-router-dom';
+import { Calendar, Share2 } from 'lucide-react';
 import { getBlogById } from '../services/blogService';
 import type { Blog } from '../types/blog';
 import SEO from '../components/SEO';
@@ -52,7 +52,7 @@ const BlogDetailPage = () => {
       <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center text-center">
         <h1 className="text-3xl font-bold text-white mb-4">Article Not Found</h1>
         <p className="text-foreground-muted mb-8">Artikel yang Anda cari tidak ditemukan atau telah dihapus.</p>
-        <Link to="/blogs" className="bg-accent text-white px-6 py-2 rounded-full font-medium">Back to All Articles</Link>
+
       </div>
     );
   }
@@ -72,9 +72,7 @@ const BlogDetailPage = () => {
         <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent z-10" />
 
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-          <Link to="/blogs" className="inline-flex items-center gap-2 text-foreground-muted hover:text-white transition-colors mb-8 text-sm font-medium bg-surface/50 px-5 py-2.5 rounded-full border border-white/10 backdrop-blur-md hover:bg-surface">
-            <ArrowLeft size={16} /> Back to Articles
-          </Link>
+
 
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm text-accent">
