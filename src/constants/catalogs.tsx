@@ -281,22 +281,22 @@ export const products: Product[] = [
       { id: 'u1', name: "USS Deployment Kit", desc: "Complete nozzle and spear extension kit for emergency EV response teams." }
     ]
   },
-  // {
-  //   id: 'x-cap-xcape',
-  //   slug: 'x-cap-xcape',
-  //   brochureUrl: '/brochures/X-CAP-A5-Flyer-brochure.pdf',
-  //   title: 'X-CAP & XCAPE',
-  //   tagline: 'Advanced Rapid Extinguishing Solutions',
-  //   categoryId: 'protective',
-  //   description: 'Specialized fire suppression tools designed for rapid deployment and maximum efficiency in critical scenarios. Ensures that emergency exits and escape routes are quickly secured.',
-  //   image: '/products/xcap.png',
-  //   features: [
-  //     "Rapid deployment mechanism",
-  //     "High-efficiency suppression",
-  //     "Compact and reliable"
-  //   ],
-  //   variants: [
-  //     { id: 'xc1', name: "X-CAP Standard", desc: "Standard deployment unit for rapid suppression." }
-  //   ]
-  // }
+  {
+    id: 'x-cap',
+    slug: 'x-cap',
+    brochureUrl: '/brochures/X-CAP-A5-Flyer-brochure.pdf',
+    title: 'X-CAP',
+    tagline: 'Advanced Rapid Extinguishing Solutions',
+    categoryId: 'protective',
+    description: 'Specialized fire suppression tools designed for rapid deployment and maximum efficiency in critical scenarios. Ensures that emergency exits and escape routes are quickly secured.',
+    image: '/products/xcap.png',
+    features: [
+      "Rapid deployment mechanism",
+      "High-efficiency suppression",
+      "Compact and reliable"
+    ],
+    variants: [
+      { id: 'xc1', name: "X-CAP Standard", desc: "Standard deployment unit for rapid suppression." }
+    ]
+  }
 ];
