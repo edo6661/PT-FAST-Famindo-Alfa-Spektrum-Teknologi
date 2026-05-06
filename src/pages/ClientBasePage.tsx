@@ -16,7 +16,7 @@ const ClientBasePage = () => {
     : clientLogos.filter(logo => logo.category === activeCategory);
   const featuredClients = [
     {
-      logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.png",
+      logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.avif",
       name: "Pelantikan Presiden 2024",
       category: "Government",
       status: "Deployment Secured",
@@ -25,7 +25,7 @@ const ClientBasePage = () => {
       borderColor: "group-hover:border-blue-500/50"
     },
     {
-      logoImg: "/clients/government/IAF_LOGO.png",
+      logoImg: "/clients/government/IAF_LOGO.avif",
       name: "KTT IAF Bali [2024]",
       category: "Government",
       status: "Mass Fleet Protection",
@@ -34,7 +34,7 @@ const ClientBasePage = () => {
       borderColor: "group-hover:border-accent/50"
     },
     {
-      logoImg: "/clients/government/kementrian-sekertariat-negaraa-ri-removebg-preview.png",
+      logoImg: "/clients/government/kementrian-seketariat-negara.avif",
       name: "Kunjungan Paus Fransiskus [2024]",
       category: "Government",
       status: "Absolute Zero Incident",
@@ -43,7 +43,7 @@ const ClientBasePage = () => {
       borderColor: "group-hover:border-amber-500/50"
     },
     {
-      logoImg: "/clients/transportation/Bluebird_Logogram.png",
+      logoImg: "/clients/transportation/Bluebird_Logogram.avif",
       name: "Bluebird Group [2025]",
       category: "Transportation",
       status: "Official Supplier",

@@ -9,19 +9,19 @@ const ClientBase = () => {
 
   const clients = [
     {
-      logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.png",
+      logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.avif",
       name: t("clientBase.clients.presidential.name"),
       desc: t("clientBase.clients.presidential.desc"),
       gradient: "from-blue-600/20"
     },
     {
-      logoImg: "/clients/government/IAF_LOGO.png",
+      logoImg: "/clients/government/IAF_LOGO.avif",
       name: t("clientBase.clients.iaf.name"),
       desc: t("clientBase.clients.iaf.desc"),
       gradient: "from-accent/20"
     },
     {
-      logoImg: "/clients/transportation/Bluebird_Logogram.png",
+      logoImg: "/clients/transportation/Bluebird_Logogram.avif",
       name: t("clientBase.clients.bluebird.name"),
       desc: t("clientBase.clients.bluebird.desc"),
       gradient: "from-cyan-500/20"
