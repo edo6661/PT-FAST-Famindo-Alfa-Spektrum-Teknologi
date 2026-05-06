@@ -5,6 +5,162 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
+      nav: {
+        Home: "Home",
+        "About Us": "About Us",
+        Catalog: "Catalog",
+        Clients: "Clients",
+        contact: "Contact Us",
+      },
+      clientBasePage: {
+        badge: "Strategic Deployments",
+        title: "Our",
+        titleHighlight: "Client Base",
+        desc: "Trusted by national institutions, international summits, and industry leaders. We engineer peace of mind for those who prioritize absolute safety without compromise.",
+        trustedTitle: "Trusted Across Industries",
+        trustedDesc:
+          "Explore the ecosystem of businesses protected by FAST technology.",
+        allClients: "All Clients",
+        moreLogos: "More logos will be added soon.",
+        ctaTitle: "Ready to Secure Your Assets?",
+        ctaDesc:
+          "Join our growing list of prestigious clients who trust FAST | PT. Famindo Alfa Spektrum Teknologi for their critical fire safety needs.",
+        ctaButton: "Consult With Our Experts",
+        featured: {
+          presidential: {
+            name: "2024 Presidential Inauguration",
+            category: "Government",
+            status: "Deployment Secured",
+            desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
+          },
+          iaf: {
+            name: "KTT IAF Bali [2024]",
+            category: "Government",
+            status: "Mass Fleet Protection",
+            desc: "Protection for all EV units escorting international VVIP guests for the IAF Summit, Bali.",
+          },
+          pope: {
+            name: "Pope Francis Visit [2024]",
+            category: "Government",
+            status: "Absolute Zero Incident",
+            desc: "Protection for the EV unit escorting Pope Francis during his historic visit.",
+          },
+          bluebird: {
+            name: "Bluebird Group [2025]",
+            category: "Transportation",
+            status: "Official Supplier",
+            desc: "FAST was appointed as the official fire safety supplier for Bluebird Group.",
+          },
+        },
+      },
+      blogsPage: {
+        badge: "Our Articles",
+        title: "Latest",
+        titleHighlight: "Insights",
+        desc: "Stay updated with the latest technology developments, case studies, and education on fire safety.",
+        readMore: "Read Full Article",
+        loading: "Loading Articles...",
+        loadMore: "Load More Articles",
+        empty: "No articles published at this time.",
+      },
+      blogDetail: {
+        notFound: "Article Not Found",
+        notFoundDesc:
+          "The article you are looking for was not found or has been removed.",
+        share: "Share",
+        copied: "Link copied to clipboard!",
+      },
+      catalogPage: {
+        badge: "Our Solutions",
+        title: "Complete",
+        titleHighlight: "Catalog",
+        allProducts: "All Products",
+        viewDetails: "View Details",
+      },
+      categoryDetail: {
+        notFound: "Category Not Found",
+        badge: "Category",
+        viewDetails: "View Details",
+        empty: "No products found in this category.",
+      },
+      productDetail: {
+        notFound: "Product Not Found",
+        notFoundDesc:
+          "The safety solution you are looking for might have been moved or doesn't exist.",
+        badgeFallback: "Advanced Solution",
+        overview: "System Overview",
+        store: "Official Store",
+        secure: "Secure This Technology",
+        secureDesc:
+          "Request a full technical catalog or consult directly with our enterprise safety engineers to secure your assets.",
+        download: "Download Brochure",
+        buyTokopedia: "Buy on Tokopedia",
+        contact: "Contact",
+        variantsTitle: "Available Variants",
+        variantsDesc:
+          "Explore our range of purpose-built configurations designed to meet specific industrial and commercial requirements.",
+        locationDetails: "Location Details",
+        weight: "Weight:",
+      },
+      aboutUs: {
+        badge: "About PT. FAST",
+        title: "The",
+        titleHighlight: "FAST FOUR",
+        desc: "Founded by the FAST FOUR. A team of dedicated people with passion for safety.",
+        team: [
+          {
+            role: "CEO",
+            bio: "A visionary and adept entrepreneur, proprietor of Famindo Group, with a wealth of experience spanning over 18 years across diverse industries. Currently serving as Director & Commissioner in Famindo Group, he possesses a robust background in the automotive industry and brings a passion for brand building to the challenging landscape of fire safety. He is committed to contributing to the growth and success of the fire safety industry.",
+          },
+          {
+            role: "President Commissioner",
+            bio: "A dedicated entrepreneur and proprietor of Famindo Group, bringing over nine years of expertise in human resources and marketing within diverse industries, with a recent focus on the fire safety business. Renowned for developing strategic initiatives, he has played a pivotal role in steering the company's rapid growth, aligning it with the unique challenges and opportunities prevalent in the fire safety industry.",
+          },
+          {
+            role: "Chief Technical Officer",
+            bio: "Embarked on a career in the fire engineering sector with PT HARTINDO Chemicatama Industri in 2009. Currently holds directorial positions in various companies, he continuously extends his expertise in fire safety, integrating his extensive experience from the agricultural, plastics, and fire engineering domains.",
+          },
+          {
+            role: "Chief Operating Officer",
+            bio: "With a rich background in various industries and armed with insights from diverse operational expertise, his focus is now dedicated to the fire safety industry. Currently serving as an Operational Director, he foresees significant transformations in fire safety and is committed to revolutionizing the standards of fire safety systems across various sectors.",
+          },
+          {
+            role: "Chief Creative Officer",
+            bio: "Kicked off her creative path in graphic design, cultivating a sharp eye for visual storytelling and brand identity. Having navigated diverse creative roles across multiple industries, she now leads as Creative Director, seamlessly integrating her design roots with strategic digital expertise. She is dedicated to elevating brand narratives and redefining creative standards through innovative, multi-dimensional campaigns.",
+          },
+        ],
+      },
+      adminBlogPage: {
+        title: "Blog Management",
+        logout: "Logout",
+        list: "Blog List",
+        setLandingPos: "Set Landing Page Position",
+        addNew: "+ Add New Blog",
+        loading: "Loading data...",
+        empty: "No blog articles yet.",
+        colPhoto: "Photo",
+        colTitle: "Title",
+        colDisplay: "Display",
+        colDate: "Date",
+        colAction: "Action",
+        edit: "Edit",
+        delete: "Delete",
+        confirmDelete: "Are you sure you want to delete this blog?",
+        errorFetch: "Failed to fetch blog data from the server.",
+        errorDelete: "Failed to delete blog.",
+        landingModalTitle: "Set Blog Landing Page Position",
+        landingModalDesc:
+          "Select up to 3 blogs. Position 1 will be on the far left, Position 2 in the center, and Position 3 on the far right.",
+        pos: "Position",
+        posLeft: "(Far Left)",
+        posCenter: "(Center)",
+        posRight: "(Far Right)",
+        emptySlot: "-- Empty Slot --",
+        cancel: "Cancel",
+        saveOrder: "Save Order",
+        saving: "Saving...",
+        errorSaveLanding: "Failed to save landing page order.",
+      },
       clientBase: {
         title: "Engineered for Excellence,",
         titleHighlight: "Proven in Practice",
@@ -19,7 +175,6 @@ const resources = {
             name: "KTT IAF Bali [2024]",
             desc: "Protection for all EV units escorting international VVIP guests for the IAF Summit, Bali.",
           },
-
           bluebird: {
             name: "Bluebird Group [2025]",
             desc: "FAST was appointed as the official fire safety supplier for the Bluebird Group.",
@@ -147,7 +302,7 @@ const resources = {
           {
             title: "Ministry of Environment & Forestry (KLHK)",
             desc: "Passed as an effective solution for combating forest fires. Safe for humans, animals, and the environment. Prevents fire re-ignition.",
-            logo: "/certi/lfk-af31/KLKH_[Kementerian_Lingkungan_Hidup_dan_Kehutanan]_Logo.png",
+            logo: "/certi/lfk-af31/KLKH_[Kementerian_Lingkungan_Hidup_dan_Kehutanan]Logo.png",
           },
           {
             title: "DAMKAR",
@@ -157,7 +312,7 @@ const resources = {
           {
             title: "Ministry of Transportation",
             desc: "Certified as an effective fire extinguisher for classes A, B, C, and D. Highly reliable for transportation fleets.",
-            logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia_(Kemenhub)_Logo.png",
+            logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia(Kemenhub)Logo.png",
           },
           {
             title: "POLRI",
@@ -211,6 +366,162 @@ const resources = {
   },
   id: {
     translation: {
+      nav: {
+        Home: "Beranda",
+        "About Us": "Tentang Kami",
+        Catalog: "Katalog",
+        Clients: "Klien",
+        contact: "Hubungi Kami",
+      },
+      clientBasePage: {
+        badge: "Strategic Deployments",
+        title: "Klien",
+        titleHighlight: "Kami",
+        desc: "Dipercaya oleh institusi nasional, konferensi internasional, dan pemimpin industri. Kami menciptakan rasa aman bagi mereka yang mengutamakan keselamatan tanpa kompromi.",
+        trustedTitle: "Dipercaya Lintas Industri",
+        trustedDesc:
+          "Jelajahi ekosistem bisnis yang dilindungi oleh teknologi FAST.",
+        allClients: "Semua Klien",
+        moreLogos: "Lebih banyak logo akan segera ditambahkan.",
+        ctaTitle: "Siap Mengamankan Aset Anda?",
+        ctaDesc:
+          "Bergabunglah dengan daftar klien bergengsi kami yang mempercayakan FAST | PT. Famindo Alfa Spektrum Teknologi untuk kebutuhan mitigasi kebakaran kritis mereka.",
+        ctaButton: "Konsultasi Dengan Ahli Kami",
+        featured: {
+          presidential: {
+            name: "Pelantikan Presiden 2024",
+            category: "Government",
+            status: "Deployment Secured",
+            desc: "Proteksi untuk seluruh unit EV yang mengawal tamu VVIP dari luar negeri untuk pelantikan presiden 2024.",
+          },
+          iaf: {
+            name: "KTT IAF Bali [2024]",
+            category: "Government",
+            status: "Mass Fleet Protection",
+            desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali.",
+          },
+          pope: {
+            name: "Kunjungan Paus Fransiskus [2024]",
+            category: "Government",
+            status: "Absolute Zero Incident",
+            desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus [2024].",
+          },
+          bluebird: {
+            name: "Bluebird Group [2025]",
+            category: "Transportation",
+            status: "Official Supplier",
+            desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group.",
+          },
+        },
+      },
+      blogsPage: {
+        badge: "Artikel Kami",
+        title: "Wawasan",
+        titleHighlight: "Terbaru",
+        desc: "Ikuti perkembangan teknologi, studi kasus, dan edukasi terbaru mengenai keselamatan kebakaran.",
+        readMore: "Baca Artikel Lengkap",
+        loading: "Memuat Artikel...",
+        loadMore: "Muat Lebih Banyak",
+        empty: "Belum ada artikel yang dipublikasikan saat ini.",
+      },
+      blogDetail: {
+        notFound: "Artikel Tidak Ditemukan",
+        notFoundDesc:
+          "Artikel yang Anda cari tidak ditemukan atau telah dihapus.",
+        share: "Bagikan",
+        copied: "Tautan berhasil disalin!",
+      },
+      catalogPage: {
+        badge: "Solusi Kami",
+        title: "Katalog",
+        titleHighlight: "Lengkap",
+        allProducts: "Semua Produk",
+        viewDetails: "Lihat Detail",
+      },
+      categoryDetail: {
+        notFound: "Kategori Tidak Ditemukan",
+        badge: "Kategori",
+        viewDetails: "Lihat Detail",
+        empty: "Tidak ada produk yang ditemukan dalam kategori ini.",
+      },
+      productDetail: {
+        notFound: "Produk Tidak Ditemukan",
+        notFoundDesc:
+          "Solusi keselamatan yang Anda cari mungkin telah dipindahkan atau tidak ada.",
+        badgeFallback: "Solusi Tingkat Lanjut",
+        overview: "Tinjauan Sistem",
+        store: "Toko Resmi",
+        secure: "Amankan Teknologi Ini",
+        secureDesc:
+          "Minta katalog teknis lengkap atau berkonsultasi langsung dengan tim insinyur keselamatan kami untuk mengamankan aset Anda.",
+        download: "Unduh Brosur",
+        buyTokopedia: "Beli di Tokopedia",
+        contact: "Hubungi",
+        variantsTitle: "Varian yang Tersedia",
+        variantsDesc:
+          "Jelajahi rangkaian konfigurasi khusus kami yang dirancang untuk memenuhi persyaratan industri dan komersial.",
+        locationDetails: "Detail Lokasi",
+        weight: "Berat:",
+      },
+      aboutUs: {
+        badge: "Tentang PT. FAST",
+        title: "The",
+        titleHighlight: "FAST FOUR",
+        desc: "Didirikan oleh FAST FOUR. Tim berdedikasi dengan komitmen tinggi terhadap keselamatan.",
+        team: [
+          {
+            role: "CEO",
+            bio: "Seorang pengusaha visioner dan pemilik Famindo Group, dengan pengalaman lebih dari 18 tahun di berbagai industri. Saat ini menjabat sebagai Direktur & Komisaris, beliau memiliki latar belakang kuat di industri otomotif dan membawa semangat membangun brand ke dalam lanskap bisnis keselamatan kebakaran yang menantang.",
+          },
+          {
+            role: "Presiden Komisaris",
+            bio: "Seorang pengusaha berdedikasi dan pemilik Famindo Group yang membawa keahlian lebih dari sembilan tahun di bidang sumber daya manusia dan pemasaran lintas industri, dengan fokus terbaru pada bisnis keselamatan kebakaran. Beliau berperan penting dalam mengarahkan pertumbuhan pesat perusahaan.",
+          },
+          {
+            role: "Chief Technical Officer",
+            bio: "Memulai karir di sektor rekayasa kebakaran bersama PT HARTINDO Chemicatama Industri pada tahun 2009. Saat ini memegang posisi manajerial di berbagai perusahaan, beliau terus mengembangkan keahliannya di bidang keselamatan kebakaran dengan mengintegrasikan pengalaman ekstensif dari bidang pertanian dan plastik.",
+          },
+          {
+            role: "Chief Operating Officer",
+            bio: "Dengan latar belakang beragam di berbagai industri dan wawasan dari keahlian operasional, fokusnya kini didedikasikan untuk industri keselamatan kebakaran. Saat ini menjabat sebagai Direktur Operasional, beliau berkomitmen untuk merevolusi standar sistem keamanan di berbagai sektor.",
+          },
+          {
+            role: "Chief Creative Officer",
+            bio: "Memulai karir kreatif di desain grafis, menumbuhkan insting tajam untuk penyampaian cerita visual dan identitas merek. Setelah menavigasi berbagai peran kreatif, ia kini memimpin sebagai Direktur Kreatif, memadukan akar desainnya dengan keahlian strategis digital untuk meningkatkan standar kampanye multidimensi yang inovatif.",
+          },
+        ],
+      },
+      adminBlogPage: {
+        title: "Manajemen Blog",
+        logout: "Keluar",
+        list: "Daftar Blog",
+        setLandingPos: "Atur Posisi Landing Page",
+        addNew: "+ Tambah Blog Baru",
+        loading: "Memuat data...",
+        empty: "Belum ada artikel blog.",
+        colPhoto: "Foto",
+        colTitle: "Judul",
+        colDisplay: "Tampil",
+        colDate: "Tanggal",
+        colAction: "Aksi",
+        edit: "Edit",
+        delete: "Hapus",
+        confirmDelete: "Apakah Anda yakin ingin menghapus blog ini?",
+        errorFetch: "Gagal mengambil data blog dari server.",
+        errorDelete: "Gagal menghapus blog.",
+        landingModalTitle: "Atur Posisi Blog Landing Page",
+        landingModalDesc:
+          "Pilih maksimal 3 blog. Posisi 1 akan berada di paling kiri, Posisi 2 di tengah, dan Posisi 3 di paling kanan.",
+        pos: "Posisi",
+        posLeft: "(Paling Kiri)",
+        posCenter: "(Tengah)",
+        posRight: "(Paling Kanan)",
+        emptySlot: "-- Kosongkan Slot --",
+        cancel: "Batal",
+        saveOrder: "Simpan Urutan",
+        saving: "Menyimpan...",
+        errorSaveLanding: "Gagal menyimpan urutan landing page.",
+      },
       clientBase: {
         title: "Keunggulan Teruji,",
         titleHighlight: "Terbukti di Lapangan",
@@ -225,7 +536,6 @@ const resources = {
             name: "KTT IAF Bali [2024]",
             desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali.",
           },
-
           bluebird: {
             name: "Bluebird Group [2025]",
             desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group.",
@@ -355,7 +665,7 @@ const resources = {
           {
             title: "Kementerian Lingkungan Hidup & Kehutanan",
             desc: "Solusi efektif penanggulangan kebakaran hutan (Karhutla). Aman bagi manusia, hewan, dan lingkungan, serta mencegah re-ignisi.",
-            logo: "/certi/lfk-af31/KLKH_[Kementerian_Lingkungan_Hidup_dan_Kehutanan]_Logo.png",
+            logo: "/certi/lfk-af31/KLKH[Kementerian_Lingkungan_Hidup_dan_Kehutanan]Logo.png",
           },
           {
             title: "DAMKAR",
@@ -365,7 +675,7 @@ const resources = {
           {
             title: "Kementerian Perhubungan",
             desc: "Sertifikasi pemadam efektif untuk Kelas A, B, C, dan D. Sangat andal untuk proteksi armada transportasi dan logistik.",
-            logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia_(Kemenhub)_Logo.png",
+            logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia(Kemenhub)_Logo.png",
           },
           {
             title: "POLRI",
@@ -404,7 +714,6 @@ const resources = {
             desc: "Status non-iritasi sesuai pedoman OECD. Tidak menyebabkan iritasi mata, kulit, maupun toksisitas oral.",
             logo: "/certi/lfk-af31/KGK_Science_Logo.png",
           },
-
           {
             title: "UL Solutions - GREENGUARD Gold",
             desc: "Emisi VOC sangat rendah, menjamin keamanan untuk digunakan di lingkungan sensitif seperti sekolah & fasilitas kesehatan.",
@@ -422,5 +731,3 @@ i18n.use(initReactI18next).init({
   fallbackLng: "en",
   interpolation: { escapeValue: false },
 });
-
-export default i18n;

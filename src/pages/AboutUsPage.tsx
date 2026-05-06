@@ -10,7 +10,7 @@ import willyImg from '../assets/about-us/willy-hadiwijaya.avif';
 import seanImg from '../assets/about-us/sean-justin.avif';
 import frankyImg from '../assets/about-us/franky-affandi.avif';
 import rolandoImg from '../assets/about-us/rolando-fam.avif';
-import fioImg from '../assets/about-us/fio.png';
+import fioImg from '../assets/about-us/fio.avif';
 
 const teamMembers = [
   {

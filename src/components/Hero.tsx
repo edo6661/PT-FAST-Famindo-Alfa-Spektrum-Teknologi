@@ -20,7 +20,7 @@ export default function Hero() {
       return new Promise<void>((resolve) => {
         const img = new Image();
         const paddedNum = index.toString().padStart(3, '0');
-        img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.jpg`, import.meta.url).href;
+        img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.avif`, import.meta.url).href;
 
         img.onload = () => {
 
