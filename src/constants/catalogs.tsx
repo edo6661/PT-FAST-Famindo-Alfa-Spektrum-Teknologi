@@ -67,7 +67,7 @@ export const products: Product[] = [
     tagline: 'Battery Life Diagnostic System',
     categoryId: 'predictive',
     description: 'BALLISTIC is an IoT (Internet of Things) and Machine Learning application designed to detect lithium battery temperature anomalies in real-time. Trusted by PLN as a Battery Monitoring Center (BMC) for large portable UPS/Power Banks across data centers.',
-    image: '/products/ballistic-for-ups.png',
+    image: '/products/ballistic-for-ups.avif',
     features: [
       "Real-time battery temperature monitoring",
       "Smart early warning notifications",
@@ -87,7 +87,7 @@ export const products: Product[] = [
     tagline: 'The Heavy-Duty Armor Built to Withstand the Extreme',
     categoryId: 'preventive',
     description: 'A specialized safety blanket designed to isolate and prevent fire spread by cutting off the oxygen supply. The ultimate heavy-duty armor for electric vehicles, garages, and parking areas.',
-    image: '/products/fire-blanket.png',
+    image: '/products/fire-blanket.avif',
     features: [
       "Heat resistant up to 1600°C",
       "Withstands 1100°C for up to 50 hours",
@@ -108,7 +108,7 @@ export const products: Product[] = [
     tagline: 'Indoor Anti-Fire Coating with Thermafrost Technology',
     categoryId: 'preventive',
     description: 'A high-performance indoor anti-fire coating designed to protect your valuable assets. It works by reflecting heat and forming a dense char barrier to isolate the building structure, giving you critical extra time during emergencies.',
-    image: '/products/altex.png',
+    image: '/products/altex.avif',
     features: [
       "Withstands extreme heat up to 1300°C",
       "Provides 3 hours of fire resistance duration",
@@ -128,7 +128,7 @@ export const products: Product[] = [
     tagline: 'Passive Gel Technology Fire Suppression',
     categoryId: 'preventive',
     description: 'Passive fire damper based on advanced Gel technology to secure Lithium batteries. It works by absorbing heat, forming a cooling coating, and preventing re-ignition. DEFEND products are lifestyle containers integrated with G-Tech, perfect for placing directly over lithium battery compartments.',
-    image: '/products/g-tech.png',
+    image: '/products/g-tech.avif',
     features: [
       "Advanced heat absorption capabilities",
       "Forms a proactive cooling coating",
@@ -149,7 +149,7 @@ export const products: Product[] = [
     tagline: 'The First Lithium Fire Extinguisher In The World',
     categoryId: 'protective',
     description: 'A multi-function, eco-friendly extinguisher that handles it all. From common paper fires to high-stakes lithium battery blazes. Protect your home, your fleet, and your life with our specialized fire safety solutions.',
-    image: '/products/lfk.png',
+    image: '/products/lfk.avif',
     features: [
       "SNI Certified (Standar Nasional Indonesia)",
       "Fire Classes: A, B, D, F/K, & L (Lithium)",
@@ -270,7 +270,7 @@ export const products: Product[] = [
     tagline: 'Specialized Extinguisher Extension for EV Bottom Fires',
     categoryId: 'protective',
     description: 'A portable fire extinguisher extension device specifically designed to tackle fires in electric vehicles where the battery is located underneath the chassis. Developed in collaboration with Pindad Indonesia for maximum deployment safety.',
-    image: '/products/uss.png',
+    image: '/products/uss.avif',
     features: [
       "High-pressure Jet Spray & Fine Mist modes",
       "Spear extension for safe undercarriage insertion",
@@ -289,7 +289,7 @@ export const products: Product[] = [
     tagline: 'Advanced Rapid Extinguishing Solutions',
     categoryId: 'protective',
     description: 'Specialized fire suppression tools designed for rapid deployment and maximum efficiency in critical scenarios. Ensures that emergency exits and escape routes are quickly secured.',
-    image: '/products/xcap.png',
+    image: '/products/xcap.avif',
     features: [
       "Rapid deployment mechanism",
       "High-efficiency suppression",

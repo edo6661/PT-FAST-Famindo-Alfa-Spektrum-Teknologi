@@ -13,7 +13,7 @@ const mainBrands = [
     logo: "AF31",
     icon: <img loading='lazy' src="/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" alt="LFK Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-2 md:row-span-2",
-    bgImage: "/products/lfk.png"
+    bgImage: "/products/lfk.avif"
   },
   {
     name: "BALLISTIC App",
@@ -22,7 +22,7 @@ const mainBrands = [
     logo: "APP",
     icon: <img loading='lazy' src="/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png" alt="Ballistic Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "/products/ballistic-for-ups.png"
+    bgImage: "/products/ballistic-for-ups.avif"
   },
   {
     name: "ALTEX ALPHA TECH SHIELD",
@@ -31,7 +31,7 @@ const mainBrands = [
     logo: "ALTEX",
     icon: <img loading='lazy' src="/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png" alt="Altex Icon" className="w-8 h-8 object-contain" />,
     gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "/products/altex.png"
+    bgImage: "/products/altex.avif"
   },
 ];
 
