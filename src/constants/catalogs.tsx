@@ -186,10 +186,10 @@ export const products: Product[] = [
         name: "LFK AF31 Portable - 1 KG",
         desc: "Lightweight suppression cylinder ideal for personal electric vehicles and compact areas.",
         images: {
-          front: "/products/LFK/LFK_1_KG_[Font].png",
-          back: "/products/LFK/LFK_1_KG_[Back].png",
-          left: "/products/LFK/LFK_1_KG_[Left].png",
-          right: "/products/LFK/LFK_1_KG_[Right].png"
+          front: "/products/LFK/LFK_1_KG_[Font].avif",
+          back: "/products/LFK/LFK_1_KG_[Back].avif",
+          left: "/products/LFK/LFK_1_KG_[Left].avif",
+          right: "/products/LFK/LFK_1_KG_[Right].avif"
         }
       },
       {
@@ -198,10 +198,10 @@ export const products: Product[] = [
         name: "LFK AF31 Portable - 3 KG",
         desc: "Versatile cylinder for standard EV garages, server rooms, and commercial spaces.",
         images: {
-          front: "/products/LFK/LFK_3_KG_[Font].png",
-          back: "/products/LFK/LFK_3_KG_[Back].png",
-          left: "/products/LFK/LFK_3_KG_[Left].png",
-          right: "/products/LFK/LFK_3_KG_[Right].png"
+          front: "/products/LFK/LFK_3_KG_[Font].avif",
+          back: "/products/LFK/LFK_3_KG_[Back].avif",
+          left: "/products/LFK/LFK_3_KG_[Left].avif",
+          right: "/products/LFK/LFK_3_KG_[Right].avif"
         }
       },
       {
@@ -210,10 +210,10 @@ export const products: Product[] = [
         name: "LFK AF31 Portable - 6 KG",
         desc: "High-capacity portable unit for industrial facilities and larger scale protection.",
         images: {
-          front: "/products/LFK/LFK_6_KG_[Font].png",
-          back: "/products/LFK/LFK_6_KG_[Back].png",
-          left: "/products/LFK/LFK_6_KG_[Left].png",
-          right: "/products/LFK/LFK_6_KG_[Right].png"
+          front: "/products/LFK/LFK_6_KG_[Font].avif",
+          back: "/products/LFK/LFK_6_KG_[Back].avif",
+          left: "/products/LFK/LFK_6_KG_[Left].avif",
+          right: "/products/LFK/LFK_6_KG_[Right].avif"
         }
       },
       {
@@ -222,10 +222,10 @@ export const products: Product[] = [
         name: "LFK AF31 Trolley - 25 KG",
         desc: "Heavy-duty mobility solution for mining sites, large warehouses, and EV charging stations.",
         images: {
-          front: "/products/LFK/LFK_25_KG_[Font].png",
-          back: "/products/LFK/LFK_25_KG_[Back].png",
-          left: "/products/LFK/LFK_25_KG_[Left].png",
-          right: "/products/LFK/LFK_25_KG_[Right].png"
+          front: "/products/LFK/LFK_25_KG_[Font].avif",
+          back: "/products/LFK/LFK_25_KG_[Back].avif",
+          left: "/products/LFK/LFK_25_KG_[Left].avif",
+          right: "/products/LFK/LFK_25_KG_[Right].avif"
         }
       },
       {
@@ -234,10 +234,10 @@ export const products: Product[] = [
         name: "LFK AF31 Trolley - 50 KG",
         desc: "Maximum capacity suppression system for extreme industrial environments and massive battery banks.",
         images: {
-          front: "/products/LFK/LFK_50_KG_[Font].png",
-          back: "/products/LFK/LFK_50_KG_[Back].png",
-          left: "/products/LFK/LFK_50_KG_[Left].png",
-          right: "/products/LFK/LFK_50_KG_[Right].png"
+          front: "/products/LFK/LFK_50_KG_[Font].avif",
+          back: "/products/LFK/LFK_50_KG_[Back].avif",
+          left: "/products/LFK/LFK_50_KG_[Left].avif",
+          right: "/products/LFK/LFK_50_KG_[Right].avif"
         }
       }
     ]
