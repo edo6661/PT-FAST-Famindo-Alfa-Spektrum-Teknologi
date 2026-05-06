@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import type { Blog } from "../types/blog";
 import { uploadBlogImage } from "../services/blogService";
 import { X, Upload, Loader2 } from "lucide-react";
+import RichTextEditor from "./RichTextEditor";
 
 interface BlogModalProps {
   isOpen: boolean;
@@ -95,22 +96,16 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground-muted mb-2">Deskripsi (ID)</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.deskripsi}
-                  onChange={(e) => setFormData({ ...formData, deskripsi: e.target.value })}
-                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none resize-none"
+                <RichTextEditor
+                  content={formData.deskripsi}
+                  onChange={(val) => setFormData({ ...formData, deskripsi: val })}
                 />
               </div>
-              <div>
+              <div className="mt-6"> {/* Tambahkan margin top agar tidak berdempetan */}
                 <label className="block text-sm font-medium text-foreground-muted mb-2">Description (EN)</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={formData.deskripsi_en}
-                  onChange={(e) => setFormData({ ...formData, deskripsi_en: e.target.value })}
-                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none resize-none"
+                <RichTextEditor
+                  content={formData.deskripsi_en}
+                  onChange={(val) => setFormData({ ...formData, deskripsi_en: val })}
                 />
               </div>
             </div>

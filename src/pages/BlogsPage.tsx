@@ -85,7 +85,10 @@ const BlogsPage = () => {
               {blogs.map((blog) => {
                 // Menentukan title dan deskripsi sesuai dengan bahasa
                 const title = i18n.language === 'en' ? (blog.nama_en || blog.nama) : blog.nama;
-                const description = i18n.language === 'en' ? (blog.deskripsi_en || blog.deskripsi) : blog.deskripsi;
+                const rawDescription = i18n.language === 'en' ? (blog.deskripsi_en || blog.deskripsi) : blog.deskripsi;
+
+                // Hapus tag HTML & ubah &nbsp; menjadi spasi untuk keperluan preview card
+                const plainDescription = rawDescription.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
 
                 return (
                   <Link
@@ -112,7 +115,7 @@ const BlogsPage = () => {
                         {title}
                       </h3>
                       <p className="text-sm text-foreground-muted line-clamp-3 mb-8 flex-grow leading-relaxed">
-                        {description}
+                        {plainDescription}
                       </p>
                       <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
                         {t('blogsPage.readMore')} <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />

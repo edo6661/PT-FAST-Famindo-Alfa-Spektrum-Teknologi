@@ -98,7 +98,10 @@ const ContactFooter = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {blogs.map((blog) => {
                 const title = i18n.language === 'en' ? (blog.nama_en || blog.nama) : blog.nama;
-                const description = i18n.language === 'en' ? (blog.deskripsi_en || blog.deskripsi) : blog.deskripsi;
+                const rawDescription = i18n.language === 'en' ? (blog.deskripsi_en || blog.deskripsi) : blog.deskripsi;
+
+                // Hapus tag HTML & ubah &nbsp; menjadi spasi untuk keperluan preview
+                const plainDescription = rawDescription.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ');
 
                 return (
                   <Link to={`/blogs/${blog.id}`} key={blog.id} className="group flex flex-col rounded-card overflow-hidden bg-background border border-border hover:border-accent/40 transition-all duration-300">
@@ -116,7 +119,7 @@ const ContactFooter = () => {
                         {title}
                       </h4>
                       <p className="text-sm text-foreground-muted line-clamp-3 mb-6 flex-grow leading-relaxed">
-                        {description}
+                        {plainDescription}
                       </p>
                       <div className="pt-4 border-t border-border flex justify-between items-center">
                         <span className="text-xs font-medium text-foreground-muted uppercase tracking-wider">
