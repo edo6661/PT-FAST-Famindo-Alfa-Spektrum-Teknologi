@@ -160,22 +160,22 @@ export const products: Product[] = [
     partners: [
       {
         name: "Azko",
-        logo: "/partners/azko.png",
+        logo: "/partners/azko.avif",
         locations: ["Gandaria City", "Kota Kasablanka", "Mall Artha Gading", "Living World Alam Sutera", "Q-Big BSD"]
       },
       {
         name: "Motovillage",
-        logo: "/partners/motovillage.png",
+        logo: "/partners/motovillage.avif",
         locations: ["Moto Village Kemang"]
       },
       {
         name: "Blackstone",
-        logo: "/partners/blackstone.png",
+        logo: "/partners/blackstone.avif",
         locations: ["Blackstone Garage Kebayoran"]
       },
       {
         name: "Jaecoo Andalan",
-        logo: "/partners/jaecoo.png",
+        logo: "/partners/jaecoo.avif",
         locations: ["Jaecoo Andalan Mampang"]
       },
     ],
