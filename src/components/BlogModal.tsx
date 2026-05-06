@@ -15,7 +15,9 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     nama: "",
+    nama_en: "",
     deskripsi: "",
+    deskripsi_en: "",
     foto: "",
     ditampilkan_di_landing_page: false
   });
@@ -25,13 +27,15 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
   useEffect(() => {
     if (initialData) {
       setFormData({
-        nama: initialData.nama,
-        deskripsi: initialData.deskripsi,
-        foto: initialData.foto,
-        ditampilkan_di_landing_page: initialData.ditampilkan_di_landing_page
+        nama: initialData.nama || "",
+        nama_en: initialData.nama_en || "",
+        deskripsi: initialData.deskripsi || "",
+        deskripsi_en: initialData.deskripsi_en || "",
+        foto: initialData.foto || "",
+        ditampilkan_di_landing_page: initialData.ditampilkan_di_landing_page || false
       });
     } else {
-      setFormData({ nama: "", deskripsi: "", foto: "", ditampilkan_di_landing_page: false });
+      setFormData({ nama: "", nama_en: "", deskripsi: "", deskripsi_en: "", foto: "", ditampilkan_di_landing_page: false });
       setImageFile(null);
     }
   }, [initialData, isOpen]);
@@ -57,8 +61,8 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-      <div className="bg-surface w-full max-w-2xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm overflow-y-auto">
+      <div className="bg-surface w-full max-w-4xl rounded-3xl border border-white/10 shadow-2xl overflow-hidden my-auto">
         <div className="flex justify-between items-center p-6 border-b border-white/10">
           <h3 className="text-xl font-bold text-white">{initialData ? t('adminBlog.editTitle') : t('adminBlog.addTitle')}</h3>
           <button onClick={onClose} className="text-foreground-muted hover:text-white transition-colors">
@@ -70,7 +74,7 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.titleLabel')}</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">Judul (ID)</label>
                 <input
                   type="text"
                   required
@@ -80,7 +84,17 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.descLabel')}</label>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">Title (EN)</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.nama_en}
+                  onChange={(e) => setFormData({ ...formData, nama_en: e.target.value })}
+                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">Deskripsi (ID)</label>
                 <textarea
                   required
                   rows={4}
@@ -89,19 +103,29 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                   className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none resize-none"
                 />
               </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground-muted mb-2">Description (EN)</label>
+                <textarea
+                  required
+                  rows={4}
+                  value={formData.deskripsi_en}
+                  onChange={(e) => setFormData({ ...formData, deskripsi_en: e.target.value })}
+                  className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none resize-none"
+                />
+              </div>
             </div>
 
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-foreground-muted mb-2">{t('adminBlog.photoLabel')}</label>
-                <div className="relative group cursor-pointer">
+                <div className="relative group cursor-pointer h-full">
                   <input
                     type="file"
                     accept="image/*"
                     onChange={(e) => setImageFile(e.target.files ? e.target.files[0] : null)}
                     className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                   />
-                  <div className="h-40 rounded-xl border-2 border-dashed border-white/10 flex flex-col items-center justify-center bg-background/50 group-hover:border-accent transition-colors overflow-hidden">
+                  <div className="h-[200px] md:h-[350px] rounded-xl border-2 border-dashed border-white/10 flex flex-col items-center justify-center bg-background/50 group-hover:border-accent transition-colors overflow-hidden">
                     {imageFile ? (
                       <img src={URL.createObjectURL(imageFile)} className="w-full h-full object-cover" />
                     ) : formData.foto ? (
@@ -115,17 +139,6 @@ const BlogModal = ({ isOpen, onClose, onSubmit, initialData }: BlogModalProps) =
                   </div>
                 </div>
               </div>
-
-              {/* <div className="flex items-center gap-3 p-4 rounded-xl bg-background/50 border border-white/5">
-                <input
-                  type="checkbox"
-                  id="landing"
-                  checked={formData.ditampilkan_di_landing_page}
-                  onChange={(e) => setFormData({ ...formData, ditampilkan_di_landing_page: e.target.checked })}
-                  className="w-5 h-5 rounded border-white/10 bg-background text-accent focus:ring-accent"
-                />
-                <label htmlFor="landing" className="text-sm text-white cursor-pointer">{t('adminBlog.showLanding')}</label>
-              </div> */}
             </div>
           </div>
 

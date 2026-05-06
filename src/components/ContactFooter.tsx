@@ -96,32 +96,37 @@ const ContactFooter = () => {
             </div>
           ) : blogs.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {blogs.map((blog) => (
-                <Link to={`/blogs/${blog.id}`} key={blog.id} className="group flex flex-col rounded-card overflow-hidden bg-background border border-border hover:border-accent/40 transition-all duration-300">
-                  <div className="h-48 overflow-hidden relative">
-                    <img
-                      src={blog.foto}
-                      alt={blog.nama}
-                      loading="lazy"
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
-                  </div>
-                  <div className="p-6 flex flex-col flex-grow relative z-10 -mt-10">
-                    <h4 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300 drop-shadow-md">
-                      {blog.nama}
-                    </h4>
-                    <p className="text-sm text-foreground-muted line-clamp-3 mb-6 flex-grow leading-relaxed">
-                      {blog.deskripsi}
-                    </p>
-                    <div className="pt-4 border-t border-border flex justify-between items-center">
-                      <span className="text-xs font-medium text-foreground-muted uppercase tracking-wider">
-                        {new Date(blog.createdAt).toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                      </span>
+              {blogs.map((blog) => {
+                const title = i18n.language === 'en' ? (blog.nama_en || blog.nama) : blog.nama;
+                const description = i18n.language === 'en' ? (blog.deskripsi_en || blog.deskripsi) : blog.deskripsi;
+
+                return (
+                  <Link to={`/blogs/${blog.id}`} key={blog.id} className="group flex flex-col rounded-card overflow-hidden bg-background border border-border hover:border-accent/40 transition-all duration-300">
+                    <div className="h-48 overflow-hidden relative">
+                      <img
+                        src={blog.foto}
+                        alt={title}
+                        loading="lazy"
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                    <div className="p-6 flex flex-col flex-grow relative z-10 -mt-10">
+                      <h4 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300 drop-shadow-md">
+                        {title}
+                      </h4>
+                      <p className="text-sm text-foreground-muted line-clamp-3 mb-6 flex-grow leading-relaxed">
+                        {description}
+                      </p>
+                      <div className="pt-4 border-t border-border flex justify-between items-center">
+                        <span className="text-xs font-medium text-foreground-muted uppercase tracking-wider">
+                          {new Date(blog.createdAt).toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-12 border border-border rounded-card bg-background/50">

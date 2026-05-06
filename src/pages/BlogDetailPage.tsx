@@ -29,19 +29,6 @@ const BlogDetailPage = () => {
     fetchBlog();
   }, [id]);
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: blog?.nama,
-        text: blog?.deskripsi,
-        url: window.location.href,
-      }).catch(console.error);
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      alert(t('blogDetail.copied'));
-    }
-  };
-
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -59,18 +46,35 @@ const BlogDetailPage = () => {
     );
   }
 
+  // Tentukan teks berdasarkan bahasa aktif
+  const title = i18n.language === 'en' ? (blog.nama_en || blog.nama) : blog.nama;
+  const description = i18n.language === 'en' ? (blog.deskripsi_en || blog.deskripsi) : blog.deskripsi;
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: title,
+        text: description,
+        url: window.location.href,
+      }).catch(console.error);
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert(t('blogDetail.copied'));
+    }
+  };
+
   return (
     <div className="py-24 bg-background min-h-screen">
       <SEO
-        title={`${blog.nama} - FAST Insights`}
-        description={blog.deskripsi.substring(0, 150)}
+        title={`${title} - FAST Insights`}
+        description={description.substring(0, 150)}
         url={`/blogs/${blog.id}`}
         image={blog.foto}
         type="article"
       />
 
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
-        <img src={blog.foto} alt={blog.nama} className="absolute inset-0 w-full h-full object-cover opacity-80 scale-105" />
+        <img src={blog.foto} alt={title} className="absolute inset-0 w-full h-full object-cover opacity-80 scale-105" />
         <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent z-10" />
 
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
@@ -87,7 +91,7 @@ const BlogDetailPage = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight max-w-4xl leading-tight drop-shadow-lg">
-            {blog.nama}
+            {title}
           </h1>
         </div>
       </section>
@@ -95,7 +99,7 @@ const BlogDetailPage = () => {
       <section className="py-16 relative">
         <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-4xl">
           <div className="prose prose-invert prose-lg max-w-none prose-p:leading-relaxed prose-p:text-foreground-muted/90 prose-headings:text-white prose-a:text-accent hover:prose-a:text-accent/80">
-            {blog.deskripsi.split('\n').map((paragraph, index) => (
+            {description.split('\n').map((paragraph, index) => (
               <p key={index} className="mb-6">{paragraph}</p>
             ))}
           </div>

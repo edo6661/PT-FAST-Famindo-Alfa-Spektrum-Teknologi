@@ -1,4 +1,5 @@
-perubahan inggris indo nya simpan saja di localstorage, tapi default nya selalu inggris, termasuk jika di local storage gaada key nya, tetep inggris, orang baru masuk web, tetep inggris, tapi jika dia hanya refresh, contoh: saat ini saya buka web dengan bahasa indo, saya refresh, itu tetep indo, kecuali dia ganti di nav.
+saya ingin blog nya juga ada inggris indo nya, gapapa saat buat / edit blog itu harus isi isi input nama dan deskripsi inggris dan indo
+di halaman admin biar saja ignore tidak usah di internalization. 
 <file path="src/components/ProtectedRoute.tsx">
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -922,43 +923,6 @@ export const navLinks = [
 ];
 </file>
 
-<file path="src/pages/Home.tsx">
-import { Suspense, lazy } from 'react';
-import { useTranslation } from 'react-i18next';
-import SEO from '../components/SEO';
-import Hero from '../components/Hero';
-
-const About = lazy(() => import('../components/About'));
-const Brands = lazy(() => import('../components/Brands'));
-const Catalog = lazy(() => import('../components/Catalog'));
-const Certifications = lazy(() => import('../components/Certifications'));
-const ClientBase = lazy(() => import('../components/ClientBase'));
-
-const Home = () => {
-  const { t } = useTranslation();
-
-  return (
-    <>
-      <SEO
-        title={t('seo.defaultTitle', { defaultValue: "FAST | PT. Famindo Alfa Spektrum Teknologi" })}
-        description={t('seo.defaultDesc', { defaultValue: "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities." })}
-        url="/"
-      />
-      <Hero />
-      <Suspense fallback={<div className="h-32"></div>}>
-        <About />
-        <Brands />
-        <Catalog />
-        <Certifications />
-        <ClientBase />
-      </Suspense>
-    </>
-  );
-};
-
-export default Home;
-</file>
-
 <file path="vite.config.ts">
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
@@ -1287,6 +1251,43 @@ const AdminBlog = () => {
 };
 
 export default AdminBlog;
+</file>
+
+<file path="src/pages/Home.tsx">
+import { Suspense, lazy } from 'react';
+import { useTranslation } from 'react-i18next';
+import SEO from '../components/SEO';
+import Hero from '../components/Hero';
+
+const About = lazy(() => import('../components/About'));
+const Brands = lazy(() => import('../components/Brands'));
+const Catalog = lazy(() => import('../components/Catalog'));
+const Certifications = lazy(() => import('../components/Certifications'));
+const ClientBase = lazy(() => import('../components/ClientBase'));
+
+const Home = () => {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <SEO
+        title={t('seo.defaultTitle', { defaultValue: "FAST | PT. Famindo Alfa Spektrum Teknologi" })}
+        description={t('seo.defaultDesc', { defaultValue: "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities." })}
+        url="/"
+      />
+      <Hero />
+      <Suspense fallback={<div className="h-32"></div>}>
+        <About />
+        <Brands />
+        <Catalog />
+        <Certifications />
+        <ClientBase />
+      </Suspense>
+    </>
+  );
+};
+
+export default Home;
 </file>
 
 <file path="package.json">
@@ -1754,97 +1755,6 @@ const BlogsPage = () => {
 export default BlogsPage;
 </file>
 
-<file path="src/pages/CategoryDetailPage.tsx">
-import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { ArrowRight, Layers } from 'lucide-react';
-import { products, categories } from '../constants/catalogs';
-import SEO from '../components/SEO';
-import { useTranslation } from 'react-i18next';
-
-const CategoryDetailPage = () => {
-  const { slug } = useParams();
-  const { t } = useTranslation();
-  const category = categories.find(c => c.slug === slug);
-  const categoryProducts = products.filter(p => p.categoryId === category?.id);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
-
-  if (!category) {
-    return (
-      <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">{t('categoryDetail.notFound')}</h1>
-      </div>
-    );
-  }
-
-  const Icon = category.icon || Layers;
-
-  return (
-    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
-      <SEO
-        title={`${t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })} Category - FAST`}
-        description={t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
-        url={`/category/${slug}`}
-      />
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-surface border border-white/10 flex items-center justify-center text-accent">
-              <Icon size={32} />
-            </div>
-            <div>
-              <span className="text-accent font-bold tracking-widest uppercase text-xs">{t('categoryDetail.badge')}</span>
-              <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">{t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })}</h1>
-            </div>
-          </div>
-          <p className="text-xl text-foreground-muted max-w-3xl font-light leading-relaxed">
-            {t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categoryProducts.map((product) => (
-            <Link
-              to={`/catalog/${product.slug}`}
-              key={product.id}
-              className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col"
-            >
-              <div className="h-56 overflow-hidden relative">
-                <img src={product.image} alt={product.title} className="w-full h-full object-cover  bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
-                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
-              </div>
-              <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
-                  {t(`products.${product.id}.title`, { defaultValue: product.title })}
-                </h3>
-                <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">
-                  {t(`products.${product.id}.description`, { defaultValue: product.description })}
-                </p>
-                <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
-                  {t('categoryDetail.viewDetails')} <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
-                </div>
-              </div>
-            </Link>
-          ))}
-
-          {categoryProducts.length === 0 && (
-            <div className="col-span-full text-center py-12 border border-white/10 rounded-3xl bg-surface/30">
-              <p className="text-foreground-muted">{t('categoryDetail.empty')}</p>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default CategoryDetailPage;
-</file>
-
 <file path="src/services/blogService.ts">
 import {
   collection,
@@ -1982,6 +1892,97 @@ export const getPaginatedBlogs = async (
 
   return { blogs, lastVisible };
 };
+</file>
+
+<file path="src/pages/CategoryDetailPage.tsx">
+import { useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { ArrowRight, Layers } from 'lucide-react';
+import { products, categories } from '../constants/catalogs';
+import SEO from '../components/SEO';
+import { useTranslation } from 'react-i18next';
+
+const CategoryDetailPage = () => {
+  const { slug } = useParams();
+  const { t } = useTranslation();
+  const category = categories.find(c => c.slug === slug);
+  const categoryProducts = products.filter(p => p.categoryId === category?.id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  if (!category) {
+    return (
+      <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center text-center">
+        <h1 className="text-3xl font-bold text-white mb-4">{t('categoryDetail.notFound')}</h1>
+      </div>
+    );
+  }
+
+  const Icon = category.icon || Layers;
+
+  return (
+    <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+      <SEO
+        title={`${t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })} Category - FAST`}
+        description={t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
+        url={`/category/${slug}`}
+      />
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
+        <div className="mb-16">
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-16 h-16 rounded-2xl bg-surface border border-white/10 flex items-center justify-center text-accent">
+              <Icon size={32} />
+            </div>
+            <div>
+              <span className="text-accent font-bold tracking-widest uppercase text-xs">{t('categoryDetail.badge')}</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">{t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })}</h1>
+            </div>
+          </div>
+          <p className="text-xl text-foreground-muted max-w-3xl font-light leading-relaxed">
+            {t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categoryProducts.map((product) => (
+            <Link
+              to={`/catalog/${product.slug}`}
+              key={product.id}
+              className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col"
+            >
+              <div className="h-56 overflow-hidden relative">
+                <img src={product.image} alt={product.title} className="w-full h-full object-cover  bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
+              </div>
+              <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                  {t(`products.${product.id}.title`, { defaultValue: product.title })}
+                </h3>
+                <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">
+                  {t(`products.${product.id}.description`, { defaultValue: product.description })}
+                </p>
+                <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                  {t('categoryDetail.viewDetails')} <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>
+            </Link>
+          ))}
+
+          {categoryProducts.length === 0 && (
+            <div className="col-span-full text-center py-12 border border-white/10 rounded-3xl bg-surface/30">
+              <p className="text-foreground-muted">{t('categoryDetail.empty')}</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CategoryDetailPage;
 </file>
 
 <file path="src/components/About.tsx">
@@ -2215,116 +2216,6 @@ const App = () => {
 export default App;
 </file>
 
-<file path="src/components/Navbar.tsx">
-// src/components/Navbar.tsx
-import { useState, useEffect } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
-import { navLinks } from '../constants/navs';
-import logo from '../assets/FAST_Logo_PNG/logo.png';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t, i18n } = useTranslation(); // Tambahkan destructuring 't' disini
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToContact = () => {
-    document.getElementById('kontak')?.scrollIntoView({ behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
-  };
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'id' ? 'en' : 'id';
-    i18n.changeLanguage(newLang);
-  };
-
-  return (
-    <nav
-      className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${isScrolled || isMobileMenuOpen
-        ? 'bg-surface/80 backdrop-blur-xl border-b border-white/10 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
-        : 'bg-gradient-to-b from-background/80 to-transparent py-6'
-        }`}
-    >
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center gap-8">
-
-        <Link to="/#beranda" className="flex items-center gap-3 relative z-10 group">
-          <img src={logo} alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 will-change-transform" />
-        </Link>
-
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link key={link.name} to={link.href} className="relative text-sm font-medium text-foreground/80 hover:text-white transition-colors duration-300 group py-2">
-              {t(`nav.${link.name}`, { defaultValue: link.name })}
-              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
-            </Link>
-          ))}
-
-          <div className="flex items-center border-l border-white/20 pl-6 ml-2">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-foreground/80 hover:text-white transition-colors uppercase text-sm font-semibold"
-              aria-label="Toggle Language"
-            >
-              <Globe size={18} />
-              {i18n.language === 'id' ? 'ID' : 'EN'}
-            </button>
-          </div>
-
-          <button onClick={scrollToContact} className="ml-4 bg-white/5 border border-accent/30 text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-accent hover:border-accent transition-all duration-500 shadow-[0_0_15px_rgba(56,152,212,0.1)] hover:shadow-[0_0_25px_rgba(56,152,212,0.5)] hover:-translate-y-0.5 transform will-change-transform cursor-pointer">
-            {t('nav.contact')}
-          </button>
-        </div>
-
-        <div className="md:hidden flex items-center gap-6 relative z-10">
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center gap-1.5 text-foreground/80 hover:text-accent transition-colors uppercase text-sm font-semibold"
-            aria-label="Toggle Language"
-          >
-            <Globe size={20} />
-            {i18n.language === 'id' ? 'ID' : 'EN'}
-          </button>
-
-          <button
-            className="text-foreground hover:text-accent transition-colors focus:outline-none rounded-md p-1"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={28} className="transform rotate-90 transition-transform duration-300" aria-hidden="true" /> : <Menu size={28} className="transition-transform duration-300" aria-hidden="true" />}
-          </button>
-        </div>
-
-      </div>
-
-      <div className={`absolute top-full left-0 w-full bg-surface/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-500 ease-[0.16,1,0.3,1] md:hidden overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100 py-6 shadow-2xl' : 'max-h-0 opacity-0 py-0'}`}>
-        <div className="flex flex-col items-center space-y-6">
-          {navLinks.map((link) => (
-            <Link key={link.name} to={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-accent transition-colors tracking-wide">
-              {t(`nav.${link.name}`, { defaultValue: link.name })}
-            </Link>
-          ))}
-          <button onClick={scrollToContact} className="bg-accent text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(56,152,212,0.3)] mt-4 w-3/4 text-center cursor-pointer">
-            {t('nav.contact')}
-          </button>
-        </div>
-      </div>
-    </nav>
-  );
-};
-
-export default Navbar;
-</file>
-
 <file path="src/pages/AboutUsPage.tsx">
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -2459,6 +2350,117 @@ const AboutUsPage = () => {
 };
 
 export default AboutUsPage;
+</file>
+
+<file path="src/components/Navbar.tsx">
+// src/components/Navbar.tsx
+import { useState, useEffect } from 'react';
+import { Menu, X, Globe } from 'lucide-react';
+import { navLinks } from '../constants/navs';
+import logo from '../assets/FAST_Logo_PNG/logo.png';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t, i18n } = useTranslation(); // Tambahkan destructuring 't' disini
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToContact = () => {
+    document.getElementById('kontak')?.scrollIntoView({ behavior: 'smooth' });
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleLanguage = () => {
+    const newLang = i18n.language === 'id' ? 'en' : 'id';
+    i18n.changeLanguage(newLang);
+    localStorage.setItem('appLanguage', newLang);
+  };
+
+  return (
+    <nav
+      className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${isScrolled || isMobileMenuOpen
+        ? 'bg-surface/80 backdrop-blur-xl border-b border-white/10 py-4 shadow-[0_10px_30px_rgba(0,0,0,0.5)]'
+        : 'bg-gradient-to-b from-background/80 to-transparent py-6'
+        }`}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center gap-8">
+
+        <Link to="/#beranda" className="flex items-center gap-3 relative z-10 group">
+          <img src={logo} alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 will-change-transform" />
+        </Link>
+
+        <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <Link key={link.name} to={link.href} className="relative text-sm font-medium text-foreground/80 hover:text-white transition-colors duration-300 group py-2">
+              {t(`nav.${link.name}`, { defaultValue: link.name })}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
+            </Link>
+          ))}
+
+          <div className="flex items-center border-l border-white/20 pl-6 ml-2">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-foreground/80 hover:text-white transition-colors uppercase text-sm font-semibold"
+              aria-label="Toggle Language"
+            >
+              <Globe size={18} />
+              {i18n.language === 'id' ? 'ID' : 'EN'}
+            </button>
+          </div>
+
+          <button onClick={scrollToContact} className="ml-4 bg-white/5 border border-accent/30 text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-accent hover:border-accent transition-all duration-500 shadow-[0_0_15px_rgba(56,152,212,0.1)] hover:shadow-[0_0_25px_rgba(56,152,212,0.5)] hover:-translate-y-0.5 transform will-change-transform cursor-pointer">
+            {t('nav.contact')}
+          </button>
+        </div>
+
+        <div className="md:hidden flex items-center gap-6 relative z-10">
+          <button
+            onClick={toggleLanguage}
+            className="flex items-center gap-1.5 text-foreground/80 hover:text-accent transition-colors uppercase text-sm font-semibold"
+            aria-label="Toggle Language"
+          >
+            <Globe size={20} />
+            {i18n.language === 'id' ? 'ID' : 'EN'}
+          </button>
+
+          <button
+            className="text-foreground hover:text-accent transition-colors focus:outline-none rounded-md p-1"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? <X size={28} className="transform rotate-90 transition-transform duration-300" aria-hidden="true" /> : <Menu size={28} className="transition-transform duration-300" aria-hidden="true" />}
+          </button>
+        </div>
+
+      </div>
+
+      <div className={`absolute top-full left-0 w-full bg-surface/95 backdrop-blur-2xl border-b border-white/10 transition-all duration-500 ease-[0.16,1,0.3,1] md:hidden overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] opacity-100 py-6 shadow-2xl' : 'max-h-0 opacity-0 py-0'}`}>
+        <div className="flex flex-col items-center space-y-6">
+          {navLinks.map((link) => (
+            <Link key={link.name} to={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-accent transition-colors tracking-wide">
+              {t(`nav.${link.name}`, { defaultValue: link.name })}
+            </Link>
+          ))}
+          <button onClick={scrollToContact} className="bg-accent text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(56,152,212,0.3)] mt-4 w-3/4 text-center cursor-pointer">
+            {t('nav.contact')}
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
 </file>
 
 <file path="src/pages/CatalogPage.tsx">
@@ -2670,6 +2672,84 @@ const ClientBase = () => {
 };
 
 export default ClientBase;
+</file>
+
+<file path="src/components/Catalog.tsx">
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import { categories } from '../constants/catalogs';
+import SpotlightCard from './SpotlightCard';
+
+const Catalog = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section id="katalog" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full pointer-events-none z-0"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm cursor-default">
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">{t('catalog.tagline')}</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+            {t('catalog.title')} <span className="text-accent">{t('catalog.titleHighlight')}</span>
+          </h2>
+          <p className="text-foreground-muted text-lg font-light leading-relaxed">
+            {t('catalog.desc')}
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {categories.map((category, index) => {
+            const IconComponent = category.icon;
+
+            return (
+              <motion.a
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                href={`/category/${category.slug}`}
+                className={`h-[450px] md:col-span-1 transform-gpu`}
+
+              >
+                <SpotlightCard className="group h-full w-full hover:border-accent/40 hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)]">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
+
+                  <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
+                    <div className="w-14 h-14 rounded-2xl bg-surface/90 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 transform-gpu transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)]">
+                      <IconComponent size={32} />
+                    </div>
+
+                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                      {t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })}
+                    </h3>
+
+                    <p className="text-foreground-muted mb-6 font-light leading-relaxed transform-gpu translate-y-4 opacity-70 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 line-clamp-3">
+                      {t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
+                    </p>
+
+
+                  </div>
+                </SpotlightCard>
+              </motion.a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Catalog;
 </file>
 
 <file path="src/pages/ProductDetailPage.tsx">
@@ -2995,84 +3075,6 @@ const ProductDetailPage = () => {
 };
 
 export default ProductDetailPage;
-</file>
-
-<file path="src/components/Catalog.tsx">
-import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
-import { categories } from '../constants/catalogs';
-import SpotlightCard from './SpotlightCard';
-
-const Catalog = () => {
-  const { t } = useTranslation();
-
-  return (
-    <section id="katalog" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full pointer-events-none z-0"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center max-w-3xl mx-auto mb-20"
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm cursor-default">
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">{t('catalog.tagline')}</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-            {t('catalog.title')} <span className="text-accent">{t('catalog.titleHighlight')}</span>
-          </h2>
-          <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            {t('catalog.desc')}
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {categories.map((category, index) => {
-            const IconComponent = category.icon;
-
-            return (
-              <motion.a
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                href={`/category/${category.slug}`}
-                className={`h-[450px] md:col-span-1 transform-gpu`}
-
-              >
-                <SpotlightCard className="group h-full w-full hover:border-accent/40 hover:shadow-[0_15px_40px_rgba(56,152,212,0.15)]">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-90" />
-
-                  <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                    <div className="w-14 h-14 rounded-2xl bg-surface/90 backdrop-blur-md border border-white/10 flex items-center justify-center text-accent mb-6 transform-gpu transition-transform duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_0_20px_rgba(56,152,212,0.3)]">
-                      <IconComponent size={32} />
-                    </div>
-
-                    <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                      {t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })}
-                    </h3>
-
-                    <p className="text-foreground-muted mb-6 font-light leading-relaxed transform-gpu translate-y-4 opacity-70 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 line-clamp-3">
-                      {t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
-                    </p>
-
-
-                  </div>
-                </SpotlightCard>
-              </motion.a>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-export default Catalog;
 </file>
 
 <file path="src/pages/ClientBasePage.tsx">
@@ -4259,13 +4261,14 @@ const resources = {
   },
 };
 
+const savedLanguage = localStorage.getItem("appLanguage") || "en";
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: savedLanguage,
   fallbackLng: "en",
   interpolation: { escapeValue: false },
 });
-
 export default i18n;
 </file>
 

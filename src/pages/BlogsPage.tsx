@@ -82,39 +82,45 @@ const BlogsPage = () => {
         ) : blogs.length > 0 ? (
           <>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {blogs.map((blog) => (
-                <Link
-                  key={blog.id}
-                  to={`/blogs/${blog.id}`}
-                  className="group flex flex-col rounded-3xl overflow-hidden bg-surface/40 border border-white/10 hover:border-accent/40 hover:bg-surface/60 backdrop-blur-md transition-all duration-500 shadow-xl cursor-pointer"
-                >
-                  <div className="h-56 overflow-hidden relative">
-                    <img
-                      src={blog.foto}
-                      alt={blog.nama}
-                      loading="lazy"
-                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
-                  </div>
-                  <div className="p-8 flex flex-col flex-grow relative z-10 -mt-10">
-                    <div className="mb-4">
-                      <span className="text-xs font-semibold text-accent uppercase tracking-wider bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
-                        {new Date(blog.createdAt).toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                      </span>
+              {blogs.map((blog) => {
+                // Menentukan title dan deskripsi sesuai dengan bahasa
+                const title = i18n.language === 'en' ? (blog.nama_en || blog.nama) : blog.nama;
+                const description = i18n.language === 'en' ? (blog.deskripsi_en || blog.deskripsi) : blog.deskripsi;
+
+                return (
+                  <Link
+                    key={blog.id}
+                    to={`/blogs/${blog.id}`}
+                    className="group flex flex-col rounded-3xl overflow-hidden bg-surface/40 border border-white/10 hover:border-accent/40 hover:bg-surface/60 backdrop-blur-md transition-all duration-500 shadow-xl cursor-pointer"
+                  >
+                    <div className="h-56 overflow-hidden relative">
+                      <img
+                        src={blog.foto}
+                        alt={title}
+                        loading="lazy"
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-4 line-clamp-2 group-hover:text-accent transition-colors duration-300">
-                      {blog.nama}
-                    </h3>
-                    <p className="text-sm text-foreground-muted line-clamp-3 mb-8 flex-grow leading-relaxed">
-                      {blog.deskripsi}
-                    </p>
-                    <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
-                      {t('blogsPage.readMore')} <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                    <div className="p-8 flex flex-col flex-grow relative z-10 -mt-10">
+                      <div className="mb-4">
+                        <span className="text-xs font-semibold text-accent uppercase tracking-wider bg-accent/10 px-3 py-1 rounded-full border border-accent/20">
+                          {new Date(blog.createdAt).toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-4 line-clamp-2 group-hover:text-accent transition-colors duration-300">
+                        {title}
+                      </h3>
+                      <p className="text-sm text-foreground-muted line-clamp-3 mb-8 flex-grow leading-relaxed">
+                        {description}
+                      </p>
+                      <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
+                        {t('blogsPage.readMore')} <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Load More Button */}
