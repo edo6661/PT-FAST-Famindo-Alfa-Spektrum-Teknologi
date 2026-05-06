@@ -4,9 +4,11 @@ import { Calendar, Share2 } from 'lucide-react';
 import { getBlogById } from '../services/blogService';
 import type { Blog } from '../types/blog';
 import SEO from '../components/SEO';
+import { useTranslation } from 'react-i18next';
 
 const BlogDetailPage = () => {
   const { id } = useParams();
+  const { t, i18n } = useTranslation();
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -23,6 +25,7 @@ const BlogDetailPage = () => {
         setLoading(false);
       }
     };
+
     fetchBlog();
   }, [id]);
 
@@ -35,7 +38,7 @@ const BlogDetailPage = () => {
       }).catch(console.error);
     } else {
       navigator.clipboard.writeText(window.location.href);
-      alert('Link disalin ke clipboard!');
+      alert(t('blogDetail.copied'));
     }
   };
 
@@ -50,9 +53,8 @@ const BlogDetailPage = () => {
   if (!blog) {
     return (
       <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">Article Not Found</h1>
-        <p className="text-foreground-muted mb-8">Artikel yang Anda cari tidak ditemukan atau telah dihapus.</p>
-
+        <h1 className="text-3xl font-bold text-white mb-4">{t('blogDetail.notFound')}</h1>
+        <p className="text-foreground-muted mb-8">{t('blogDetail.notFoundDesc')}</p>
       </div>
     );
   }
@@ -72,17 +74,15 @@ const BlogDetailPage = () => {
         <div className="absolute inset-0 bg-linear-to-t from-background via-background/40 to-transparent z-10" />
 
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-
-
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm text-accent">
               <Calendar size={16} />
               <span className="text-sm font-semibold tracking-wide">
-                {new Date(blog.createdAt).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' })}
+                {new Date(blog.createdAt).toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </span>
             </div>
             <button onClick={handleShare} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface/50 border border-white/10 hover:border-white/30 hover:bg-surface text-foreground-muted hover:text-white transition-colors backdrop-blur-sm text-sm font-semibold">
-              <Share2 size={16} /> Share
+              <Share2 size={16} /> {t('blogDetail.share')}
             </button>
           </div>
 

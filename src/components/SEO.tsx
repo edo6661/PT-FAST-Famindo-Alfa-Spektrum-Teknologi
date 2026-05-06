@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 
 interface SEOProps {
   title?: string;
@@ -10,10 +11,13 @@ interface SEOProps {
 }
 
 const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }: SEOProps) => {
+  const { t } = useTranslation();
+
   const siteUrl = "https://www.famindofast.com";
 
-  const defaultTitle = "FAST | PT. Famindo Alfa Spektrum Teknologi";
-  const defaultDescription = "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities.";
+  const defaultTitle = t('seo.defaultTitle', { defaultValue: "FAST | PT. Famindo Alfa Spektrum Teknologi" });
+  const defaultDescription = t('seo.defaultDesc', { defaultValue: "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities." });
+
   const defaultImage = "https://www.famindofast.com/fast-blue.png";
 
   const seoTitle = title ? `${title} | PT. Famindo Alfa Spektrum Teknologi` : defaultTitle;

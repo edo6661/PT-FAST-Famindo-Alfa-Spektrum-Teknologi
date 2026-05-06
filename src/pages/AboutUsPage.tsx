@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Users } from 'lucide-react';
 import SEO from '../components/SEO';
 import SpotlightCard from '../components/SpotlightCard';
-
+import { useTranslation } from 'react-i18next';
 
 import heroImg from '../assets/about-us/about-us-hero.avif';
 import willyImg from '../assets/about-us/willy-hadiwijaya.avif';
@@ -46,6 +46,8 @@ const teamMembers = [
 ];
 
 const AboutUsPage = () => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -57,23 +59,20 @@ const AboutUsPage = () => {
         description="Founded by the FAST FOUR. A team of dedicated people with passion for safety."
         url="/about"
       />
-
       <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-surface via-background to-background z-0" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-accent/5 rounded-[100%] blur-[120px] pointer-events-none z-0" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
-
         <div className="mb-16 text-center flex flex-col items-center">
-
           <div className="inline-flex items-center gap-2 mb-4">
             <Users className="text-accent" size={24} />
-            <span className="text-accent font-bold tracking-widest uppercase text-sm">About PT. FAST</span>
+            <span className="text-accent font-bold tracking-widest uppercase text-sm">{t('aboutUs.badge')}</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">FAST FOUR</span>
+            {t('aboutUs.title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">{t('aboutUs.titleHighlight')}</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed">
-            Founded by the FAST FOUR. A team of dedicated people with passion for safety.
+            {t('aboutUs.desc')}
           </p>
         </div>
 
@@ -87,7 +86,6 @@ const AboutUsPage = () => {
             src={heroImg}
             alt="About PT FAST"
             fetchPriority='high'
-
             className="w-full h-full object-cover object-[center_25%] opacity-80 hover:opacity-100 transition-opacity duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
@@ -104,34 +102,29 @@ const AboutUsPage = () => {
             >
               <SpotlightCard className="group h-full p-8 md:p-10 rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md">
                 <div className="flex flex-col xl:flex-row gap-8 items-start">
-
                   <div className="w-32 h-32 xl:w-40 xl:h-40 flex-shrink-0 rounded-2xl overflow-hidden border-2 border-white/10 group-hover:border-accent/50 transition-colors duration-500 bg-background">
                     <img
                       src={member.image}
                       alt={member.name}
-
                       className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-
                   <div className="flex-grow">
                     <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300">
                       {member.name}
                     </h3>
                     <div className="inline-block px-4 py-1.5 mb-5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold tracking-widest uppercase">
-                      {member.role}
+                      {t(`aboutUs.team.${index}.role`, { defaultValue: member.role })}
                     </div>
                     <p className="text-foreground-muted font-light leading-relaxed text-sm md:text-base text-justify">
-                      {member.bio}
+                      {t(`aboutUs.team.${index}.bio`, { defaultValue: member.bio })}
                     </p>
                   </div>
-
                 </div>
               </SpotlightCard>
             </motion.div>
           ))}
         </div>
-
       </div>
     </div>
   );

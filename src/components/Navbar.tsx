@@ -1,3 +1,4 @@
+// src/components/Navbar.tsx
 import { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { navLinks } from '../constants/navs';
@@ -8,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation(); // Tambahkan destructuring 't' disini
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +45,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <Link key={link.name} to={link.href} className="relative text-sm font-medium text-foreground/80 hover:text-white transition-colors duration-300 group py-2">
-              {link.name}
+              {t(`nav.${link.name}`, { defaultValue: link.name })}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-accent transition-all duration-300 ease-out group-hover:w-full rounded-full"></span>
             </Link>
           ))}
@@ -61,7 +62,7 @@ const Navbar = () => {
           </div>
 
           <button onClick={scrollToContact} className="ml-4 bg-white/5 border border-accent/30 text-white px-7 py-2.5 rounded-full text-sm font-semibold hover:bg-accent hover:border-accent transition-all duration-500 shadow-[0_0_15px_rgba(56,152,212,0.1)] hover:shadow-[0_0_25px_rgba(56,152,212,0.5)] hover:-translate-y-0.5 transform will-change-transform cursor-pointer">
-            Contact Us
+            {t('nav.contact')}
           </button>
         </div>
 
@@ -91,11 +92,11 @@ const Navbar = () => {
         <div className="flex flex-col items-center space-y-6">
           {navLinks.map((link) => (
             <Link key={link.name} to={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-foreground/90 hover:text-accent transition-colors tracking-wide">
-              {link.name}
+              {t(`nav.${link.name}`, { defaultValue: link.name })}
             </Link>
           ))}
           <button onClick={scrollToContact} className="bg-accent text-white px-8 py-3 rounded-full text-sm font-semibold hover:bg-accent/80 transition-all shadow-[0_0_15px_rgba(56,152,212,0.3)] mt-4 w-3/4 text-center cursor-pointer">
-            Contact Us
+            {t('nav.contact')}
           </button>
         </div>
       </div>
@@ -104,4 +105,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

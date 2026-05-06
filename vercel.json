@@ -1,4 +1,23 @@
 {
+  "redirects": [
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/contact", "destination": "/#kontak", "permanent": true },
+    {
+      "source": "/altex-lithium-ion-battery-fire-coating",
+      "destination": "/catalog/altex-alpha-tech-shield",
+      "permanent": true
+    },
+    {
+      "source": "/g-tech",
+      "destination": "/catalog/g-tech-defend",
+      "permanent": true
+    },
+    {
+      "source": "/uss-undercarriage-suppressions-system",
+      "destination": "/catalog/uss-undercarriage",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/r2-assets/(.*)",

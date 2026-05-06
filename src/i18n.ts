@@ -12,6 +12,19 @@ const resources = {
         Clients: "Clients",
         contact: "Contact Us",
       },
+      seo: {
+        defaultTitle: "FAST | PT. Famindo Alfa Spektrum Teknologi",
+        defaultDesc:
+          "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities.",
+      },
+      loginPage: {
+        title: "Admin Login",
+        errorEmailPass: "Login failed. Check your email and password.",
+        email: "Email",
+        password: "Password",
+        processing: "Processing...",
+        loginBtn: "Login",
+      },
       clientBasePage: {
         badge: "Strategic Deployments",
         title: "Our",
@@ -34,19 +47,19 @@ const resources = {
             desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
           },
           iaf: {
-            name: "KTT IAF Bali [2024]",
+            name: "KTT IAF Bali 2024",
             category: "Government",
             status: "Mass Fleet Protection",
             desc: "Protection for all EV units escorting international VVIP guests for the IAF Summit, Bali.",
           },
           pope: {
-            name: "Pope Francis Visit [2024]",
+            name: "Pope Francis Visit 2024",
             category: "Government",
             status: "Absolute Zero Incident",
             desc: "Protection for the EV unit escorting Pope Francis during his historic visit.",
           },
           bluebird: {
-            name: "Bluebird Group [2025]",
+            name: "Bluebird Group 2025",
             category: "Transportation",
             status: "Official Supplier",
             desc: "FAST was appointed as the official fire safety supplier for Bluebird Group.",
@@ -168,15 +181,15 @@ const resources = {
         viewAll: "View Complete Portfolios",
         clients: {
           presidential: {
-            name: "Presidential Inauguration [2024]",
+            name: "Presidential Inauguration 2024",
             desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
           },
           iaf: {
-            name: "KTT IAF Bali [2024]",
+            name: "KTT IAF Bali 2024",
             desc: "Protection for all EV units escorting international VVIP guests for the IAF Summit, Bali.",
           },
           bluebird: {
-            name: "Bluebird Group [2025]",
+            name: "Bluebird Group 2025",
             desc: "FAST was appointed as the official fire safety supplier for the Bluebird Group.",
           },
         },
@@ -219,6 +232,12 @@ const resources = {
         cta1: "Explore Catalog",
         cta2: "Consult Us",
         trusted: "Securing High-Profile Assets",
+        trustedClients: {
+          presidential: "2024 Presidential Inauguration",
+          kttVisit: "KTT Visit",
+          bluebird: "Bluebird Group",
+          kttIaf: "KTT IAF Bali",
+        },
       },
       floatingWa: {
         tooltip: "Chat via WhatsApp",
@@ -302,34 +321,34 @@ const resources = {
           {
             title: "Ministry of Environment & Forestry (KLHK)",
             desc: "Passed as an effective solution for combating forest fires. Safe for humans, animals, and the environment. Prevents fire re-ignition.",
-            logo: "/certi/lfk-af31/KLKH_[Kementerian_Lingkungan_Hidup_dan_Kehutanan]Logo.png",
+            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.png",
           },
           {
             title: "DAMKAR",
             desc: "Qualified for extinguishing every class of fire [A, B, C, D, F/K] according to stringent DAMKAR test method parameters.",
-            logo: "/certi/lfk-af31/LOGO_DAMKAR_YUDHA_BRAMA_JAYA.png",
+            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.png",
           },
           {
             title: "Ministry of Transportation",
             desc: "Certified as an effective fire extinguisher for classes A, B, C, and D. Highly reliable for transportation fleets.",
-            logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia(Kemenhub)Logo.png",
+            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.png",
           },
           {
             title: "POLRI",
             desc: "Meets rigorous testing parameters and safety methods evaluated by the Indonesian National Police.",
-            logo: "/certi/lfk-af31/Kepolisian_Negara_Republik_Indonesia_Logo.png",
+            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.png",
           },
           {
             title: "SNI",
             desc: "Complies with the Indonesian National Standard (Standar Nasional Indonesia) for product quality and safety.",
-            logo: "/products/sni.png",
+            logo: "/products/sni.avif",
           },
         ],
         international: [
           {
             title: "Nucro Technics",
             desc: "Certified testing and standard approvals ensuring our solutions meet rigorous international quality and safety benchmarks.",
-            logo: "/certi/lfk-af31/Nucro-Technics.png",
+            logo: "/certi/lfk-af31/Nucro-Technics.svg",
           },
           {
             title: "EUROFINS - Environment Test",
@@ -337,28 +356,48 @@ const resources = {
             logo: "/certi/lfk-af31/EUROFINS.png",
           },
           {
-            title: "SGS (USA): ASTM E84-07 & UL723",
-            desc: "Effective fire suppression solution for building material surfaces in accordance with the American Society for Testing and Materials (ASTM).",
-            logo: "/certi/lfk-af31/SGS_Logo.svg.png",
+            title: "SGS (USA)",
+            desc: "Effective fire suppression solution for building material surfaces in accordance with the American Society for Testing and Materials.",
+            logo: "/certi/lfk-af31/SGS Logo.svg.png",
+          },
+          {
+            title: "ASTM International",
+            desc: "Complies with ASTM International standards for testing and materials, ensuring superior fire suppression performance.",
+            logo: "/certi/lfk-af31/ASTM International Logo.png",
+          },
+          {
+            title: "US Department of Transportation (DOT)",
+            desc: "Approved for transport safety and compliance by the United States Department of Transportation.",
+            logo: "/certi/lfk-af31/Department of Transportation USA.png",
           },
           {
             title: "Pollutech EnviroQuatics (Canada)",
             desc: "LC50 Certified. Proven not to cause acute toxicity and death to living organisms (tested on fish in their natural environment).",
-            logo: "/certi/lfk-af31/Pollutec_Logo.png",
+            logo: "/certi/lfk-af31/Pollutec Logo.png",
           },
           {
             title: "KGK Synergize (Canada) OECD",
             desc: "Achieved 'non-irritation' status. Causes no acute eye, skin irritation, or oral toxicity following OECD guidelines.",
-            logo: "/certi/lfk-af31/KGK_Science_Logo.png",
+            logo: "/certi/lfk-af31/KGK Science Logo.png",
           },
           {
-            title: "EN1568-3 European Standard",
-            desc: "Certified in line with European fire extinguishing standards for reliable and consistent performance.",
+            title: "QAI Laboratories",
+            desc: "Evaluated and certified by QAI Laboratories for stringent compliance with international safety and performance criteria.",
+            logo: "/certi/lfk-af31/QAI logo.png",
+          },
+          {
+            title: "TÜV SÜD",
+            desc: "Recognized by TÜV SÜD for meeting premium international quality, safety, and sustainability benchmarks.",
+            logo: "/certi/lfk-af31/TÜV_Süd_logo.svg.png",
           },
           {
             title: "UL Solutions (USA) - GREENGUARD Gold",
             desc: "Verified to have low total VOC emissions, ensuring high suitability for sensitive environments like schools and healthcare.",
-            logo: "/certi/lfk-af31/Greenguard_Logo_2.png",
+            logo: "/certi/lfk-af31/Greenguard Logo 2.png",
+          },
+          {
+            title: "EN1568-3 European Standard",
+            desc: "Certified in line with European fire extinguishing standards for reliable and consistent performance.",
           },
         ],
       },
@@ -372,6 +411,19 @@ const resources = {
         Catalog: "Katalog",
         Clients: "Klien",
         contact: "Hubungi Kami",
+      },
+      seo: {
+        defaultTitle: "FAST | PT. Famindo Alfa Spektrum Teknologi",
+        defaultDesc:
+          "Setiap detik berharga. PT. Famindo Alfa Spektrum Teknologi menyediakan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan mengamankan fasilitas industri.",
+      },
+      loginPage: {
+        title: "Admin Login",
+        errorEmailPass: "Gagal login. Periksa email dan password Anda.",
+        email: "Email",
+        password: "Password",
+        processing: "Memproses...",
+        loginBtn: "Masuk",
       },
       clientBasePage: {
         badge: "Strategic Deployments",
@@ -395,19 +447,19 @@ const resources = {
             desc: "Proteksi untuk seluruh unit EV yang mengawal tamu VVIP dari luar negeri untuk pelantikan presiden 2024.",
           },
           iaf: {
-            name: "KTT IAF Bali [2024]",
+            name: "KTT IAF Bali 2024",
             category: "Government",
             status: "Mass Fleet Protection",
             desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali.",
           },
           pope: {
-            name: "Kunjungan Paus Fransiskus [2024]",
+            name: "Kunjungan Paus Fransiskus 2024",
             category: "Government",
             status: "Absolute Zero Incident",
-            desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus [2024].",
+            desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus 2024.",
           },
           bluebird: {
-            name: "Bluebird Group [2025]",
+            name: "Bluebird Group 2025",
             category: "Transportation",
             status: "Official Supplier",
             desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group.",
@@ -529,15 +581,15 @@ const resources = {
         viewAll: "Lihat Semua Portofolio",
         clients: {
           presidential: {
-            name: "Pelantikan Presiden [2024]",
+            name: "Pelantikan Presiden 2024",
             desc: "Proteksi untuk seluruh unit EV yang mengawal tamu VVIP dari luar negeri untuk pelantikan presiden 2024.",
           },
           iaf: {
-            name: "KTT IAF Bali [2024]",
+            name: "KTT IAF Bali 2024",
             desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali.",
           },
           bluebird: {
-            name: "Bluebird Group [2025]",
+            name: "Bluebird Group 2025",
             desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group.",
           },
         },
@@ -580,6 +632,12 @@ const resources = {
         cta1: "Lihat Katalog",
         cta2: "Konsultasi",
         trusted: "Mengamankan Aset Berharga",
+        trustedClients: {
+          presidential: "Pelantikan Presiden 2024",
+          kttVisit: "Kunjungan KTT",
+          bluebird: "Bluebird Group",
+          kttIaf: "KTT IAF Bali",
+        },
       },
       floatingWa: {
         tooltip: "Chat WhatsApp",
@@ -665,34 +723,34 @@ const resources = {
           {
             title: "Kementerian Lingkungan Hidup & Kehutanan",
             desc: "Solusi efektif penanggulangan kebakaran hutan (Karhutla). Aman bagi manusia, hewan, dan lingkungan, serta mencegah re-ignisi.",
-            logo: "/certi/lfk-af31/KLKH[Kementerian_Lingkungan_Hidup_dan_Kehutanan]Logo.png",
+            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.png",
           },
           {
             title: "DAMKAR",
             desc: "Lulus kualifikasi memadamkan semua kelas api [A, B, C, D, F/K] berdasarkan parameter metode uji ketat dari DAMKAR.",
-            logo: "/certi/lfk-af31/LOGO_DAMKAR_YUDHA_BRAMA_JAYA.png",
+            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.png",
           },
           {
             title: "Kementerian Perhubungan",
             desc: "Sertifikasi pemadam efektif untuk Kelas A, B, C, dan D. Sangat andal untuk proteksi armada transportasi dan logistik.",
-            logo: "/certi/lfk-af31/Kementerian_Perhubungan_Indonesia(Kemenhub)_Logo.png",
+            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.png",
           },
           {
             title: "POLRI",
             desc: "Memenuhi parameter pengujian teknis dan standar keamanan yang dievaluasi langsung oleh Kepolisian Republik Indonesia.",
-            logo: "/certi/lfk-af31/Kepolisian_Negara_Republik_Indonesia_Logo.png",
+            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.png",
           },
           {
             title: "SNI",
             desc: "Memenuhi Standar Nasional Indonesia untuk kualitas material dan keamanan produk.",
-            logo: "/products/sni.png",
+            logo: "/products/sni.avif",
           },
         ],
         international: [
           {
             title: "Nucro Technics",
             desc: "Lulus pengujian sertifikasi untuk jaminan kualitas dan tolak ukur keselamatan standar internasional.",
-            logo: "/certi/lfk-af31/Nucro-Technics.png",
+            logo: "/certi/lfk-af31/Nucro-Technics.svg",
           },
           {
             title: "EUROFINS - Environment Test",
@@ -700,24 +758,48 @@ const resources = {
             logo: "/certi/lfk-af31/EUROFINS.png",
           },
           {
-            title: "SGS (USA) & ASTM",
-            desc: "Standar ASTM E84-07 & UL723. Solusi supresi api yang sangat efektif untuk material permukaan bangunan.",
-            logo: "/certi/lfk-af31/SGS_Logo.svg.png",
+            title: "SGS (USA)",
+            desc: "Solusi supresi api yang sangat efektif untuk material permukaan bangunan sesuai standar The American Society for Testing and Materials.",
+            logo: "/certi/lfk-af31/SGS Logo.svg.png",
+          },
+          {
+            title: "ASTM International",
+            desc: "Memenuhi standar pengujian dan material ASTM International, memastikan kinerja pemadaman api yang superior.",
+            logo: "/certi/lfk-af31/ASTM International Logo.png",
+          },
+          {
+            title: "US Department of Transportation (DOT)",
+            desc: "Disertifikasi oleh Departemen Transportasi Amerika Serikat untuk keamanan transportasi dan penanganan produk.",
+            logo: "/certi/lfk-af31/Department of Transportation USA.png",
           },
           {
             title: "Pollutech EnviroQuatics (Kanada)",
             desc: "Sertifikasi LC50: terbukti tidak menyebabkan toksisitas akut maupun kematian pada organisme hidup di air/alam.",
-            logo: "/certi/lfk-af31/Pollutec_Logo.png",
+            logo: "/certi/lfk-af31/Pollutec Logo.png",
           },
           {
             title: "KGK Synergize (Kanada) OECD",
             desc: "Status non-iritasi sesuai pedoman OECD. Tidak menyebabkan iritasi mata, kulit, maupun toksisitas oral.",
-            logo: "/certi/lfk-af31/KGK_Science_Logo.png",
+            logo: "/certi/lfk-af31/KGK Science Logo.png",
+          },
+          {
+            title: "QAI Laboratories",
+            desc: "Dievaluasi dan disertifikasi oleh QAI Laboratories untuk kepatuhan ketat terhadap kriteria keselamatan dan kinerja internasional.",
+            logo: "/certi/lfk-af31/QAI logo.png",
+          },
+          {
+            title: "TÜV SÜD",
+            desc: "Diakui oleh TÜV SÜD karena memenuhi tolok ukur kualitas, keselamatan, dan keberlanjutan internasional premium.",
+            logo: "/certi/lfk-af31/TÜV_Süd_logo.svg.png",
           },
           {
             title: "UL Solutions - GREENGUARD Gold",
             desc: "Emisi VOC sangat rendah, menjamin keamanan untuk digunakan di lingkungan sensitif seperti sekolah & fasilitas kesehatan.",
-            logo: "/certi/lfk-af31/Greenguard_Logo_2.png",
+            logo: "/certi/lfk-af31/Greenguard Logo 2.png",
+          },
+          {
+            title: "EN1568-3 European Standard",
+            desc: "Telah bersertifikat sesuai standar pemadaman kebakaran Eropa untuk performa yang dapat diandalkan secara konsisten.",
           },
         ],
       },
@@ -731,3 +813,5 @@ i18n.use(initReactI18next).init({
   fallbackLng: "en",
   interpolation: { escapeValue: false },
 });
+
+export default i18n;

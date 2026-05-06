@@ -1,11 +1,14 @@
+// src/pages/ClientBasePage.tsx
 import { useEffect, useState } from 'react';
 import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clientCategories, clientLogos } from '../constants/clientsData';
 import SpotlightCard from '../components/SpotlightCard';
+import { useTranslation } from 'react-i18next'; // Tambahkan ini
 
 const ClientBasePage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const { t } = useTranslation(); // Init i18n hook
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,44 +17,47 @@ const ClientBasePage = () => {
   const filteredLogos = activeCategory === 'all'
     ? clientLogos
     : clientLogos.filter(logo => logo.category === activeCategory);
+
+  // Pindahkan array featuredClients ke dalam komponen
   const featuredClients = [
     {
       logoImg: "/clients/government/Istana_Kepresidenan_RI_Logo.avif",
-      name: "Pelantikan Presiden 2024",
-      category: "Government",
-      status: "Deployment Secured",
-      desc: "Proteksi untuk seluruh unit EV yang mengawal tamu VVIP dari luar negeri untuk pelantikan presiden 2024.",
+      name: t('clientBasePage.featured.presidential.name'),
+      category: t('clientBasePage.featured.presidential.category'),
+      status: t('clientBasePage.featured.presidential.status'),
+      desc: t('clientBasePage.featured.presidential.desc'),
       color: "from-blue-600/20 to-transparent",
       borderColor: "group-hover:border-blue-500/50"
     },
     {
       logoImg: "/clients/government/IAF_LOGO.avif",
-      name: "KTT IAF Bali [2024]",
-      category: "Government",
-      status: "Mass Fleet Protection",
-      desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali [2024].",
+      name: t('clientBasePage.featured.iaf.name'),
+      category: t('clientBasePage.featured.iaf.category'),
+      status: t('clientBasePage.featured.iaf.status'),
+      desc: t('clientBasePage.featured.iaf.desc'),
       color: "from-accent/20 to-transparent",
       borderColor: "group-hover:border-accent/50"
     },
     {
       logoImg: "/clients/government/kementrian-seketariat-negara.avif",
-      name: "Kunjungan Paus Fransiskus [2024]",
-      category: "Government",
-      status: "Absolute Zero Incident",
-      desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus [2024].",
+      name: t('clientBasePage.featured.pope.name'),
+      category: t('clientBasePage.featured.pope.category'),
+      status: t('clientBasePage.featured.pope.status'),
+      desc: t('clientBasePage.featured.pope.desc'),
       color: "from-amber-500/20 to-transparent",
       borderColor: "group-hover:border-amber-500/50"
     },
     {
       logoImg: "/clients/transportation/Bluebird_Logogram.avif",
-      name: "Bluebird Group [2025]",
-      category: "Transportation",
-      status: "Official Supplier",
-      desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group [2025].",
+      name: t('clientBasePage.featured.bluebird.name'),
+      category: t('clientBasePage.featured.bluebird.category'),
+      status: t('clientBasePage.featured.bluebird.status'),
+      desc: t('clientBasePage.featured.bluebird.desc'),
       color: "from-cyan-500/20 to-transparent",
       borderColor: "group-hover:border-cyan-500/50"
     }
   ];
+
   return (
     <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
 
@@ -60,13 +66,13 @@ const ClientBasePage = () => {
 
           <div className="inline-flex items-center gap-2 mb-4">
             <ShieldCheck className="text-accent" size={24} />
-            <span className="text-accent font-bold tracking-widest uppercase text-sm">Strategic Deployments</span>
+            <span className="text-accent font-bold tracking-widest uppercase text-sm">{t('clientBasePage.badge')}</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white tracking-tight">
-            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">Client Base</span>
+            {t('clientBasePage.title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">{t('clientBasePage.titleHighlight')}</span>
           </h1>
           <p className="text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed">
-            Trusted by national institutions, international summits, and industry leaders. We engineer peace of mind for those who prioritize absolute safety without compromise.
+            {t('clientBasePage.desc')}
           </p>
         </div>
 
@@ -109,8 +115,8 @@ const ClientBasePage = () => {
         </div>
 
         <div className="mb-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Trusted Across Industries</h2>
-          <p className="text-foreground-muted">Explore the ecosystem of businesses protected by FAST technology.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">{t('clientBasePage.trustedTitle')}</h2>
+          <p className="text-foreground-muted">{t('clientBasePage.trustedDesc')}</p>
         </div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-12">
@@ -123,7 +129,7 @@ const ClientBasePage = () => {
                 : 'bg-surface border border-white/10 text-foreground-muted hover:text-white hover:border-white/30 hover:bg-surface/80'
                 }`}
             >
-              {cat.label}
+              {cat.id === "all" ? t('clientBasePage.allClients') : cat.label}
             </button>
           ))}
         </div>
@@ -164,7 +170,7 @@ const ClientBasePage = () => {
           </motion.div>
         ) : (
           <div className="text-center py-20 mb-32 border border-white/10 rounded-3xl bg-surface/30">
-            <p className="text-foreground-muted">More logos will be added soon.</p>
+            <p className="text-foreground-muted">{t('clientBasePage.moreLogos')}</p>
           </div>
         )}
 
@@ -173,10 +179,10 @@ const ClientBasePage = () => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center mix-blend-overlay opacity-5 z-0 transition-transform duration-1000 group-hover:scale-105" />
 
           <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Secure Your Assets?</h2>
-            <p className="text-lg text-foreground-muted mb-10 max-w-2xl mx-auto font-light">Join our growing list of prestigious clients who trust FAST | PT. Famindo Alfa Spektrum Teknologi for their critical fire safety needs.</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">{t('clientBasePage.ctaTitle')}</h2>
+            <p className="text-lg text-foreground-muted mb-10 max-w-2xl mx-auto font-light">{t('clientBasePage.ctaDesc')}</p>
             <button onClick={() => document.getElementById('kontak')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center gap-2 bg-accent hover:bg-accent/80 text-white px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_40px_rgba(56,152,212,0.6)] hover:-translate-y-1 uppercase text-sm cursor-pointer">
-              Consult With Our Experts
+              {t('clientBasePage.ctaButton')}
             </button>
           </div>
         </div>

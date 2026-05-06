@@ -3,8 +3,10 @@ import { useParams, useLocation } from 'react-router-dom';
 import { CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X, ShoppingCart } from 'lucide-react';
 import { products, categories, type ProductVariant, type ProductPartner } from '../constants/catalogs';
 import SEO from '../components/SEO';
+import { useTranslation } from 'react-i18next';
 
 const VariantCard = ({ variant }: { variant: ProductVariant }) => {
+  const { t } = useTranslation();
   const [activeView, setActiveView] = useState<'front' | 'back' | 'left' | 'right'>('front');
 
   return (
@@ -22,7 +24,6 @@ const VariantCard = ({ variant }: { variant: ProductVariant }) => {
               {activeView}
             </span>
           </div>
-
           <div className="flex justify-center gap-2 w-full">
             {(['front', 'back', 'left', 'right'] as const).map((view) => (
               <button
@@ -43,10 +44,9 @@ const VariantCard = ({ variant }: { variant: ProductVariant }) => {
           <Weight size={24} />
         </div>
       )}
-
       <div className="mt-auto">
         {variant.weight && (
-          <span className="block text-xs text-foreground-muted uppercase tracking-wider mb-2">Weight: {variant.weight}</span>
+          <span className="block text-xs text-foreground-muted uppercase tracking-wider mb-2">{t('productDetail.weight')} {variant.weight}</span>
         )}
         <h4 className="text-xl font-bold text-white/90 mb-3 group-hover:text-accent transition-colors">
           {variant.name || variant.weight}
@@ -61,13 +61,12 @@ const VariantCard = ({ variant }: { variant: ProductVariant }) => {
   );
 };
 
-
 const ProductDetailPage = () => {
   const { slug } = useParams();
   const location = useLocation();
+  const { t } = useTranslation();
   const product = products.find(p => p.slug === slug);
   const category = categories.find(c => c.id === product?.categoryId);
-
   const [selectedPartner, setSelectedPartner] = useState<ProductPartner | null>(null);
 
   const isFromCatalog = location.pathname.includes('/catalog');
@@ -83,9 +82,8 @@ const ProductDetailPage = () => {
         <div className="w-24 h-24 rounded-full bg-surface border border-white/10 flex items-center justify-center mb-4">
           <ShieldCheck size={40} className="text-foreground-muted" />
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-white">Product Not Found</h1>
-        <p className="text-foreground-muted max-w-md">The safety solution you are looking for might have been moved or doesn't exist.</p>
-
+        <h1 className="text-3xl md:text-4xl font-bold text-white">{t('productDetail.notFound')}</h1>
+        <p className="text-foreground-muted max-w-md">{t('productDetail.notFoundDesc')}</p>
       </div>
     );
   }
@@ -105,21 +103,24 @@ const ProductDetailPage = () => {
 
   return (
     <div className="pb-24 bg-background min-h-screen relative">
-      <SEO title={`${product.title} - FAST`} description={product.description} url={location.pathname} image={product.image} type="product" schemaMarkup={productSchema} />
-
+      <SEO
+        title={`${product.title} - FAST`}
+        description={product.description}
+        url={`/catalog/${product.slug}`}
+        image={product.image}
+        type="product"
+        schemaMarkup={productSchema}
+      />
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-background z-0" />
         <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-40 rounded-b-3xl" />
-
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
             <Zap size={16} className="text-accent" />
             <span className="text-xs font-bold tracking-widest text-accent uppercase">
-              {isFromCatalog && category ? category.name : "Advanced Solution"}
+              {isFromCatalog && category ? t(`catalog.categories.${category.id}.name`, { defaultValue: category.name }) : t('productDetail.badgeFallback')}
             </span>
           </div>
-
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight max-w-4xl leading-tight">
             {product.title}
           </h1>
@@ -135,11 +136,10 @@ const ProductDetailPage = () => {
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
         <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-
             <div className="lg:col-span-7 space-y-12">
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                  System Overview
+                  {t('productDetail.overview')}
                   <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                 </h2>
                 <p className="text-foreground-muted text-lg leading-relaxed font-light mb-8">
@@ -165,7 +165,7 @@ const ProductDetailPage = () => {
               {product.partners && product.partners.length > 0 && (
                 <div>
                   <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
-                    Official Store
+                    {t('productDetail.store')}
                     <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                   </h3>
                   <div className="flex flex-wrap gap-6 items-center justify-center">
@@ -197,9 +197,9 @@ const ProductDetailPage = () => {
                   <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center text-accent mb-6">
                     <ShieldCheck size={28} />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Secure This Technology</h3>
+                  <h3 className="text-2xl font-bold text-white mb-3">{t('productDetail.secure')}</h3>
                   <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">
-                    Request a full technical catalog or consult directly with our enterprise safety engineers to secure your assets.
+                    {t('productDetail.secureDesc')}
                   </p>
 
                   <div className="space-y-4">
@@ -212,11 +212,9 @@ const ProductDetailPage = () => {
                         className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 group/btn text-sm uppercase tracking-wide"
                       >
                         <Download size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
-                        Download Brochure
+                        {t('productDetail.download')}
                       </a>
                     )}
-
-                    {/* Tombol Tokopedia Baru */}
                     {product.tokopediaUrl && (
                       <a
                         href={product.tokopediaUrl}
@@ -225,10 +223,9 @@ const ProductDetailPage = () => {
                         className="w-full bg-[#03AC0E]/10 hover:bg-[#03AC0E]/20 border border-[#03AC0E]/30 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(3,172,14,0.1)] hover:shadow-[0_0_25px_rgba(3,172,14,0.25)] hover:-translate-y-1 text-sm uppercase tracking-wide group/tokped"
                       >
                         <ShoppingCart size={18} className="text-[#03AC0E] group-hover/tokped:scale-110 transition-transform" />
-                        Buy on Tokopedia
+                        {t('productDetail.buyTokopedia')}
                       </a>
                     )}
-
                     <a
                       href={`https://wa.me/6281290003278?text=Halo%20tim%20FAST,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.title)}.`}
                       target="_blank"
@@ -236,21 +233,20 @@ const ProductDetailPage = () => {
                       className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 text-sm uppercase tracking-wide"
                     >
                       <MessageSquare size={18} />
-                      Contact
+                      {t('productDetail.contact')}
                     </a>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
 
           {product.variants && product.variants.length > 0 && (
             <div className="pt-20 mt-12 border-t border-white/10">
               <div className="text-center mb-12">
-                <h3 className="text-3xl font-bold text-white mb-4">Available Variants</h3>
+                <h3 className="text-3xl font-bold text-white mb-4">{t('productDetail.variantsTitle')}</h3>
                 <p className="text-foreground-muted font-light max-w-2xl mx-auto">
-                  Explore our range of purpose-built configurations designed to meet specific industrial and commercial requirements.
+                  {t('productDetail.variantsDesc')}
                 </p>
               </div>
 
@@ -261,7 +257,6 @@ const ProductDetailPage = () => {
               </div>
             </div>
           )}
-
         </div>
       </section>
 
@@ -292,7 +287,7 @@ const ProductDetailPage = () => {
 
             <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
               <MapPin className="text-accent" size={24} />
-              Location Details
+              {t('productDetail.locationDetails')}
             </h4>
 
             <ul className="space-y-3 mt-4">
@@ -306,7 +301,6 @@ const ProductDetailPage = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };

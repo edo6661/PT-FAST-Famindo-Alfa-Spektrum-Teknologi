@@ -166,17 +166,6 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
           </span>
         </h1>
       </motion.div>
-      {/* <motion.div
-        style={{ opacity: descOpacity, y: descY }}
-        className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center px-4"
-      >
-        <p className="text-xl sm:text-2xl md:text-4xl font-semibold mb-6 max-w-4xl leading-tight text-balance drop-shadow-xl">
-          {t('hero.subtitle')}
-        </p>
-        <p className="text-base sm:text-lg md:text-xl text-foreground-muted max-w-3xl font-light leading-relaxed text-pretty">
-          {t('hero.desc')}
-        </p>
-      </motion.div> */}
       <motion.div
         style={{ opacity: ctaOpacity, y: ctaY }}
         className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
@@ -193,10 +182,10 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
         <div className="pt-8 border-t border-white/20 w-full max-w-4xl relative">
           <p className="text-xs md:text-sm text-foreground-muted font-medium uppercase tracking-widest mb-6">{t('hero.trusted')}</p>
           <div className="flex flex-wrap justify-center items-center gap-x-6 sm:gap-x-12 gap-y-4 opacity-80">
-            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">2024 Presidential Inauguration</span>
-            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">KTT Visit</span>
-            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">Bluebird Group</span>
-            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">KTT IAF Bali</span>
+            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">{t('hero.trustedClients.presidential')}</span>
+            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">{t('hero.trustedClients.kttVisit')}</span>
+            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">{t('hero.trustedClients.bluebird')}</span>
+            <span className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white">{t('hero.trustedClients.kttIaf')}</span>
           </div>
         </div>
       </motion.div>

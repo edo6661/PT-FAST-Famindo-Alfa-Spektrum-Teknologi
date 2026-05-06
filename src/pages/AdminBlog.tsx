@@ -6,16 +6,15 @@ import { getAllBlogs, deleteBlog, createBlog, updateBlog, updateLandingPageOrder
 import type { Blog } from "../types/blog";
 import BlogModal from "../components/BlogModal";
 import { Settings2, X } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const AdminBlog = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
-
-
   const [isLandingModalOpen, setIsLandingModalOpen] = useState(false);
   const [landingSlots, setLandingSlots] = useState<(string | null)[]>([null, null, null]);
   const [savingLanding, setSavingLanding] = useState(false);
@@ -27,7 +26,7 @@ const AdminBlog = () => {
       setBlogs(data);
     } catch (error) {
       console.error("Gagal mengambil data blog:", error);
-      alert("Gagal mengambil data blog dari server.");
+      alert(t('adminBlogPage.errorFetch'));
     } finally {
       setLoading(false);
     }
@@ -48,15 +47,14 @@ const AdminBlog = () => {
 
   const handleDelete = async (id?: string) => {
     if (!id) return;
-    const confirmDelete = window.confirm("Apakah Anda yakin ingin menghapus blog ini?");
+    const confirmDelete = window.confirm(t('adminBlogPage.confirmDelete'));
     if (!confirmDelete) return;
-
     try {
       await deleteBlog(id);
       setBlogs(blogs.filter(blog => blog.id !== id));
     } catch (error) {
       console.error("Gagal menghapus blog:", error);
-      alert("Gagal menghapus blog.");
+      alert(t('adminBlogPage.errorDelete'));
     }
   };
 
@@ -84,17 +82,14 @@ const AdminBlog = () => {
     }
   };
 
-
   const openLandingModal = () => {
     const landingBlogs = blogs
       .filter((b) => b.ditampilkan_di_landing_page)
       .sort((a, b) => (a.urutan || 0) - (b.urutan || 0));
-
     const initialSlots: (string | null)[] = [null, null, null];
     landingBlogs.forEach((b, i) => {
       if (i < 3) initialSlots[i] = b.id!;
     });
-
     setLandingSlots(initialSlots);
     setIsLandingModalOpen(true);
   };
@@ -107,7 +102,7 @@ const AdminBlog = () => {
       fetchBlogs();
     } catch (error) {
       console.error("Gagal menyimpan urutan:", error);
-      alert("Gagal menyimpan urutan landing page.");
+      alert(t('adminBlogPage.errorSaveLanding'));
     } finally {
       setSavingLanding(false);
     }
@@ -117,51 +112,48 @@ const AdminBlog = () => {
     <div className="min-h-screen bg-background text-white p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-10 border-b border-white/10 pb-6">
-          <h1 className="text-3xl font-bold">Manajemen Blog</h1>
+          <h1 className="text-3xl font-bold">{t('adminBlogPage.title')}</h1>
           <button
             onClick={handleLogout}
             className="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/20 px-6 py-2 rounded-full transition-all text-sm font-medium"
           >
-            Logout
+            {t('adminBlogPage.logout')}
           </button>
         </div>
-
         <div className="bg-surface p-8 rounded-2xl border border-white/10 shadow-xl">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-            <h2 className="text-xl font-semibold">Daftar Blog</h2>
+            <h2 className="text-xl font-semibold">{t('adminBlogPage.list')}</h2>
             <div className="flex gap-3">
-
               <button
                 className="bg-surface border border-accent text-accent hover:bg-accent/10 px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg flex items-center gap-2"
                 onClick={openLandingModal}
               >
-                <Settings2 size={16} /> Atur Posisi Landing Page
+                <Settings2 size={16} /> {t('adminBlogPage.setLandingPos')}
               </button>
               <button
                 className="bg-accent hover:bg-accent/80 text-white px-5 py-2 rounded-lg transition-all text-sm font-medium shadow-lg"
                 onClick={handleAddClick}
               >
-                + Tambah Blog Baru
+                {t('adminBlogPage.addNew')}
               </button>
             </div>
           </div>
-
           {loading ? (
-            <div className="text-center py-10 text-foreground-muted">Memuat data...</div>
+            <div className="text-center py-10 text-foreground-muted">{t('adminBlogPage.loading')}</div>
           ) : blogs.length === 0 ? (
             <div className="text-center py-10 border border-white/5 rounded-xl bg-background/50 text-foreground-muted">
-              Belum ada artikel blog.
+              {t('adminBlogPage.empty')}
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="border-b border-white/10 text-sm text-foreground-muted">
-                    <th className="py-4 px-4 font-medium">Foto</th>
-                    <th className="py-4 px-4 font-medium">Judul</th>
-                    <th className="py-4 px-4 font-medium text-center">Tampil </th>
-                    <th className="py-4 px-4 font-medium">Tanggal </th>
-                    <th className="py-4 px-4 font-medium text-right">Aksi</th>
+                    <th className="py-4 px-4 font-medium">{t('adminBlogPage.colPhoto')}</th>
+                    <th className="py-4 px-4 font-medium">{t('adminBlogPage.colTitle')}</th>
+                    <th className="py-4 px-4 font-medium text-center">{t('adminBlogPage.colDisplay')}</th>
+                    <th className="py-4 px-4 font-medium">{t('adminBlogPage.colDate')}</th>
+                    <th className="py-4 px-4 font-medium text-right">{t('adminBlogPage.colAction')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -193,13 +185,13 @@ const AdminBlog = () => {
                           className="text-accent hover:text-white text-sm mr-4 transition-colors"
                           onClick={() => handleEditClick(blog)}
                         >
-                          Edit
+                          {t('adminBlogPage.edit')}
                         </button>
                         <button
                           className="text-red-400 hover:text-red-300 text-sm transition-colors"
                           onClick={() => handleDelete(blog.id)}
                         >
-                          Hapus
+                          {t('adminBlogPage.delete')}
                         </button>
                       </td>
                     </tr>
@@ -210,34 +202,30 @@ const AdminBlog = () => {
           )}
         </div>
       </div>
-
       <BlogModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleModalSubmit}
         initialData={editingBlog}
       />
-
       {/* --- MODAL PENGATURAN LANDING PAGE --- */}
       {isLandingModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
           <div className="bg-surface w-full max-w-lg rounded-3xl border border-white/10 shadow-2xl overflow-hidden flex flex-col">
             <div className="flex justify-between items-center p-6 border-b border-white/10">
-              <h3 className="text-xl font-bold text-white">Atur Posisi Blog Landing Page</h3>
+              <h3 className="text-xl font-bold text-white">{t('adminBlogPage.landingModalTitle')}</h3>
               <button onClick={() => setIsLandingModalOpen(false)} className="text-foreground-muted hover:text-white transition-colors">
                 <X size={24} />
               </button>
             </div>
-
             <div className="p-6 space-y-5">
               <p className="text-sm text-foreground-muted mb-2">
-                Pilih maksimal 3 blog. Posisi 1 akan berada di paling kiri, Posisi 2 di tengah, dan Posisi 3 di paling kanan.
+                {t('adminBlogPage.landingModalDesc')}
               </p>
-
               {[0, 1, 2].map((index) => (
                 <div key={index} className="flex flex-col">
                   <label className="text-sm font-semibold text-white mb-2">
-                    Posisi {index + 1} {index === 0 ? "(Paling Kiri)" : index === 1 ? "(Tengah)" : "(Paling Kanan)"}
+                    {t('adminBlogPage.pos')} {index + 1} {index === 0 ? t('adminBlogPage.posLeft') : index === 1 ? t('adminBlogPage.posCenter') : t('adminBlogPage.posRight')}
                   </label>
                   <select
                     value={landingSlots[index] || ""}
@@ -248,7 +236,7 @@ const AdminBlog = () => {
                     }}
                     className="w-full bg-background border border-white/10 rounded-xl px-4 py-3 text-white focus:border-accent outline-none appearance-none"
                   >
-                    <option value="">-- Kosongkan Slot --</option>
+                    <option value="">{t('adminBlogPage.emptySlot')}</option>
                     {blogs.map((b) => (
                       <option
                         key={b.id}
@@ -262,15 +250,14 @@ const AdminBlog = () => {
                 </div>
               ))}
             </div>
-
             <div className="p-6 border-t border-white/10 flex justify-end gap-4">
-              <button onClick={() => setIsLandingModalOpen(false)} className="px-6 py-2.5 rounded-xl text-foreground-muted hover:text-white transition-colors">Batal</button>
+              <button onClick={() => setIsLandingModalOpen(false)} className="px-6 py-2.5 rounded-xl text-foreground-muted hover:text-white transition-colors">{t('adminBlogPage.cancel')}</button>
               <button
                 onClick={handleSaveLanding}
                 disabled={savingLanding}
                 className="bg-accent hover:bg-accent/80 text-white px-8 py-2.5 rounded-xl font-bold transition-all flex items-center gap-2 disabled:opacity-50"
               >
-                {savingLanding ? "Menyimpan..." : "Simpan Urutan"}
+                {savingLanding ? t('adminBlogPage.saving') : t('adminBlogPage.saveOrder')}
               </button>
             </div>
           </div>
