@@ -27,6 +27,7 @@ const Navbar = () => {
   const toggleLanguage = () => {
     const newLang = i18n.language === 'id' ? 'en' : 'id';
     i18n.changeLanguage(newLang);
+    localStorage.setItem('appLanguage', newLang);
   };
 
   return (

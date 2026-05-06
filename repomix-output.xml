@@ -1,371 +1,4 @@
-This file is a merged representation of a subset of the codebase, containing specifically included files and files not matching ignore patterns, combined into a single document by Repomix.
-
-<file_summary>
-This section contains a summary of this file.
-
-<purpose>
-This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
-It is designed to be easily consumable by AI systems for analysis, code review,
-or other automated processes.
-</purpose>
-
-<file_format>
-The content is organized as follows:
-1. This summary section
-2. Repository information
-3. Directory structure
-4. Repository files (if enabled)
-5. Multiple file entries, each consisting of:
-  - File path as an attribute
-  - Full contents of the file
-</file_format>
-
-<usage_guidelines>
-- This file should be treated as read-only. Any changes should be made to the
-  original repository files, not this packed version.
-- When processing this file, use the file path to distinguish
-  between different files in the repository.
-- Be aware that this file may contain sensitive information. Handle it with
-  the same level of security as you would the original repository.
-</usage_guidelines>
-
-<notes>
-- Some files may have been excluded based on .gitignore rules and Repomix's configuration
-- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
-- Only files matching these patterns are included: src/**/*, package.json, vite.config.ts, tsconfig.json, prisma/schema.prisma, prisma/seeds/, prisma/seed.ts
-- Files matching these patterns are excluded: **/*.test.ts, dist/, **/*.js
-- Files matching patterns in .gitignore are excluded
-- Files matching default ignore patterns are excluded
-- Files are sorted by Git change count (files with more changes are at the bottom)
-</notes>
-
-</file_summary>
-
-<directory_structure>
-package.json
-src/App.tsx
-src/assets/about-us/about-us-hero.avif
-src/assets/about-us/fio.avif
-src/assets/about-us/franky-affandi.avif
-src/assets/about-us/rolando-fam.avif
-src/assets/about-us/sean-justin.avif
-src/assets/about-us/willy-hadiwijaya.avif
-src/assets/clients/astra-daihatsu.webp
-src/assets/clients/astra-honda-motor.jpg
-src/assets/clients/astra-otoparts.webp
-src/assets/clients/bmw.webp
-src/assets/clients/lexus.jpg
-src/assets/clients/mitsubishi.png
-src/assets/clients/porsche.png
-src/assets/clients/toyota-astra-motor.webp
-src/assets/download.png
-src/assets/FAST_Favicons/FAST Logogram on Dark Navy.png
-src/assets/FAST_Favicons/FAST WEB ICON.jpg
-src/assets/FAST_Favicons/Icon_
-src/assets/FAST_Logo_JPEG/FAST Black [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Black Logogram.jpg
-src/assets/FAST_Logo_JPEG/FAST Blue Logogram.jpg
-src/assets/FAST_Logo_JPEG/FAST Color [Primary White] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Color [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Silver [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST Silver Logogram.jpg
-src/assets/FAST_Logo_JPEG/FAST White [Primary] Logo.jpg
-src/assets/FAST_Logo_JPEG/FAST White Logogram.jpg
-src/assets/FAST_Logo_JPEG/fast-blue.png
-src/assets/FAST_Logo_JPEG/Icon_
-src/assets/FAST_Logo_PNG/FAST Black [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST Black Logogram.png
-src/assets/FAST_Logo_PNG/FAST Color [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST Silver [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST Silver Logogram.png
-src/assets/FAST_Logo_PNG/FAST White [Primary] Logo.png
-src/assets/FAST_Logo_PNG/FAST White Logogram.png
-src/assets/FAST_Logo_PNG/Icon_
-src/assets/FAST_Logo_PNG/logo-tadinya.png
-src/assets/FAST_Logo_PNG/logo.png
-src/assets/hero_2.png
-src/assets/hero.png
-src/assets/hero.webp
-src/assets/products/ballistic.avif
-src/assets/products/flame_accurate_termination.avif
-src/assets/products/lithium_fire_killer.avif
-src/assets/products/preventive-altech.avif
-src/assets/products/preventive-g_tech.avif
-src/assets/products/preventive-power_tech_shield.avif
-src/assets/products/products/products/altex.avif
-src/assets/products/products/products/ballistic-for-ev.avif
-src/assets/products/products/products/ballistic-for-ups.avif
-src/assets/products/products/products/defend.avif
-src/assets/products/products/products/fire-blanket.avif
-src/assets/products/products/products/flat.avif
-src/assets/products/products/products/g-tech.avif
-src/assets/products/products/products/lfk.avif
-src/assets/products/products/products/sni.avif
-src/assets/products/products/products/uss.avif
-src/assets/products/products/products/xcap.avif
-src/assets/products/undercarriage_suppressions_system.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-033.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-034.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-035.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-036.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-037.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-038.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-039.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-040.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-041.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-042.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-043.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-044.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-045.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-046.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-047.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-048.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-049.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-050.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-051.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-052.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-053.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-054.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-055.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-056.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-057.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-058.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-059.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-060.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-061.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-062.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-063.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-064.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-065.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-066.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-067.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-068.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-069.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-070.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-071.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-072.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-073.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-074.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-075.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-076.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-077.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-078.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-079.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-080.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-081.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-082.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-083.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-084.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-085.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-086.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-087.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-088.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-089.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-090.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-091.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-092.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-093.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-094.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-095.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-096.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-097.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-098.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-099.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-100.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-101.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-102.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-103.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-104.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-105.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-106.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-107.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-108.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-109.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-110.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-111.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-112.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-113.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-114.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-115.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-116.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-117.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-118.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-119.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-120.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-121.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-122.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-123.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-124.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-125.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-126.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-127.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-128.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-129.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-130.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-131.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-132.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-133.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-134.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-135.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-136.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-137.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-138.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-139.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-140.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-141.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-142.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-143.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-144.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-145.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-146.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-147.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-148.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-149.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-150.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-151.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-152.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-153.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-154.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-155.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-156.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-157.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-158.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-159.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-160.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-161.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-162.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-163.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-164.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-165.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-166.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-167.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-168.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-169.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-170.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-171.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-172.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-173.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-174.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-175.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-176.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-177.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-178.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-179.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-180.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-181.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-182.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-183.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-184.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-185.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-186.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-187.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-188.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-189.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-190.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-191.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-192.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-193.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-194.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-195.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-196.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-197.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-198.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-199.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-200.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-201.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-202.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-203.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-204.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-205.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-206.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-207.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-208.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-209.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-210.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-211.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-212.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-213.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-214.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-215.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-216.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-217.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-218.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-219.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-220.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-221.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-222.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-223.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-224.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-225.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-226.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-227.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-228.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-229.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-230.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-231.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-232.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-233.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-234.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-235.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-236.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-237.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-238.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-239.avif
-src/assets/sequence/frame-by-frame/ezgif-frame-240.avif
-src/components/About.tsx
-src/components/BlogModal.tsx
-src/components/Brands.tsx
-src/components/Catalog.tsx
-src/components/Certifications.tsx
-src/components/ClientBase.tsx
-src/components/FloatingWA.tsx
-src/components/Hero.tsx
-src/components/Layout.tsx
-src/components/Navbar.tsx
-src/components/ProtectedRoute.tsx
-src/components/SEO.tsx
-src/components/SpotlightCard.tsx
-src/constants/catalogs.tsx
-src/constants/clientsData.ts
-src/constants/contacts.ts
-src/constants/navs.tsx
-src/contexts/AuthContext.tsx
-src/i18n.ts
-src/index.css
-src/lib/firebase.ts
-src/main.tsx
-src/pages/AboutUsPage.tsx
-src/pages/AdminBlog.tsx
-src/pages/BlogDetailPage.tsx
-src/pages/BlogsPage.tsx
-src/pages/CatalogPage.tsx
-src/pages/CategoryDetailPage.tsx
-src/pages/ClientBasePage.tsx
-src/pages/Home.tsx
-src/pages/Login.tsx
-src/pages/OldClientBasePage.tsx
-src/pages/ProductDetailPage.tsx
-src/services/blogService.ts
-src/types/blog.ts
-tsconfig.json
-vite.config.ts
-</directory_structure>
-
-<files>
-This section contains the contents of the repository's files.
-
-<file path="src/assets/FAST_Favicons/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_JPEG/Icon_">
-
-</file>
-
-<file path="src/assets/FAST_Logo_PNG/Icon_">
-
-</file>
-
+perubahan inggris indo nya simpan saja di localstorage, tapi default nya selalu inggris, termasuk jika di local storage gaada key nya, tetep inggris, orang baru masuk web, tetep inggris, tapi jika dia hanya refresh, contoh: saat ini saya buka web dengan bahasa indo, saya refresh, itu tetep indo, kecuali dia ganti di nav.
 <file path="src/components/ProtectedRoute.tsx">
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
@@ -454,78 +87,6 @@ import './i18n';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <App />
 );
-</file>
-
-<file path="src/pages/Login.tsx">
-import { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../lib/firebase";
-import { useTranslation } from "react-i18next";
-
-const Login = () => {
-  const { t } = useTranslation();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/admin/blog");
-    } catch (err) {
-      console.error(err);
-      setError(t('loginPage.errorEmailPass'));
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-6">
-      <div className="w-full max-w-md bg-surface p-8 rounded-3xl border border-white/10 shadow-2xl">
-        <h2 className="text-3xl font-bold text-white mb-6 text-center">{t('loginPage.title')}</h2>
-        {error && <div className="bg-red-500/10 text-red-400 border border-red-500/20 p-3 rounded-lg mb-4 text-sm text-center">{error}</div>}
-        <form onSubmit={handleLogin} className="space-y-5">
-          <div>
-            <label className="block text-sm font-medium text-foreground-muted mb-2">{t('loginPage.email')}</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-foreground-muted mb-2">{t('loginPage.password')}</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
-            />
-          </div>
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50"
-          >
-            {loading ? t('loginPage.processing') : t('loginPage.loginBtn')}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default Login;
 </file>
 
 <file path="tsconfig.json">
@@ -680,6 +241,78 @@ h6 {
   font-family: var(--font-heading);
   letter-spacing: 0.05em;
 }
+</file>
+
+<file path="src/pages/Login.tsx">
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../lib/firebase";
+import { useTranslation } from "react-i18next";
+
+const Login = () => {
+  const { t } = useTranslation();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate("/admin/blog");
+    } catch (err) {
+      console.error(err);
+      setError(t('loginPage.errorEmailPass'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-background px-6">
+      <div className="w-full max-w-md bg-surface p-8 rounded-3xl border border-white/10 shadow-2xl">
+        <h2 className="text-3xl font-bold text-white mb-6 text-center">{t('loginPage.title')}</h2>
+        {error && <div className="bg-red-500/10 text-red-400 border border-red-500/20 p-3 rounded-lg mb-4 text-sm text-center">{error}</div>}
+        <form onSubmit={handleLogin} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium text-foreground-muted mb-2">{t('loginPage.email')}</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium text-foreground-muted mb-2">{t('loginPage.password')}</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full bg-background border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-3 rounded-lg transition-all disabled:opacity-50"
+          >
+            {loading ? t('loginPage.processing') : t('loginPage.loginBtn')}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
 </file>
 
 <file path="src/pages/OldClientBasePage.tsx">
@@ -1280,16 +913,84 @@ export const clientLogos: ClientLogo[] = [
 ];
 </file>
 
+<file path="src/constants/navs.tsx">
+export const navLinks = [
+  { name: 'Home', href: '/#beranda' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Catalog', href: '/#brands' },
+  { name: 'Clients', href: '/#klien' },
+];
+</file>
+
+<file path="src/pages/Home.tsx">
+import { Suspense, lazy } from 'react';
+import { useTranslation } from 'react-i18next';
+import SEO from '../components/SEO';
+import Hero from '../components/Hero';
+
+const About = lazy(() => import('../components/About'));
+const Brands = lazy(() => import('../components/Brands'));
+const Catalog = lazy(() => import('../components/Catalog'));
+const Certifications = lazy(() => import('../components/Certifications'));
+const ClientBase = lazy(() => import('../components/ClientBase'));
+
+const Home = () => {
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <SEO
+        title={t('seo.defaultTitle', { defaultValue: "FAST | PT. Famindo Alfa Spektrum Teknologi" })}
+        description={t('seo.defaultDesc', { defaultValue: "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities." })}
+        url="/"
+      />
+      <Hero />
+      <Suspense fallback={<div className="h-32"></div>}>
+        <About />
+        <Brands />
+        <Catalog />
+        <Certifications />
+        <ClientBase />
+      </Suspense>
+    </>
+  );
+};
+
+export default Home;
+</file>
+
 <file path="vite.config.ts">
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 import viteCompression from "vite-plugin-compression";
+import Sitemap from "vite-plugin-sitemap";
+
+// Definisikan route dinamis dari katalog produk dan kategorimu
+const dynamicRoutes = [
+  "/catalog/ballistic-app",
+  "/catalog/power-tech-shield-fire-blanket",
+  "/catalog/altex-alpha-tech-shield",
+  "/catalog/g-tech-defend",
+  "/catalog/lithium-fire-killer-hartindo-af31",
+  "/catalog/flat-af11e",
+  "/catalog/uss-undercarriage",
+  "/catalog/x-cap",
+  "/category/predictive",
+  "/category/preventive",
+  "/category/protective",
+];
 
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    Sitemap({
+      hostname: "https://www.famindofast.com",
+      dynamicRoutes: dynamicRoutes,
+      exclude: ["/login", "/admin/blog"], // Kecualikan halaman admin agar tidak diindeks
+      generateRobotsTxt: true, // Otomatis membuat robots.txt yang mengarah ke sitemap
+    }),
     viteCompression({
       algorithm: "gzip",
       ext: ".gz",
@@ -1313,15 +1014,6 @@ export default defineConfig({
     },
   },
 });
-</file>
-
-<file path="src/constants/navs.tsx">
-export const navLinks = [
-  { name: 'Home', href: '/#beranda' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Catalog', href: '/#brands' },
-  { name: 'Clients', href: '/#klien' },
-];
 </file>
 
 <file path="src/pages/AdminBlog.tsx">
@@ -1597,42 +1289,6 @@ const AdminBlog = () => {
 export default AdminBlog;
 </file>
 
-<file path="src/pages/Home.tsx">
-import { Suspense, lazy } from 'react';
-import SEO from '../components/SEO';
-import Hero from '../components/Hero';
-
-// Lazy load komponen yang berada di bawah layar utama (below the fold)
-const About = lazy(() => import('../components/About'));
-const Brands = lazy(() => import('../components/Brands'));
-const Catalog = lazy(() => import('../components/Catalog'));
-const Certifications = lazy(() => import('../components/Certifications'));
-const ClientBase = lazy(() => import('../components/ClientBase'));
-
-const Home = () => {
-  return (
-    <>
-      <SEO
-        title="FAST | PT. Famindo Alfa Spektrum Teknologi"
-        description="Setiap detik berharga. FAST menghadirkan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion."
-        url="/"
-      />
-      <Hero />
-
-      <Suspense fallback={<div className="h-32"></div>}>
-        <About />
-        <Brands />
-        <Catalog />
-        <Certifications />
-        <ClientBase />
-      </Suspense>
-    </>
-  );
-};
-
-export default Home;
-</file>
-
 <file path="package.json">
 {
   "name": "landing-page",
@@ -1677,9 +1333,167 @@ export default Home;
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.48.0",
     "vite": "^7.3.1",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-sitemap": "^0.8.2"
   }
 }
+</file>
+
+<file path="src/components/Certifications.tsx">
+import { useState } from 'react';
+import { ShieldCheck, Award, Globe, CheckCircle2, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+interface CertItem {
+  title: string;
+  desc: string;
+  logo?: string;
+}
+
+const Certifications = () => {
+  const { t } = useTranslation();
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
+
+  const nationalCerts = t('certifications.national', { returnObjects: true }) as CertItem[];
+  const internationalCerts = t('certifications.international', { returnObjects: true }) as CertItem[];
+
+
+  const renderCertCard = (cert: CertItem, index: number) => (
+    <div
+      key={index}
+      className={`flex flex-col group p-4 rounded-2xl bg-surface/30 border border-white/5 transition-all duration-300 ${cert.logo ? 'cursor-pointer hover:border-accent/30' : ''}`}
+      onClick={() => cert.logo && setSelectedCert(cert.logo)}
+    >
+      {cert.logo ? (
+        <div className="h-14 mb-4 flex items-center justify-start">
+          <img
+            src={cert.logo}
+            alt={cert.title}
+            className={`max-h-full max-w-30 object-contain filter opacity-70 group-hover:opacity-100 transition-all duration-300 ${cert.title === "SNI" ? "scale-200" : ""}`}
+          />
+        </div>
+      ) : (
+        <div className="h-14 mb-4 flex items-center">
+          <CheckCircle2 size={28} className="text-accent opacity-70 group-hover:opacity-100 transition-opacity" />
+        </div>
+      )}
+      <div>
+        <h4 className="text-base font-bold text-white/90 mb-2">{cert.title}</h4>
+        <p className="text-xs text-foreground-muted leading-relaxed">{cert.desc}</p>
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
+            <Globe size={16} className="text-accent" />
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">{t('certifications.badge')}</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">{t('certifications.title')}</h2>
+          <p className="text-foreground-muted text-lg font-light leading-relaxed">
+            {t('certifications.desc')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
+          <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg">
+            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
+              <div className="p-3 rounded-xl bg-background border border-border">
+                <Award size={28} className="text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">{t('certifications.nationalTitle')}</h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {nationalCerts.map(renderCertCard)}
+            </div>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+              <Globe size={180} />
+            </div>
+            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10 relative z-10">
+              <div className="p-3 rounded-xl bg-background border border-border">
+                <ShieldCheck size={28} className="text-accent" />
+              </div>
+              <h3 className="text-2xl font-bold text-white">{t('certifications.internationalTitle')}</h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
+              {internationalCerts.map(renderCertCard)}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {selectedCert && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+          onClick={() => setSelectedCert(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full flex justify-center items-center" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setSelectedCert(null)}
+              className="absolute -top-12 right-0 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+            >
+              <X size={24} />
+            </button>
+
+            <div
+              className="relative rounded-xl overflow-hidden bg-white/5 p-4 border border-white/10"
+              onContextMenu={(e) => e.preventDefault()}
+            >
+              <img
+                src={selectedCert}
+                alt="Certificate Scan"
+                className="max-w-full max-h-[80vh] object-contain select-none"
+                draggable="false"
+              />
+              <div className="absolute inset-0 z-10 bg-transparent"></div>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Certifications;
+</file>
+
+<file path="src/components/FloatingWA.tsx">
+import { MessageCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+const FloatingWA = () => {
+  const { t } = useTranslation();
+
+  const phoneNumber = "6281290003278";
+  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(t('floatingWa.message'))}`;
+
+  return (
+    <a
+      href={waLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_25px_rgba(37,211,102,0.6)] transition-all duration-300 group"
+      aria-label="Contact us on WhatsApp"
+    >
+      <div className="absolute right-16 bg-surface border border-border text-foreground px-4 py-2 rounded-btn text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-card">
+        {t('floatingWa.tooltip')}
+      </div>
+      <MessageCircle size={32} />
+    </a>
+  );
+};
+
+export default FloatingWA;
 </file>
 
 <file path="src/pages/BlogDetailPage.tsx">
@@ -1940,163 +1754,6 @@ const BlogsPage = () => {
 export default BlogsPage;
 </file>
 
-<file path="src/components/Certifications.tsx">
-import { useState } from 'react';
-import { ShieldCheck, Award, Globe, CheckCircle2, X } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-
-interface CertItem {
-  title: string;
-  desc: string;
-  logo?: string;
-}
-
-const Certifications = () => {
-  const { t } = useTranslation();
-  const [selectedCert, setSelectedCert] = useState<string | null>(null);
-
-  const nationalCerts = t('certifications.national', { returnObjects: true }) as CertItem[];
-  const internationalCerts = t('certifications.international', { returnObjects: true }) as CertItem[];
-
-
-  const renderCertCard = (cert: CertItem, index: number) => (
-    <div
-      key={index}
-      className={`flex flex-col group p-4 rounded-2xl bg-surface/30 border border-white/5 transition-all duration-300 ${cert.logo ? 'cursor-pointer hover:border-accent/30' : ''}`}
-      onClick={() => cert.logo && setSelectedCert(cert.logo)}
-    >
-      {cert.logo ? (
-        <div className="h-14 mb-4 flex items-center justify-start">
-          <img
-            src={cert.logo}
-            alt={cert.title}
-            className={`max-h-full max-w-30 object-contain filter opacity-70 group-hover:opacity-100 transition-all duration-300 ${cert.title === "SNI" ? "scale-200" : ""}`}
-          />
-        </div>
-      ) : (
-        <div className="h-14 mb-4 flex items-center">
-          <CheckCircle2 size={28} className="text-accent opacity-70 group-hover:opacity-100 transition-opacity" />
-        </div>
-      )}
-      <div>
-        <h4 className="text-base font-bold text-white/90 mb-2">{cert.title}</h4>
-        <p className="text-xs text-foreground-muted leading-relaxed">{cert.desc}</p>
-      </div>
-    </div>
-  );
-
-  return (
-    <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent blur-[120px] pointer-events-none"></div>
-
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/50 bg-surface/50 backdrop-blur-sm mb-6 shadow-sm">
-            <Globe size={16} className="text-accent" />
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">{t('certifications.badge')}</span>
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">{t('certifications.title')}</h2>
-          <p className="text-foreground-muted text-lg font-light leading-relaxed">
-            {t('certifications.desc')}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8">
-          <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg">
-            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10">
-              <div className="p-3 rounded-xl bg-background border border-border">
-                <Award size={28} className="text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">{t('certifications.nationalTitle')}</h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {nationalCerts.map(renderCertCard)}
-            </div>
-          </div>
-
-          <div className="p-8 rounded-3xl bg-background border border-white/5 backdrop-blur-sm shadow-lg relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
-              <Globe size={180} />
-            </div>
-            <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/10 relative z-10">
-              <div className="p-3 rounded-xl bg-background border border-border">
-                <ShieldCheck size={28} className="text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-white">{t('certifications.internationalTitle')}</h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
-              {internationalCerts.map(renderCertCard)}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {selectedCert && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
-          onClick={() => setSelectedCert(null)}
-        >
-          <div className="relative max-w-4xl max-h-[90vh] w-full flex justify-center items-center" onClick={(e) => e.stopPropagation()}>
-            <button
-              onClick={() => setSelectedCert(null)}
-              className="absolute -top-12 right-0 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
-            >
-              <X size={24} />
-            </button>
-
-            <div
-              className="relative rounded-xl overflow-hidden bg-white/5 p-4 border border-white/10"
-              onContextMenu={(e) => e.preventDefault()}
-            >
-              <img
-                src={selectedCert}
-                alt="Certificate Scan"
-                className="max-w-full max-h-[80vh] object-contain select-none"
-                draggable="false"
-              />
-              <div className="absolute inset-0 z-10 bg-transparent"></div>
-            </div>
-          </div>
-        </div>
-      )}
-    </section>
-  );
-};
-
-export default Certifications;
-</file>
-
-<file path="src/components/FloatingWA.tsx">
-import { MessageCircle } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-
-const FloatingWA = () => {
-  const { t } = useTranslation();
-
-  const phoneNumber = "6281290003278";
-  const waLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(t('floatingWa.message'))}`;
-
-  return (
-    <a
-      href={waLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:scale-110 hover:shadow-[0_4px_25px_rgba(37,211,102,0.6)] transition-all duration-300 group"
-      aria-label="Contact us on WhatsApp"
-    >
-      <div className="absolute right-16 bg-surface border border-border text-foreground px-4 py-2 rounded-btn text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-card">
-        {t('floatingWa.tooltip')}
-      </div>
-      <MessageCircle size={32} />
-    </a>
-  );
-};
-
-export default FloatingWA;
-</file>
-
 <file path="src/pages/CategoryDetailPage.tsx">
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
@@ -2127,7 +1784,11 @@ const CategoryDetailPage = () => {
 
   return (
     <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
-      <SEO title={`${category.name} Category - FAST`} description={category.description} url={`/category/${slug}`} />
+      <SEO
+        title={`${t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })} Category - FAST`}
+        description={t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
+        url={`/category/${slug}`}
+      />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-16">
@@ -2157,8 +1818,12 @@ const CategoryDetailPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
               </div>
               <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{product.title}</h3>
-                <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">{product.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                  {t(`products.${product.id}.title`, { defaultValue: product.title })}
+                </h3>
+                <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">
+                  {t(`products.${product.id}.description`, { defaultValue: product.description })}
+                </p>
                 <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
                   {t('categoryDetail.viewDetails')} <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                 </div>
@@ -2319,6 +1984,86 @@ export const getPaginatedBlogs = async (
 };
 </file>
 
+<file path="src/components/About.tsx">
+import { motion } from 'framer-motion';
+import { Heart, ShieldCheck } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import SpotlightCard from './SpotlightCard';
+
+const About = () => {
+  const { t } = useTranslation();
+
+  return (
+    <section id="profil" className="py-24 bg-background relative overflow-hidden">
+      <div className="absolute top-0 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 -right-64 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
+
+        <div className="max-w-4xl mx-auto text-center mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
+              {t('about.title')}
+            </h2>
+            <p className="text-foreground-muted text-lg leading-relaxed font-light">
+              {t('about.desc')}
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                  <ShieldCheck size={28} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.missionTitle')}</h3>
+                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                  {t('about.missionDesc')}
+                </p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
+              <div className="p-8 md:p-10 flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
+                  <Heart size={28} className="text-accent" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.visionTitle')}</h3>
+                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
+                  {t('about.visionDesc')}
+                </p>
+              </div>
+            </SpotlightCard>
+          </motion.div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default About;
+</file>
+
 <file path="src/components/SEO.tsx">
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
@@ -2400,84 +2145,74 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
 export default SEO;
 </file>
 
-<file path="src/components/About.tsx">
-import { motion } from 'framer-motion';
-import { Heart, ShieldCheck } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import SpotlightCard from './SpotlightCard';
+<file path="src/App.tsx">
+import { Suspense, lazy } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import Layout from './components/Layout';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './contexts/AuthContext';
+import { Analytics } from '@vercel/analytics/react';
+import { domAnimation, LazyMotion } from 'framer-motion';
 
-const About = () => {
-  const { t } = useTranslation();
+const Home = lazy(() => import('./pages/Home'));
+const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
+const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
+const Login = lazy(() => import('./pages/Login'));
+const AdminBlog = lazy(() => import('./pages/AdminBlog'));
 
+const BlogsPage = lazy(() => import('./pages/BlogsPage'));
+const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
+const CatalogPage = lazy(() => import('./pages/CatalogPage'));
+const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
+const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
+
+const PageLoader = () => (
+
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
+  </div>
+);
+const App = () => {
   return (
-    <section id="profil" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute top-0 -left-64 w-96 h-96 bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 -right-64 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <HelmetProvider>
+      <Analytics />
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <AuthProvider>
+        <LazyMotion features={domAnimation}>
+          <BrowserRouter>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path="/" element={<Layout />}>
+                  <Route index element={<Home />} />
+                  <Route path="clients" element={<ClientBasePage />} />
 
-        <div className="max-w-4xl mx-auto text-center mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white tracking-tight">
-              {t('about.title')}
-            </h2>
-            <p className="text-foreground-muted text-lg leading-relaxed font-light">
-              {t('about.desc')}
-            </p>
-          </motion.div>
-        </div>
+                  <Route path="catalog" element={<CatalogPage />} />
+                  <Route path="catalog/:slug" element={<ProductDetailPage />} />
+                  <Route path="category/:slug" element={<CategoryDetailPage />} />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
-              <div className="p-8 md:p-10 flex flex-col h-full">
-                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
-                  <ShieldCheck size={28} className="text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.missionTitle')}</h3>
-                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                  {t('about.missionDesc')}
-                </p>
-              </div>
-            </SpotlightCard>
-          </motion.div>
+                  <Route path="blogs" element={<BlogsPage />} />
+                  <Route path="blogs/:id" element={<BlogDetailPage />} />
+                  <Route path="about" element={<AboutUsPage />} />
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <SpotlightCard className="group h-full bg-surface/50 border-white/5 hover:border-accent/30">
-              <div className="p-8 md:p-10 flex flex-col h-full">
-                <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent/50 transition-colors shadow-inner relative z-10">
-                  <Heart size={28} className="text-accent" />
-                </div>
-                <h3 className="text-2xl font-bold mb-4 text-white relative z-10">{t('about.visionTitle')}</h3>
-                <p className="text-foreground-muted leading-relaxed font-light text-lg relative z-10">
-                  {t('about.visionDesc')}
-                </p>
-              </div>
-            </SpotlightCard>
-          </motion.div>
-        </div>
+                  <Route path=":slug" element={<ProductDetailPage />} />
+                </Route>
 
-      </div>
-    </section>
+                <Route path="/login" element={<Login />} />
+
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/admin/blog" element={<AdminBlog />} />
+                </Route>
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </LazyMotion>
+      </AuthProvider>
+    </HelmetProvider>
   );
 };
 
-export default About;
+export default App;
 </file>
 
 <file path="src/components/Navbar.tsx">
@@ -2789,6 +2524,7 @@ const CatalogPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => {
             const category = categories.find(c => c.id === product.categoryId);
+
             return (
               <Link
                 to={`/catalog/${product.slug}`}
@@ -2798,19 +2534,22 @@ const CatalogPage = () => {
                 <div className="h-64 overflow-hidden relative">
                   <img src={product.image} alt={product.title} className="w-full h-full object-cover bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out h-full" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent pointer-events-none"></div>
+
                   {category && (
                     <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md border border-white/10 text-xs font-bold px-3 py-1.5 rounded-full text-accent z-20">
                       {t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })}
                     </div>
                   )}
                 </div>
+
                 <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300 pt-8">
-                    {product.title}
+                    {t(`products.${product.id}.title`, { defaultValue: product.title })}
                   </h3>
                   <p className="text-foreground-muted font-light leading-relaxed mb-6 flex-grow">
-                    {product.description}
+                    {t(`products.${product.id}.description`, { defaultValue: product.description })}
                   </p>
+
                   <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
                     {t('catalogPage.viewDetails')}
                     <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
@@ -2826,387 +2565,6 @@ const CatalogPage = () => {
 };
 
 export default CatalogPage;
-</file>
-
-<file path="src/App.tsx">
-import { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './contexts/AuthContext';
-import { Analytics } from '@vercel/analytics/react';
-import { domAnimation, LazyMotion } from 'framer-motion';
-
-const Home = lazy(() => import('./pages/Home'));
-const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
-const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
-const Login = lazy(() => import('./pages/Login'));
-const AdminBlog = lazy(() => import('./pages/AdminBlog'));
-
-const BlogsPage = lazy(() => import('./pages/BlogsPage'));
-const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
-const CatalogPage = lazy(() => import('./pages/CatalogPage'));
-const CategoryDetailPage = lazy(() => import('./pages/CategoryDetailPage'));
-const AboutUsPage = lazy(() => import('./pages/AboutUsPage'));
-
-const PageLoader = () => (
-
-  <div className="min-h-screen flex items-center justify-center bg-background">
-    <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
-  </div>
-);
-const App = () => {
-  return (
-    <HelmetProvider>
-      <Analytics />
-
-      <AuthProvider>
-        <LazyMotion features={domAnimation}>
-          <BrowserRouter>
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<Home />} />
-                  <Route path="clients" element={<ClientBasePage />} />
-
-                  <Route path="catalog" element={<CatalogPage />} />
-                  <Route path="catalog/:slug" element={<ProductDetailPage />} />
-                  <Route path="category/:slug" element={<CategoryDetailPage />} />
-
-                  <Route path="blogs" element={<BlogsPage />} />
-                  <Route path="blogs/:id" element={<BlogDetailPage />} />
-                  <Route path="about" element={<AboutUsPage />} />
-
-                  <Route path=":slug" element={<ProductDetailPage />} />
-                </Route>
-
-                <Route path="/login" element={<Login />} />
-
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/admin/blog" element={<AdminBlog />} />
-                </Route>
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-        </LazyMotion>
-      </AuthProvider>
-    </HelmetProvider>
-  );
-};
-
-export default App;
-</file>
-
-<file path="src/pages/ProductDetailPage.tsx">
-import { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import { CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X, ShoppingCart } from 'lucide-react';
-import { products, categories, type ProductVariant, type ProductPartner } from '../constants/catalogs';
-import SEO from '../components/SEO';
-import { useTranslation } from 'react-i18next';
-
-const VariantCard = ({ variant }: { variant: ProductVariant }) => {
-  const { t } = useTranslation();
-  const [activeView, setActiveView] = useState<'front' | 'back' | 'left' | 'right'>('front');
-
-  return (
-    <div className="flex flex-col h-full bg-surface/40 border border-white/10 hover:border-accent/30 rounded-3xl p-8 backdrop-blur-md transition-all duration-300 shadow-xl group">
-      {variant.images ? (
-        <div className="mb-8 flex flex-col items-center">
-          <div className="w-full aspect-square max-h-[250px] md:max-h-[300px] relative flex items-center justify-center bg-background/50 rounded-2xl overflow-hidden border border-white/5 mb-4 group/image">
-            <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-50"></div>
-            <img
-              src={variant.images[activeView]}
-              alt={`${variant.name || variant.weight} - ${activeView} view`}
-              className="w-full h-full object-contain p-4 transform transition-all duration-500 group-hover/image:scale-110 drop-shadow-2xl"
-            />
-            <span className="absolute top-3 left-3 bg-surface/80 backdrop-blur-md border border-white/10 text-[9px] font-bold px-2 py-1 rounded text-foreground-muted uppercase tracking-wider">
-              {activeView}
-            </span>
-          </div>
-          <div className="flex justify-center gap-2 w-full">
-            {(['front', 'back', 'left', 'right'] as const).map((view) => (
-              <button
-                key={view}
-                onClick={() => setActiveView(view)}
-                className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-300 flex-1 ${activeView === view
-                  ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
-                  : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
-                  }`}
-              >
-                {view}
-              </button>
-            ))}
-          </div>
-        </div>
-      ) : (
-        <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 border border-white/5">
-          <Weight size={24} />
-        </div>
-      )}
-      <div className="mt-auto">
-        {variant.weight && (
-          <span className="block text-xs text-foreground-muted uppercase tracking-wider mb-2">{t('productDetail.weight')} {variant.weight}</span>
-        )}
-        <h4 className="text-xl font-bold text-white/90 mb-3 group-hover:text-accent transition-colors">
-          {variant.name || variant.weight}
-        </h4>
-        {variant.desc && (
-          <p className="text-sm text-foreground-muted font-light leading-relaxed">
-            {variant.desc}
-          </p>
-        )}
-      </div>
-    </div>
-  );
-};
-
-const ProductDetailPage = () => {
-  const { slug } = useParams();
-  const location = useLocation();
-  const { t } = useTranslation();
-  const product = products.find(p => p.slug === slug);
-  const category = categories.find(c => c.id === product?.categoryId);
-  const [selectedPartner, setSelectedPartner] = useState<ProductPartner | null>(null);
-
-  const isFromCatalog = location.pathname.includes('/catalog');
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
-
-  if (!product) {
-    return (
-      <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center gap-6 text-center">
-        <SEO title="Product Not Found" description="The safety solution you are looking for might have been moved." />
-        <div className="w-24 h-24 rounded-full bg-surface border border-white/10 flex items-center justify-center mb-4">
-          <ShieldCheck size={40} className="text-foreground-muted" />
-        </div>
-        <h1 className="text-3xl md:text-4xl font-bold text-white">{t('productDetail.notFound')}</h1>
-        <p className="text-foreground-muted max-w-md">{t('productDetail.notFoundDesc')}</p>
-      </div>
-    );
-  }
-
-  const productSchema = {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": product.title,
-    "image": product.image,
-    "description": product.description,
-    "brand": {
-      "@type": "Brand",
-      "name": "FAST | PT. Famindo Alfa Spektrum Teknologi"
-    },
-    "slogan": product.tagline
-  };
-
-  return (
-    <div className="pb-24 bg-background min-h-screen relative">
-      <SEO
-        title={`${product.title} - FAST`}
-        description={product.description}
-        url={`/catalog/${product.slug}`}
-        image={product.image}
-        type="product"
-        schemaMarkup={productSchema}
-      />
-      <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
-        <div className="absolute inset-0 bg-background z-0" />
-        <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-40 rounded-b-3xl" />
-        <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
-            <Zap size={16} className="text-accent" />
-            <span className="text-xs font-bold tracking-widest text-accent uppercase">
-              {isFromCatalog && category ? t(`catalog.categories.${category.id}.name`, { defaultValue: category.name }) : t('productDetail.badgeFallback')}
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight max-w-4xl leading-tight">
-            {product.title}
-          </h1>
-          {product.tagline && (
-            <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-300 font-medium max-w-3xl leading-relaxed mt-4">
-              {product.tagline}
-            </p>
-          )}
-        </div>
-      </section>
-
-      <section className="py-16 relative">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
-        <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            <div className="lg:col-span-7 space-y-12">
-              <div>
-                <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                  {t('productDetail.overview')}
-                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
-                </h2>
-                <p className="text-foreground-muted text-lg leading-relaxed font-light mb-8">
-                  {product.description}
-                </p>
-
-                {product.features && product.features.length > 0 && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                    {product.features.map((feature, index) => (
-                      <div key={index} className="flex items-center gap-4 p-5 rounded-2xl bg-surface/40 border border-white/5 hover:border-accent/30 transition-all duration-300 group">
-                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <CheckCircle2 size={18} className="text-accent" />
-                        </div>
-                        <span className="text-foreground-muted font-light text-sm leading-relaxed group-hover:text-white/90 transition-colors">
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {product.partners && product.partners.length > 0 && (
-                <div>
-                  <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
-                    {t('productDetail.store')}
-                    <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
-                  </h3>
-                  <div className="flex flex-wrap gap-6 items-center justify-center">
-                    {product.partners.map((partner, index) => (
-                      <button
-                        key={index}
-                        onClick={() => partner.locations ? setSelectedPartner(partner) : undefined}
-                        className="bg-gradient-to-br from-accent/20 via-surface to-background border border-white/10 px-6 py-4 rounded-2xl hover:border-accent/30 hover:bg-surface/80 transition-all duration-300 group cursor-pointer focus:outline-none"
-                      >
-                        <img
-                          src={partner.logo}
-                          alt={partner.name}
-                          title={partner.name}
-                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter transition-all duration-300" : "h-10 md:h-12 w-auto object-contain filter transition-all duration-300"}
-                        />
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="relative overflow-hidden p-8 md:p-10 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group sticky top-28">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-surface to-background opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
-                <div className="absolute -right-10 -top-10 w-40 h-40 bg-accent/30 blur-3xl rounded-full"></div>
-
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center text-accent mb-6">
-                    <ShieldCheck size={28} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">{t('productDetail.secure')}</h3>
-                  <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">
-                    {t('productDetail.secureDesc')}
-                  </p>
-
-                  <div className="space-y-4">
-                    {product.brochureUrl && (
-                      <a
-                        href={product.brochureUrl}
-                        download
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 group/btn text-sm uppercase tracking-wide"
-                      >
-                        <Download size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
-                        {t('productDetail.download')}
-                      </a>
-                    )}
-                    {product.tokopediaUrl && (
-                      <a
-                        href={product.tokopediaUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full bg-[#03AC0E]/10 hover:bg-[#03AC0E]/20 border border-[#03AC0E]/30 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(3,172,14,0.1)] hover:shadow-[0_0_25px_rgba(3,172,14,0.25)] hover:-translate-y-1 text-sm uppercase tracking-wide group/tokped"
-                      >
-                        <ShoppingCart size={18} className="text-[#03AC0E] group-hover/tokped:scale-110 transition-transform" />
-                        {t('productDetail.buyTokopedia')}
-                      </a>
-                    )}
-                    <a
-                      href={`https://wa.me/6281290003278?text=Halo%20tim%20FAST,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.title)}.`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 text-sm uppercase tracking-wide"
-                    >
-                      <MessageSquare size={18} />
-                      {t('productDetail.contact')}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {product.variants && product.variants.length > 0 && (
-            <div className="pt-20 mt-12 border-t border-white/10">
-              <div className="text-center mb-12">
-                <h3 className="text-3xl font-bold text-white mb-4">{t('productDetail.variantsTitle')}</h3>
-                <p className="text-foreground-muted font-light max-w-2xl mx-auto">
-                  {t('productDetail.variantsDesc')}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
-                {product.variants.map((variant, index) => (
-                  <VariantCard key={index} variant={variant} />
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Modal / Card Partner Locations */}
-      {selectedPartner && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
-          onClick={() => setSelectedPartner(null)}
-        >
-          <div
-            className="bg-surface border border-accent/30 rounded-3xl p-8 max-w-md w-full shadow-[0_10px_40px_rgba(56,152,212,0.15)] relative"
-            onClick={e => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelectedPartner(null)}
-              className="absolute top-4 right-4 text-white/50 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors focus:outline-none"
-            >
-              <X size={20} />
-            </button>
-
-            <div className="flex justify-center mb-6 bg-white/5 p-6 rounded-2xl border border-white/5">
-              <img
-                src={selectedPartner.logo}
-                alt={selectedPartner.name}
-                className="h-12 object-contain filter opacity-90 scale-200"
-              />
-            </div>
-
-            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-              <MapPin className="text-accent" size={24} />
-              {t('productDetail.locationDetails')}
-            </h4>
-
-            <ul className="space-y-3 mt-4">
-              {selectedPartner.locations?.map((loc, i) => (
-                <li key={i} className="flex items-center gap-3 text-foreground-muted font-light p-3 rounded-xl bg-background/50 border border-white/5 hover:border-white/10 transition-colors">
-                  <div className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(56,152,212,0.6)] flex-shrink-0"></div>
-                  <span>{loc}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default ProductDetailPage;
 </file>
 
 <file path="src/components/ClientBase.tsx">
@@ -3312,6 +2670,331 @@ const ClientBase = () => {
 };
 
 export default ClientBase;
+</file>
+
+<file path="src/pages/ProductDetailPage.tsx">
+import { useEffect, useState } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
+import { CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X, ShoppingCart } from 'lucide-react';
+import { products, categories, type ProductVariant, type ProductPartner } from '../constants/catalogs';
+import SEO from '../components/SEO';
+import { useTranslation } from 'react-i18next';
+
+const VariantCard = ({ variant, productId }: { variant: ProductVariant, productId: string }) => {
+  const { t } = useTranslation();
+  const [activeView, setActiveView] = useState<'front' | 'back' | 'left' | 'right'>('front');
+
+  return (
+    <div className="flex flex-col h-full bg-surface/40 border border-white/10 hover:border-accent/30 rounded-3xl p-8 backdrop-blur-md transition-all duration-300 shadow-xl group">
+      {variant.images ? (
+        <div className="mb-8 flex flex-col items-center">
+          <div className="w-full aspect-square max-h-[250px] md:max-h-[300px] relative flex items-center justify-center bg-background/50 rounded-2xl overflow-hidden border border-white/5 mb-4 group/image">
+            <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-50"></div>
+            <img
+              src={variant.images[activeView]}
+              alt={`${variant.name || variant.weight} - ${activeView} view`}
+              className="w-full h-full object-contain p-4 transform transition-all duration-500 group-hover/image:scale-110 drop-shadow-2xl"
+            />
+            <span className="absolute top-3 left-3 bg-surface/80 backdrop-blur-md border border-white/10 text-[9px] font-bold px-2 py-1 rounded text-foreground-muted uppercase tracking-wider">
+              {activeView}
+            </span>
+          </div>
+          <div className="flex justify-center gap-2 w-full">
+            {(['front', 'back', 'left', 'right'] as const).map((view) => (
+              <button
+                key={view}
+                onClick={() => setActiveView(view)}
+                className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all duration-300 flex-1 ${activeView === view
+                  ? 'bg-accent text-white shadow-[0_0_10px_rgba(56,152,212,0.4)] border border-accent'
+                  : 'bg-background border border-white/10 text-foreground-muted hover:text-white hover:border-white/30'
+                  }`}
+              >
+                {view}
+              </button>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6 border border-white/5">
+          <Weight size={24} />
+        </div>
+      )}
+
+      <div className="mt-auto">
+        {variant.weight && (
+          <span className="block text-xs text-foreground-muted uppercase tracking-wider mb-2">{t('productDetail.weight')} {variant.weight}</span>
+        )}
+        <h4 className="text-xl font-bold text-white/90 mb-3 group-hover:text-accent transition-colors">
+          {t(`products.${productId}.variants.${variant.id}.name`, { defaultValue: variant.name || variant.weight })}
+        </h4>
+        {variant.desc && (
+          <p className="text-sm text-foreground-muted font-light leading-relaxed">
+            {t(`products.${productId}.variants.${variant.id}.desc`, { defaultValue: variant.desc })}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const ProductDetailPage = () => {
+  const { slug } = useParams();
+  const location = useLocation();
+  const { t } = useTranslation();
+
+  const product = products.find(p => p.slug === slug);
+  const category = categories.find(c => c.id === product?.categoryId);
+  const [selectedPartner, setSelectedPartner] = useState<ProductPartner | null>(null);
+
+  const isFromCatalog = location.pathname.includes('/catalog');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  if (!product) {
+    return (
+      <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center gap-6 text-center">
+        <SEO
+          title={t('productDetail.notFoundTitle', { defaultValue: "Product Not Found" })}
+          description={t('productDetail.notFoundDescSeo', { defaultValue: "The safety solution you are looking for might have been moved." })}
+        />
+        <div className="w-24 h-24 rounded-full bg-surface border border-white/10 flex items-center justify-center mb-4">
+          <ShieldCheck size={40} className="text-foreground-muted" />
+        </div>
+        <h1 className="text-3xl md:text-4xl font-bold text-white">{t('productDetail.notFound')}</h1>
+        <p className="text-foreground-muted max-w-md">{t('productDetail.notFoundDesc')}</p>
+      </div>
+    );
+  }
+
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": t(`products.${product.id}.title`, { defaultValue: product.title }),
+    "image": product.image,
+    "description": t(`products.${product.id}.description`, { defaultValue: product.description }),
+    "brand": {
+      "@type": "Brand",
+      "name": "FAST | PT. Famindo Alfa Spektrum Teknologi"
+    },
+    "slogan": t(`products.${product.id}.tagline`, { defaultValue: product.tagline })
+  };
+
+  return (
+    <div className="pb-24 bg-background min-h-screen relative">
+      <SEO
+        title={`${t(`products.${product.id}.title`, { defaultValue: product.title })} - FAST`}
+        description={t(`products.${product.id}.description`, { defaultValue: product.description })}
+        url={`/catalog/${product.slug}`}
+        image={product.image}
+        type="product"
+        schemaMarkup={productSchema}
+      />
+
+      <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
+        <div className="absolute inset-0 bg-background z-0" />
+        <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-40 rounded-b-3xl" />
+
+        <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
+            <Zap size={16} className="text-accent" />
+            <span className="text-xs font-bold tracking-widest text-accent uppercase">
+              {isFromCatalog && category ? t(`catalog.categories.${category.id}.name`, { defaultValue: category.name }) : t('productDetail.badgeFallback')}
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight max-w-4xl leading-tight">
+            {t(`products.${product.id}.title`, { defaultValue: product.title })}
+          </h1>
+
+          {product.tagline && (
+            <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-300 font-medium max-w-3xl leading-relaxed mt-4">
+              {t(`products.${product.id}.tagline`, { defaultValue: product.tagline })}
+            </p>
+          )}
+        </div>
+      </section>
+
+      <section className="py-16 relative">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
+        <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
+            <div className="lg:col-span-7 space-y-12">
+              <div>
+                <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                  {t('productDetail.overview')}
+                  <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
+                </h2>
+                <p className="text-foreground-muted text-lg leading-relaxed font-light mb-8">
+                  {t(`products.${product.id}.description`, { defaultValue: product.description })}
+                </p>
+
+                {product.features && product.features.length > 0 && (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+                    {product.features.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-4 p-5 rounded-2xl bg-surface/40 border border-white/5 hover:border-accent/30 transition-all duration-300 group">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <CheckCircle2 size={18} className="text-accent" />
+                        </div>
+                        <span className="text-foreground-muted font-light text-sm leading-relaxed group-hover:text-white/90 transition-colors">
+                          {t(`products.${product.id}.features.${index}`, { defaultValue: feature })}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {product.partners && product.partners.length > 0 && (
+                <div>
+                  <h3 className="text-2xl font-bold mb-8 text-white flex items-center gap-3">
+                    {t('productDetail.store')}
+                    <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
+                  </h3>
+                  <div className="flex flex-wrap gap-6 items-center justify-center">
+                    {product.partners.map((partner, index) => (
+                      <button
+                        key={index}
+                        onClick={() => partner.locations ? setSelectedPartner(partner) : undefined}
+                        className="bg-gradient-to-br from-accent/20 via-surface to-background border border-white/10 px-6 py-4 rounded-2xl hover:border-accent/30 hover:bg-surface/80 transition-all duration-300 group cursor-pointer focus:outline-none"
+                      >
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          title={partner.name}
+                          className={partner.logo === "/partners/jaecoo.png" ? "h-10 md:h-12 w-auto object-contain filter transition-all duration-300" : "h-10 md:h-12 w-auto object-contain filter transition-all duration-300"}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="relative overflow-hidden p-8 md:p-10 rounded-3xl bg-surface border border-accent/30 shadow-[0_10px_40px_rgba(56,152,212,0.15)] group sticky top-28">
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-surface to-background opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
+                <div className="absolute -right-10 -top-10 w-40 h-40 bg-accent/30 blur-3xl rounded-full"></div>
+
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-background border border-white/10 flex items-center justify-center text-accent mb-6">
+                    <ShieldCheck size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{t('productDetail.secure')}</h3>
+                  <p className="text-foreground-muted text-sm mb-8 font-light leading-relaxed">
+                    {t('productDetail.secureDesc')}
+                  </p>
+
+                  <div className="space-y-4">
+                    {product.brochureUrl && (
+                      <a
+                        href={product.brochureUrl}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-white/5 hover:bg-white/10 border border-white/20 text-white font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 group/btn text-sm uppercase tracking-wide"
+                      >
+                        <Download size={18} className="group-hover/btn:-translate-y-1 transition-transform" />
+                        {t('productDetail.download')}
+                      </a>
+                    )}
+
+                    {product.tokopediaUrl && (
+                      <a
+                        href={product.tokopediaUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-[#03AC0E]/10 hover:bg-[#03AC0E]/20 border border-[#03AC0E]/30 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(3,172,14,0.1)] hover:shadow-[0_0_25px_rgba(3,172,14,0.25)] hover:-translate-y-1 text-sm uppercase tracking-wide group/tokped"
+                      >
+                        <ShoppingCart size={18} className="text-[#03AC0E] group-hover/tokped:scale-110 transition-transform" />
+                        {t('productDetail.buyTokopedia')}
+                      </a>
+                    )}
+
+                    <a
+                      href={`https://wa.me/6281290003278?text=Halo%20tim%20FAST,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.title)}.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full bg-accent hover:bg-accent/80 text-white font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(56,152,212,0.4)] hover:shadow-[0_0_30px_rgba(56,152,212,0.6)] hover:-translate-y-1 text-sm uppercase tracking-wide"
+                    >
+                      <MessageSquare size={18} />
+                      {t('productDetail.contact')}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {product.variants && product.variants.length > 0 && (
+            <div className="pt-20 mt-12 border-t border-white/10">
+              <div className="text-center mb-12">
+                <h3 className="text-3xl font-bold text-white mb-4">{t('productDetail.variantsTitle')}</h3>
+                <p className="text-foreground-muted font-light max-w-2xl mx-auto">
+                  {t('productDetail.variantsDesc')}
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+                {product.variants.map((variant, index) => (
+                  <VariantCard key={index} variant={variant} productId={product.id} />
+                ))}
+              </div>
+            </div>
+          )}
+
+        </div>
+      </section>
+
+      {/* Modal / Card Partner Locations */}
+      {selectedPartner && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
+          onClick={() => setSelectedPartner(null)}
+        >
+          <div
+            className="bg-surface border border-accent/30 rounded-3xl p-8 max-w-md w-full shadow-[0_10px_40px_rgba(56,152,212,0.15)] relative"
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedPartner(null)}
+              className="absolute top-4 right-4 text-white/50 hover:text-white bg-white/5 hover:bg-white/10 rounded-full p-2 transition-colors focus:outline-none"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="flex justify-center mb-6 bg-white/5 p-6 rounded-2xl border border-white/5">
+              <img
+                src={selectedPartner.logo}
+                alt={selectedPartner.name}
+                className="h-12 object-contain filter opacity-90 scale-200"
+              />
+            </div>
+
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
+              <MapPin className="text-accent" size={24} />
+              {t('productDetail.locationDetails')}
+            </h4>
+
+            <ul className="space-y-3 mt-4">
+              {selectedPartner.locations?.map((loc, i) => (
+                <li key={i} className="flex items-center gap-3 text-foreground-muted font-light p-3 rounded-xl bg-background/50 border border-white/5 hover:border-white/10 transition-colors">
+                  <div className="w-2 h-2 rounded-full bg-accent shadow-[0_0_8px_rgba(56,152,212,0.6)] flex-shrink-0"></div>
+                  <span>{loc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ProductDetailPage;
 </file>
 
 <file path="src/components/Catalog.tsx">
@@ -3633,10 +3316,10 @@ const resources = {
         ctaButton: "Consult With Our Experts",
         featured: {
           presidential: {
-            name: "2024 Presidential Inauguration",
+            name: "Presidential Inauguration 2024",
             category: "Government",
             status: "Deployment Secured",
-            desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
+            desc: "Protection for all EV units escorting international VVIP guests for the Presidential Inauguration 2024.",
           },
           iaf: {
             name: "KTT IAF Bali 2024",
@@ -3774,7 +3457,7 @@ const resources = {
         clients: {
           presidential: {
             name: "Presidential Inauguration 2024",
-            desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
+            desc: "Protection for all EV units escorting international VVIP guests for the Presidential Inauguration 2024.",
           },
           iaf: {
             name: "KTT IAF Bali 2024",
@@ -3825,7 +3508,7 @@ const resources = {
         cta2: "Consult Us",
         trusted: "Securing High-Profile Assets",
         trustedClients: {
-          presidential: "2024 Presidential Inauguration",
+          presidential: "Presidential Inauguration 2024",
           kttVisit: "KTT Visit",
           bluebird: "Bluebird Group",
           kttIaf: "KTT IAF Bali",
@@ -3908,27 +3591,27 @@ const resources = {
           {
             title: "Fullfills TKDN Component Standards",
             desc: "Passed the test from Indonesia's Ministry of Industry with a total value of 49.31%. A top-of-mind choice to secure the mining and manufacturing industry.",
-            logo: "/certi/lfk-af31/TKDN.svg.png",
+            logo: "/certi/lfk-af31/TKDN.svg.avif",
           },
           {
             title: "Ministry of Environment & Forestry (KLHK)",
             desc: "Passed as an effective solution for combating forest fires. Safe for humans, animals, and the environment. Prevents fire re-ignition.",
-            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.png",
+            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.avif",
           },
           {
             title: "DAMKAR",
             desc: "Qualified for extinguishing every class of fire [A, B, C, D, F/K] according to stringent DAMKAR test method parameters.",
-            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.png",
+            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.avif",
           },
           {
             title: "Ministry of Transportation",
             desc: "Certified as an effective fire extinguisher for classes A, B, C, and D. Highly reliable for transportation fleets.",
-            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.png",
+            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.avif",
           },
           {
             title: "POLRI",
             desc: "Meets rigorous testing parameters and safety methods evaluated by the Indonesian National Police.",
-            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.png",
+            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.avif",
           },
           {
             title: "SNI",
@@ -3940,56 +3623,52 @@ const resources = {
           {
             title: "Nucro Technics",
             desc: "Certified testing and standard approvals ensuring our solutions meet rigorous international quality and safety benchmarks.",
-            logo: "/certi/lfk-af31/Nucro-Technics.svg",
+            logo: "/certi/lfk-af31/Nucro-Technics.avif",
           },
           {
             title: "EUROFINS - Environment Test",
             desc: "Certified as a non-PFAS fire extinguisher. Removing the fear and risk of cancer development for its users.",
-            logo: "/certi/lfk-af31/EUROFINS.png",
+            logo: "/certi/lfk-af31/EUROFINS.avif",
           },
           {
             title: "SGS (USA)",
             desc: "Effective fire suppression solution for building material surfaces in accordance with the American Society for Testing and Materials.",
-            logo: "/certi/lfk-af31/SGS Logo.svg.png",
+            logo: "/certi/lfk-af31/SGS Logo.svg.avif",
           },
           {
             title: "ASTM International",
             desc: "Complies with ASTM International standards for testing and materials, ensuring superior fire suppression performance.",
-            logo: "/certi/lfk-af31/ASTM International Logo.png",
+            logo: "/certi/lfk-af31/ASTM International Logo.avif",
           },
           {
             title: "US Department of Transportation (DOT)",
             desc: "Approved for transport safety and compliance by the United States Department of Transportation.",
-            logo: "/certi/lfk-af31/Department of Transportation USA.png",
+            logo: "/certi/lfk-af31/Department of Transportation USA.avif",
           },
           {
             title: "Pollutech EnviroQuatics (Canada)",
             desc: "LC50 Certified. Proven not to cause acute toxicity and death to living organisms (tested on fish in their natural environment).",
-            logo: "/certi/lfk-af31/Pollutec Logo.png",
+            logo: "/certi/lfk-af31/Pollutec Logo.avif",
           },
           {
             title: "KGK Synergize (Canada) OECD",
             desc: "Achieved 'non-irritation' status. Causes no acute eye, skin irritation, or oral toxicity following OECD guidelines.",
-            logo: "/certi/lfk-af31/KGK Science Logo.png",
+            logo: "/certi/lfk-af31/KGK Science Logo.avif",
           },
           {
             title: "QAI Laboratories",
             desc: "Evaluated and certified by QAI Laboratories for stringent compliance with international safety and performance criteria.",
-            logo: "/certi/lfk-af31/QAI logo.png",
+            logo: "/certi/lfk-af31/QAI logo.avif",
           },
           {
-            title: "TÜV SÜD",
-            desc: "Recognized by TÜV SÜD for meeting premium international quality, safety, and sustainability benchmarks.",
-            logo: "/certi/lfk-af31/TÜV_Süd_logo.svg.png",
+            title: "TUV SUD",
+            desc: "Recognized by TUV SUD for meeting premium international quality, safety, and sustainability benchmarks.",
+            logo: "/certi/lfk-af31/tuv_sud.avif",
           },
           {
             title: "UL Solutions (USA) - GREENGUARD Gold",
             desc: "Verified to have low total VOC emissions, ensuring high suitability for sensitive environments like schools and healthcare.",
-            logo: "/certi/lfk-af31/Greenguard Logo 2.png",
-          },
-          {
-            title: "EN1568-3 European Standard",
-            desc: "Certified in line with European fire extinguishing standards for reliable and consistent performance.",
+            logo: "/certi/lfk-af31/Greenguard Logo 2.avif",
           },
         ],
       },
@@ -4288,6 +3967,191 @@ const resources = {
           },
         },
       },
+      products: {
+        "ballistic-app": {
+          title: "BALLISTIC (Battery Life Diagnostic)",
+          tagline: "Sistem Diagnostik Umur Baterai",
+          description:
+            "BALLISTIC adalah aplikasi IoT (Internet of Things) dan Machine Learning yang dirancang untuk mendeteksi anomali suhu baterai lithium secara real-time. Dipercaya oleh PLN sebagai Battery Monitoring Center (BMC) untuk UPS portabel besar di seluruh pusat data.",
+          features: {
+            "0": "Pemantauan suhu baterai secara real-time",
+            "1": "Notifikasi peringatan dini yang cerdas",
+            "2": "Deteksi anomali dengan Machine Learning",
+            "3": "Dipercaya oleh Perusahaan Listrik Negara (PLN)",
+          },
+          variants: {
+            b1: {
+              name: "BALLISTIC untuk EV",
+              desc: "Pemantauan terintegrasi khusus untuk pengguna kendaraan listrik.",
+            },
+            b2: {
+              name: "BALLISTIC Enterprise BMC",
+              desc: "Sistem pemantauan terpusat untuk Pusat Data modern dan penyedia utilitas.",
+            },
+          },
+        },
+        "power-tech-shield-fire-blanket": {
+          title: "Power Tech Shield - Selimut Api",
+          tagline:
+            "Pelindung Tugas Berat yang Dirancang untuk Bertahan di Kondisi Ekstrem",
+          description:
+            "Selimut keselamatan khusus yang dirancang untuk mengisolasi dan mencegah penyebaran api dengan memutus pasokan oksigen. Pelindung tugas berat terbaik untuk kendaraan listrik, garasi, dan area parkir.",
+          features: {
+            "0": "Tahan panas hingga 1600°C",
+            "1": "Bertahan pada suhu 1100°C hingga 50 jam",
+            "2": "Dapat digunakan kembali 6-7 kali (jika terpapar 300°C - 400°C)",
+            "3": "Teruji & Bersertifikasi ASTM",
+          },
+          variants: {
+            fb1: {
+              name: "Pelindung Kendaraan Besar",
+              desc: "Ideal untuk SUV dan kendaraan listrik berukuran besar.",
+            },
+            fb2: {
+              name: "Pelindung Standar",
+              desc: "Ukuran ringkas untuk kendaraan yang lebih kecil dan pemadaman spesifik.",
+            },
+            fb3: {
+              name: "Pelindung Kompak",
+              desc: "Untuk penggunaan yang sangat spesifik dan terlokalisasi.",
+            },
+          },
+        },
+        "altex-alpha-tech-shield": {
+          title: "ALTEX ALPHA TECH SHIELD",
+          tagline:
+            "Pelapis Anti-Api Dalam Ruangan dengan Teknologi Thermafrost",
+          description:
+            "Pelapis anti-api dalam ruangan berkinerja tinggi yang dirancang untuk melindungi aset berharga Anda. Bekerja dengan memantulkan panas dan membentuk penghalang arang padat untuk mengisolasi struktur bangunan, memberi Anda waktu tambahan yang krusial selama keadaan darurat.",
+          features: {
+            "0": "Tahan terhadap panas ekstrem hingga 1300°C",
+            "1": "Memberikan durasi ketahanan api selama 3 jam",
+            "2": "Teknologi Char Barrier Thermafrost",
+            "3": "100% Non-Toksik (Bebas Karsinogen & VOC)",
+            "4": "Diaplikasikan menggunakan spray gun airless (kering dalam 3 jam)",
+          },
+          variants: {
+            a1: {
+              name: "Layanan End-to-End Altex",
+              desc: "Termasuk konsultasi gratis, survei lokasi, dan aplikasi presisi oleh tim terlatih.",
+            },
+          },
+        },
+        "g-tech-defend": {
+          title: "G-TECH",
+          tagline: "Supresi Api Teknologi Gel Pasif",
+          description:
+            "Peredam api pasif berbasis teknologi Gel canggih untuk mengamankan baterai Lithium. Bekerja dengan menyerap panas, membentuk lapisan pendingin, dan mencegah penyalaan kembali. Produk DEFEND merupakan perlengkapan gaya hidup terintegrasi dengan G-Tech.",
+          features: {
+            "0": "Kemampuan penyerapan panas tingkat lanjut",
+            "1": "Membentuk lapisan pendingin secara proaktif",
+            "2": "Mencegah penyalaan kembali (thermal runaway)",
+            "3": "Terintegrasi mulus ke dalam produk bawaan sehari-hari",
+          },
+          variants: {
+            g1: {
+              name: "DEFEND Pouch & Tas Baterai",
+              desc: "Solusi bawaan sehari-hari dengan integrasi G-Tech untuk elektronik pribadi.",
+            },
+            g2: {
+              name: "DEFEND Selimut Baterai",
+              desc: "Perlindungan terarah untuk paket baterai lithium ukuran menengah.",
+            },
+          },
+        },
+        "lithium-fire-killer-hartindo-af31": {
+          title: "Lithium Fire Killer HARTINDO AF31",
+          tagline: "Pemadam Api Baterai Lithium Pertama Di Dunia",
+          description:
+            "Pemadam multi-fungsi ramah lingkungan yang menangani segalanya. Dari kebakaran kertas biasa hingga kebakaran baterai lithium yang berisiko tinggi. Lindungi rumah, armada, dan jiwa Anda dengan solusi keselamatan kebakaran khusus kami.",
+          features: {
+            "0": "Bersertifikat SNI (Standar Nasional Indonesia)",
+            "1": "Kelas Api: A, B, D, F/K, & L (Lithium)",
+            "2": "Satu alat tangguh untuk setiap keadaan darurat",
+            "3": "Teruji di Lab Internasional & Bersertifikat TKDN",
+            "4": "Ramah lingkungan & Tidak Beracun",
+          },
+          variants: {
+            v1: {
+              name: "LFK AF31 Portabel - 1 KG",
+              desc: "Tabung pemadam ringan yang ideal untuk kendaraan listrik pribadi dan area yang sempit.",
+            },
+            v2: {
+              name: "LFK AF31 Portabel - 3 KG",
+              desc: "Tabung serbaguna untuk garasi EV, ruang server, dan komersial.",
+            },
+            v3: {
+              name: "LFK AF31 Portabel - 6 KG",
+              desc: "Unit berkapasitas tinggi untuk fasilitas industri dan perlindungan skala besar.",
+            },
+            v4: {
+              name: "LFK AF31 Troli - 25 KG",
+              desc: "Solusi mobilitas tugas berat untuk tambang, gudang besar, dan stasiun pengisian EV.",
+            },
+            v5: {
+              name: "LFK AF31 Troli - 50 KG",
+              desc: "Sistem supresi berkapasitas maksimal untuk lingkungan industri ekstrem.",
+            },
+          },
+        },
+        "flat-af11e": {
+          title: "FLAT Flame Accurate Termination (AF11E)",
+          tagline: "Pemadam Gas Cair Bersih Tingkat Lanjut (AF11E)",
+          description:
+            "Media pemadam gas cair bersih (campuran HCFC 123). Alternatif Halon yang sempurna tanpa efek samping merusak lingkungan. Tidak meninggalkan residu dan non-konduktif, membuatnya sangat cocok untuk Rumah Sakit, Ruang Panel, Pusat Data, dan markas Militer.",
+          features: {
+            "0": "Meninggalkan nol residu setelah digunakan",
+            "1": "Aman untuk pernapasan manusia jika tanpa sengaja terhirup",
+            "2": "Non-konduktif, sempurna untuk memadamkan kebakaran listrik",
+            "3": "Bekerja secara sempurna untuk Kelas Api A, B, dan C",
+          },
+          variants: {
+            f1: {
+              name: "CA 1130-F",
+              desc: "Warna tabung merah dengan tekanan kerja 14-16 Bar. Jangkauan pancaran 10m.",
+            },
+            f2: {
+              name: "CA 1160-F",
+              desc: "Warna tabung perak dengan tekanan kerja 14-16 Bar. Jangkauan pancaran 10m.",
+            },
+          },
+        },
+        "uss-undercarriage": {
+          title: "Sistem Pemadaman Sasis Kendaraan (USS)",
+          tagline: "Ekstensi Khusus untuk Titik Api di Bawah Kendaraan EV",
+          description:
+            "Perangkat ekstensi alat pemadam api portabel yang dirancang khusus untuk mengatasi kebakaran pada kendaraan listrik yang letak baterainya berada di bawah sasis. Dikembangkan bersama Pindad Indonesia untuk efisiensi darurat terbaik.",
+          features: {
+            "0": "Mode Jet Spray tekanan tinggi & Fine Mist",
+            "1": "Ekstensi tombak khusus untuk penyisipan bawah mobil yang aman",
+            "2": "Konektor selang kompatibel ke unit APAR besar 25KG-50KG",
+            "3": "Direkayasa ketat bersama Pindad Indonesia",
+          },
+          variants: {
+            u1: {
+              name: "Kit Pengerahan USS",
+              desc: "Kit ekstensi nosel dan tombak lengkap untuk tim tanggap darurat EV.",
+            },
+          },
+        },
+        "x-cap": {
+          title: "X-CAP",
+          tagline: "Solusi Cepat Tanggap Eksekusi Kebakaran",
+          description:
+            "Alat pemadam kebakaran portabel yang dirancang untuk penyebaran cepat dan efisiensi maksimal dalam skenario kritis yang tidak terduga. Memastikan jalur evakuasi segera diamankan dengan hitungan detik.",
+          features: {
+            "0": "Mekanisme respon dan penyebaran sangat cepat",
+            "1": "Penanganan supresi berefisiensi tinggi",
+            "2": "Ringkas, kokoh, dan selalu siap diandalkan",
+          },
+          variants: {
+            xc1: {
+              name: "Standar X-CAP",
+              desc: "Unit respon standar untuk pemadaman instan.",
+            },
+          },
+        },
+      },
       adminBlog: {
         addTitle: "Tambah Blog Baru",
         editTitle: "Edit Blog",
@@ -4310,27 +4174,27 @@ const resources = {
           {
             title: "Standar Komponen TKDN",
             desc: "Lulus uji Kementerian Perindustrian dengan nilai total 49.31%. Pilihan utama produk dalam negeri untuk mengamankan industri tambang dan manufaktur.",
-            logo: "/certi/lfk-af31/TKDN.svg.png",
+            logo: "/certi/lfk-af31/TKDN.svg.avif",
           },
           {
             title: "Kementerian Lingkungan Hidup & Kehutanan",
             desc: "Solusi efektif penanggulangan kebakaran hutan (Karhutla). Aman bagi manusia, hewan, dan lingkungan, serta mencegah re-ignisi.",
-            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.png",
+            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.avif",
           },
           {
             title: "DAMKAR",
             desc: "Lulus kualifikasi memadamkan semua kelas api [A, B, C, D, F/K] berdasarkan parameter metode uji ketat dari DAMKAR.",
-            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.png",
+            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.avif",
           },
           {
             title: "Kementerian Perhubungan",
             desc: "Sertifikasi pemadam efektif untuk Kelas A, B, C, dan D. Sangat andal untuk proteksi armada transportasi dan logistik.",
-            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.png",
+            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.avif",
           },
           {
             title: "POLRI",
             desc: "Memenuhi parameter pengujian teknis dan standar keamanan yang dievaluasi langsung oleh Kepolisian Republik Indonesia.",
-            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.png",
+            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.avif",
           },
           {
             title: "SNI",
@@ -4342,56 +4206,52 @@ const resources = {
           {
             title: "Nucro Technics",
             desc: "Lulus pengujian sertifikasi untuk jaminan kualitas dan tolak ukur keselamatan standar internasional.",
-            logo: "/certi/lfk-af31/Nucro-Technics.svg",
+            logo: "/certi/lfk-af31/Nucro-Technics.avif",
           },
           {
             title: "EUROFINS - Environment Test",
             desc: "Sertifikasi bebas PFAS (senyawa kimia abadi), menghilangkan risiko pembentukan kanker bagi penggunanya.",
-            logo: "/certi/lfk-af31/EUROFINS.png",
+            logo: "/certi/lfk-af31/EUROFINS.avif",
           },
           {
             title: "SGS (USA)",
             desc: "Solusi supresi api yang sangat efektif untuk material permukaan bangunan sesuai standar The American Society for Testing and Materials.",
-            logo: "/certi/lfk-af31/SGS Logo.svg.png",
+            logo: "/certi/lfk-af31/SGS Logo.svg.avif",
           },
           {
             title: "ASTM International",
             desc: "Memenuhi standar pengujian dan material ASTM International, memastikan kinerja pemadaman api yang superior.",
-            logo: "/certi/lfk-af31/ASTM International Logo.png",
+            logo: "/certi/lfk-af31/ASTM International Logo.avif",
           },
           {
             title: "US Department of Transportation (DOT)",
             desc: "Disertifikasi oleh Departemen Transportasi Amerika Serikat untuk keamanan transportasi dan penanganan produk.",
-            logo: "/certi/lfk-af31/Department of Transportation USA.png",
+            logo: "/certi/lfk-af31/Department of Transportation USA.avif",
           },
           {
             title: "Pollutech EnviroQuatics (Kanada)",
             desc: "Sertifikasi LC50: terbukti tidak menyebabkan toksisitas akut maupun kematian pada organisme hidup di air/alam.",
-            logo: "/certi/lfk-af31/Pollutec Logo.png",
+            logo: "/certi/lfk-af31/Pollutec Logo.avif",
           },
           {
             title: "KGK Synergize (Kanada) OECD",
             desc: "Status non-iritasi sesuai pedoman OECD. Tidak menyebabkan iritasi mata, kulit, maupun toksisitas oral.",
-            logo: "/certi/lfk-af31/KGK Science Logo.png",
+            logo: "/certi/lfk-af31/KGK Science Logo.avif",
           },
           {
             title: "QAI Laboratories",
             desc: "Dievaluasi dan disertifikasi oleh QAI Laboratories untuk kepatuhan ketat terhadap kriteria keselamatan dan kinerja internasional.",
-            logo: "/certi/lfk-af31/QAI logo.png",
+            logo: "/certi/lfk-af31/QAI logo.avif",
           },
           {
-            title: "TÜV SÜD",
-            desc: "Diakui oleh TÜV SÜD karena memenuhi tolok ukur kualitas, keselamatan, dan keberlanjutan internasional premium.",
-            logo: "/certi/lfk-af31/TÜV_Süd_logo.svg.png",
+            title: "TUV SUD",
+            desc: "Diakui oleh TUV SUD karena memenuhi tolok ukur kualitas, keselamatan, dan keberlanjutan internasional premium.",
+            logo: "/certi/lfk-af31/tuv_sud.avif",
           },
           {
             title: "UL Solutions - GREENGUARD Gold",
             desc: "Emisi VOC sangat rendah, menjamin keamanan untuk digunakan di lingkungan sensitif seperti sekolah & fasilitas kesehatan.",
-            logo: "/certi/lfk-af31/Greenguard Logo 2.png",
-          },
-          {
-            title: "EN1568-3 European Standard",
-            desc: "Telah bersertifikat sesuai standar pemadaman kebakaran Eropa untuk performa yang dapat diandalkan secara konsisten.",
+            logo: "/certi/lfk-af31/Greenguard Logo 2.avif",
           },
         ],
       },
@@ -4847,6 +4707,296 @@ const Brands = () => {
 };
 
 export default Brands;
+</file>
+
+<file path="src/components/ContactFooter.tsx">
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { MapPin, Phone, Mail, Send, Facebook, Linkedin, BookOpen, ArrowRight, Instagram, Youtube } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import logo from '../assets/FAST_Logo_PNG/logo.png';
+import { getLandingPageBlogs } from '../services/blogService';
+import type { Blog } from '../types/blog';
+
+const ContactFooter = () => {
+  const { t, i18n } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loadingBlogs, setLoadingBlogs] = useState(true);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const data = await getLandingPageBlogs();
+        setBlogs(data);
+      } catch (error) {
+        console.error('Gagal mengambil blog:', error);
+      } finally {
+        setLoadingBlogs(false);
+      }
+    };
+    fetchBlogs();
+  }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    const payload = {
+      ...formData,
+      access_key: "21fdab41-15c9-4f2e-8ebb-6101613f102c"
+    };
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus({ type: 'success', message: t('footer.form.success') });
+        setFormData({ name: '', email: '', message: '' });
+        setTimeout(() => {
+          setSubmitStatus({ type: '', message: '' });
+        }, 5000);
+      } else {
+        setSubmitStatus({ type: 'error', message: result.message || t('footer.form.error') });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setSubmitStatus({ type: 'error', message: t('footer.form.error') });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <footer className="bg-surface pt-24 border-t border-border relative overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="mt-12 border-b border-border pb-12 bg-surface">
+          <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+              <h3 className="text-2xl font-bold flex items-center gap-2 mb-2">
+                <BookOpen className="text-accent" size={24} /> {t('footer.insights.title')}
+              </h3>
+              <p className="text-foreground-muted text-sm">{t('footer.insights.desc')}</p>
+            </div>
+            <Link to="/blogs" className="inline-flex items-center gap-2 text-accent hover:text-white transition-colors text-sm font-semibold">
+              {t('footer.insights.viewAll')} <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          {loadingBlogs ? (
+            <div className="flex justify-center items-center py-12">
+              <div className="w-8 h-8 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
+            </div>
+          ) : blogs.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {blogs.map((blog) => (
+                <Link to={`/blogs/${blog.id}`} key={blog.id} className="group flex flex-col rounded-card overflow-hidden bg-background border border-border hover:border-accent/40 transition-all duration-300">
+                  <div className="h-48 overflow-hidden relative">
+                    <img
+                      src={blog.foto}
+                      alt={blog.nama}
+                      loading="lazy"
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent"></div>
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow relative z-10 -mt-10">
+                    <h4 className="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-accent transition-colors duration-300 drop-shadow-md">
+                      {blog.nama}
+                    </h4>
+                    <p className="text-sm text-foreground-muted line-clamp-3 mb-6 flex-grow leading-relaxed">
+                      {blog.deskripsi}
+                    </p>
+                    <div className="pt-4 border-t border-border flex justify-between items-center">
+                      <span className="text-xs font-medium text-foreground-muted uppercase tracking-wider">
+                        {new Date(blog.createdAt).toLocaleDateString(i18n.language === 'id' ? 'id-ID' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 border border-border rounded-card bg-background/50">
+              <p className="text-foreground-muted">{t('footer.insights.empty')}</p>
+            </div>
+          )}
+        </div>
+
+        <div id="kontak" className="grid grid-cols-1 lg:grid-cols-2 gap-16 my-20">
+          <div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              {t('footer.title')} <br /><span className="text-accent">{t('footer.titleHighlight')}</span>
+            </h2>
+            <p className="text-foreground-muted mb-10 text-lg">
+              {t('footer.desc')}
+            </p>
+
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center flex-shrink-0 text-accent">
+                  <MapPin size={20} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-1">{t('footer.headquarters')}</h4>
+                  <p className="text-foreground-muted">TCC Tower One Menara Batavia<br />Jl. K.H. Mas Mansyur No. Kav. 126, RT.9/RW.3<br />Karet Tengsin, Tanah Abang, Jakarta Pusat 10220</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center flex-shrink-0 text-accent">
+                  <Phone size={20} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-1">{t('footer.phone')}</h4>
+                  <p className="text-foreground-muted">+62 812 9000 3278</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center flex-shrink-0 text-accent">
+                  <Mail size={20} />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg mb-1">{t('footer.emailTitle')}</h4>
+                  <p className="text-foreground-muted">support@famindofast.com</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 rounded-card overflow-hidden border border-border shadow-card h-64 relative bg-surface">
+              <iframe
+                title="Peta Lokasi Kantor Pusat PT Famindo Alfa Spektrum Teknologi (FAST)"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.398361941328!2d106.8138512746038!3d-6.2110753608376985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f6a9eb4646b1%3A0xd1fdd0d354acf37!2sFP%20One%20TCC%20Batavia%20Tower%20One!5e0!3m2!1sid!2sid!4v1775395133848!5m2!1sid!2sid"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 opacity-100 transition-all duration-500"
+              ></iframe>
+            </div>
+          </div>
+
+          <div className="bg-surface p-8 rounded-card border border-border shadow-card relative h-fit">
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 blur-2xl rounded-full"></div>
+            <h3 className="text-2xl font-semibold mb-6 relative z-10">{t('footer.form.title')}</h3>
+            <form className="space-y-5 relative z-10" onSubmit={handleSubmit}>
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground-muted mb-2">{t('footer.form.name')}</label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                  placeholder={t('footer.form.namePlaceholder')}
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground-muted mb-2">{t('footer.form.email')}</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                  placeholder={t('footer.form.emailPlaceholder')}
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-foreground-muted mb-2">{t('footer.form.message')}</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="w-full bg-background border border-border rounded-btn px-4 py-3 text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
+                  placeholder={t('footer.form.messagePlaceholder')}
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-accent hover:bg-accent/80 text-white font-semibold py-4 rounded-btn transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(56,152,212,0.3)] disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? t('footer.form.submitting') : (
+                  <>
+                    <Send size={18} /> {t('footer.form.submit')}
+                  </>
+                )}
+              </button>
+              {submitStatus.message && (
+                <div className={`p-4 mt-4 rounded-btn text-sm font-medium text-center transition-all duration-300 ${submitStatus.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : 'bg-red-500/10 text-red-400 border border-red-500/20'}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
+
+        <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="Logo Resmi PT Famindo Alfa Spektrum Teknologi (FAST)" className="h-6 w-auto opacity-100" />
+              <span className="text-foreground-muted text-sm font-medium">PT. Famindo Alfa Spektrum Teknologi</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-5">
+            <a href="https://www.facebook.com/pages/PT.%20Famindo%20Inovasi%20Teknologi/526158344445002/#" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi halaman Facebook resmi PT FAST">
+              <Facebook size={20} />
+            </a>
+            <a href="https://www.linkedin.com/company/pt-famindo-fast" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil LinkedIn profesional PT FAST">
+              <Linkedin size={20} />
+            </a>
+            <a href="https://www.youtube.com/@lithiumfirekiller" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi channel YouTube PT FAST">
+              <Youtube size={20} />
+            </a>
+            <a href="https://www.instagram.com/lithiumfirekiller" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil Instagram PT FAST">
+              <Instagram size={20} />
+            </a>
+            <a href="https://www.tiktok.com/@lithiumfirekiller" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors duration-300" aria-label="Kunjungi profil TikTok PT FAST">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+          </div>
+
+          <p className="text-foreground-muted text-sm text-center md:text-right">
+            © {new Date().getFullYear()} FAST | PT. Famindo Alfa Spektrum Teknologi. {t('footer.copyright')} <br className="md:hidden" />
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default ContactFooter;
 </file>
 
 <file path="src/components/Hero.tsx">

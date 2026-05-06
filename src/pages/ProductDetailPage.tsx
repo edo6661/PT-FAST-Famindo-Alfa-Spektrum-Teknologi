@@ -5,7 +5,7 @@ import { products, categories, type ProductVariant, type ProductPartner } from '
 import SEO from '../components/SEO';
 import { useTranslation } from 'react-i18next';
 
-const VariantCard = ({ variant }: { variant: ProductVariant }) => {
+const VariantCard = ({ variant, productId }: { variant: ProductVariant, productId: string }) => {
   const { t } = useTranslation();
   const [activeView, setActiveView] = useState<'front' | 'back' | 'left' | 'right'>('front');
 
@@ -44,16 +44,17 @@ const VariantCard = ({ variant }: { variant: ProductVariant }) => {
           <Weight size={24} />
         </div>
       )}
+
       <div className="mt-auto">
         {variant.weight && (
           <span className="block text-xs text-foreground-muted uppercase tracking-wider mb-2">{t('productDetail.weight')} {variant.weight}</span>
         )}
         <h4 className="text-xl font-bold text-white/90 mb-3 group-hover:text-accent transition-colors">
-          {variant.name || variant.weight}
+          {t(`products.${productId}.variants.${variant.id}.name`, { defaultValue: variant.name || variant.weight })}
         </h4>
         {variant.desc && (
           <p className="text-sm text-foreground-muted font-light leading-relaxed">
-            {variant.desc}
+            {t(`products.${productId}.variants.${variant.id}.desc`, { defaultValue: variant.desc })}
           </p>
         )}
       </div>
@@ -65,6 +66,7 @@ const ProductDetailPage = () => {
   const { slug } = useParams();
   const location = useLocation();
   const { t } = useTranslation();
+
   const product = products.find(p => p.slug === slug);
   const category = categories.find(c => c.id === product?.categoryId);
   const [selectedPartner, setSelectedPartner] = useState<ProductPartner | null>(null);
@@ -78,7 +80,10 @@ const ProductDetailPage = () => {
   if (!product) {
     return (
       <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center gap-6 text-center">
-        <SEO title="Product Not Found" description="The safety solution you are looking for might have been moved." />
+        <SEO
+          title={t('productDetail.notFoundTitle', { defaultValue: "Product Not Found" })}
+          description={t('productDetail.notFoundDescSeo', { defaultValue: "The safety solution you are looking for might have been moved." })}
+        />
         <div className="w-24 h-24 rounded-full bg-surface border border-white/10 flex items-center justify-center mb-4">
           <ShieldCheck size={40} className="text-foreground-muted" />
         </div>
@@ -91,29 +96,31 @@ const ProductDetailPage = () => {
   const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
-    "name": product.title,
+    "name": t(`products.${product.id}.title`, { defaultValue: product.title }),
     "image": product.image,
-    "description": product.description,
+    "description": t(`products.${product.id}.description`, { defaultValue: product.description }),
     "brand": {
       "@type": "Brand",
       "name": "FAST | PT. Famindo Alfa Spektrum Teknologi"
     },
-    "slogan": product.tagline
+    "slogan": t(`products.${product.id}.tagline`, { defaultValue: product.tagline })
   };
 
   return (
     <div className="pb-24 bg-background min-h-screen relative">
       <SEO
-        title={`${product.title} - FAST`}
-        description={product.description}
+        title={`${t(`products.${product.id}.title`, { defaultValue: product.title })} - FAST`}
+        description={t(`products.${product.id}.description`, { defaultValue: product.description })}
         url={`/catalog/${product.slug}`}
         image={product.image}
         type="product"
         schemaMarkup={productSchema}
       />
+
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">
         <div className="absolute inset-0 bg-background z-0" />
         <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-40 rounded-b-3xl" />
+
         <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16">
           <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm">
             <Zap size={16} className="text-accent" />
@@ -121,12 +128,14 @@ const ProductDetailPage = () => {
               {isFromCatalog && category ? t(`catalog.categories.${category.id}.name`, { defaultValue: category.name }) : t('productDetail.badgeFallback')}
             </span>
           </div>
+
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight max-w-4xl leading-tight">
-            {product.title}
+            {t(`products.${product.id}.title`, { defaultValue: product.title })}
           </h1>
+
           {product.tagline && (
             <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-cyan-300 font-medium max-w-3xl leading-relaxed mt-4">
-              {product.tagline}
+              {t(`products.${product.id}.tagline`, { defaultValue: product.tagline })}
             </p>
           )}
         </div>
@@ -134,8 +143,10 @@ const ProductDetailPage = () => {
 
       <section className="py-16 relative">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
+
         <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+
             <div className="lg:col-span-7 space-y-12">
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
@@ -143,7 +154,7 @@ const ProductDetailPage = () => {
                   <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                 </h2>
                 <p className="text-foreground-muted text-lg leading-relaxed font-light mb-8">
-                  {product.description}
+                  {t(`products.${product.id}.description`, { defaultValue: product.description })}
                 </p>
 
                 {product.features && product.features.length > 0 && (
@@ -154,7 +165,7 @@ const ProductDetailPage = () => {
                           <CheckCircle2 size={18} className="text-accent" />
                         </div>
                         <span className="text-foreground-muted font-light text-sm leading-relaxed group-hover:text-white/90 transition-colors">
-                          {feature}
+                          {t(`products.${product.id}.features.${index}`, { defaultValue: feature })}
                         </span>
                       </div>
                     ))}
@@ -215,6 +226,7 @@ const ProductDetailPage = () => {
                         {t('productDetail.download')}
                       </a>
                     )}
+
                     {product.tokopediaUrl && (
                       <a
                         href={product.tokopediaUrl}
@@ -226,6 +238,7 @@ const ProductDetailPage = () => {
                         {t('productDetail.buyTokopedia')}
                       </a>
                     )}
+
                     <a
                       href={`https://wa.me/6281290003278?text=Halo%20tim%20FAST,%20saya%20tertarik%20dengan%20produk%20${encodeURIComponent(product.title)}.`}
                       target="_blank"
@@ -239,6 +252,7 @@ const ProductDetailPage = () => {
                 </div>
               </div>
             </div>
+
           </div>
 
           {product.variants && product.variants.length > 0 && (
@@ -249,14 +263,14 @@ const ProductDetailPage = () => {
                   {t('productDetail.variantsDesc')}
                 </p>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
                 {product.variants.map((variant, index) => (
-                  <VariantCard key={index} variant={variant} />
+                  <VariantCard key={index} variant={variant} productId={product.id} />
                 ))}
               </div>
             </div>
           )}
+
         </div>
       </section>
 

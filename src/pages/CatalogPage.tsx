@@ -60,6 +60,7 @@ const CatalogPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => {
             const category = categories.find(c => c.id === product.categoryId);
+
             return (
               <Link
                 to={`/catalog/${product.slug}`}
@@ -69,19 +70,22 @@ const CatalogPage = () => {
                 <div className="h-64 overflow-hidden relative">
                   <img src={product.image} alt={product.title} className="w-full h-full object-cover bg-white/5 opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out h-full" />
                   <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent pointer-events-none"></div>
+
                   {category && (
                     <div className="absolute top-4 left-4 bg-background/80 backdrop-blur-md border border-white/10 text-xs font-bold px-3 py-1.5 rounded-full text-accent z-20">
                       {t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })}
                     </div>
                   )}
                 </div>
+
                 <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-accent transition-colors duration-300 pt-8">
-                    {product.title}
+                    {t(`products.${product.id}.title`, { defaultValue: product.title })}
                   </h3>
                   <p className="text-foreground-muted font-light leading-relaxed mb-6 flex-grow">
-                    {product.description}
+                    {t(`products.${product.id}.description`, { defaultValue: product.description })}
                   </p>
+
                   <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
                     {t('catalogPage.viewDetails')}
                     <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />

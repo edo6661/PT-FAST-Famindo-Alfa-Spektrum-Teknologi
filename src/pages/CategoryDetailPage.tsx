@@ -27,7 +27,11 @@ const CategoryDetailPage = () => {
 
   return (
     <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
-      <SEO title={`${category.name} Category - FAST`} description={category.description} url={`/category/${slug}`} />
+      <SEO
+        title={`${t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })} Category - FAST`}
+        description={t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
+        url={`/category/${slug}`}
+      />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-16">
@@ -57,8 +61,12 @@ const CategoryDetailPage = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent pointer-events-none"></div>
               </div>
               <div className="p-8 flex flex-col flex-grow relative z-0 -mt-10 pointer-events-none">
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">{product.title}</h3>
-                <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">{product.description}</p>
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-accent transition-colors">
+                  {t(`products.${product.id}.title`, { defaultValue: product.title })}
+                </h3>
+                <p className="text-foreground-muted font-light leading-relaxed mb-6 line-clamp-3 flex-grow text-sm">
+                  {t(`products.${product.id}.description`, { defaultValue: product.description })}
+                </p>
                 <div className="inline-flex items-center justify-between w-full pt-4 border-t border-white/10 text-sm font-semibold text-white group-hover:text-accent transition-colors">
                   {t('categoryDetail.viewDetails')} <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
                 </div>

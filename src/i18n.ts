@@ -41,10 +41,10 @@ const resources = {
         ctaButton: "Consult With Our Experts",
         featured: {
           presidential: {
-            name: "2024 Presidential Inauguration",
+            name: "Presidential Inauguration 2024",
             category: "Government",
             status: "Deployment Secured",
-            desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
+            desc: "Protection for all EV units escorting international VVIP guests for the Presidential Inauguration 2024.",
           },
           iaf: {
             name: "KTT IAF Bali 2024",
@@ -182,7 +182,7 @@ const resources = {
         clients: {
           presidential: {
             name: "Presidential Inauguration 2024",
-            desc: "Protection for all EV units escorting international VVIP guests for the 2024 presidential inauguration.",
+            desc: "Protection for all EV units escorting international VVIP guests for the Presidential Inauguration 2024.",
           },
           iaf: {
             name: "KTT IAF Bali 2024",
@@ -233,7 +233,7 @@ const resources = {
         cta2: "Consult Us",
         trusted: "Securing High-Profile Assets",
         trustedClients: {
-          presidential: "2024 Presidential Inauguration",
+          presidential: "Presidential Inauguration 2024",
           kttVisit: "KTT Visit",
           bluebird: "Bluebird Group",
           kttIaf: "KTT IAF Bali",
@@ -316,27 +316,27 @@ const resources = {
           {
             title: "Fullfills TKDN Component Standards",
             desc: "Passed the test from Indonesia's Ministry of Industry with a total value of 49.31%. A top-of-mind choice to secure the mining and manufacturing industry.",
-            logo: "/certi/lfk-af31/TKDN.svg.png",
+            logo: "/certi/lfk-af31/TKDN.svg.avif",
           },
           {
             title: "Ministry of Environment & Forestry (KLHK)",
             desc: "Passed as an effective solution for combating forest fires. Safe for humans, animals, and the environment. Prevents fire re-ignition.",
-            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.png",
+            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.avif",
           },
           {
             title: "DAMKAR",
             desc: "Qualified for extinguishing every class of fire [A, B, C, D, F/K] according to stringent DAMKAR test method parameters.",
-            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.png",
+            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.avif",
           },
           {
             title: "Ministry of Transportation",
             desc: "Certified as an effective fire extinguisher for classes A, B, C, and D. Highly reliable for transportation fleets.",
-            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.png",
+            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.avif",
           },
           {
             title: "POLRI",
             desc: "Meets rigorous testing parameters and safety methods evaluated by the Indonesian National Police.",
-            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.png",
+            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.avif",
           },
           {
             title: "SNI",
@@ -348,56 +348,52 @@ const resources = {
           {
             title: "Nucro Technics",
             desc: "Certified testing and standard approvals ensuring our solutions meet rigorous international quality and safety benchmarks.",
-            logo: "/certi/lfk-af31/Nucro-Technics.svg",
+            logo: "/certi/lfk-af31/Nucro-Technics.avif",
           },
           {
             title: "EUROFINS - Environment Test",
             desc: "Certified as a non-PFAS fire extinguisher. Removing the fear and risk of cancer development for its users.",
-            logo: "/certi/lfk-af31/EUROFINS.png",
+            logo: "/certi/lfk-af31/EUROFINS.avif",
           },
           {
             title: "SGS (USA)",
             desc: "Effective fire suppression solution for building material surfaces in accordance with the American Society for Testing and Materials.",
-            logo: "/certi/lfk-af31/SGS Logo.svg.png",
+            logo: "/certi/lfk-af31/SGS Logo.svg.avif",
           },
           {
             title: "ASTM International",
             desc: "Complies with ASTM International standards for testing and materials, ensuring superior fire suppression performance.",
-            logo: "/certi/lfk-af31/ASTM International Logo.png",
+            logo: "/certi/lfk-af31/ASTM International Logo.avif",
           },
           {
             title: "US Department of Transportation (DOT)",
             desc: "Approved for transport safety and compliance by the United States Department of Transportation.",
-            logo: "/certi/lfk-af31/Department of Transportation USA.png",
+            logo: "/certi/lfk-af31/Department of Transportation USA.avif",
           },
           {
             title: "Pollutech EnviroQuatics (Canada)",
             desc: "LC50 Certified. Proven not to cause acute toxicity and death to living organisms (tested on fish in their natural environment).",
-            logo: "/certi/lfk-af31/Pollutec Logo.png",
+            logo: "/certi/lfk-af31/Pollutec Logo.avif",
           },
           {
             title: "KGK Synergize (Canada) OECD",
             desc: "Achieved 'non-irritation' status. Causes no acute eye, skin irritation, or oral toxicity following OECD guidelines.",
-            logo: "/certi/lfk-af31/KGK Science Logo.png",
+            logo: "/certi/lfk-af31/KGK Science Logo.avif",
           },
           {
             title: "QAI Laboratories",
             desc: "Evaluated and certified by QAI Laboratories for stringent compliance with international safety and performance criteria.",
-            logo: "/certi/lfk-af31/QAI logo.png",
+            logo: "/certi/lfk-af31/QAI logo.avif",
           },
           {
-            title: "TÜV SÜD",
-            desc: "Recognized by TÜV SÜD for meeting premium international quality, safety, and sustainability benchmarks.",
-            logo: "/certi/lfk-af31/TÜV_Süd_logo.svg.png",
+            title: "TUV SUD",
+            desc: "Recognized by TUV SUD for meeting premium international quality, safety, and sustainability benchmarks.",
+            logo: "/certi/lfk-af31/tuv_sud.avif",
           },
           {
             title: "UL Solutions (USA) - GREENGUARD Gold",
             desc: "Verified to have low total VOC emissions, ensuring high suitability for sensitive environments like schools and healthcare.",
-            logo: "/certi/lfk-af31/Greenguard Logo 2.png",
-          },
-          {
-            title: "EN1568-3 European Standard",
-            desc: "Certified in line with European fire extinguishing standards for reliable and consistent performance.",
+            logo: "/certi/lfk-af31/Greenguard Logo 2.avif",
           },
         ],
       },
@@ -696,6 +692,191 @@ const resources = {
           },
         },
       },
+      products: {
+        "ballistic-app": {
+          title: "BALLISTIC (Battery Life Diagnostic)",
+          tagline: "Sistem Diagnostik Umur Baterai",
+          description:
+            "BALLISTIC adalah aplikasi IoT (Internet of Things) dan Machine Learning yang dirancang untuk mendeteksi anomali suhu baterai lithium secara real-time. Dipercaya oleh PLN sebagai Battery Monitoring Center (BMC) untuk UPS portabel besar di seluruh pusat data.",
+          features: {
+            "0": "Pemantauan suhu baterai secara real-time",
+            "1": "Notifikasi peringatan dini yang cerdas",
+            "2": "Deteksi anomali dengan Machine Learning",
+            "3": "Dipercaya oleh Perusahaan Listrik Negara (PLN)",
+          },
+          variants: {
+            b1: {
+              name: "BALLISTIC untuk EV",
+              desc: "Pemantauan terintegrasi khusus untuk pengguna kendaraan listrik.",
+            },
+            b2: {
+              name: "BALLISTIC Enterprise BMC",
+              desc: "Sistem pemantauan terpusat untuk Pusat Data modern dan penyedia utilitas.",
+            },
+          },
+        },
+        "power-tech-shield-fire-blanket": {
+          title: "Power Tech Shield - Selimut Api",
+          tagline:
+            "Pelindung Tugas Berat yang Dirancang untuk Bertahan di Kondisi Ekstrem",
+          description:
+            "Selimut keselamatan khusus yang dirancang untuk mengisolasi dan mencegah penyebaran api dengan memutus pasokan oksigen. Pelindung tugas berat terbaik untuk kendaraan listrik, garasi, dan area parkir.",
+          features: {
+            "0": "Tahan panas hingga 1600°C",
+            "1": "Bertahan pada suhu 1100°C hingga 50 jam",
+            "2": "Dapat digunakan kembali 6-7 kali (jika terpapar 300°C - 400°C)",
+            "3": "Teruji & Bersertifikasi ASTM",
+          },
+          variants: {
+            fb1: {
+              name: "Pelindung Kendaraan Besar",
+              desc: "Ideal untuk SUV dan kendaraan listrik berukuran besar.",
+            },
+            fb2: {
+              name: "Pelindung Standar",
+              desc: "Ukuran ringkas untuk kendaraan yang lebih kecil dan pemadaman spesifik.",
+            },
+            fb3: {
+              name: "Pelindung Kompak",
+              desc: "Untuk penggunaan yang sangat spesifik dan terlokalisasi.",
+            },
+          },
+        },
+        "altex-alpha-tech-shield": {
+          title: "ALTEX ALPHA TECH SHIELD",
+          tagline:
+            "Pelapis Anti-Api Dalam Ruangan dengan Teknologi Thermafrost",
+          description:
+            "Pelapis anti-api dalam ruangan berkinerja tinggi yang dirancang untuk melindungi aset berharga Anda. Bekerja dengan memantulkan panas dan membentuk penghalang arang padat untuk mengisolasi struktur bangunan, memberi Anda waktu tambahan yang krusial selama keadaan darurat.",
+          features: {
+            "0": "Tahan terhadap panas ekstrem hingga 1300°C",
+            "1": "Memberikan durasi ketahanan api selama 3 jam",
+            "2": "Teknologi Char Barrier Thermafrost",
+            "3": "100% Non-Toksik (Bebas Karsinogen & VOC)",
+            "4": "Diaplikasikan menggunakan spray gun airless (kering dalam 3 jam)",
+          },
+          variants: {
+            a1: {
+              name: "Layanan End-to-End Altex",
+              desc: "Termasuk konsultasi gratis, survei lokasi, dan aplikasi presisi oleh tim terlatih.",
+            },
+          },
+        },
+        "g-tech-defend": {
+          title: "G-TECH",
+          tagline: "Supresi Api Teknologi Gel Pasif",
+          description:
+            "Peredam api pasif berbasis teknologi Gel canggih untuk mengamankan baterai Lithium. Bekerja dengan menyerap panas, membentuk lapisan pendingin, dan mencegah penyalaan kembali. Produk DEFEND merupakan perlengkapan gaya hidup terintegrasi dengan G-Tech.",
+          features: {
+            "0": "Kemampuan penyerapan panas tingkat lanjut",
+            "1": "Membentuk lapisan pendingin secara proaktif",
+            "2": "Mencegah penyalaan kembali (thermal runaway)",
+            "3": "Terintegrasi mulus ke dalam produk bawaan sehari-hari",
+          },
+          variants: {
+            g1: {
+              name: "DEFEND Pouch & Tas Baterai",
+              desc: "Solusi bawaan sehari-hari dengan integrasi G-Tech untuk elektronik pribadi.",
+            },
+            g2: {
+              name: "DEFEND Selimut Baterai",
+              desc: "Perlindungan terarah untuk paket baterai lithium ukuran menengah.",
+            },
+          },
+        },
+        "lithium-fire-killer-hartindo-af31": {
+          title: "Lithium Fire Killer HARTINDO AF31",
+          tagline: "Pemadam Api Baterai Lithium Pertama Di Dunia",
+          description:
+            "Pemadam multi-fungsi ramah lingkungan yang menangani segalanya. Dari kebakaran kertas biasa hingga kebakaran baterai lithium yang berisiko tinggi. Lindungi rumah, armada, dan jiwa Anda dengan solusi keselamatan kebakaran khusus kami.",
+          features: {
+            "0": "Bersertifikat SNI (Standar Nasional Indonesia)",
+            "1": "Kelas Api: A, B, D, F/K, & L (Lithium)",
+            "2": "Satu alat tangguh untuk setiap keadaan darurat",
+            "3": "Teruji di Lab Internasional & Bersertifikat TKDN",
+            "4": "Ramah lingkungan & Tidak Beracun",
+          },
+          variants: {
+            v1: {
+              name: "LFK AF31 Portabel - 1 KG",
+              desc: "Tabung pemadam ringan yang ideal untuk kendaraan listrik pribadi dan area yang sempit.",
+            },
+            v2: {
+              name: "LFK AF31 Portabel - 3 KG",
+              desc: "Tabung serbaguna untuk garasi EV, ruang server, dan komersial.",
+            },
+            v3: {
+              name: "LFK AF31 Portabel - 6 KG",
+              desc: "Unit berkapasitas tinggi untuk fasilitas industri dan perlindungan skala besar.",
+            },
+            v4: {
+              name: "LFK AF31 Troli - 25 KG",
+              desc: "Solusi mobilitas tugas berat untuk tambang, gudang besar, dan stasiun pengisian EV.",
+            },
+            v5: {
+              name: "LFK AF31 Troli - 50 KG",
+              desc: "Sistem supresi berkapasitas maksimal untuk lingkungan industri ekstrem.",
+            },
+          },
+        },
+        "flat-af11e": {
+          title: "FLAT Flame Accurate Termination (AF11E)",
+          tagline: "Pemadam Gas Cair Bersih Tingkat Lanjut (AF11E)",
+          description:
+            "Media pemadam gas cair bersih (campuran HCFC 123). Alternatif Halon yang sempurna tanpa efek samping merusak lingkungan. Tidak meninggalkan residu dan non-konduktif, membuatnya sangat cocok untuk Rumah Sakit, Ruang Panel, Pusat Data, dan markas Militer.",
+          features: {
+            "0": "Meninggalkan nol residu setelah digunakan",
+            "1": "Aman untuk pernapasan manusia jika tanpa sengaja terhirup",
+            "2": "Non-konduktif, sempurna untuk memadamkan kebakaran listrik",
+            "3": "Bekerja secara sempurna untuk Kelas Api A, B, dan C",
+          },
+          variants: {
+            f1: {
+              name: "CA 1130-F",
+              desc: "Warna tabung merah dengan tekanan kerja 14-16 Bar. Jangkauan pancaran 10m.",
+            },
+            f2: {
+              name: "CA 1160-F",
+              desc: "Warna tabung perak dengan tekanan kerja 14-16 Bar. Jangkauan pancaran 10m.",
+            },
+          },
+        },
+        "uss-undercarriage": {
+          title: "Sistem Pemadaman Sasis Kendaraan (USS)",
+          tagline: "Ekstensi Khusus untuk Titik Api di Bawah Kendaraan EV",
+          description:
+            "Perangkat ekstensi alat pemadam api portabel yang dirancang khusus untuk mengatasi kebakaran pada kendaraan listrik yang letak baterainya berada di bawah sasis. Dikembangkan bersama Pindad Indonesia untuk efisiensi darurat terbaik.",
+          features: {
+            "0": "Mode Jet Spray tekanan tinggi & Fine Mist",
+            "1": "Ekstensi tombak khusus untuk penyisipan bawah mobil yang aman",
+            "2": "Konektor selang kompatibel ke unit APAR besar 25KG-50KG",
+            "3": "Direkayasa ketat bersama Pindad Indonesia",
+          },
+          variants: {
+            u1: {
+              name: "Kit Pengerahan USS",
+              desc: "Kit ekstensi nosel dan tombak lengkap untuk tim tanggap darurat EV.",
+            },
+          },
+        },
+        "x-cap": {
+          title: "X-CAP",
+          tagline: "Solusi Cepat Tanggap Eksekusi Kebakaran",
+          description:
+            "Alat pemadam kebakaran portabel yang dirancang untuk penyebaran cepat dan efisiensi maksimal dalam skenario kritis yang tidak terduga. Memastikan jalur evakuasi segera diamankan dengan hitungan detik.",
+          features: {
+            "0": "Mekanisme respon dan penyebaran sangat cepat",
+            "1": "Penanganan supresi berefisiensi tinggi",
+            "2": "Ringkas, kokoh, dan selalu siap diandalkan",
+          },
+          variants: {
+            xc1: {
+              name: "Standar X-CAP",
+              desc: "Unit respon standar untuk pemadaman instan.",
+            },
+          },
+        },
+      },
       adminBlog: {
         addTitle: "Tambah Blog Baru",
         editTitle: "Edit Blog",
@@ -718,27 +899,27 @@ const resources = {
           {
             title: "Standar Komponen TKDN",
             desc: "Lulus uji Kementerian Perindustrian dengan nilai total 49.31%. Pilihan utama produk dalam negeri untuk mengamankan industri tambang dan manufaktur.",
-            logo: "/certi/lfk-af31/TKDN.svg.png",
+            logo: "/certi/lfk-af31/TKDN.svg.avif",
           },
           {
             title: "Kementerian Lingkungan Hidup & Kehutanan",
             desc: "Solusi efektif penanggulangan kebakaran hutan (Karhutla). Aman bagi manusia, hewan, dan lingkungan, serta mencegah re-ignisi.",
-            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.png",
+            logo: "/certi/lfk-af31/KLKH [Kementerian Lingkungan Hidup dan Kehutanan] Logo.avif",
           },
           {
             title: "DAMKAR",
             desc: "Lulus kualifikasi memadamkan semua kelas api [A, B, C, D, F/K] berdasarkan parameter metode uji ketat dari DAMKAR.",
-            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.png",
+            logo: "/certi/lfk-af31/LOGO DAMKAR YUDHA BRAMA JAYA.avif",
           },
           {
             title: "Kementerian Perhubungan",
             desc: "Sertifikasi pemadam efektif untuk Kelas A, B, C, dan D. Sangat andal untuk proteksi armada transportasi dan logistik.",
-            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.png",
+            logo: "/certi/lfk-af31/Kementerian Perhubungan Indonesia (Kemenhub) Logo.avif",
           },
           {
             title: "POLRI",
             desc: "Memenuhi parameter pengujian teknis dan standar keamanan yang dievaluasi langsung oleh Kepolisian Republik Indonesia.",
-            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.png",
+            logo: "/certi/lfk-af31/Kepolisian Negara Republik Indonesia Logo.avif",
           },
           {
             title: "SNI",
@@ -750,56 +931,52 @@ const resources = {
           {
             title: "Nucro Technics",
             desc: "Lulus pengujian sertifikasi untuk jaminan kualitas dan tolak ukur keselamatan standar internasional.",
-            logo: "/certi/lfk-af31/Nucro-Technics.svg",
+            logo: "/certi/lfk-af31/Nucro-Technics.avif",
           },
           {
             title: "EUROFINS - Environment Test",
             desc: "Sertifikasi bebas PFAS (senyawa kimia abadi), menghilangkan risiko pembentukan kanker bagi penggunanya.",
-            logo: "/certi/lfk-af31/EUROFINS.png",
+            logo: "/certi/lfk-af31/EUROFINS.avif",
           },
           {
             title: "SGS (USA)",
             desc: "Solusi supresi api yang sangat efektif untuk material permukaan bangunan sesuai standar The American Society for Testing and Materials.",
-            logo: "/certi/lfk-af31/SGS Logo.svg.png",
+            logo: "/certi/lfk-af31/SGS Logo.svg.avif",
           },
           {
             title: "ASTM International",
             desc: "Memenuhi standar pengujian dan material ASTM International, memastikan kinerja pemadaman api yang superior.",
-            logo: "/certi/lfk-af31/ASTM International Logo.png",
+            logo: "/certi/lfk-af31/ASTM International Logo.avif",
           },
           {
             title: "US Department of Transportation (DOT)",
             desc: "Disertifikasi oleh Departemen Transportasi Amerika Serikat untuk keamanan transportasi dan penanganan produk.",
-            logo: "/certi/lfk-af31/Department of Transportation USA.png",
+            logo: "/certi/lfk-af31/Department of Transportation USA.avif",
           },
           {
             title: "Pollutech EnviroQuatics (Kanada)",
             desc: "Sertifikasi LC50: terbukti tidak menyebabkan toksisitas akut maupun kematian pada organisme hidup di air/alam.",
-            logo: "/certi/lfk-af31/Pollutec Logo.png",
+            logo: "/certi/lfk-af31/Pollutec Logo.avif",
           },
           {
             title: "KGK Synergize (Kanada) OECD",
             desc: "Status non-iritasi sesuai pedoman OECD. Tidak menyebabkan iritasi mata, kulit, maupun toksisitas oral.",
-            logo: "/certi/lfk-af31/KGK Science Logo.png",
+            logo: "/certi/lfk-af31/KGK Science Logo.avif",
           },
           {
             title: "QAI Laboratories",
             desc: "Dievaluasi dan disertifikasi oleh QAI Laboratories untuk kepatuhan ketat terhadap kriteria keselamatan dan kinerja internasional.",
-            logo: "/certi/lfk-af31/QAI logo.png",
+            logo: "/certi/lfk-af31/QAI logo.avif",
           },
           {
-            title: "TÜV SÜD",
-            desc: "Diakui oleh TÜV SÜD karena memenuhi tolok ukur kualitas, keselamatan, dan keberlanjutan internasional premium.",
-            logo: "/certi/lfk-af31/TÜV_Süd_logo.svg.png",
+            title: "TUV SUD",
+            desc: "Diakui oleh TUV SUD karena memenuhi tolok ukur kualitas, keselamatan, dan keberlanjutan internasional premium.",
+            logo: "/certi/lfk-af31/tuv_sud.avif",
           },
           {
             title: "UL Solutions - GREENGUARD Gold",
             desc: "Emisi VOC sangat rendah, menjamin keamanan untuk digunakan di lingkungan sensitif seperti sekolah & fasilitas kesehatan.",
-            logo: "/certi/lfk-af31/Greenguard Logo 2.png",
-          },
-          {
-            title: "EN1568-3 European Standard",
-            desc: "Telah bersertifikat sesuai standar pemadaman kebakaran Eropa untuk performa yang dapat diandalkan secara konsisten.",
+            logo: "/certi/lfk-af31/Greenguard Logo 2.avif",
           },
         ],
       },
@@ -807,11 +984,12 @@ const resources = {
   },
 };
 
+const savedLanguage = localStorage.getItem("appLanguage") || "en";
+
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: savedLanguage,
   fallbackLng: "en",
   interpolation: { escapeValue: false },
 });
-
 export default i18n;
