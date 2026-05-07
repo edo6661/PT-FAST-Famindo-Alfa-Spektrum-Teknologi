@@ -422,7 +422,7 @@ const resources = {
         loginBtn: "Masuk",
       },
       clientBasePage: {
-        badge: "Strategic Deployments",
+        badge: "Penempatan Strategis",
         title: "Klien",
         titleHighlight: "Kami",
         desc: "Dipercaya oleh institusi nasional, konferensi internasional, dan pemimpin industri. Kami menciptakan rasa aman bagi mereka yang mengutamakan keselamatan tanpa kompromi.",
@@ -518,7 +518,7 @@ const resources = {
         desc: "Didirikan oleh FAST FOUR. Tim berdedikasi dengan komitmen tinggi terhadap keselamatan.",
         team: [
           {
-            role: "CEO",
+            role: "Direktur Utama",
             bio: "Seorang pengusaha visioner dan pemilik Famindo Group, dengan pengalaman lebih dari 18 tahun di berbagai industri. Saat ini menjabat sebagai Direktur & Komisaris, beliau memiliki latar belakang kuat di industri otomotif dan membawa semangat membangun brand ke dalam lanskap bisnis keselamatan kebakaran yang menantang.",
           },
           {
@@ -526,15 +526,15 @@ const resources = {
             bio: "Seorang pengusaha berdedikasi dan pemilik Famindo Group yang membawa keahlian lebih dari sembilan tahun di bidang sumber daya manusia dan pemasaran lintas industri, dengan fokus terbaru pada bisnis keselamatan kebakaran. Beliau berperan penting dalam mengarahkan pertumbuhan pesat perusahaan.",
           },
           {
-            role: "Chief Technical Officer",
+            role: "Direktur Teknik",
             bio: "Memulai karir di sektor rekayasa kebakaran bersama PT HARTINDO Chemicatama Industri pada tahun 2009. Saat ini memegang posisi manajerial di berbagai perusahaan, beliau terus mengembangkan keahliannya di bidang keselamatan kebakaran dengan mengintegrasikan pengalaman ekstensif dari bidang pertanian dan plastik.",
           },
           {
-            role: "Chief Operating Officer",
+            role: "Direktur Operasional",
             bio: "Dengan latar belakang beragam di berbagai industri dan wawasan dari keahlian operasional, fokusnya kini didedikasikan untuk industri keselamatan kebakaran. Saat ini menjabat sebagai Direktur Operasional, beliau berkomitmen untuk merevolusi standar sistem keamanan di berbagai sektor.",
           },
           {
-            role: "Chief Creative Officer",
+            role: "Direktur Kreatif",
             bio: "Memulai karir kreatif di desain grafis, menumbuhkan insting tajam untuk penyampaian cerita visual dan identitas merek. Setelah menavigasi berbagai peran kreatif, ia kini memimpin sebagai Direktur Kreatif, memadukan akar desainnya dengan keahlian strategis digital untuk meningkatkan standar kampanye multidimensi yang inovatif.",
           },
         ],
@@ -643,10 +643,10 @@ const resources = {
       about: {
         title: "Solusi Kebakaran Modern",
         desc: "Kami hadirkan teknologi terpercaya untuk keamanan Anda.",
-        missionTitle: "Mission",
+        missionTitle: "Misi",
         missionDesc:
           "Menyediakan Solusi Mutakhir Untuk Mitigasi Risiko Kebakaran Baterai Lithium.",
-        visionTitle: "Vision",
+        visionTitle: "Visi",
         visionDesc:
           "Menciptakan Masa Depan yang Lebih Aman, Di Mana Inovasi Hadir Tanpa Ragu.",
       },

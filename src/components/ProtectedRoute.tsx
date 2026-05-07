@@ -5,7 +5,11 @@ const ProtectedRoute = () => {
   const { user, loading } = useAuth();
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center bg-background text-white">Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   if (!user) {
