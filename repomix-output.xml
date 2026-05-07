@@ -4013,7 +4013,7 @@ const resources = {
       },
       products: {
         "ballistic-app": {
-          title: "BALLISTIC (Battery Life Diagnostic)",
+          title: "BALLISTIC (Battery Life Alert Diagnostic)",
           tagline: "Sistem Diagnostik Umur Baterai",
           description:
             "BALLISTIC adalah aplikasi IoT (Internet of Things) dan Machine Learning yang dirancang untuk mendeteksi anomali suhu baterai lithium secara real-time. Dipercaya oleh PLN sebagai Battery Monitoring Center (BMC) untuk UPS portabel besar di seluruh pusat data.",
@@ -4380,8 +4380,8 @@ export const products: Product[] = [
     id: 'ballistic-app',
     slug: 'ballistic-app',
     brochureUrl: '/brochures/ballistic-brochure.pdf',
-    title: 'BALLISTIC (Battery Life Diagnostic)',
-    tagline: 'Battery Life Diagnostic System',
+    title: 'BALLISTIC (Battery Life Alert Diagnostic)',
+    tagline: 'Battery Life Alert Diagnostic System',
     categoryId: 'predictive',
     description: 'BALLISTIC is an IoT (Internet of Things) and Machine Learning application designed to detect lithium battery temperature anomalies in real-time. Trusted by PLN as a Battery Monitoring Center (BMC) for large portable UPS/Power Banks across data centers.',
     image: '/products/ballistic-for-ups.avif',

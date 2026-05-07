@@ -694,7 +694,7 @@ const resources = {
       },
       products: {
         "ballistic-app": {
-          title: "BALLISTIC (Battery Life Diagnostic)",
+          title: "BALLISTIC (Battery Life Alert Diagnostic)",
           tagline: "Sistem Diagnostik Umur Baterai",
           description:
             "BALLISTIC adalah aplikasi IoT (Internet of Things) dan Machine Learning yang dirancang untuk mendeteksi anomali suhu baterai lithium secara real-time. Dipercaya oleh PLN sebagai Battery Monitoring Center (BMC) untuk UPS portabel besar di seluruh pusat data.",

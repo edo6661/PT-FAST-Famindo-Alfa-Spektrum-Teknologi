@@ -63,8 +63,8 @@ export const products: Product[] = [
     id: 'ballistic-app',
     slug: 'ballistic-app',
     brochureUrl: '/brochures/ballistic-brochure.pdf',
-    title: 'BALLISTIC (Battery Life Diagnostic)',
-    tagline: 'Battery Life Diagnostic System',
+    title: 'BALLISTIC (Battery Life Alert Diagnostic)',
+    tagline: 'Battery Life Alert Diagnostic System',
     categoryId: 'predictive',
     description: 'BALLISTIC is an IoT (Internet of Things) and Machine Learning application designed to detect lithium battery temperature anomalies in real-time. Trusted by PLN as a Battery Monitoring Center (BMC) for large portable UPS/Power Banks across data centers.',
     image: '/products/ballistic-for-ups.avif',
@@ -161,7 +161,7 @@ export const products: Product[] = [
       {
         name: "Azko",
         logo: "/partners/azko.avif",
-        locations: ["Gandaria City", "Kota Kasablanka", "Mall Artha Gading", "Living World Alam Sutera", "Q-Big BSD"]
+        locations: ["Gandaria City", "Kota Kasablanka", "Mall Artha Gading", "Living World Alam Sutera", "Q-Big BSD", "Bintaro Sektor 9"]
       },
       {
         name: "Motovillage",
@@ -299,4 +299,34 @@ export const products: Product[] = [
       { id: 'xc1', name: "X-CAP Standard", desc: "Standard deployment unit for rapid suppression." }
     ]
   }
+];
+
+export const mainProducts = [
+  {
+    name: "Lithium Fire Killer HARTINDO AF31",
+    slug: "lithium-fire-killer-hartindo-af31",
+    description: "The ultimate 100% Indonesian patented solution for lithium-ion battery fire hazards. Eco-friendly and TKDN certified.",
+    logo: "AF31",
+    icon: <img loading='lazy' src="/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" alt="LFK Icon" className="w-12 h-12 object-contain" />,
+    gridClass: "md:col-span-2 md:row-span-2",
+    bgImage: "/products/lfk.avif"
+  },
+  {
+    name: "Power Tech Shield",
+    slug: "power-tech-shield-fire-blanket",
+    description: "A specialized safety blanket designed to isolate and prevent fire spread by cutting off the oxygen supply.",
+    logo: "PTS",
+    icon: <img loading='lazy' src="/logo/PTS_Logo_PNG/PTS Color [Primary] Logo.png" alt="Power Tech Shield Icon" className="w-12 h-12 object-contain" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "/products/fire-blanket.avif"
+  },
+  {
+    name: "ALTEX ALPHA TECH SHIELD",
+    slug: "altex-alpha-tech-shield",
+    description: "Epoxy Fire Coating based anti-fire liquid that prevents any material from catching and spreading fire.",
+    logo: "ALTEX",
+    icon: <img loading='lazy' src="/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png" alt="Altex Icon" className="w-12 h-12 object-contain" />,
+    gridClass: "md:col-span-1 md:row-span-1",
+    bgImage: "/products/altex.avif"
+  },
 ];

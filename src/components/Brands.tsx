@@ -3,37 +3,10 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
+import { mainProducts } from '../constants/catalogs';
 
 
-const mainBrands = [
-  {
-    name: "Lithium Fire Killer HARTINDO AF31",
-    slug: "lithium-fire-killer-hartindo-af31",
-    description: "The ultimate 100% Indonesian patented solution for lithium-ion battery fire hazards. Eco-friendly and TKDN certified.",
-    logo: "AF31",
-    icon: <img loading='lazy' src="/logo/LFK_Logo_PNG/LFK 2026 [Primary] Logo.png" alt="LFK Icon" className="w-8 h-8 object-contain" />,
-    gridClass: "md:col-span-2 md:row-span-2",
-    bgImage: "/products/lfk.avif"
-  },
-  {
-    name: "BALLISTIC App",
-    slug: "ballistic-app",
-    description: "IoT and Machine Learning application to detect lithium battery temperature anomalies in real-time.",
-    logo: "APP",
-    icon: <img loading='lazy' src="/logo/BALLISTIC_LOGO/BALLISTIC LOGO [Primary].png" alt="Ballistic Icon" className="w-8 h-8 object-contain" />,
-    gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "/products/ballistic-for-ups.avif"
-  },
-  {
-    name: "ALTEX ALPHA TECH SHIELD",
-    slug: "altex-alpha-tech-shield",
-    description: "Epoxy Fire Coating based anti-fire liquid that prevents any material from catching and spreading fire.",
-    logo: "ALTEX",
-    icon: <img loading='lazy' src="/logo/ALTEX_Logo_PNG/ALTEX Color [Primary] Logo.png" alt="Altex Icon" className="w-8 h-8 object-contain" />,
-    gridClass: "md:col-span-1 md:row-span-1",
-    bgImage: "/products/altex.avif"
-  },
-];
+
 
 const Brands = () => {
   const { t } = useTranslation();
@@ -76,7 +49,7 @@ const Brands = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[250px] md:auto-rows-[300px] gap-6">
-          {mainBrands.map((brand, index) => (
+          {mainProducts.map((brand, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
