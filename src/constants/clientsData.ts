@@ -23,17 +23,12 @@ export const clientCategories: { id: ClientCategory; label: string }[] = [
 ];
 
 export const clientLogos: ClientLogo[] = [
+  // --- ENERGY ---
   {
     id: "birubatt-01",
-    name: "BiruBatt 01",
+    name: "BiruBatt",
     category: "energy",
     src: "/clients/energy/BiruBatt_Logo_01.avif",
-  },
-  {
-    id: "birubatt-02",
-    name: "BiruBatt 02",
-    category: "energy",
-    src: "/clients/energy/BiruBatt_Logo_02.avif",
   },
   {
     id: "delta",
@@ -96,22 +91,10 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/energy/PJB_Logo.avif",
   },
   {
-    id: "pln-es",
-    name: "PLN ES",
-    category: "energy",
-    src: "/clients/energy/PLN_ES_Logo.avif",
-  },
-  {
     id: "pln-01",
     name: "PLN",
     category: "energy",
     src: "/clients/energy/PLN_Logo_01.avif",
-  },
-  {
-    id: "pln-greyscale",
-    name: "PLN Greyscale",
-    category: "energy",
-    src: "/clients/energy/PLN_Logo_Greyscale.avif",
   },
   {
     id: "hengjaya-mineralindo",
@@ -192,6 +175,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/energy/Voltron_Logo.avif",
   },
 
+  // --- GOVERNMENT ---
   {
     id: "angkasa-pura",
     name: "Angkasa Pura Airports",
@@ -331,6 +315,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/government/Tentara_Nasional_Indonesia-logo-1E16A25DC7-seeklogo.com.avif",
   },
 
+  // --- PRIVATE SECTOR ---
   {
     id: "ag-network",
     name: "AG Network",
@@ -414,12 +399,6 @@ export const clientLogos: ClientLogo[] = [
     name: "Chandra Asri",
     category: "private-sector",
     src: "/clients/private-sector/Chandra_Asri_Logo.avif",
-  },
-  {
-    id: "ciputra-world-jakarta",
-    name: "Ciputra World Jakarta",
-    category: "private-sector",
-    src: "/clients/private-sector/Ciputra_World_Jakarta.avif",
   },
   {
     id: "ciputra-world-logo",
@@ -602,12 +581,6 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/private-sector/Polygon_Bikes_Logo.avif",
   },
   {
-    id: "pondok-indah",
-    name: "Pondok Indah",
-    category: "private-sector",
-    src: "/clients/private-sector/Pondok_Indah_Logo.avif",
-  },
-  {
     id: "prudential",
     name: "Prudential",
     category: "private-sector",
@@ -698,12 +671,6 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/private-sector/Satria_Group_Logo.avif",
   },
   {
-    id: "satria-piranti",
-    name: "Satria Piranti Perkasa",
-    category: "private-sector",
-    src: "/clients/private-sector/Satria_Piranti_Perkasa_Logo.avif",
-  },
-  {
     id: "senayan-city",
     name: "Senayan City",
     category: "private-sector",
@@ -770,6 +737,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/private-sector/UOB_Logo.avif",
   },
 
+  // --- PROPERTY ---
   {
     id: "1001-hotel",
     name: "1001 Hotel",
@@ -867,12 +835,6 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/property/Chillax_Logo.avif",
   },
   {
-    id: "ciputra-world-surabaya",
-    name: "Ciputra World Surabaya",
-    category: "property",
-    src: "/clients/property/Ciputra_World_Surabaya_Logo.avif",
-  },
-  {
     id: "crest-vista",
     name: "Crest Vista",
     category: "property",
@@ -889,12 +851,6 @@ export const clientLogos: ClientLogo[] = [
     name: "Emporium Pluit",
     category: "property",
     src: "/clients/property/Emporium_Pluit_Logo.avif",
-  },
-  {
-    id: "essence-darmawangsa",
-    name: "Essence Darmawangsa",
-    category: "property",
-    src: "/clients/property/Essence_Darmawangsa_Logo.avif",
   },
   {
     id: "gbi-ecclesia",
@@ -969,12 +925,6 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/property/Menara_Batavia_Logo.avif",
   },
   {
-    id: "menteng-park-emerald",
-    name: "Menteng Park Emerald",
-    category: "property",
-    src: "/clients/property/Menteng_Park_Exclusive_Emerald_Residence_Logo.avif",
-  },
-  {
     id: "menteng-park",
     name: "Menteng Park Residence",
     category: "property",
@@ -997,12 +947,6 @@ export const clientLogos: ClientLogo[] = [
     name: "Pakuwon Group",
     category: "property",
     src: "/clients/property/Pakuwon_Group_Logo.avif",
-  },
-  {
-    id: "pakuwon-mall-jogja",
-    name: "Pakuwon Mall Jogja",
-    category: "property",
-    src: "/clients/property/Pakuwon_Mall_Jogja.avif",
   },
   {
     id: "casablanca",
@@ -1029,12 +973,6 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/property/Providence_Park_Logo.avif",
   },
   {
-    id: "pakuwon-jati",
-    name: "PT Pakuwon Jati Tbk",
-    category: "property",
-    src: "/clients/property/PT_Pakuwon_Jati_Tbk.avif",
-  },
-  {
     id: "aca",
     name: "PT ACA",
     category: "property",
@@ -1045,12 +983,6 @@ export const clientLogos: ClientLogo[] = [
     name: "PT Estika Yasakelola",
     category: "property",
     src: "/clients/property/PT._Estika_Yasakelola_Logo.avif",
-  },
-  {
-    id: "pakuwon-residences-bekasi",
-    name: "Pakuwon Residences Bekasi",
-    category: "property",
-    src: "/clients/property/PT._Grama_Pramesi_Siddhi_[Pakuwon_Residences_Bekasi]_Logo.avif",
   },
   {
     id: "metropolitan-dev",
@@ -1147,12 +1079,6 @@ export const clientLogos: ClientLogo[] = [
     name: "Senayan Park",
     category: "property",
     src: "/clients/property/Senayan_Park_Logo.avif",
-  },
-  {
-    id: "sequis-center",
-    name: "SEQUIS CENTER",
-    category: "property",
-    src: "/clients/property/SEQUIS_CENTER_LOGO.avif",
   },
   {
     id: "shangri-la",
@@ -1323,6 +1249,7 @@ export const clientLogos: ClientLogo[] = [
     src: "/clients/property/World_Trade_Center_Logo.avif",
   },
 
+  // --- TRANSPORTATION ---
   {
     id: "toyota-astra",
     name: "Astra Toyota Astra Motor",
@@ -1442,12 +1369,6 @@ export const clientLogos: ClientLogo[] = [
     name: "PT Bahagia Audio Video",
     category: "transportation",
     src: "/clients/transportation/PT_Bahagia_Audio_Video.avif",
-  },
-  {
-    id: "estika-yasakelola-trans",
-    name: "PT Estika Yasakelola",
-    category: "transportation",
-    src: "/clients/transportation/PT_Estika_Yasakelola.avif",
   },
   {
     id: "intan-angkasa",
