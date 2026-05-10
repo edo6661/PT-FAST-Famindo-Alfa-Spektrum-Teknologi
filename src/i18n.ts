@@ -264,6 +264,10 @@ const resources = {
             name: "Lithium Fire Killer AF31",
             desc: "Eco-friendly lithium fire mitigation with global certification.",
           },
+          "power-tech-shield-fire-blanket": {
+            name: "Power Tech Shield",
+            desc: "A specialized safety blanket designed to isolate and prevent fire spread by cutting off the oxygen supply.",
+          },
           "ballistic-app": {
             name: "BALLISTIC App",
             desc: "Advanced IoT mobile app for real-time battery monitoring.",
@@ -662,6 +666,10 @@ const resources = {
           "lithium-fire-killer-hartindo-af31": {
             name: "Lithium Fire Killer AF31",
             desc: "Mitigasi kebakaran lithium ramah lingkungan bersertifikasi global.",
+          },
+          "power-tech-shield-fire-blanket": {
+            name: "Power Tech Shield",
+            desc: "Selimut keselamatan khusus yang dirancang untuk mengisolasi dan mencegah penyebaran api dengan memutus pasokan oksigen.",
           },
           "ballistic-app": {
             name: "Aplikasi BALLISTIC",
