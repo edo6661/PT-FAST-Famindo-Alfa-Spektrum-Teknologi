@@ -289,7 +289,7 @@ export const products: Product[] = [
     title: 'X-CAP',
     tagline: 'Breathing Apparatus For Emergency Escape During Fire Hazard',
     categoryId: 'protective',
-    description: 'One-time use protective gear to secure respiratory safety during fire escape and rescue. Portable, easy and simple to use, but the elderly and children should be assisted by adults in using the product.',
+    description: 'Specialized respiratory protection equipment designed for rapid deployment and maximum effectiveness in critical emergency situations. Engineered to provide reliable protection while ensuring safe access to emergency exits and evacuation routes when every second counts.',
     image: '/products/xcap.avif',
     features: [
       "Rapid deployment mechanism",
