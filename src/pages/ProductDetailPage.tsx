@@ -150,7 +150,7 @@ const ProductDetailPage = () => {
             <div className="lg:col-span-7 space-y-12">
               <div>
                 <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                  {t('productDetail.overview')}
+                  {product.id === 'ballistic-app' ? t('productDetail.systemOverview') : t('productDetail.overview')}
                   <div className="h-[1px] flex-grow bg-gradient-to-r from-white/20 to-transparent ml-4"></div>
                 </h2>
                 <p className="text-foreground-muted text-lg leading-relaxed font-light mb-8">

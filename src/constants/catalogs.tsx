@@ -96,7 +96,7 @@ export const products: Product[] = [
     ],
     variants: [
       { id: 'fb1', weight: '9 x 6 Meter (37 KG)', name: "Large Vehicle Shield", desc: "Ideal for SUVs and large electric vehicles." },
-      { id: 'fb2', weight: '4 x 4 Meter (11 KG)', name: "Standard Shield", desc: "Compact sizes for smaller vehicles and localized fires." },
+      { id: 'fb2', weight: '4 x 4 Meter (11 KG)', name: "Standard Shield", desc: "Compact sizes for smaller vehicles" },
       { id: 'fb3', weight: '2 x 2 Meter (3 KG)', name: "Compact Shield", desc: "For extremely localized use." }
     ]
   },
@@ -108,13 +108,14 @@ export const products: Product[] = [
     tagline: 'Indoor Anti-Fire Coating with Thermafrost Technology',
     categoryId: 'preventive',
     description: 'A high-performance indoor anti-fire coating designed to protect your valuable assets. It works by reflecting heat and forming a dense char barrier to isolate the building structure, giving you critical extra time during emergencies.',
-    image: '/products/altex.avif',
+    image: '/products/altex.jpeg',
     features: [
       "Withstands extreme heat up to 1300°C",
-      "Provides 3 hours of fire resistance duration",
-      "Thermafrost Char Barrier Technology",
+      "Provides up to 3 hours of fire resistance",
+      "Thermafrost Barrier Technology",
       "100% Non-Toxic (Carcinogen & VOC free)",
-      "Applied via airless spray gun (3-hour drying)"
+      "Applied by trained professional using specialized spray gun",
+      "3 hour drying time"
     ],
     variants: [
       { id: 'a1', name: "Altex End-to-End Service", desc: "Includes free consultation, site survey, and precise application by trained experts." }
@@ -127,7 +128,7 @@ export const products: Product[] = [
     title: 'G-TECH',
     tagline: 'Passive Gel Technology Fire Suppression',
     categoryId: 'preventive',
-    description: 'Passive fire damper based on advanced Gel technology to secure Lithium batteries. It works by absorbing heat, forming a cooling coating, and preventing re-ignition. DEFEND products are lifestyle containers integrated with G-Tech, perfect for placing directly over lithium battery compartments.',
+    description: 'Patented gel technology that acts as a passive fire suppressant when lithium batteries ignite. It works by absorbing heat, forming a cooling coating that doubles for preventing lithium flame re-ignition. G-TECH can be integrated with DEFEND, customized lifestyle containers for lithium battery compartments.',
     image: '/products/g-tech.avif',
     features: [
       "Advanced heat absorption capabilities",
@@ -148,7 +149,7 @@ export const products: Product[] = [
     title: 'Lithium Fire Killer HARTINDO AF31',
     tagline: 'The First Lithium Fire Extinguisher In The World',
     categoryId: 'protective',
-    description: 'A multi-function, eco-friendly extinguisher that handles it all. From common paper fires to high-stakes lithium battery blazes. Protect your home, your fleet, and your life with our specialized fire safety solutions.',
+    description: 'A multi-function, non-toxic, and eco-friendly extinguisher that is capable of handling multiple emergencies. From common paper fires to high-stake lithium battery blazes. Protect your home, fleet, also your life and your loved ones with this specialized fire safety solution.',
     image: '/products/lfk.avif',
     features: [
       "SNI Certified (Standar Nasional Indonesia)",
@@ -249,7 +250,7 @@ export const products: Product[] = [
     title: 'FLAT Flame Accurate Termination (AF11E)',
     tagline: 'Advanced Clean Liquefied Gas Extinguisher (AF11E)',
     categoryId: 'protective',
-    description: 'Clean liquefied gas fire extinguishing media (HCFC 123 blend). The perfect Halon alternative without harmful environmental side effects. It leaves no residue, has low environmental impact, and is non-conductive, making it highly suitable for critical areas like Hospitals, Panel Rooms, Data Centers, and Military bases.',
+    description: 'Clean liquefied gas fire extinguishing media (HCFC 123 blend). The perfect Halon alternative without harmful environmental side effects. It leaves no residue, has low environmental impact, and is non-conductive, making it highly suitable for critical areas like hospitals, panel rooms, data center, and military bases.',
     image: '/products/flat.avif',
     features: [
       "Leaves zero residue after discharge",
@@ -274,7 +275,7 @@ export const products: Product[] = [
     features: [
       "High-pressure Jet Spray & Fine Mist modes",
       "Spear extension for safe undercarriage insertion",
-      "Hose connection to large 25KG-50KG APAR units",
+      "Designed to be connected to large fire extinguisher units of size 25 KG - 50 KG.",
       "Engineered with Pindad Indonesia"
     ],
     variants: [
@@ -286,14 +287,17 @@ export const products: Product[] = [
     slug: 'x-cap',
     brochureUrl: '/brochures/X-CAP-A5-Flyer-brochure.pdf',
     title: 'X-CAP',
-    tagline: 'Advanced Rapid Extinguishing Solutions',
+    tagline: 'Breathing Apparatus For Emergency Escape During Fire Hazard',
     categoryId: 'protective',
-    description: 'Specialized fire suppression tools designed for rapid deployment and maximum efficiency in critical scenarios. Ensures that emergency exits and escape routes are quickly secured.',
+    description: 'One-time use protective gear to secure respiratory safety during fire escape and rescue. Portable, easy and simple to use, but the elderly and children should be assisted by adults in using the product.',
     image: '/products/xcap.avif',
     features: [
       "Rapid deployment mechanism",
       "High-efficiency suppression",
-      "Compact and reliable"
+      "Compact and reliable",
+      "Valid for 3 years",
+      "CCC certified",
+      "Do not use if the package or any part of the product is torn",
     ],
     variants: [
       { id: 'xc1', name: "X-CAP Standard", desc: "Standard deployment unit for rapid suppression." }

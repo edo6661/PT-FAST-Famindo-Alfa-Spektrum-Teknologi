@@ -101,7 +101,8 @@ const resources = {
         notFoundDesc:
           "The safety solution you are looking for might have been moved or doesn't exist.",
         badgeFallback: "Advanced Solution",
-        overview: "System Overview",
+        overview: "Product Overview",
+        systemOverview: "System Overview", 
         store: "Official Store",
         secure: "Secure This Technology",
         secureDesc:
@@ -497,7 +498,8 @@ const resources = {
         notFoundDesc:
           "Solusi keselamatan yang Anda cari mungkin telah dipindahkan atau tidak ada.",
         badgeFallback: "Solusi Tingkat Lanjut",
-        overview: "Tinjauan Sistem",
+        overview: "Tinjauan Produk", 
+        systemOverview: "Tinjauan Sistem", 
         store: "Toko Resmi",
         secure: "Amankan Teknologi Ini",
         secureDesc:
