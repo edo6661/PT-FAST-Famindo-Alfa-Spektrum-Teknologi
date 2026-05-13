@@ -102,7 +102,7 @@ const resources = {
           "The safety solution you are looking for might have been moved or doesn't exist.",
         badgeFallback: "Advanced Solution",
         overview: "Product Overview",
-        systemOverview: "System Overview", 
+        systemOverview: "System Overview",
         store: "Official Store",
         secure: "Secure This Technology",
         secureDesc:
@@ -443,26 +443,26 @@ const resources = {
         featured: {
           presidential: {
             name: "Pelantikan Presiden 2024",
-            category: "Government",
-            status: "Deployment Secured",
+            category: "Pemerintahan",
+            status: "Pengamanan Selesai",
             desc: "Proteksi untuk seluruh unit EV yang mengawal tamu VVIP dari luar negeri untuk pelantikan presiden 2024.",
           },
           iaf: {
             name: "KTT IAF Bali 2024",
-            category: "Government",
-            status: "Mass Fleet Protection",
+            category: "Pemerintahan",
+            status: "Proteksi Armada Massal",
             desc: "Proteksi untuk seluruh unit EV yang akan mengawal tamu VVIP dari luar negeri untuk KTT IAF, Bali.",
           },
           pope: {
             name: "Kunjungan Paus Fransiskus 2024",
-            category: "Government",
-            status: "Absolute Zero Incident",
+            category: "Pemerintahan",
+            status: "Rekor Bebas Insiden",
             desc: "Proteksi unit mobil listrik (EV) yang akan mengawal Paus Fransiskus 2024.",
           },
           bluebird: {
             name: "Bluebird Group 2025",
-            category: "Transportation",
-            status: "Official Supplier",
+            category: "Transportasi",
+            status: "Pemasok Resmi",
             desc: "FAST ditunjuk sebagai pemasok resmi keselamatan kebakaran untuk Bluebird Group.",
           },
         },
@@ -502,10 +502,10 @@ const resources = {
         notFoundDesc:
           "Solusi keselamatan yang Anda cari mungkin telah dipindahkan atau tidak ada.",
         badgeFallback: "Solusi Tingkat Lanjut",
-        overview: "Tinjauan Produk", 
-        systemOverview: "Tinjauan Sistem", 
+        overview: "Tinjauan Produk",
+        systemOverview: "Tinjauan Sistem",
         store: "Toko Resmi",
-        secure: "Amankan Teknologi Ini",
+        secure: "Dapatkan Teknologi Ini",
         secureDesc:
           "Minta katalog teknis lengkap atau berkonsultasi langsung dengan tim insinyur keselamatan kami untuk mengamankan aset Anda.",
         download: "Unduh Brosur",
@@ -513,7 +513,7 @@ const resources = {
         contact: "Hubungi",
         variantsTitle: "Varian yang Tersedia",
         variantsDesc:
-          "Jelajahi rangkaian konfigurasi khusus kami yang dirancang untuk memenuhi persyaratan industri dan komersial.",
+          "Jelajahi rangkaian konfigurasi khusus kami yang dirancang untuk memenuhi kebutuhan spesifik industri dan komersial.",
         locationDetails: "Detail Lokasi",
         weight: "Berat:",
       },
@@ -528,12 +528,12 @@ const resources = {
             bio: "Seorang pengusaha visioner dan pemilik Famindo Group, dengan pengalaman lebih dari 18 tahun di berbagai industri. Saat ini menjabat sebagai Direktur & Komisaris, beliau memiliki latar belakang kuat di industri otomotif dan membawa semangat membangun brand ke dalam lanskap bisnis keselamatan kebakaran yang menantang.",
           },
           {
-            role: "Presiden Komisaris",
+            role: "Komisaris Utama",
             bio: "Seorang pengusaha berdedikasi dan pemilik Famindo Group yang membawa keahlian lebih dari sembilan tahun di bidang sumber daya manusia dan pemasaran lintas industri, dengan fokus terbaru pada bisnis keselamatan kebakaran. Beliau berperan penting dalam mengarahkan pertumbuhan pesat perusahaan.",
           },
           {
             role: "Direktur Teknik",
-            bio: "Memulai karir di sektor rekayasa kebakaran bersama PT HARTINDO Chemicatama Industri pada tahun 2009. Saat ini memegang posisi manajerial di berbagai perusahaan, beliau terus mengembangkan keahliannya di bidang keselamatan kebakaran dengan mengintegrasikan pengalaman ekstensif dari bidang pertanian dan plastik.",
+            bio: "Memulai karir di sektor rekayasa kebakaran bersama PT HARTINDO Chemicatama Industri pada tahun 2009. Saat ini memegang posisi jajaran direksi di berbagai perusahaan, beliau terus mengembangkan keahliannya di bidang keselamatan kebakaran dengan mengintegrasikan pengalaman ekstensif dari bidang pertanian dan plastik.",
           },
           {
             role: "Direktur Operasional",
@@ -677,7 +677,7 @@ const resources = {
           },
           "altex-alpha-tech-shield": {
             name: "ALTEX ALPHA TECH SHIELD",
-            desc: "Pelapis cairan anti-api untuk mencegah penyebaran api secara efektif.",
+            desc: "Cairan pelapis anti-api untuk mencegah penyebaran api secara efektif.",
           },
         },
       },
@@ -694,7 +694,7 @@ const resources = {
           },
           preventive: {
             name: "Preventif",
-            desc: "Gel dan pelapis anti-api untuk meredam titik api pertama.",
+            desc: "Gel dan pelapis anti-api untuk meredam api sejak percikan pertama.",
           },
           protective: {
             name: "Protektif",
@@ -728,7 +728,7 @@ const resources = {
         "power-tech-shield-fire-blanket": {
           title: "Power Tech Shield - Selimut Api",
           tagline:
-            "Pelindung Tugas Berat yang Dirancang untuk Bertahan di Kondisi Ekstrem",
+            "Pelindung Kelas Berat yang Dirancang untuk Bertahan di Kondisi Ekstrem",
           description:
             "Selimut keselamatan khusus yang dirancang untuk mengisolasi dan mencegah penyebaran api dengan memutus pasokan oksigen. Pelindung tugas berat terbaik untuk kendaraan listrik, garasi, dan area parkir.",
           features: {
@@ -774,7 +774,7 @@ const resources = {
         },
         "g-tech-defend": {
           title: "G-TECH",
-          tagline: "Supresi Api Teknologi Gel Pasif",
+          tagline: "Supresi Kebakaran Berbasis Teknologi Gel Pasif",
           description:
             "Peredam api pasif berbasis teknologi Gel canggih untuk mengamankan baterai Lithium. Bekerja dengan menyerap panas, membentuk lapisan pendingin, dan mencegah penyalaan kembali. Produk DEFEND merupakan perlengkapan gaya hidup terintegrasi dengan G-Tech.",
           features: {
@@ -798,7 +798,7 @@ const resources = {
           title: "Lithium Fire Killer HARTINDO AF31",
           tagline: "Pemadam Api Baterai Lithium Pertama Di Dunia",
           description:
-            "Pemadam multi-fungsi ramah lingkungan yang menangani segalanya. Dari kebakaran kertas biasa hingga kebakaran baterai lithium yang berisiko tinggi. Lindungi rumah, armada, dan jiwa Anda dengan solusi keselamatan kebakaran khusus kami.",
+            "Pemadam multi-fungsi ramah lingkungan yang menangani segalanya. Dari kebakaran kertas biasa hingga kebakaran baterai lithium yang berisiko tinggi. Lindungi rumah, armada, dan nyawa Anda dengan solusi keselamatan kebakaran khusus kami.",
           features: {
             "0": "Bersertifikat SNI (Standar Nasional Indonesia)",
             "1": "Kelas Api: A, B, D, F/K, & L (Lithium)",
@@ -835,10 +835,10 @@ const resources = {
           description:
             "Media pemadam gas cair bersih (campuran HCFC 123). Alternatif Halon yang sempurna tanpa efek samping merusak lingkungan. Tidak meninggalkan residu dan non-konduktif, membuatnya sangat cocok untuk Rumah Sakit, Ruang Panel, Pusat Data, dan markas Militer.",
           features: {
-            "0": "Meninggalkan nol residu setelah digunakan",
+            "0": "Tidak meninggalkan residu setelah digunakan",
             "1": "Aman untuk pernapasan manusia jika tanpa sengaja terhirup",
             "2": "Non-konduktif, sempurna untuk memadamkan kebakaran listrik",
-            "3": "Bekerja secara sempurna untuk Kelas Api A, B, dan C",
+            "3": "Sangat efektif untuk Kelas Api A, B, dan C",
           },
           variants: {
             f1: {
@@ -855,7 +855,7 @@ const resources = {
           title: "Sistem Pemadaman Sasis Kendaraan (USS)",
           tagline: "Ekstensi Khusus untuk Titik Api di Bawah Kendaraan EV",
           description:
-            "Perangkat ekstensi alat pemadam api portabel yang dirancang khusus untuk mengatasi kebakaran pada kendaraan listrik yang letak baterainya berada di bawah sasis. Dikembangkan bersama Pindad Indonesia untuk efisiensi darurat terbaik.",
+            "Perangkat ekstensi alat pemadam api portabel yang dirancang khusus untuk mengatasi kebakaran pada kendaraan listrik yang letak baterainya berada di bawah sasis. Dikembangkan bersama Pindad Indonesia untuk efisiensi penanganan darurat terbaik.",
           features: {
             "0": "Mode Jet Spray tekanan tinggi & Fine Mist",
             "1": "Ekstensi tombak khusus untuk penyisipan bawah mobil yang aman",
@@ -864,7 +864,7 @@ const resources = {
           },
           variants: {
             u1: {
-              name: "Kit Pengerahan USS",
+              name: "Kit Pengoperasian USS",
               desc: "Kit ekstensi nosel dan tombak lengkap untuk tim tanggap darurat EV.",
             },
           },
@@ -873,16 +873,16 @@ const resources = {
           title: "X-CAP",
           tagline: "Solusi Cepat Tanggap Eksekusi Kebakaran",
           description:
-            "Alat pemadam kebakaran portabel yang dirancang untuk penyebaran cepat dan efisiensi maksimal dalam skenario kritis yang tidak terduga. Memastikan jalur evakuasi segera diamankan dengan hitungan detik.",
+            "Alat pemadam kebakaran portabel yang dirancang untuk pengoperasian cepat dan efisiensi maksimal dalam skenario darurat yang tidak terduga. Memastikan jalur evakuasi segera diamankan dalam hitungan detik.",
           features: {
-            "0": "Mekanisme respon dan penyebaran sangat cepat",
-            "1": "Penanganan supresi berefisiensi tinggi",
+            "0": "Mekanisme respons dan pengoperasian yang sangat cepat",
+            "1": "Daya pemadaman api berefisiensi tinggi",
             "2": "Ringkas, kokoh, dan selalu siap diandalkan",
           },
           variants: {
             xc1: {
               name: "Standar X-CAP",
-              desc: "Unit respon standar untuk pemadaman instan.",
+              desc: "Unit respons standar untuk pemadaman instan.",
             },
           },
         },
@@ -940,12 +940,12 @@ const resources = {
         international: [
           {
             title: "Nucro Technics",
-            desc: "Lulus pengujian sertifikasi untuk jaminan kualitas dan tolak ukur keselamatan standar internasional.",
+            desc: "Lulus pengujian sertifikasi untuk jaminan kualitas dan tolok ukur keselamatan standar internasional.",
             logo: "/certi/lfk-af31/Nucro-Technics.avif",
           },
           {
             title: "EUROFINS - Environment Test",
-            desc: "Sertifikasi bebas PFAS (senyawa kimia abadi), menghilangkan risiko pembentukan kanker bagi penggunanya.",
+            desc: "Sertifikasi bebas PFAS (senyawa kimia abadi), menghilangkan risiko pemicu kanker bagi penggunanya.",
             logo: "/certi/lfk-af31/EUROFINS.avif",
           },
           {
