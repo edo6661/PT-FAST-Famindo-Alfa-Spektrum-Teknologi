@@ -25,6 +25,7 @@ const PageLoader = () => (
     <div className="w-16 h-16 border-t-2 border-accent border-solid rounded-full animate-spin"></div>
   </div>
 );
+// test
 const App = () => {
   return (
     <HelmetProvider>
@@ -46,8 +47,6 @@ const App = () => {
                   <Route path="blogs" element={<BlogsPage />} />
                   <Route path="blogs/:id" element={<BlogDetailPage />} />
                   <Route path="about" element={<AboutUsPage />} />
-
-                  <Route path=":slug" element={<ProductDetailPage />} />
                 </Route>
 
                 <Route path="/login" element={<Login />} />
