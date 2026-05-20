@@ -4,13 +4,16 @@ import { useTranslation } from 'react-i18next';
 interface SEOProps {
   title?: string;
   description?: string;
+  keywords?: string;
   image?: string;
   url?: string;
   type?: string;
+  /** When true, use title as the full document title (no site suffix). */
+  useTitleAsIs?: boolean;
   schemaMarkup?: Record<string, unknown>;
 }
 
-const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }: SEOProps) => {
+const SEO = ({ title, description, keywords, image, url, type = 'website', useTitleAsIs = false, schemaMarkup }: SEOProps) => {
   const { t } = useTranslation();
 
   const siteUrl = "https://www.famindofast.com";
@@ -20,7 +23,9 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
 
   const defaultImage = "https://www.famindofast.com/fast-blue.png";
 
-  const seoTitle = title ? `${title} | PT. Famindo Alfa Spektrum Teknologi` : defaultTitle;
+  const seoTitle = title
+    ? (useTitleAsIs ? title : `${title} | PT. Famindo Alfa Spektrum Teknologi`)
+    : defaultTitle;
   const seoDesc = description || defaultDescription;
   const seoImage = image || defaultImage;
   const seoUrl = `${siteUrl}${url || ''}`;
@@ -51,6 +56,8 @@ const SEO = ({ title, description, image, url, type = 'website', schemaMarkup }:
       <html lang="en" />
       <title>{seoTitle}</title>
       <meta name="description" content={seoDesc} />
+      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="robots" content="index, follow" />
       <meta name="theme-color" content="#0a192f" />
       <link rel="canonical" href={seoUrl} />
 

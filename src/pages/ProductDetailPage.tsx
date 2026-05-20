@@ -93,26 +93,58 @@ const ProductDetailPage = () => {
     );
   }
 
+  const productTitle = t(`products.${product.id}.title`, { defaultValue: product.title });
+  const productDescription = t(`products.${product.id}.description`, { defaultValue: product.description });
+  const productTagline = t(`products.${product.id}.tagline`, { defaultValue: product.tagline });
+  const canonicalPath = `/catalog/${product.slug}`;
+  const absoluteImage = product.image.startsWith('http')
+    ? product.image
+    : `https://www.famindofast.com${product.image}`;
+
+  const isLithiumFireKiller = product.id === 'lithium-fire-killer-hartindo-af31';
+  const seoTitle = isLithiumFireKiller
+    ? 'Lithium Fire Killer HARTINDO AF31 | World\'s First Lithium Fire Extinguisher'
+    : `${productTitle} | FAST Fire Safety`;
+  const seoDescription = isLithiumFireKiller
+    ? 'Lithium Fire Killer (LFK) HARTINDO AF31 — the world\'s first lithium fire extinguisher. SNI certified, eco-friendly, TKDN certified. Extinguishes Class A, B, D, F/K & Lithium battery fires. Buy from PT. Famindo Alfa Spektrum Teknologi (FAST).'
+    : productDescription;
+  const seoKeywords = isLithiumFireKiller
+    ? 'lithium fire killer, Lithium Fire Killer, HARTINDO AF31, LFK AF31, lithium fire extinguisher, pemadam api baterai lithium, pemadam api lithium, lithium battery fire extinguisher, FAST Indonesia'
+    : undefined;
+
   const productSchema = {
     "@context": "https://schema.org/",
     "@type": "Product",
-    "name": t(`products.${product.id}.title`, { defaultValue: product.title }),
-    "image": product.image,
-    "description": t(`products.${product.id}.description`, { defaultValue: product.description }),
+    "name": productTitle,
+    "image": absoluteImage,
+    "description": seoDescription,
+    "url": `https://www.famindofast.com${canonicalPath}`,
+    "category": "Fire Extinguisher",
     "brand": {
       "@type": "Brand",
-      "name": "FAST | PT. Famindo Alfa Spektrum Teknologi"
+      "name": "HARTINDO"
     },
-    "slogan": t(`products.${product.id}.tagline`, { defaultValue: product.tagline })
+    "manufacturer": {
+      "@type": "Organization",
+      "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
+      "url": "https://www.famindofast.com"
+    },
+    "slogan": productTagline,
+    ...(isLithiumFireKiller && {
+      "alternateName": ["LFK", "Lithium Fire Killer AF31", "HARTINDO AF31"],
+      "keywords": "lithium fire killer, lithium fire extinguisher, HARTINDO AF31"
+    })
   };
 
   return (
     <div className="pb-24 bg-background min-h-screen relative">
       <SEO
-        title={`${t(`products.${product.id}.title`, { defaultValue: product.title })} - FAST`}
-        description={t(`products.${product.id}.description`, { defaultValue: product.description })}
-        url={`/catalog/${product.slug}`}
-        image={product.image}
+        title={seoTitle}
+        useTitleAsIs
+        description={seoDescription}
+        keywords={seoKeywords}
+        url={canonicalPath}
+        image={absoluteImage}
         type="product"
         schemaMarkup={productSchema}
       />

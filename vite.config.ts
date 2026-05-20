@@ -26,8 +26,8 @@ export default defineConfig({
     Sitemap({
       hostname: "https://www.famindofast.com",
       dynamicRoutes: dynamicRoutes,
-      exclude: ["/login", "/admin/blog"], // Kecualikan halaman admin agar tidak diindeks
-      generateRobotsTxt: true, // Otomatis membuat robots.txt yang mengarah ke sitemap
+      exclude: ["/login", "/admin/blog"],
+      generateRobotsTxt: false,
     }),
     viteCompression({
       algorithm: "gzip",

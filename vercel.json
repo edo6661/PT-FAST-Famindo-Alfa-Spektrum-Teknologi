@@ -1,5 +1,25 @@
 {
   "redirects": [
+    {
+      "source": "/brand/hartindo-af31",
+      "destination": "/catalog/lithium-fire-killer-hartindo-af31",
+      "permanent": true
+    },
+    {
+      "source": "/brand/:slug",
+      "destination": "/catalog/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/lithium-fire-killer",
+      "destination": "/catalog/lithium-fire-killer-hartindo-af31",
+      "permanent": true
+    },
+    {
+      "source": "/lithium-fire-killer-hartindo-af31",
+      "destination": "/catalog/lithium-fire-killer-hartindo-af31",
+      "permanent": true
+    },
     { "source": "/about-us", "destination": "/about", "permanent": true },
     { "source": "/contact", "destination": "/#kontak", "permanent": true },
     {

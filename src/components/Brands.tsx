@@ -59,7 +59,7 @@ const Brands = () => {
               className={`h-full ${brand.gridClass}`}
             >
               <Link
-                to={`/${brand.slug}`}
+                to={`/catalog/${brand.slug}`}
                 aria-label={`Pelajari lebih detail mengenai spesifikasi produk ${brand.name}`}
                 className="group relative w-full h-full block"
               >
