@@ -96,12 +96,13 @@ const ProductDetailPage = () => {
   const productTitle = t(`products.${product.id}.title`, { defaultValue: product.title });
   const productDescription = t(`products.${product.id}.description`, { defaultValue: product.description });
   const productTagline = t(`products.${product.id}.tagline`, { defaultValue: product.tagline });
-  const canonicalPath = `/catalog/${product.slug}`;
+  const isLithiumFireKiller = product.id === 'lithium-fire-killer-hartindo-af31';
+  const canonicalPath = isLithiumFireKiller
+    ? `/${product.slug}`
+    : `/catalog/${product.slug}`;
   const absoluteImage = product.image.startsWith('http')
     ? product.image
     : `https://www.famindofast.com${product.image}`;
-
-  const isLithiumFireKiller = product.id === 'lithium-fire-killer-hartindo-af31';
   const seoTitle = isLithiumFireKiller
     ? 'Lithium Fire Killer HARTINDO AF31 | World\'s First Lithium Fire Extinguisher'
     : `${productTitle} | FAST Fire Safety`;
@@ -131,7 +132,7 @@ const ProductDetailPage = () => {
     },
     "slogan": productTagline,
     ...(isLithiumFireKiller && {
-      "alternateName": ["LFK", "Lithium Fire Killer AF31", "HARTINDO AF31"],
+      "alternateName": ["LFK", "Lithium Fire Killer", "Lithium Fire Killer AF31", "HARTINDO AF31"],
       "keywords": "lithium fire killer, lithium fire extinguisher, HARTINDO AF31"
     })
   };

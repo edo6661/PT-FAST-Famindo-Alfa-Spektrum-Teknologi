@@ -10,7 +10,7 @@ const dynamicRoutes = [
   "/catalog/power-tech-shield-fire-blanket",
   "/catalog/altex-alpha-tech-shield",
   "/catalog/g-tech-defend",
-  "/catalog/lithium-fire-killer-hartindo-af31",
+  "/lithium-fire-killer-hartindo-af31",
   "/catalog/flat-af11e",
   "/catalog/uss-undercarriage",
   "/catalog/x-cap",

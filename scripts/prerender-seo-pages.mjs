@@ -11,7 +11,7 @@ const distDir = path.join(__dirname, "..", "dist");
 const siteUrl = "https://www.famindofast.com";
 
 const LFK_PAGE = {
-  routePath: "catalog/lithium-fire-killer-hartindo-af31",
+  routePath: "lithium-fire-killer-hartindo-af31",
   title: "Lithium Fire Killer HARTINDO AF31 | World's First Lithium Fire Extinguisher",
   description:
     "Lithium Fire Killer (LFK) HARTINDO AF31 — the world's first lithium fire extinguisher. SNI certified, eco-friendly, TKDN certified. Extinguishes Class A, B, D, F/K & Lithium battery fires. Buy from PT. Famindo Alfa Spektrum Teknologi (FAST).",
@@ -23,27 +23,29 @@ const LFK_PAGE = {
       <p><a href="${siteUrl}/" style="color: #3898d4;">FAST — PT. Famindo Alfa Spektrum Teknologi</a></p>
       <h1 style="color: #fff; font-size: 2rem;">Lithium Fire Killer HARTINDO AF31</h1>
       <p style="color: #3898d4; font-size: 1.25rem;">The First Lithium Fire Extinguisher In The World</p>
-      <p>Lithium Fire Killer (LFK) HARTINDO AF31 is a multi-function, non-toxic, and eco-friendly fire extinguisher for common fires and high-risk lithium-ion battery blazes. Protect your home, fleet, and loved ones with this specialized fire safety solution from FAST Indonesia.</p>
+      <p><strong>Lithium Fire Killer</strong> (LFK) HARTINDO AF31 is the world's first dedicated <strong>lithium fire extinguisher</strong> — a multi-function, non-toxic, and eco-friendly fire safety solution for common fires and high-risk lithium-ion battery blazes. Protect your home, fleet, and loved ones with Lithium Fire Killer from FAST Indonesia.</p>
+      <h2 style="color: #fff;">Why choose Lithium Fire Killer?</h2>
+      <p>When a lithium-ion battery catches fire, ordinary extinguishers often fail. Lithium Fire Killer AF31 is engineered specifically for lithium battery fires (Class L) as well as Class A, B, D, and F/K — one tool for every emergency.</p>
       <h2 style="color: #fff;">Key features</h2>
       <ul>
         <li>SNI Certified (Standar Nasional Indonesia)</li>
         <li>Fire Classes: A, B, D, F/K, &amp; L (Lithium)</li>
-        <li>One tool for every emergency</li>
+        <li>World's first lithium fire extinguisher</li>
         <li>Lab-tested &amp; TKDN Certified</li>
         <li>Eco-friendly &amp; Non-toxic</li>
       </ul>
-      <p><a href="${siteUrl}/catalog" style="color: #3898d4;">View full catalog</a> · <a href="https://www.tokopedia.com/famindofast" style="color: #3898d4;">Buy on Tokopedia</a></p>
+      <p><a href="${siteUrl}/catalog" style="color: #3898d4;">View full catalog</a> · <a href="https://www.tokopedia.com/famindofast" style="color: #3898d4;">Buy Lithium Fire Killer on Tokopedia</a></p>
     </main>
   `,
   productSchema: {
     "@context": "https://schema.org/",
     "@type": "Product",
     name: "Lithium Fire Killer HARTINDO AF31",
-    alternateName: ["LFK", "Lithium Fire Killer AF31", "HARTINDO AF31"],
+    alternateName: ["LFK", "Lithium Fire Killer", "Lithium Fire Killer AF31", "HARTINDO AF31"],
     image: `${siteUrl}/products/lfk.avif`,
     description:
-      "The world's first lithium fire extinguisher. SNI certified, eco-friendly, TKDN certified lithium-ion battery fire suppression by FAST Indonesia.",
-    url: `${siteUrl}/catalog/lithium-fire-killer-hartindo-af31`,
+      "Lithium Fire Killer — the world's first lithium fire extinguisher. SNI certified, eco-friendly, TKDN certified lithium-ion battery fire suppression by FAST Indonesia.",
+    url: `${siteUrl}/lithium-fire-killer-hartindo-af31`,
     category: "Fire Extinguisher",
     brand: { "@type": "Brand", name: "HARTINDO" },
     manufacturer: {
@@ -53,6 +55,17 @@ const LFK_PAGE = {
     },
     slogan: "The First Lithium Fire Extinguisher In The World",
     keywords: "lithium fire killer, lithium fire extinguisher, HARTINDO AF31",
+  },
+  webPageSchema: {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Lithium Fire Killer HARTINDO AF31",
+    description:
+      "Official product page for Lithium Fire Killer (LFK) HARTINDO AF31 — the world's first lithium fire extinguisher.",
+    url: `${siteUrl}/lithium-fire-killer-hartindo-af31`,
+    inLanguage: "en",
+    isPartOf: { "@type": "WebSite", name: "famindofast.com", url: siteUrl },
+    about: { "@type": "Product", name: "Lithium Fire Killer HARTINDO AF31" },
   },
 };
 
@@ -66,6 +79,9 @@ function escapeHtml(text) {
 
 function buildSeoHead(page) {
   const canonical = `${siteUrl}/${page.routePath}`;
+  const schemas = [page.productSchema, page.webPageSchema]
+    .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+    .join("\n    ");
   return `
     <title>${escapeHtml(page.title)}</title>
     <meta name="description" content="${escapeHtml(page.description)}" />
@@ -82,7 +98,7 @@ function buildSeoHead(page) {
     <meta name="twitter:title" content="${escapeHtml(page.title)}" />
     <meta name="twitter:description" content="${escapeHtml(page.description)}" />
     <meta name="twitter:image" content="${page.image}" />
-    <script type="application/ld+json">${JSON.stringify(page.productSchema)}</script>
+    ${schemas}
   `;
 }
 
