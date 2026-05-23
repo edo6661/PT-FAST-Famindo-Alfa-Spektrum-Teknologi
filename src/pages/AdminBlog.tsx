@@ -164,7 +164,9 @@ const AdminBlog = () => {
                       </td>
                       <td className="py-4 px-4">
                         <div className="font-medium text-white">{blog.nama}</div>
-                        <div className="text-xs text-foreground-muted truncate max-w-xs">{blog.deskripsi}</div>
+                        <div className="text-xs text-foreground-muted truncate max-w-xs">
+                          {(blog.deskripsi ?? "").replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ")}
+                        </div>
                       </td>
                       <td className="py-4 px-4 text-center">
                         {blog.ditampilkan_di_landing_page ? (
