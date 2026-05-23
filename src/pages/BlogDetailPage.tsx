@@ -54,7 +54,6 @@ const BlogDetailPage = () => {
     if (navigator.share) {
       navigator.share({
         title: title,
-        text: description,
         url: window.location.href,
       }).catch(console.error);
     } else {
