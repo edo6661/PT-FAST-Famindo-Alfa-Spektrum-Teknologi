@@ -6,7 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import { Analytics } from '@vercel/analytics/react';
 import { domAnimation, LazyMotion } from 'framer-motion';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 
 const Home = lazy(() => import('./pages/Home'));
