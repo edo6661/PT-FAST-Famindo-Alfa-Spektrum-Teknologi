@@ -15,10 +15,10 @@ import {
   type DocumentData,
   startAfter,
 } from "firebase/firestore";
-import { db } from "../lib/firebase";
+import { getFirebaseDb } from "../lib/firebase";
 import type { Blog } from "../types/blog";
 
-const blogsRef = collection(db, "blogs");
+const getBlogsRef = async () => collection(await getFirebaseDb(), "blogs");
 
 export const uploadBlogImage = async (file: File): Promise<string> => {
   const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
@@ -40,12 +40,14 @@ export const uploadBlogImage = async (file: File): Promise<string> => {
 };
 
 export const getAllBlogs = async (): Promise<Blog[]> => {
+  const blogsRef = await getBlogsRef();
   const q = query(blogsRef, orderBy("createdAt", "desc"));
   const snapshot = await getDocs(q);
   return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Blog[];
 };
 
 export const getLandingPageBlogs = async (): Promise<Blog[]> => {
+  const blogsRef = await getBlogsRef();
   const q = query(
     blogsRef,
     where("ditampilkan_di_landing_page", "==", true),
@@ -57,6 +59,7 @@ export const getLandingPageBlogs = async (): Promise<Blog[]> => {
 };
 
 export const getBlogById = async (id: string): Promise<Blog | null> => {
+  const db = await getFirebaseDb();
   const docRef = doc(db, "blogs", id);
   const snapshot = await getDoc(docRef);
   if (snapshot.exists()) return { id: snapshot.id, ...snapshot.data() } as Blog;
@@ -64,6 +67,7 @@ export const getBlogById = async (id: string): Promise<Blog | null> => {
 };
 
 export const createBlog = async (data: Omit<Blog, "id" | "createdAt">) => {
+  const blogsRef = await getBlogsRef();
   const docRef = await addDoc(blogsRef, {
     ...data,
     urutan: data.urutan || 0,
@@ -73,11 +77,13 @@ export const createBlog = async (data: Omit<Blog, "id" | "createdAt">) => {
 };
 
 export const updateBlog = async (id: string, data: Partial<Blog>) => {
+  const db = await getFirebaseDb();
   const docRef = doc(db, "blogs", id);
   await updateDoc(docRef, data);
 };
 
 export const deleteBlog = async (id: string) => {
+  const db = await getFirebaseDb();
   const docRef = doc(db, "blogs", id);
   await deleteDoc(docRef);
 };
@@ -86,6 +92,7 @@ export const updateLandingPageOrder = async (
   allBlogs: Blog[],
   selectedIds: (string | null)[],
 ) => {
+  const db = await getFirebaseDb();
   const batch = writeBatch(db);
 
   allBlogs.forEach((blog) => {
@@ -113,6 +120,7 @@ export const getPaginatedBlogs = async (
   pageSize: number,
   lastDoc: QueryDocumentSnapshot<DocumentData> | null = null,
 ) => {
+  const blogsRef = await getBlogsRef();
   let q = query(blogsRef, orderBy("createdAt", "desc"), limit(pageSize));
 
   if (lastDoc) {

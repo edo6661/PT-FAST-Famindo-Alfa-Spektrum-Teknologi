@@ -36,7 +36,7 @@ const Certifications = () => {
         </div>
       )}
       <div>
-        <h4 className="text-base font-bold text-white/90 mb-2">{cert.title}</h4>
+        <p className="text-base font-bold text-white/90 mb-2">{cert.title}</p>
         <p className="text-xs text-foreground-muted leading-relaxed">{cert.desc}</p>
       </div>
     </div>

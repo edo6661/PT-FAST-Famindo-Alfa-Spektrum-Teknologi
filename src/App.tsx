@@ -2,8 +2,6 @@ import { Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import Layout from './components/Layout';
-import ProtectedRoute from './components/ProtectedRoute';
-import { AuthProvider } from './contexts/AuthContext';
 import { Analytics } from '@vercel/analytics/react';
 import { domAnimation, LazyMotion } from 'framer-motion';
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -12,7 +10,8 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 const Home = lazy(() => import('./pages/Home'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
 const ClientBasePage = lazy(() => import('./pages/ClientBasePage'));
-const Login = lazy(() => import('./pages/Login'));
+const LoginRoute = lazy(() => import('./pages/LoginRoute'));
+const AdminRoute = lazy(() => import('./pages/AdminRoute'));
 const AdminBlog = lazy(() => import('./pages/AdminBlog'));
 
 const BlogsPage = lazy(() => import('./pages/BlogsPage'));
@@ -33,36 +32,34 @@ const App = () => {
     <HelmetProvider>
       <Analytics />
       <SpeedInsights />
-      <AuthProvider>
-        <LazyMotion features={domAnimation}>
-          <BrowserRouter>
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<Home />} />
-                  <Route path=":slug" element={<ProductDetailPage />} />
+      <LazyMotion features={domAnimation}>
+        <BrowserRouter>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path=":slug" element={<ProductDetailPage />} />
 
-                  <Route path="clients" element={<ClientBasePage />} />
+                <Route path="clients" element={<ClientBasePage />} />
 
-                  <Route path="catalog" element={<CatalogPage />} />
-                  <Route path="catalog/:slug" element={<ProductDetailPage />} />
-                  <Route path="category/:slug" element={<CategoryDetailPage />} />
+                <Route path="catalog" element={<CatalogPage />} />
+                <Route path="catalog/:slug" element={<ProductDetailPage />} />
+                <Route path="category/:slug" element={<CategoryDetailPage />} />
 
-                  <Route path="blogs" element={<BlogsPage />} />
-                  <Route path="blogs/:id" element={<BlogDetailPage />} />
-                  <Route path="about" element={<AboutUsPage />} />
-                </Route>
+                <Route path="blogs" element={<BlogsPage />} />
+                <Route path="blogs/:id" element={<BlogDetailPage />} />
+                <Route path="about" element={<AboutUsPage />} />
+              </Route>
 
-                <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<LoginRoute />} />
 
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/admin/blog" element={<AdminBlog />} />
-                </Route>
-              </Routes>
-            </Suspense>
-          </BrowserRouter>
-        </LazyMotion>
-      </AuthProvider>
+              <Route element={<AdminRoute />}>
+                <Route path="/admin/blog" element={<AdminBlog />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </BrowserRouter>
+      </LazyMotion>
     </HelmetProvider>
   );
 };

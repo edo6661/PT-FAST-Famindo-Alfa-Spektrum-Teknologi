@@ -5,8 +5,6 @@ import {
   Linkedin, BookOpen, ArrowRight, Instagram, Youtube
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import logo from '../assets/FAST_Logo_PNG/logo.png';
-import { getLandingPageBlogs } from '../services/blogService';
 import type { Blog } from '../types/blog';
 import BlogCard from './BlogCard';
 
@@ -23,17 +21,38 @@ const ContactFooter = () => {
   const [loadingBlogs, setLoadingBlogs] = useState(true);
 
   useEffect(() => {
+    let cancelled = false;
+
     const fetchBlogs = async () => {
       try {
+        const { getLandingPageBlogs } = await import('../services/blogService');
         const data = await getLandingPageBlogs();
-        setBlogs(data);
+        if (!cancelled) setBlogs(data);
       } catch (error) {
         console.error('Gagal mengambil blog:', error);
       } finally {
-        setLoadingBlogs(false);
+        if (!cancelled) setLoadingBlogs(false);
       }
     };
-    fetchBlogs();
+
+    let idleId: number | undefined;
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+
+    if ('requestIdleCallback' in window) {
+      idleId = window.requestIdleCallback(() => fetchBlogs(), { timeout: 3000 });
+    } else {
+      timeoutId = setTimeout(fetchBlogs, 1500);
+    }
+
+    return () => {
+      cancelled = true;
+      if (idleId !== undefined) {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId !== undefined) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -85,9 +104,9 @@ const ContactFooter = () => {
         <div className="mt-12 border-b border-border pb-12 bg-surface">
           <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <h3 className="text-2xl font-bold flex items-center gap-2 mb-2">
-                <BookOpen className="text-accent" size={24} /> {t('footer.insights.title')}
-              </h3>
+              <h2 className="text-2xl font-bold flex items-center gap-2 mb-2">
+                <BookOpen className="text-accent" size={24} aria-hidden="true" /> {t('footer.insights.title')}
+              </h2>
               <p className="text-foreground-muted text-sm">{t('footer.insights.desc')}</p>
             </div>
             <Link to="/blogs" className="inline-flex items-center gap-2 text-accent hover:text-white transition-colors text-sm font-semibold">
@@ -128,7 +147,7 @@ const ContactFooter = () => {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-1">{t('footer.headquarters')}</h4>
+                  <h3 className="font-semibold text-lg mb-1">{t('footer.headquarters')}</h3>
                   <p className="text-foreground-muted">TCC Tower One Menara Batavia<br />Jl. K.H. Mas Mansyur No. Kav. 126, RT.9/RW.3<br />Karet Tengsin, Tanah Abang, Jakarta Pusat 10220</p>
                 </div>
               </div>
@@ -137,7 +156,7 @@ const ContactFooter = () => {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-1">{t('footer.phone')}</h4>
+                  <h3 className="font-semibold text-lg mb-1">{t('footer.phone')}</h3>
                   <p className="text-foreground-muted">+62 812 9000 3278</p>
                 </div>
               </div>
@@ -146,7 +165,7 @@ const ContactFooter = () => {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-lg mb-1">{t('footer.emailTitle')}</h4>
+                  <h3 className="font-semibold text-lg mb-1">{t('footer.emailTitle')}</h3>
                   <p className="text-foreground-muted">support@famindofast.com</p>
                 </div>
               </div>
@@ -237,23 +256,23 @@ const ContactFooter = () => {
         <div className="py-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="flex items-center gap-3">
-              <img src={logo} alt="Logo FAST" className="h-6 w-auto opacity-100" />
+              <img src="/logo-nav-200w.webp" alt="Logo FAST" width={120} height={22} loading="lazy" decoding="async" className="h-6 w-auto opacity-100" />
               <span className="text-foreground-muted text-sm font-medium">PT. Famindo Alfa Spektrum Teknologi</span>
             </div>
           </div>
 
           <div className="flex items-center gap-5">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors">
-              <Facebook size={20} />
+            <a href="https://www.facebook.com/pages/PT.%20Famindo%20Inovasi%20Teknologi/526158344445002/" target="_blank" rel="noopener noreferrer" aria-label="Facebook PT FAST" className="text-foreground-muted hover:text-accent transition-colors">
+              <Facebook size={20} aria-hidden="true" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors">
-              <Linkedin size={20} />
+            <a href="https://www.linkedin.com/company/pt-famindo-fast" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn PT FAST" className="text-foreground-muted hover:text-accent transition-colors">
+              <Linkedin size={20} aria-hidden="true" />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors">
-              <Youtube size={20} />
+            <a href="https://www.youtube.com/@lithiumfirekiller" target="_blank" rel="noopener noreferrer" aria-label="YouTube Lithium Fire Killer" className="text-foreground-muted hover:text-accent transition-colors">
+              <Youtube size={20} aria-hidden="true" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-foreground-muted hover:text-accent transition-colors">
-              <Instagram size={20} />
+            <a href="https://instagram.com/famindofast" target="_blank" rel="noopener noreferrer" aria-label="Instagram PT FAST" className="text-foreground-muted hover:text-accent transition-colors">
+              <Instagram size={20} aria-hidden="true" />
             </a>
           </div>
 

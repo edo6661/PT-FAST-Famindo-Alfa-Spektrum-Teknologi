@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { auth } from "../lib/firebase";
+import { getFirebaseAuth } from "../lib/firebase";
 import { getAllBlogs, deleteBlog, createBlog, updateBlog, updateLandingPageOrder } from "../services/blogService";
 import type { Blog } from "../types/blog";
 import BlogModal from "../components/BlogModal";
@@ -39,6 +39,7 @@ const AdminBlog = () => {
 
   const handleLogout = async () => {
     try {
+      const auth = await getFirebaseAuth();
       await signOut(auth);
       navigate("/login");
     } catch (error) {

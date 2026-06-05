@@ -58,52 +58,64 @@ export default function Hero() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    let rafId = 0;
+    let viewportWidth = window.innerWidth;
+    let viewportHeight = window.innerHeight;
+
+    const syncCanvasSize = () => {
+      if (canvas.width !== viewportWidth || canvas.height !== viewportHeight) {
+        canvas.width = viewportWidth;
+        canvas.height = viewportHeight;
+      }
+    };
+
+    const handleResize = () => {
+      viewportWidth = window.innerWidth;
+      viewportHeight = window.innerHeight;
+      syncCanvasSize();
+    };
+
+    window.addEventListener('resize', handleResize, { passive: true });
+    syncCanvasSize();
+
     const render = () => {
       const targetFrameIndex = Math.round(currentFrameIndex.get());
 
-      // LOGIKA FALLBACK: 
-      // Cari frame dari yang paling ditargetkan, mundur ke belakang
-      // sampai ketemu gambar yang sudah selesai didownload (lengkap)
       let imgToDraw = null;
       for (let i = targetFrameIndex; i >= 0; i--) {
         const img = imagesRef.current[i];
         if (img && img.complete && img.naturalHeight !== 0) {
           imgToDraw = img;
-          break; // Berhenti mencari jika sudah ketemu gambar yang siap
+          break;
         }
       }
 
       if (imgToDraw) {
-        const windowWidth = window.innerWidth;
-        const windowHeight = window.innerHeight;
-        canvas.width = windowWidth;
-        canvas.height = windowHeight;
-
         const imgRatio = imgToDraw.width / imgToDraw.height;
-        const windowRatio = windowWidth / windowHeight;
+        const windowRatio = viewportWidth / viewportHeight;
         let drawWidth, drawHeight, offsetX, offsetY;
 
         if (windowRatio > imgRatio) {
-          drawWidth = windowWidth;
-          drawHeight = windowWidth / imgRatio;
+          drawWidth = viewportWidth;
+          drawHeight = viewportWidth / imgRatio;
           offsetX = 0;
-          offsetY = (windowHeight - drawHeight) / 2;
+          offsetY = (viewportHeight - drawHeight) / 2;
         } else {
-          drawHeight = windowHeight;
-          drawWidth = windowHeight * imgRatio;
-          offsetX = (windowWidth - drawWidth) / 2;
+          drawHeight = viewportHeight;
+          drawWidth = viewportHeight * imgRatio;
+          offsetX = (viewportWidth - drawWidth) / 2;
           offsetY = 0;
         }
         ctx.drawImage(imgToDraw, offsetX, offsetY, drawWidth, drawHeight);
       }
-      requestAnimationFrame(render);
+      rafId = requestAnimationFrame(render);
     };
 
-    render();
+    rafId = requestAnimationFrame(render);
 
-    const unsubscribe = currentFrameIndex.on('change', () => { });
     return () => {
-      unsubscribe();
+      cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', handleResize);
     };
   }, [isLoaded, currentFrameIndex]);
   return (
@@ -155,7 +167,7 @@ function HeroTextOverlay({ scrollYProgress }: { scrollYProgress: MotionValue<num
       >
         <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-accent/30 bg-accent/10 backdrop-blur-md mb-8 shadow-[0_0_20px_rgba(56,152,212,0.15)]">
           <ShieldCheck size={18} className="text-accent shrink-0" />
-          <span className="text-xs md:text-sm font-bold tracking-widest text-accent uppercase flex items-center gap-2">
+          <span className="text-xs md:text-sm font-bold tracking-widest text-sky-200 uppercase flex items-center gap-2">
             {t('hero.badge')} <span className="hidden sm:inline">{t('hero.badgeSuffix')}</span>
           </span>
         </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../lib/firebase";
+import { getFirebaseAuth } from "../lib/firebase";
 import { useTranslation } from "react-i18next";
 import SEO from "../components/SEO";
 
@@ -18,6 +18,7 @@ const Login = () => {
     setError("");
     setLoading(true);
     try {
+      const auth = await getFirebaseAuth();
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/admin/blog");
     } catch (err) {

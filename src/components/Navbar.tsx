@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import { navLinks } from '../constants/navs';
-import logo from '../assets/FAST_Logo_PNG/logo.png';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -39,8 +38,28 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center gap-8">
 
-        <Link to="/#beranda" className="flex items-center gap-3 relative z-10 group">
-          <img src={logo} alt="PT FAST Logo" className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 will-change-transform" />
+        <Link to="/#beranda" aria-label="PT FAST - Beranda" className="flex items-center gap-3 relative z-10 group">
+          <picture>
+            <source
+              srcSet="/logo-nav-200w.avif 200w, /logo-nav-400w.avif 400w"
+              sizes="(max-width: 768px) 120px, 160px"
+              type="image/avif"
+            />
+            <source
+              srcSet="/logo-nav-200w.webp 200w, /logo-nav-400w.webp 400w"
+              sizes="(max-width: 768px) 120px, 160px"
+              type="image/webp"
+            />
+            <img
+              src="/logo-nav-400w.webp"
+              alt="PT FAST Logo"
+              width={160}
+              height={29}
+              fetchPriority="high"
+              decoding="async"
+              className="h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-105 will-change-transform"
+            />
+          </picture>
         </Link>
 
         <div className="hidden md:flex items-center space-x-8">
