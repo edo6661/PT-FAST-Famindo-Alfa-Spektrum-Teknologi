@@ -6,6 +6,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './contexts/AuthContext';
 import { Analytics } from '@vercel/analytics/react';
 import { domAnimation, LazyMotion } from 'framer-motion';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 
 const Home = lazy(() => import('./pages/Home'));
 const ProductDetailPage = lazy(() => import('./pages/ProductDetailPage'));
@@ -30,7 +32,7 @@ const App = () => {
   return (
     <HelmetProvider>
       <Analytics />
-
+      <SpeedInsights />
       <AuthProvider>
         <LazyMotion features={domAnimation}>
           <BrowserRouter>
