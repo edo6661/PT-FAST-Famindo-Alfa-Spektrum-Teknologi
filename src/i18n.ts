@@ -13,9 +13,9 @@ const resources = {
         contact: "Contact Us",
       },
       seo: {
-        defaultTitle: "FAST | PT. Famindo Alfa Spektrum Teknologi",
+        defaultTitle: "FAST | Lithium Fire Safety Solutions Indonesia",
         defaultDesc:
-          "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities.",
+          "FAST delivers advanced lithium fire safety — Lithium Fire Killer AF31, BALLISTIC battery monitoring, and industrial fire protection across Indonesia.",
       },
       loginPage: {
         title: "Admin Login",
@@ -229,6 +229,9 @@ const resources = {
           viewAll: "View All Articles",
           empty: "No article updates available right now.",
         },
+        map: {
+          load: "Load map",
+        },
         copyright: "All rights reserved.",
       },
       hero: {
@@ -422,9 +425,9 @@ const resources = {
         contact: "Hubungi Kami",
       },
       seo: {
-        defaultTitle: "FAST | PT. Famindo Alfa Spektrum Teknologi",
+        defaultTitle: "FAST | Solusi Keamanan Kebakaran Lithium Indonesia",
         defaultDesc:
-          "Setiap detik berharga. PT. Famindo Alfa Spektrum Teknologi menyediakan solusi teknologi keselamatan kebakaran tingkat tinggi untuk memitigasi risiko baterai Lithium-ion dan mengamankan fasilitas industri.",
+          "FAST menyediakan solusi keamanan kebakaran lithium — Lithium Fire Killer AF31, pemantauan baterai BALLISTIC, dan perlindungan kebakaran industri di seluruh Indonesia.",
       },
       loginPage: {
         title: "Admin Login",
@@ -637,6 +640,9 @@ const resources = {
           desc: "Ikuti pembaruan teknologi dan edukasi fire safety kami.",
           viewAll: "Lihat Semua Artikel",
           empty: "Belum ada pembaruan artikel saat ini.",
+        },
+        map: {
+          load: "Muat peta",
         },
         copyright: "Hak cipta dilindungi.",
       },

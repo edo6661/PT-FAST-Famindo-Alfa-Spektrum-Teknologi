@@ -7,7 +7,6 @@ import {
   deleteDoc,
   doc,
   query,
-  where,
   orderBy,
   limit,
   writeBatch,
@@ -47,15 +46,8 @@ export const getAllBlogs = async (): Promise<Blog[]> => {
 };
 
 export const getLandingPageBlogs = async (): Promise<Blog[]> => {
-  const blogsRef = await getBlogsRef();
-  const q = query(
-    blogsRef,
-    where("ditampilkan_di_landing_page", "==", true),
-    orderBy("urutan", "asc"),
-    limit(3),
-  );
-  const snapshot = await getDocs(q);
-  return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Blog[];
+  const { getLandingPageBlogsPublic } = await import("./blogPublicApi");
+  return getLandingPageBlogsPublic();
 };
 
 export const getBlogById = async (id: string): Promise<Blog | null> => {

@@ -27,6 +27,10 @@ const Certifications = () => {
           <img
             src={cert.logo}
             alt={cert.title}
+            width={120}
+            height={56}
+            loading="lazy"
+            decoding="async"
             className={`max-h-full max-w-30 object-contain filter opacity-70 group-hover:opacity-100 transition-all duration-300 ${cert.title === "SNI" ? "scale-200" : ""}`}
           />
         </div>
@@ -43,7 +47,7 @@ const Certifications = () => {
   );
 
   return (
-    <section className="py-24 bg-surface border-y border-border relative overflow-hidden">
+    <section className="py-24 bg-surface border-y border-border relative overflow-hidden [content-visibility:auto] [contain-intrinsic-size:auto_900px]">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-accent/5 to-transparent blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">

@@ -6,10 +6,24 @@ import Sitemap from "vite-plugin-sitemap";
 // @ts-expect-error shared ESM module without type declarations
 import { dynamicRoutes } from "./scripts/seo-routes.mjs";
 
+function deferCss() {
+  return {
+    name: "defer-css",
+    enforce: "post" as const,
+    transformIndexHtml(html: string) {
+      return html.replace(
+        /<link rel="stylesheet" crossorigin href="(\/assets\/[^"]+\.css)">/g,
+        '<link rel="preload" href="$1" as="style" onload="this.onload=null;this.rel=\'stylesheet\'" crossorigin>\n<noscript><link rel="stylesheet" href="$1" crossorigin></noscript>',
+      );
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    deferCss(),
     Sitemap({
       hostname: "https://www.famindofast.com",
       dynamicRoutes: dynamicRoutes,

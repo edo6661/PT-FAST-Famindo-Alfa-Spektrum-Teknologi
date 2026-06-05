@@ -166,6 +166,40 @@ export const dynamicRoutes = [
 
 export const prerenderPages = [
   {
+    routePath: "",
+    title: "FAST | Lithium Fire Safety Solutions Indonesia",
+    description:
+      "FAST delivers advanced lithium fire safety — Lithium Fire Killer AF31, BALLISTIC battery monitoring, and industrial fire protection across Indonesia.",
+    keywords:
+      "lithium fire killer, LFK AF31, lithium fire safety, FAST Indonesia, fire extinguisher, battery fire protection",
+    image: `${siteUrl}/fast-blue.png`,
+    ogType: "website",
+    h1: "Advanced Lithium Fire Safety Solutions",
+    subtitle: "Every Second Matters — Securing Safety One At A Time",
+    body: "PT. Famindo Alfa Spektrum Teknologi (FAST) is Indonesia's leading provider of advanced lithium-ion battery fire safety technology. Since 2022, we have protected high-profile government events, transportation fleets, and industrial facilities with predictive, preventive, and protective fire safety solutions. Our flagship product, Lithium Fire Killer HARTINDO AF31, is the world's first dedicated lithium fire extinguisher — SNI and TKDN certified, non-toxic, and effective against Class A, B, D, F/K, and Lithium (L) fires. FAST also offers BALLISTIC, an IoT and Machine Learning application for real-time battery temperature monitoring trusted by PLN; Power Tech Shield fire blankets rated to 1600°C; ALTEX ALPHA anti-fire coatings with up to 3 hours of fire resistance; G-TECH passive gel fire suppression; FLAT AF11E clean agent extinguishers; the Undercarriage Suppression System (USS) for electric vehicles; and X-CAP emergency escape breathing apparatus. We are headquartered at TCC Tower One Menara Batavia, Jakarta Pusat, and can be reached at +62 812 9000 3278 or support@famindofast.com.",
+    schemaType: "WebPage",
+    features: [
+      "World's first lithium fire extinguisher — Lithium Fire Killer AF31",
+      "Real-time battery monitoring with BALLISTIC IoT platform",
+      "Predictive, preventive, and protective fire safety categories",
+      "Trusted by Presidential Inauguration 2024, KTT IAF Bali, and Bluebird Group",
+    ],
+    related: [
+      { name: "Lithium Fire Killer HARTINDO AF31", path: LFK_SLUG },
+      { name: "Fire Safety Product Catalog", path: "catalog" },
+      { name: "Predictive Solutions", path: "category/predictive" },
+      { name: "Preventive Solutions", path: "category/preventive" },
+      { name: "Protective Solutions", path: "category/protective" },
+      { name: "About FAST", path: "about" },
+      { name: "Our Client Base", path: "clients" },
+      { name: "FAST Insights Blog", path: "blogs" },
+      ...catalogProductSlugs.map((slug) => ({
+        name: slugToTitle(slug),
+        path: `catalog/${slug}`,
+      })),
+    ],
+  },
+  {
     routePath: LFK_SLUG,
     title:
       "Lithium Fire Killer HARTINDO AF31 | World's First Lithium Fire Extinguisher",

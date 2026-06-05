@@ -5,7 +5,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { prerenderPages, siteUrl } from "./seo-routes.mjs";
+import { prerenderPages, siteUrl, LFK_SLUG } from "./seo-routes.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, "..", "dist");
@@ -76,7 +76,6 @@ function buildRelatedHtml(page) {
 }
 
 function buildBodyHtml(page) {
-  const canonical = `${siteUrl}/${page.routePath}`;
   return `
     <main style="font-family: system-ui, sans-serif; max-width: 48rem; margin: 0 auto; padding: 2rem; line-height: 1.6; color: #e2e8f0; background: #0a192f;">
       ${buildBreadcrumbNav(page)}
@@ -89,9 +88,10 @@ function buildBodyHtml(page) {
       <p>
         <a href="${siteUrl}/catalog" style="color: #3898d4;">View catalog</a> ·
         <a href="${siteUrl}/about" style="color: #3898d4;">About us</a> ·
-        <a href="${siteUrl}/blogs" style="color: #3898d4;">Blog</a>
+        <a href="${siteUrl}/clients" style="color: #3898d4;">Our clients</a> ·
+        <a href="${siteUrl}/blogs" style="color: #3898d4;">Blog</a> ·
+        <a href="${siteUrl}/${LFK_SLUG}" style="color: #3898d4;">Lithium Fire Killer AF31</a>
       </p>
-      <link rel="alternate" href="${canonical}" />
     </main>
   `;
 }
@@ -220,12 +220,17 @@ if (!fs.existsSync(indexPath)) {
 const baseHtml = fs.readFileSync(indexPath, "utf-8");
 
 for (const page of prerenderPages) {
-  const outDir = path.join(distDir, page.routePath);
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(
-    path.join(outDir, "index.html"),
-    prerenderPage(baseHtml, page),
-    "utf-8",
+  const outPath =
+    page.routePath === ""
+      ? indexPath
+      : path.join(distDir, page.routePath, "index.html");
+
+  if (page.routePath !== "") {
+    fs.mkdirSync(path.join(distDir, page.routePath), { recursive: true });
+  }
+
+  fs.writeFileSync(outPath, prerenderPage(baseHtml, page), "utf-8");
+  console.log(
+    `prerender-seo-pages: wrote ${page.routePath === "" ? siteUrl + "/" : `${siteUrl}/${page.routePath}`}`,
   );
-  console.log(`prerender-seo-pages: wrote ${siteUrl}/${page.routePath}`);
 }

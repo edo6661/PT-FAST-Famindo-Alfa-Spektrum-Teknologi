@@ -15,8 +15,8 @@ const Home = () => {
   return (
     <>
       <SEO
-        title={t('seo.defaultTitle', { defaultValue: "FAST | PT. Famindo Alfa Spektrum Teknologi" })}
-        description={t('seo.defaultDesc', { defaultValue: "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities." })}
+        title={t('seo.defaultTitle', { defaultValue: "FAST | Lithium Fire Safety Solutions Indonesia" })}
+        description={t('seo.defaultDesc', { defaultValue: "FAST delivers advanced lithium fire safety — Lithium Fire Killer AF31, BALLISTIC battery monitoring, and industrial fire protection across Indonesia." })}
         url="/"
         useTitleAsIs
       />

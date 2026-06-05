@@ -19,8 +19,18 @@ const Navbar = () => {
   }, []);
 
   const scrollToContact = () => {
-    document.getElementById('kontak')?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
+    const tryScroll = (attempts = 0) => {
+      const element = document.getElementById('kontak');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+      if (attempts < 40) {
+        setTimeout(() => tryScroll(attempts + 1), 100);
+      }
+    };
+    tryScroll();
   };
 
   const toggleLanguage = () => {

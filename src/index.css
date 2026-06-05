@@ -8,6 +8,7 @@
   --color-primary: var(--theme-primary);
   --color-secondary: var(--theme-secondary);
   --color-accent: var(--theme-accent);
+  --color-accent-strong: var(--theme-accent-strong);
 
   --color-background: var(--theme-background);
   --color-surface: var(--theme-surface);
@@ -30,6 +31,7 @@
   --theme-primary: #0a192f;
   --theme-secondary: #112240;
   --theme-accent: #3898d4;
+  --theme-accent-strong: #1e6b96;
 
   --theme-background: #000000;
   --theme-surface: #0b1120;

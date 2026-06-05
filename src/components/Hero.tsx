@@ -16,33 +16,52 @@ export default function Hero() {
   const TOTAL_FRAMES = END_FRAME - START_FRAME + 1;
 
   useEffect(() => {
-    const loadImage = (index: number) => {
+    let cancelled = false;
+
+    const loadImage = (index: number, priority: 'high' | 'low' = 'low') => {
       return new Promise<void>((resolve) => {
         const img = new Image();
         const paddedNum = index.toString().padStart(3, '0');
         img.src = new URL(`../assets/sequence/frame-by-frame/ezgif-frame-${paddedNum}.avif`, import.meta.url).href;
+        if ('fetchPriority' in img) {
+          (img as HTMLImageElement & { fetchPriority: string }).fetchPriority = priority;
+        }
 
         img.onload = () => {
-
-          imagesRef.current[index - START_FRAME] = img;
+          if (!cancelled) {
+            imagesRef.current[index - START_FRAME] = img;
+          }
           resolve();
         };
         img.onerror = () => resolve();
       });
     };
 
-    const loadAllFrames = async () => {
-
-      loadImage(START_FRAME);
-      setIsLoaded(true);
-
-
+    const loadRemainingFrames = async () => {
       for (let i = START_FRAME + 1; i <= END_FRAME; i++) {
-        await loadImage(i);
+        if (cancelled) return;
+        await loadImage(i, 'low');
       }
     };
 
-    loadAllFrames();
+    const loadAllFrames = async () => {
+      await loadImage(START_FRAME, 'high');
+      if (cancelled) return;
+      setIsLoaded(true);
+
+      const schedule = (cb: () => void) => {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(cb, { timeout: 4000 });
+        } else {
+          setTimeout(cb, 2000);
+        }
+      };
+
+      schedule(() => { void loadRemainingFrames(); });
+    };
+
+    void loadAllFrames();
+    return () => { cancelled = true; };
   }, []);
 
   const { scrollYProgress } = useScroll({

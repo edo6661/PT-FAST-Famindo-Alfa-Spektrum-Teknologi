@@ -18,8 +18,8 @@ const SEO = ({ title, description, keywords, image, url, type = 'website', useTi
 
   const siteUrl = "https://www.famindofast.com";
 
-  const defaultTitle = t('seo.defaultTitle', { defaultValue: "FAST | PT. Famindo Alfa Spektrum Teknologi" });
-  const defaultDescription = t('seo.defaultDesc', { defaultValue: "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities." });
+  const defaultTitle = t('seo.defaultTitle', { defaultValue: "FAST | Lithium Fire Safety Solutions Indonesia" });
+  const defaultDescription = t('seo.defaultDesc', { defaultValue: "FAST delivers advanced lithium fire safety — Lithium Fire Killer AF31, BALLISTIC battery monitoring, and industrial fire protection across Indonesia." });
 
   const defaultImage = "https://www.famindofast.com/fast-blue.png";
 
@@ -29,6 +29,12 @@ const SEO = ({ title, description, keywords, image, url, type = 'website', useTi
   const seoDesc = description || defaultDescription;
   const seoImage = image || defaultImage;
   const seoUrl = `${siteUrl}${url || ''}`;
+
+  const existingCanonical =
+    typeof document !== 'undefined'
+      ? document.querySelector('link[rel="canonical"]')?.getAttribute('href')
+      : null;
+  const skipCanonical = !noindex && existingCanonical === seoUrl;
 
   const defaultSchema = {
     "@context": "https://schema.org",
@@ -59,7 +65,7 @@ const SEO = ({ title, description, keywords, image, url, type = 'website', useTi
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="theme-color" content="#0a192f" />
       <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
-      {!noindex && <link rel="canonical" href={seoUrl} />}
+      {!noindex && !skipCanonical && <link rel="canonical" href={seoUrl} />}
 
       <meta property="og:type" content={type} />
       <meta property="og:url" content={seoUrl} />

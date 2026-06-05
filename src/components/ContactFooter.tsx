@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   MapPin, Phone, Mail, Send, Facebook,
@@ -18,15 +18,21 @@ const ContactFooter = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
   const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [loadingBlogs, setLoadingBlogs] = useState(true);
+  const [loadingBlogs, setLoadingBlogs] = useState(false);
+  const [mapLoaded, setMapLoaded] = useState(false);
+  const insightsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const section = insightsRef.current;
+    if (!section) return;
+
     let cancelled = false;
 
     const fetchBlogs = async () => {
+      setLoadingBlogs(true);
       try {
-        const { getLandingPageBlogs } = await import('../services/blogService');
-        const data = await getLandingPageBlogs();
+        const { getLandingPageBlogsPublic } = await import('../services/blogPublicApi');
+        const data = await getLandingPageBlogsPublic();
         if (!cancelled) setBlogs(data);
       } catch (error) {
         console.error('Gagal mengambil blog:', error);
@@ -35,23 +41,20 @@ const ContactFooter = () => {
       }
     };
 
-    let idleId: number | undefined;
-    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          observer.disconnect();
+          fetchBlogs();
+        }
+      },
+      { rootMargin: '0px', threshold: 0.1 },
+    );
 
-    if ('requestIdleCallback' in window) {
-      idleId = window.requestIdleCallback(() => fetchBlogs(), { timeout: 3000 });
-    } else {
-      timeoutId = setTimeout(fetchBlogs, 1500);
-    }
-
+    observer.observe(section);
     return () => {
       cancelled = true;
-      if (idleId !== undefined) {
-        window.cancelIdleCallback(idleId);
-      }
-      if (timeoutId !== undefined) {
-        clearTimeout(timeoutId);
-      }
+      observer.disconnect();
     };
   }, []);
 
@@ -101,7 +104,7 @@ const ContactFooter = () => {
     <footer className="bg-surface pt-24 border-t border-border relative overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         {/* Section Insights/Blog */}
-        <div className="mt-12 border-b border-border pb-12 bg-surface">
+        <div ref={insightsRef} className="mt-12 border-b border-border pb-12 bg-surface">
           <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
               <h2 className="text-2xl font-bold flex items-center gap-2 mb-2">
@@ -171,19 +174,30 @@ const ContactFooter = () => {
               </div>
             </div>
 
-            {/* Map Placeholder/Iframe */}
             <div className="mt-10 rounded-card overflow-hidden border border-border shadow-card h-64 relative bg-surface">
-              <iframe
-                title="Peta Lokasi FAST"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4526274351364!2d106.8173493!3d-6.203868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f419c968f94f%3A0xc68297a7e3d6477e!2sTCC%20Batavia!5e0!3m2!1sen!2sid!4v1700000000000"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
-              ></iframe>
+              {mapLoaded ? (
+                <iframe
+                  title="Peta Lokasi FAST"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4526274351364!2d106.8173493!3d-6.203868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f419c968f94f%3A0xc68297a7e3d6477e!2sTCC%20Batavia!5e0!3m2!1sen!2sid!4v1700000000000"
+                  width="100%"
+                  height="256"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="absolute inset-0"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setMapLoaded(true)}
+                  className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-background/80 text-foreground-muted hover:text-white hover:bg-background/90 transition-colors"
+                  aria-label={t('footer.map.load')}
+                >
+                  <MapPin size={28} className="text-accent" aria-hidden="true" />
+                  <span className="text-sm font-medium">{t('footer.map.load')}</span>
+                </button>
+              )}
             </div>
           </div>
 
@@ -234,7 +248,7 @@ const ContactFooter = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-accent hover:bg-accent/80 text-white font-semibold py-4 rounded-btn transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(56,152,212,0.3)] disabled:opacity-70"
+                className="w-full bg-accent-strong hover:bg-accent-strong/90 text-white font-semibold py-4 rounded-btn transition-all flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(30,107,150,0.3)] disabled:opacity-70"
               >
                 {isSubmitting ? t('footer.form.submitting') : (
                   <>
