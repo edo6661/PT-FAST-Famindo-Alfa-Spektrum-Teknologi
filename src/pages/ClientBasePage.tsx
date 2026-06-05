@@ -4,7 +4,8 @@ import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { clientCategories, clientLogos } from '../constants/clientsData';
 import SpotlightCard from '../components/SpotlightCard';
-import { useTranslation } from 'react-i18next'; // Tambahkan ini
+import SEO from '../components/SEO';
+import { useTranslation } from 'react-i18next';
 
 const ClientBasePage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -60,6 +61,11 @@ const ClientBasePage = () => {
 
   return (
     <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
+      <SEO
+        title={t('clientBasePage.seoTitle', { defaultValue: 'Our Client Base | FAST Fire Safety' })}
+        description={t('clientBasePage.seoDesc', { defaultValue: 'Trusted by national institutions, international summits, and industry leaders. Explore the organizations protected by FAST lithium fire safety technology across Indonesia.' })}
+        url="/clients"
+      />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
         <div className="mb-20 text-center flex flex-col items-center">

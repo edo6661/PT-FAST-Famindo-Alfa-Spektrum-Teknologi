@@ -1,6 +1,17 @@
 {
   "redirects": [
     {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "famindofast.com" }],
+      "destination": "https://www.famindofast.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/brand/hartindo-af31",
       "destination": "/lithium-fire-killer-hartindo-af31",
       "permanent": true
@@ -21,7 +32,22 @@
       "permanent": true
     },
     { "source": "/about-us", "destination": "/about", "permanent": true },
-    { "source": "/contact", "destination": "/#kontak", "permanent": true },
+    { "source": "/contact", "destination": "/about", "permanent": true },
+    {
+      "source": "/famindo-fast-about-us-lithium-fire-killer",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/famindo-fast-lithium-fire-killer-contact-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/fire-safety-lithium-fire-killer",
+      "destination": "/lithium-fire-killer-hartindo-af31",
+      "permanent": true
+    },
     {
       "source": "/altex-lithium-ion-battery-fire-coating",
       "destination": "/catalog/altex-alpha-tech-shield",
@@ -33,8 +59,73 @@
       "permanent": true
     },
     {
+      "source": "/power-tech-shield",
+      "destination": "/catalog/power-tech-shield-fire-blanket",
+      "permanent": true
+    },
+    {
       "source": "/uss-undercarriage-suppressions-system",
       "destination": "/catalog/uss-undercarriage",
+      "permanent": true
+    },
+    { "source": "/products", "destination": "/catalog", "permanent": true },
+    {
+      "source": "/ballistic",
+      "destination": "/catalog/ballistic-app",
+      "permanent": true
+    },
+    { "source": "/blog-post", "destination": "/blogs", "permanent": true },
+    { "source": "/blog-post1", "destination": "/blogs", "permanent": true },
+    { "source": "/blog-post2", "destination": "/blogs", "permanent": true },
+    { "source": "/blog-post3", "destination": "/blogs", "permanent": true },
+    {
+      "source": "/blog-list-lithium-fire-killer",
+      "destination": "/blogs",
+      "permanent": true
+    },
+    {
+      "source": "/reducing-the-risk-of-lithium-battery-fires-in-your-industry",
+      "destination": "/blogs",
+      "permanent": true
+    },
+    {
+      "source": "/lithium-fires-vs-normal-fires-whats-the-difference-and-why-are-lithium-fires-so-much-more-dangerous",
+      "destination": "/blogs",
+      "permanent": true
+    },
+    {
+      "source": "/ballistic-app",
+      "destination": "/catalog/ballistic-app",
+      "permanent": true
+    },
+    {
+      "source": "/power-tech-shield-fire-blanket",
+      "destination": "/catalog/power-tech-shield-fire-blanket",
+      "permanent": true
+    },
+    {
+      "source": "/altex-alpha-tech-shield",
+      "destination": "/catalog/altex-alpha-tech-shield",
+      "permanent": true
+    },
+    {
+      "source": "/g-tech-defend",
+      "destination": "/catalog/g-tech-defend",
+      "permanent": true
+    },
+    {
+      "source": "/flat-af11e",
+      "destination": "/catalog/flat-af11e",
+      "permanent": true
+    },
+    {
+      "source": "/uss-undercarriage",
+      "destination": "/catalog/uss-undercarriage",
+      "permanent": true
+    },
+    {
+      "source": "/x-cap",
+      "destination": "/catalog/x-cap",
       "permanent": true
     }
   ],

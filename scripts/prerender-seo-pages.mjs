@@ -5,69 +5,10 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { prerenderPages, siteUrl } from "./seo-routes.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(__dirname, "..", "dist");
-const siteUrl = "https://www.famindofast.com";
-
-const LFK_PAGE = {
-  routePath: "lithium-fire-killer-hartindo-af31",
-  title: "Lithium Fire Killer HARTINDO AF31 | World's First Lithium Fire Extinguisher",
-  description:
-    "Lithium Fire Killer (LFK) HARTINDO AF31 — the world's first lithium fire extinguisher. SNI certified, eco-friendly, TKDN certified. Extinguishes Class A, B, D, F/K & Lithium battery fires. Buy from PT. Famindo Alfa Spektrum Teknologi (FAST).",
-  keywords:
-    "lithium fire killer, Lithium Fire Killer, HARTINDO AF31, LFK AF31, lithium fire extinguisher, pemadam api baterai lithium, pemadam api lithium, lithium battery fire extinguisher, FAST Indonesia",
-  image: `${siteUrl}/products/lfk.avif`,
-  bodyHtml: `
-    <main style="font-family: system-ui, sans-serif; max-width: 48rem; margin: 0 auto; padding: 2rem; line-height: 1.6; color: #e2e8f0; background: #0a192f;">
-      <p><a href="${siteUrl}/" style="color: #3898d4;">FAST — PT. Famindo Alfa Spektrum Teknologi</a></p>
-      <h1 style="color: #fff; font-size: 2rem;">Lithium Fire Killer HARTINDO AF31</h1>
-      <p style="color: #3898d4; font-size: 1.25rem;">The First Lithium Fire Extinguisher In The World</p>
-      <p><strong>Lithium Fire Killer</strong> (LFK) HARTINDO AF31 is the world's first dedicated <strong>lithium fire extinguisher</strong> — a multi-function, non-toxic, and eco-friendly fire safety solution for common fires and high-risk lithium-ion battery blazes. Protect your home, fleet, and loved ones with Lithium Fire Killer from FAST Indonesia.</p>
-      <h2 style="color: #fff;">Why choose Lithium Fire Killer?</h2>
-      <p>When a lithium-ion battery catches fire, ordinary extinguishers often fail. Lithium Fire Killer AF31 is engineered specifically for lithium battery fires (Class L) as well as Class A, B, D, and F/K — one tool for every emergency.</p>
-      <h2 style="color: #fff;">Key features</h2>
-      <ul>
-        <li>SNI Certified (Standar Nasional Indonesia)</li>
-        <li>Fire Classes: A, B, D, F/K, &amp; L (Lithium)</li>
-        <li>World's first lithium fire extinguisher</li>
-        <li>Lab-tested &amp; TKDN Certified</li>
-        <li>Eco-friendly &amp; Non-toxic</li>
-      </ul>
-      <p><a href="${siteUrl}/catalog" style="color: #3898d4;">View full catalog</a> · <a href="https://www.tokopedia.com/famindofast" style="color: #3898d4;">Buy Lithium Fire Killer on Tokopedia</a></p>
-    </main>
-  `,
-  productSchema: {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    name: "Lithium Fire Killer HARTINDO AF31",
-    alternateName: ["LFK", "Lithium Fire Killer", "Lithium Fire Killer AF31", "HARTINDO AF31"],
-    image: `${siteUrl}/products/lfk.avif`,
-    description:
-      "Lithium Fire Killer — the world's first lithium fire extinguisher. SNI certified, eco-friendly, TKDN certified lithium-ion battery fire suppression by FAST Indonesia.",
-    url: `${siteUrl}/lithium-fire-killer-hartindo-af31`,
-    category: "Fire Extinguisher",
-    brand: { "@type": "Brand", name: "HARTINDO" },
-    manufacturer: {
-      "@type": "Organization",
-      name: "PT. Famindo Alfa Spektrum Teknologi (FAST)",
-      url: siteUrl,
-    },
-    slogan: "The First Lithium Fire Extinguisher In The World",
-    keywords: "lithium fire killer, lithium fire extinguisher, HARTINDO AF31",
-  },
-  webPageSchema: {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Lithium Fire Killer HARTINDO AF31",
-    description:
-      "Official product page for Lithium Fire Killer (LFK) HARTINDO AF31 — the world's first lithium fire extinguisher.",
-    url: `${siteUrl}/lithium-fire-killer-hartindo-af31`,
-    inLanguage: "en",
-    isPartOf: { "@type": "WebSite", name: "famindofast.com", url: siteUrl },
-    about: { "@type": "Product", name: "Lithium Fire Killer HARTINDO AF31" },
-  },
-};
 
 function escapeHtml(text) {
   return text
@@ -77,18 +18,158 @@ function escapeHtml(text) {
     .replace(/"/g, "&quot;");
 }
 
+function buildBreadcrumbNav(page) {
+  if (!page.breadcrumbs || page.breadcrumbs.length === 0) return "";
+  const trail = page.breadcrumbs;
+  const links = trail
+    .map((crumb, i) => {
+      const isLast = i === trail.length - 1;
+      const url = crumb.path ? `${siteUrl}/${crumb.path}` : `${siteUrl}/`;
+      const sep = i > 0 ? '<span style="color:#475569;"> / </span>' : "";
+      if (isLast) {
+        return `${sep}<span style="color:#94a3b8;">${escapeHtml(crumb.name)}</span>`;
+      }
+      return `${sep}<a href="${url}" style="color: #3898d4;">${escapeHtml(crumb.name)}</a>`;
+    })
+    .join("");
+  return `<nav aria-label="Breadcrumb" style="font-size: 0.875rem; margin-bottom: 1rem;">${links}</nav>`;
+}
+
+function buildFeaturesHtml(page) {
+  if (!page.features || page.features.length === 0) return "";
+  const items = page.features
+    .map((f) => `<li>${escapeHtml(f)}</li>`)
+    .join("\n        ");
+  return `
+      <h2 style="color:#fff; font-size:1.25rem;">Key Features</h2>
+      <ul>
+        ${items}
+      </ul>`;
+}
+
+function buildFaqHtml(page) {
+  if (!page.faqs || page.faqs.length === 0) return "";
+  const items = page.faqs
+    .map(
+      (f) =>
+        `<div><h3 style="color:#fff; font-size:1rem;">${escapeHtml(f.q)}</h3><p>${escapeHtml(f.a)}</p></div>`,
+    )
+    .join("\n      ");
+  return `
+      <h2 style="color:#fff; font-size:1.25rem;">Frequently Asked Questions</h2>
+      ${items}`;
+}
+
+function buildRelatedHtml(page) {
+  if (!page.related || page.related.length === 0) return "";
+  const links = page.related
+    .map(
+      (r) =>
+        `<li><a href="${siteUrl}/${r.path}" style="color:#3898d4;">${escapeHtml(r.name)}</a></li>`,
+    )
+    .join("\n        ");
+  return `
+      <h2 style="color:#fff; font-size:1.25rem;">Explore More</h2>
+      <ul>
+        ${links}
+      </ul>`;
+}
+
+function buildBodyHtml(page) {
+  const canonical = `${siteUrl}/${page.routePath}`;
+  return `
+    <main style="font-family: system-ui, sans-serif; max-width: 48rem; margin: 0 auto; padding: 2rem; line-height: 1.6; color: #e2e8f0; background: #0a192f;">
+      ${buildBreadcrumbNav(page)}
+      <h1 style="color: #fff; font-size: 2rem;">${escapeHtml(page.h1)}</h1>
+      <p style="color: #3898d4; font-size: 1.25rem;">${escapeHtml(page.subtitle)}</p>
+      <p>${escapeHtml(page.body)}</p>
+      ${buildFeaturesHtml(page)}
+      ${buildFaqHtml(page)}
+      ${buildRelatedHtml(page)}
+      <p>
+        <a href="${siteUrl}/catalog" style="color: #3898d4;">View catalog</a> ·
+        <a href="${siteUrl}/about" style="color: #3898d4;">About us</a> ·
+        <a href="${siteUrl}/blogs" style="color: #3898d4;">Blog</a>
+      </p>
+      <link rel="alternate" href="${canonical}" />
+    </main>
+  `;
+}
+
 function buildSeoHead(page) {
   const canonical = `${siteUrl}/${page.routePath}`;
-  const schemas = [page.productSchema, page.webPageSchema]
-    .map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`)
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": page.schemaType,
+    name: page.h1,
+    description: page.description,
+    url: canonical,
+    ...(page.schemaType === "Product" && {
+      brand: { "@type": "Brand", name: "HARTINDO" },
+      manufacturer: {
+        "@type": "Organization",
+        name: "PT. Famindo Alfa Spektrum Teknologi (FAST)",
+        url: siteUrl,
+      },
+    }),
+    ...(page.schemaType === "Blog" && {
+      publisher: {
+        "@type": "Organization",
+        name: "PT. Famindo Alfa Spektrum Teknologi (FAST)",
+      },
+    }),
+  };
+
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: page.h1,
+    description: page.description,
+    url: canonical,
+    inLanguage: "en",
+    isPartOf: { "@type": "WebSite", name: "famindofast.com", url: siteUrl },
+  };
+
+  const schemaList = [schema, webPageSchema];
+
+  if (page.breadcrumbs && page.breadcrumbs.length > 0) {
+    schemaList.push({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: page.breadcrumbs.map((crumb, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: crumb.name,
+        item: crumb.path ? `${siteUrl}/${crumb.path}` : `${siteUrl}/`,
+      })),
+    });
+  }
+
+  if (page.faqs && page.faqs.length > 0) {
+    schemaList.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+
+  const schemas = schemaList
+    .map(
+      (s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`,
+    )
     .join("\n    ");
+
   return `
     <title>${escapeHtml(page.title)}</title>
     <meta name="description" content="${escapeHtml(page.description)}" />
-    <meta name="keywords" content="${escapeHtml(page.keywords)}" />
+    ${page.keywords ? `<meta name="keywords" content="${escapeHtml(page.keywords)}" />` : ""}
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="${canonical}" />
-    <meta property="og:type" content="product" />
+    <meta property="og:type" content="${page.ogType}" />
     <meta property="og:url" content="${canonical}" />
     <meta property="og:title" content="${escapeHtml(page.title)}" />
     <meta property="og:description" content="${escapeHtml(page.description)}" />
@@ -109,38 +190,42 @@ function prerenderPage(baseHtml, page) {
   html = html.replace(/<meta\s+name="title"[^>]*>/gi, "");
   html = html.replace(/<meta\s+name="description"[^>]*>/gi, "");
   html = html.replace(/<meta\s+name="keywords"[^>]*>/gi, "");
+  html = html.replace(/<meta\s+name="robots"[^>]*>/gi, "");
   html = html.replace(/<link\s+rel="canonical"[^>]*>/gi, "");
   html = html.replace(/<meta\s+property="og:[^"]+"[^>]*>/gi, "");
   html = html.replace(/<meta\s+(name|property)="twitter:[^"]+"[^>]*>/gi, "");
-  html = html.replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi, "");
-
   html = html.replace(
-    "</head>",
-    `${buildSeoHead(page)}\n  </head>`
+    /<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi,
+    "",
   );
 
+  html = html.replace("</head>", `${buildSeoHead(page)}\n  </head>`);
   html = html.replace(
     /<div id="root"><\/div>/,
-    `<div id="root">${page.bodyHtml}</div>`
+    `<div id="root">${buildBodyHtml(page)}</div>`,
   );
-
-  html = html.replace(
-    /<html lang="[^"]*">/,
-    '<html lang="en">'
-  );
+  html = html.replace(/<html lang="[^"]*">/, '<html lang="en">');
 
   return html;
 }
 
 const indexPath = path.join(distDir, "index.html");
 if (!fs.existsSync(indexPath)) {
-  console.error("prerender-seo-pages: dist/index.html not found. Run vite build first.");
+  console.error(
+    "prerender-seo-pages: dist/index.html not found. Run vite build first.",
+  );
   process.exit(1);
 }
 
 const baseHtml = fs.readFileSync(indexPath, "utf-8");
-const page = LFK_PAGE;
-const outDir = path.join(distDir, page.routePath);
-fs.mkdirSync(outDir, { recursive: true });
-fs.writeFileSync(path.join(outDir, "index.html"), prerenderPage(baseHtml, page), "utf-8");
-console.log(`prerender-seo-pages: wrote ${siteUrl}/${page.routePath}`);
+
+for (const page of prerenderPages) {
+  const outDir = path.join(distDir, page.routePath);
+  fs.mkdirSync(outDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(outDir, "index.html"),
+    prerenderPage(baseHtml, page),
+    "utf-8",
+  );
+  console.log(`prerender-seo-pages: wrote ${siteUrl}/${page.routePath}`);
+}

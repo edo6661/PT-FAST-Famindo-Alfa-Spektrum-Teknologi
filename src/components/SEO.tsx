@@ -8,12 +8,12 @@ interface SEOProps {
   image?: string;
   url?: string;
   type?: string;
-  /** When true, use title as the full document title (no site suffix). */
   useTitleAsIs?: boolean;
+  noindex?: boolean;
   schemaMarkup?: Record<string, unknown>;
 }
 
-const SEO = ({ title, description, keywords, image, url, type = 'website', useTitleAsIs = false, schemaMarkup }: SEOProps) => {
+const SEO = ({ title, description, keywords, image, url, type = 'website', useTitleAsIs = false, noindex = false, schemaMarkup }: SEOProps) => {
   const { t } = useTranslation();
 
   const siteUrl = "https://www.famindofast.com";
@@ -57,9 +57,9 @@ const SEO = ({ title, description, keywords, image, url, type = 'website', useTi
       <title>{seoTitle}</title>
       <meta name="description" content={seoDesc} />
       {keywords && <meta name="keywords" content={keywords} />}
-      <meta name="robots" content="index, follow" />
       <meta name="theme-color" content="#0a192f" />
-      <link rel="canonical" href={seoUrl} />
+      <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+      {!noindex && <link rel="canonical" href={seoUrl} />}
 
       <meta property="og:type" content={type} />
       <meta property="og:url" content={seoUrl} />

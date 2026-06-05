@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 
 Disallow: /assets/
+Disallow: /login
+Disallow: /admin/
 Disallow: /*.json$
 
 Sitemap: https://www.famindofast.com/sitemap.xml

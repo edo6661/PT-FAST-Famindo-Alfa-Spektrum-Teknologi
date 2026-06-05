@@ -334,3 +334,13 @@ export const mainProducts = [
     bgImage: "/products/altex.avif"
   },
 ];
+
+export const LFK_PRODUCT_ID = 'lithium-fire-killer-hartindo-af31';
+
+export function getProductPath(product: Pick<Product, 'id' | 'slug'>): string {
+  return product.id === LFK_PRODUCT_ID ? `/${product.slug}` : `/catalog/${product.slug}`;
+}
+
+export function getProductPathBySlug(slug: string): string {
+  return slug === LFK_PRODUCT_ID ? `/${slug}` : `/catalog/${slug}`;
+}

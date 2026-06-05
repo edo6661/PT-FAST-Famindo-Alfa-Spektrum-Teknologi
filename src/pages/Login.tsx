@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../lib/firebase";
 import { useTranslation } from "react-i18next";
+import SEO from "../components/SEO";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -29,6 +30,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-6">
+      <SEO title={t('loginPage.title')} noindex />
       <div className="w-full max-w-md bg-surface p-8 rounded-3xl border border-white/10 shadow-2xl">
         <h2 className="text-3xl font-bold text-white mb-6 text-center">{t('loginPage.title')}</h2>
         {error && <div className="bg-red-500/10 text-red-400 border border-red-500/20 p-3 rounded-lg mb-4 text-sm text-center">{error}</div>}

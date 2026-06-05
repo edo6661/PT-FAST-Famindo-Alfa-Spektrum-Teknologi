@@ -7,6 +7,7 @@ import type { Blog } from "../types/blog";
 import BlogModal from "../components/BlogModal";
 import { Settings2, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import SEO from "../components/SEO";
 
 const AdminBlog = () => {
   const { t } = useTranslation();
@@ -110,6 +111,7 @@ const AdminBlog = () => {
 
   return (
     <div className="min-h-screen bg-background text-white p-8">
+      <SEO title="Admin Blog" noindex />
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-10 border-b border-white/10 pb-6">
           <h1 className="text-3xl font-bold">{t('adminBlogPage.title')}</h1>

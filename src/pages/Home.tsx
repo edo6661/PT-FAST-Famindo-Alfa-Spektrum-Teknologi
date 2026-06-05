@@ -18,6 +18,7 @@ const Home = () => {
         title={t('seo.defaultTitle', { defaultValue: "FAST | PT. Famindo Alfa Spektrum Teknologi" })}
         description={t('seo.defaultDesc', { defaultValue: "Every second matters. PT. Famindo Alfa Spektrum Teknologi provides high-level advanced fire safety technology solutions to mitigate Lithium-ion battery risks and secure industrial facilities." })}
         url="/"
+        useTitleAsIs
       />
       <Hero />
       <Suspense fallback={<div className="h-32"></div>}>

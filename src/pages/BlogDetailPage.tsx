@@ -40,6 +40,11 @@ const BlogDetailPage = () => {
   if (!blog) {
     return (
       <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center text-center">
+        <SEO
+          title={t('blogDetail.notFound')}
+          description={t('blogDetail.notFoundDesc')}
+          noindex
+        />
         <h1 className="text-3xl font-bold text-white mb-4">{t('blogDetail.notFound')}</h1>
         <p className="text-foreground-muted mb-8">{t('blogDetail.notFoundDesc')}</p>
       </div>
@@ -62,14 +67,41 @@ const BlogDetailPage = () => {
     }
   };
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": title,
+    "description": description.replace(/<[^>]*>/g, '').substring(0, 200),
+    "image": blog.foto,
+    "datePublished": new Date(blog.createdAt).toISOString(),
+    "dateModified": new Date(blog.createdAt).toISOString(),
+    "author": {
+      "@type": "Organization",
+      "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PT. Famindo Alfa Spektrum Teknologi (FAST)",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.famindofast.com/favicon/android-chrome-512x512.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://www.famindofast.com/blogs/${blog.id}`
+    }
+  };
+
   return (
     <div className="py-24 bg-background min-h-screen">
       <SEO
         title={`${title} - FAST Insights`}
-        description={description.substring(0, 150)}
+        description={description.replace(/<[^>]*>/g, '').substring(0, 160)}
         url={`/blogs/${blog.id}`}
         image={blog.foto}
         type="article"
+        schemaMarkup={articleSchema}
       />
 
       <section className="relative w-full h-[60vh] min-h-[500px] flex items-end border-b border-white/5 overflow-hidden">

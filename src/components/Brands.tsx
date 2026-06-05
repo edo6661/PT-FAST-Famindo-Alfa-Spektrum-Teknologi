@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SpotlightCard from './SpotlightCard';
-import { mainProducts } from '../constants/catalogs';
+import { mainProducts, getProductPathBySlug } from '../constants/catalogs';
 
 
 
@@ -59,7 +59,7 @@ const Brands = () => {
               className={`h-full ${brand.gridClass}`}
             >
               <Link
-                to={`/catalog/${brand.slug}`}
+                to={getProductPathBySlug(brand.slug)}
                 aria-label={`Pelajari lebih detail mengenai spesifikasi produk ${brand.name}`}
                 className="group relative w-full h-full block"
               >

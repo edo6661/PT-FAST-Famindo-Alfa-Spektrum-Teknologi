@@ -26,6 +26,9 @@ const resources = {
         loginBtn: "Login",
       },
       clientBasePage: {
+        seoTitle: "Our Client Base | FAST Fire Safety",
+        seoDesc:
+          "Trusted by national institutions, international summits, and industry leaders. Explore the organizations protected by FAST lithium fire safety technology across Indonesia.",
         badge: "Strategic Deployments",
         title: "Our",
         titleHighlight: "Client Base",
@@ -83,12 +86,17 @@ const resources = {
         share: "Share",
         copied: "Link copied to clipboard!",
       },
+      breadcrumb: {
+        home: "Home",
+        catalog: "Catalog",
+      },
       catalogPage: {
         badge: "Our Solutions",
         title: "Complete",
         titleHighlight: "Catalog",
         allProducts: "All Products",
         viewDetails: "View Details",
+        browseByCategory: "Browse by category",
       },
       categoryDetail: {
         notFound: "Category Not Found",
@@ -427,6 +435,9 @@ const resources = {
         loginBtn: "Masuk",
       },
       clientBasePage: {
+        seoTitle: "Klien Kami | FAST Fire Safety",
+        seoDesc:
+          "Dipercaya oleh institusi nasional, konferensi internasional, dan pemimpin industri. Jelajahi organisasi yang dilindungi oleh teknologi keselamatan kebakaran lithium FAST di Indonesia.",
         badge: "Penempatan Strategis",
         title: "Klien",
         titleHighlight: "Kami",
@@ -484,12 +495,17 @@ const resources = {
         share: "Bagikan",
         copied: "Tautan berhasil disalin!",
       },
+      breadcrumb: {
+        home: "Beranda",
+        catalog: "Katalog",
+      },
       catalogPage: {
         badge: "Solusi Kami",
         title: "Katalog",
         titleHighlight: "Lengkap",
         allProducts: "Semua Produk",
         viewDetails: "Lihat Detail",
+        browseByCategory: "Telusuri kategori",
       },
       categoryDetail: {
         notFound: "Kategori Tidak Ditemukan",

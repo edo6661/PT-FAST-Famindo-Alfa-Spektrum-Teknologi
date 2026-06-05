@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowRight, Layers } from 'lucide-react';
-import { products, categories } from '../constants/catalogs';
+import { products, categories, getProductPath } from '../constants/catalogs';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { useTranslation } from 'react-i18next';
 
 const CategoryDetailPage = () => {
@@ -18,22 +19,34 @@ const CategoryDetailPage = () => {
   if (!category) {
     return (
       <div className="pt-32 pb-20 min-h-[70vh] flex flex-col items-center justify-center text-center">
+        <SEO title={t('categoryDetail.notFound')} noindex />
         <h1 className="text-3xl font-bold text-white mb-4">{t('categoryDetail.notFound')}</h1>
       </div>
     );
   }
 
   const Icon = category.icon || Layers;
+  const categoryName = t(`catalog.categories.${category.id}.name`, { defaultValue: category.name });
+
+  const breadcrumbItems = [
+    { name: t('breadcrumb.home', { defaultValue: 'Home' }), path: '/' },
+    { name: t('breadcrumb.catalog', { defaultValue: 'Catalog' }), path: '/catalog' },
+    { name: categoryName, path: `/category/${slug}` },
+  ];
 
   return (
     <div className="py-24 pt-32 bg-background min-h-screen relative overflow-hidden">
       <SEO
-        title={`${t(`catalog.categories.${category.id}.name`, { defaultValue: category.name })} Category - FAST`}
+        title={`${categoryName} Fire Safety Solutions | FAST`}
+        useTitleAsIs
         description={t(`catalog.categories.${category.id}.desc`, { defaultValue: category.description })}
         url={`/category/${slug}`}
       />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
+        <div className="mb-8">
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-6">
             <div className="w-16 h-16 rounded-2xl bg-surface border border-white/10 flex items-center justify-center text-accent">
@@ -52,7 +65,7 @@ const CategoryDetailPage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {categoryProducts.map((product) => (
             <Link
-              to={`/catalog/${product.slug}`}
+              to={getProductPath(product)}
               key={product.id}
               className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl overflow-hidden flex flex-col"
             >

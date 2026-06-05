@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Grid } from 'lucide-react';
-import { products, categories } from '../constants/catalogs';
+import { products, categories, getProductPath } from '../constants/catalogs';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { useTranslation } from 'react-i18next';
 
 const CatalogPage = () => {
@@ -20,13 +21,23 @@ const CatalogPage = () => {
   return (
     <div className="pb-24 pt-32 bg-background min-h-screen relative overflow-hidden">
       <SEO
-        title="Complete Catalog - FAST"
-        description="Explore our complete range of advanced fire safety technology solutions."
+        title="Fire Safety Product Catalog | FAST Indonesia"
+        useTitleAsIs
+        description="Browse FAST's complete catalog of lithium fire safety solutions: Lithium Fire Killer, BALLISTIC battery monitoring, fire blankets, anti-fire coatings, and more."
+        keywords="fire safety catalog, lithium fire products, FAST Indonesia, fire extinguisher catalog"
         url="/catalog"
       />
       <div className="absolute top-0 right-0 w-full h-[500px] bg-gradient-to-b from-surface via-background to-background z-0" />
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
+        <div className="mb-8">
+          <Breadcrumbs
+            items={[
+              { name: t('breadcrumb.home', { defaultValue: 'Home' }), path: '/' },
+              { name: t('breadcrumb.catalog', { defaultValue: 'Catalog' }), path: '/catalog' },
+            ]}
+          />
+        </div>
         <div className="mb-16 text-center flex flex-col items-center">
           <div className="inline-flex items-center gap-2 mb-4">
             <Grid className="text-accent" size={24} />
@@ -35,6 +46,17 @@ const CatalogPage = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight">
             {t('catalogPage.title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-400">{t('catalogPage.titleHighlight')}</span>
           </h1>
+          <nav aria-label={t('catalogPage.browseByCategory', { defaultValue: 'Browse by category' })} className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-sm text-foreground-muted">
+            <span className="text-white/50">{t('catalogPage.browseByCategory', { defaultValue: 'Browse by category' })}:</span>
+            {categories.map((cat, i) => (
+              <span key={cat.id} className="flex items-center gap-3">
+                <Link to={`/category/${cat.slug}`} className="hover:text-accent transition-colors underline-offset-4 hover:underline">
+                  {t(`catalog.categories.${cat.id}.name`, { defaultValue: cat.name })}
+                </Link>
+                {i < categories.length - 1 && <span className="text-white/20">·</span>}
+              </span>
+            ))}
+          </nav>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
@@ -63,7 +85,7 @@ const CatalogPage = () => {
 
             return (
               <Link
-                to={`/catalog/${product.slug}`}
+                to={getProductPath(product)}
                 key={product.id}
                 className="group relative rounded-3xl bg-surface/40 border border-white/10 hover:bg-surface/80 transition-all duration-500 shadow-xl backdrop-blur-md overflow-hidden flex flex-col"
               >

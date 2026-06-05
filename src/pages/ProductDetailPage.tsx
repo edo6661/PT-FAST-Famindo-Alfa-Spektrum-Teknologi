@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Navigate } from 'react-router-dom';
 import { CheckCircle2, Download, MessageSquare, ShieldCheck, Weight, Zap, MapPin, X, ShoppingCart } from 'lucide-react';
-import { products, categories, type ProductVariant, type ProductPartner } from '../constants/catalogs';
+import { products, categories, LFK_PRODUCT_ID, getProductPath, type ProductVariant, type ProductPartner } from '../constants/catalogs';
 import SEO from '../components/SEO';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { useTranslation } from 'react-i18next';
 
 const VariantCard = ({ variant, productId }: { variant: ProductVariant, productId: string }) => {
@@ -83,6 +84,7 @@ const ProductDetailPage = () => {
         <SEO
           title={t('productDetail.notFoundTitle', { defaultValue: "Product Not Found" })}
           description={t('productDetail.notFoundDescSeo', { defaultValue: "The safety solution you are looking for might have been moved." })}
+          noindex
         />
         <div className="w-24 h-24 rounded-full bg-surface border border-white/10 flex items-center justify-center mb-4">
           <ShieldCheck size={40} className="text-foreground-muted" />
@@ -96,10 +98,13 @@ const ProductDetailPage = () => {
   const productTitle = t(`products.${product.id}.title`, { defaultValue: product.title });
   const productDescription = t(`products.${product.id}.description`, { defaultValue: product.description });
   const productTagline = t(`products.${product.id}.tagline`, { defaultValue: product.tagline });
-  const isLithiumFireKiller = product.id === 'lithium-fire-killer-hartindo-af31';
-  const canonicalPath = isLithiumFireKiller
-    ? `/${product.slug}`
-    : `/catalog/${product.slug}`;
+  const isLithiumFireKiller = product.id === LFK_PRODUCT_ID;
+
+  if (!isFromCatalog && !isLithiumFireKiller) {
+    return <Navigate to={getProductPath(product)} replace />;
+  }
+
+  const canonicalPath = getProductPath(product);
   const absoluteImage = product.image.startsWith('http')
     ? product.image
     : `https://www.famindofast.com${product.image}`;
@@ -136,6 +141,18 @@ const ProductDetailPage = () => {
       "keywords": "lithium fire killer, lithium fire extinguisher, HARTINDO AF31"
     })
   };
+
+  const breadcrumbItems = [
+    { name: t('breadcrumb.home', { defaultValue: 'Home' }), path: '/' },
+    { name: t('breadcrumb.catalog', { defaultValue: 'Catalog' }), path: '/catalog' },
+    ...(category
+      ? [{
+        name: t(`catalog.categories.${category.id}.name`, { defaultValue: category.name }),
+        path: `/category/${category.slug}`,
+      }]
+      : []),
+    { name: productTitle, path: canonicalPath },
+  ];
 
   return (
     <div className="pb-24 bg-background min-h-screen relative">
@@ -174,7 +191,11 @@ const ProductDetailPage = () => {
         </div>
       </section>
 
-      <section className="py-16 relative">
+      <div className="container mx-auto px-6 md:px-12 relative z-20 max-w-7xl pt-6">
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+
+      <section className="py-16 pt-8 relative">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[150px] pointer-events-none z-0"></div>
 
         <div className="container mx-auto px-6 md:px-12 relative z-10 max-w-7xl">
