@@ -7,6 +7,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import type { Blog } from '../types/blog';
 import BlogCard from './BlogCard';
+import { SUPPORT_EMAIL } from '../constants/contacts';
 
 const ContactFooter = () => {
   const { t } = useTranslation();
@@ -68,12 +69,15 @@ const ContactFooter = () => {
     setSubmitStatus({ type: '', message: '' });
 
     const payload = {
-      ...formData,
-      access_key: "21fdab41-15c9-4f2e-8ebb-6101613f102c"
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
+      _subject: `FAST Contact Form — ${formData.name}`,
+      _captcha: 'false',
     };
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch(`https://formsubmit.co/ajax/${SUPPORT_EMAIL}`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -83,7 +87,7 @@ const ContactFooter = () => {
       });
       const result = await response.json();
 
-      if (result.success) {
+      if (result.success === 'true' || result.success === true) {
         setSubmitStatus({ type: 'success', message: t('footer.form.success') });
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => {
@@ -169,7 +173,7 @@ const ContactFooter = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg mb-1">{t('footer.emailTitle')}</h3>
-                  <p className="text-foreground-muted">support@famindofast.com</p>
+                  <a href={`mailto:${SUPPORT_EMAIL}`} className="text-foreground-muted hover:text-accent transition-colors">{SUPPORT_EMAIL}</a>
                 </div>
               </div>
             </div>
